@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — ProfitPilot Missions in Algeria | Financial Studies</title>
+  <meta name="description" content="Discover ProfitPilot missions: business plans, market studies, risk analysis for companies in Algeria.">
+  <meta name="keywords" content="réalisations études financières algérie, missions consultant financier algérie, business plan réalisé algérie, étude de marché réalisée algérie, références consultant algérie, ProfitPilot projets algérie">
+  <meta name="author" content="BENSAID Farouk — ProfitPilot NextGen Consulting">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://profitpilot.dz/en/portfolio.html">
+  <link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/realisations.html">
+  <link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/انجازاتنا.html">
+  <link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/portfolio.html">
+  <link rel="alternate" hreflang="x-default" href="https://profitpilot.dz/fr/realisations.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio — ProfitPilot Missions in Algeria | Financial Studies">
+  <meta property="og:description" content="Discover ProfitPilot missions: business plans, market studies, risk analysis for companies in Algeria.">
+  <meta property="og:url" content="https://profitpilot.dz/en/portfolio.html">
+  <meta property="og:site_name" content="ProfitPilot NextGen Consulting">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://profitpilot.dz/images/logo.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Réalisations ProfitPilot — Expert Financier Algérie">
+  <meta name="twitter:description" content="+14 missions accomplies : études financières, business plans, analyses de marché en Algérie.">
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-03-01",
+    "@type": "CollectionPage",
+    "name": "Réalisations — ProfitPilot NextGen Consulting",
+    "description": "Missions et projets accomplis par ProfitPilot : études financières, business plans, analyses de marché pour entreprises algériennes.",
+    "url": "https://profitpilot.dz/pages/portfolio.html",
+    "provider": {
+      "@type": "Organization",
+      "name": "ProfitPilot NextGen Consulting",
+      "url": "https://profitpilot.dz"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Études financières et économiques Algérie"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-03-01",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://profitpilot.dz" },
+      { "@type": "ListItem", "position": 2, "name": "Réalisations", "item": "https://profitpilot.dz/pages/portfolio.html" }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .filter-bar {
+      display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem; justify-content: center;
+    }
+    .filter-btn {
+      padding: 0.55rem 1.4rem; border-radius: 30px; border: 1.5px solid rgba(255,255,255,0.12);
+      background: transparent; color: var(--gray-light); font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; transition: var(--transition); font-family: var(--font-body);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold); color: var(--navy); border-color: var(--gold);
+    }
+    .portfolio-full-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .pf-card {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; padding: 2.5rem; transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .pf-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--purple)); opacity: 0; transition: var(--transition);
+    }
+    .pf-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+    .pf-card:hover::after { opacity: 1; }
+    .pf-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+    .pf-sector {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); background: var(--gold); border-radius: 4px; padding: 0.3rem 0.8rem;
+    }
+    .pf-year { font-size: 0.82rem; color: var(--gray); }
+    .pf-client { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .pf-location { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.2rem; }
+    .pf-description { font-size: 0.92rem; margin-bottom: 1.5rem; }
+    .pf-services { margin-bottom: 1.5rem; }
+    .pf-services h5 { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+    .pf-services ul { list-style: none; }
+    .pf-services ul li {
+      font-size: 0.88rem; color: var(--gray-light); padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.6rem;
+    }
+    .pf-services ul li::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
+    .pf-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.07); }
+    .pf-amount { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    .pf-status {
+      font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px;
+    }
+    .status-ok { background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
+    .status-pending { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+
+    .stats-band { background: var(--navy-mid); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .stats-row { display: flex; justify-content: space-around; padding: 3rem 0; }
+    .stats-row .stat-item { text-align: center; }
+    .stats-row .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+    .stats-row .stat-label { font-size: 0.85rem; color: var(--gray); margin-top: 0.3rem; }
+
+    @media(max-width:900px){ .portfolio-full-grid{grid-template-columns:1fr;} }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quelles entreprises ProfitPilot a-t-il accompagné en Algérie ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "ProfitPilot a accompagné plusieurs entreprises dont : SARL ECC (équipements médicaux, import), SARL ESCLAB (laboratoire, Béjaïa), SARL Future Grain Saharienne (agriculture, Ouargla), EURL CHOUFI GRAIN (agroalimentaire, Mila), et d'autres clients dans le BTP et le commerce." }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel est le volume des missions réalisées par ProfitPilot ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "ProfitPilot a réalisé plus de 14 missions depuis 2024, avec un chiffre d'affaires cumulé de 4 885 000 DZD en 2024. Les missions couvrent les études financières, l'analyse des risques, les études de marché et les études économiques." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- LocalBusiness Schema — boost local SEO Algérie -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ProfitPilot NextGen Consulting",
+    "description": "Expert en études financières, économiques et marketing en Algérie. Business plans, analyses des risques, études de marché.",
+    "url": "https://profitpilot.dz",
+    "logo": "https://profitpilot.dz/images/logo.png",
+    "image": "https://profitpilot.dz/images/logo.png",
+    "telephone": "+213550020287",
+    "email": "contact@profitpilot.dz",
+    "priceRange": "$$",
+    "currenciesAccepted": "DZD",
+    "paymentAccepted": "Cash, Virement bancaire",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cité Soummam Bloc 21, Apt 04",
+      "addressLocality": "Bab Ezzouar",
+      "addressRegion": "Alger",
+      "postalCode": "16311",
+      "addressCountry": "DZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.7213,
+      "longitude": 3.1886
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "09:00", "closes": "13:00" }
+    ],
+    "sameAs": ["http://www.linkedin.com/in/farouk-bensaid"],
+    "hasMap": "https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6",
+    "areaServed": { "@type": "Country", "name": "Algérie" },
+    "serviceType": ["Études Financières", "Analyse des Risques", "Études Marketing", "Études Économiques", "Business Plan"]
+  }
+  </script>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="../images/logo.png" alt="ProfitPilot"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="nav-lang">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="contact.html" class="btn btn-gold nav-cta">Book a Call</a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu"><span class="mobile-close">✕</span>
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+  <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Portfolio</span></div>
+    <span class="section-label">Nos missions</span>
+    <h1>Réalisations & Références</h1>
+    <div class="gold-line center"></div>
+    <p>14 missions accomplies avec succès auprès de 10 clients dans 6 secteurs différents.</p>
+  </div>
+</div>
+
+<!-- Stats Band -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num"><span data-target="14" data-suffix="+">0+</span></div><div class="stat-label">Missions Completed</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="10" data-suffix="">0</span></div><div class="stat-label">Clients satisfaits</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="6" data-suffix="">0</span></div><div class="stat-label">Secteurs couverts</div></div>
+      <div class="stat-item"><div class="stat-num">+14M</div><div class="stat-label">DZD de missions</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Cards -->
+<section class="section">
+  <div class="container">
+    <div class="filter-bar fade-up">
+      <button class="filter-btn active">Tous</button>
+      <button class="filter-btn">Import/Export</button>
+      <button class="filter-btn">Agroalimentaire</button>
+      <button class="filter-btn">BTP & Hydraulique</button>
+      <button class="filter-btn">Commerce</button>
+    </div>
+
+    <div class="portfolio-full-grid">
+      <!-- Mission 1 -->
+      <div class="pf-card fade-up delay-1">
+        <div class="pf-header">
+          <span class="pf-sector">Import/Export</span>
+          <span class="pf-year">Nov. 2024</span>
+        </div>
+        <div class="pf-client">SARL ECC</div>
+        <div class="pf-location">📍 Zone Industrielle Béjaïa</div>
+        <p class="pf-description">Prestations de conseil pour l'importation d'équipements médicaux incluant trois études complémentaires.</p>
+        <div class="pf-services">
+          <h5>Missions Completed</h5>
+          <ul>
+            <li>Veille réglementaire pour équipements médicaux</li>
+            <li>Analyse concurrentielle du secteur médical</li>
+            <li>Élaboration d'un plan de trésorerie prévisionnel</li>
+          </ul>
+        </div>
+        <div class="pf-footer">
+          <div class="pf-amount">2 500 000 DZD</div>
+          <span class="pf-status status-ok">✓ Réglé</span>
+        </div>
+      </div>
+
+      <!-- Mission 2 -->
+      <div class="pf-card fade-up delay-2">
+        <div class="pf-header">
+          <span class="pf-sector">Import/Export</span>
+          <span class="pf-year">Oct. 2024</span>
+        </div>
+        <div class="pf-client">SARL ESCLAB</div>
+        <div class="pf-location">📍 ZI SOMACOB, Béjaïa</div>
+        <p class="pf-description">Conseil complet pour l'importation d'équipements de laboratoire avec analyse de conformité et stratégie de marché.</p>
+        <div class="pf-services">
+          <h5>Missions Completed</h5>
+          <ul>
+            <li>Étude de conformité & veille réglementaire approfondie</li>
+            <li>Analyse des coûts d'importation & optimisation du financement</li>
+            <li>Étude de marché ciblée & stratégie de positionnement</li>
+          </ul>
+        </div>
+        <div class="pf-footer">
+          <div class="pf-amount">1 500 000 DZD</div>
+          <span class="pf-status status-ok">✓ Réglé</span>
+        </div>
+      </div>
+
+      <!-- Mission 3 -->
+      <div class="pf-card fade-up delay-1">
+        <div class="pf-header">
+          <span class="pf-sector">BTP & Hydraulique</span>
+          <span class="pf-year">2025 — 3 Phases</span>
+        </div>
+        <div class="pf-client">OULMI Mohamed Lamine</div>
+        <div class="pf-location">📍 Barika, W. Batna</div>
+        <p class="pf-description">Accompagnement sur 3 phases pour un projet d'investissement en équipements lourds et matériel hydraulique.</p>
+        <div class="pf-services">
+          <h5>Missions réalisées (3 phases)</h5>
+          <ul>
+            <li>Phase 1 : Diagnostic besoins & analyse marché international</li>
+            <li>Phase 2 : Modèle financier 5 ans, plan de financement bancaire</li>
+            <li>Phase 3 : Analyse offres fournisseurs étrangers & négociation</li>
+          </ul>
+        </div>
+        <div class="pf-footer">
+          <div class="pf-amount">4 000 000 DZD</div>
+          <span class="pf-status status-pending">⏳ En cours</span>
+        </div>
+      </div>
+
+      <!-- Mission 4 -->
+      <div class="pf-card fade-up delay-2">
+        <div class="pf-header">
+          <span class="pf-sector">Import/Export</span>
+          <span class="pf-year">Jan. — Mai 2025</span>
+        </div>
+        <div class="pf-client">SARL TRANSIT BOUDEBZA</div>
+        <div class="pf-location">📍 Béjaïa</div>
+        <p class="pf-description">Accompagnement financier sur 3 missions distinctes pour un commissionnaire en douanes.</p>
+        <div class="pf-services">
+          <h5>Missions Completed</h5>
+          <ul>
+            <li>Diagnostic financier & analyse des états financiers</li>
+            <li>Optimisation de la gestion de trésorerie & BFR</li>
+            <li>Analyse des coûts et optimisation des marges</li>
+          </ul>
+        </div>
+        <div class="pf-footer">
+          <div class="pf-amount">1 400 000 DZD</div>
+          <span class="pf-status status-ok">✓ Réglé</span>
+        </div>
+      </div>
+
+      <!-- Mission 5 -->
+      <div class="pf-card fade-up delay-1">
+        <div class="pf-header">
+          <span class="pf-sector">Agroalimentaire</span>
+          <span class="pf-year">Juin 2025</span>
+        </div>
+        <div class="pf-client">SARL FUTURE GRAIN SAHARIENNE</div>
+        <div class="pf-location">📍 Hassi Messaoud, Ouargla</div>
+        <p class="pf-description">Accompagnement à la création et à la structuration d'une entreprise d'aménagement agricole.</p>
+        <div class="pf-services">
+          <h5>Missions Completed</h5>
+          <ul>
+            <li>Organisation interne et processus administratifs</li>
+            <li>Mise en place des processus financiers et comptables</li>
+            <li>Accompagnement au lancement opérationnel</li>
+          </ul>
+        </div>
+        <div class="pf-footer">
+          <div class="pf-amount">700 000 DZD</div>
+          <span class="pf-status status-ok">✓ Réglé</span>
+        </div>
+      </div>
+
+      <!-- Mission 6 -->
+      <div class="pf-card fade-up delay-2">
+        <div class="pf-header">
+          <span class="pf-sector">Commerce</span>
+          <span class="pf-year">Fév. 2024</span>
+        </div>
+        <div class="pf-client">BERRI BOUZID</div>
+        <div class="pf-location">📍 ZAC El Kseur, Béjaïa</div>
+        <p class="pf-description">Analyse de prix, étude de la concurrence et stratégies d'amélioration des ventes pour un grossiste alimentaire.</p>
+        <div class="pf-services">
+          <h5>Missions Completed</h5>
+          <ul>
+            <li>Analyse prix / concurrence sur le marché local</li>
+            <li>Stratégie d'amélioration des ventes et marges</li>
+          </ul>
+        </div>
+        <div class="pf-footer">
+          <div class="pf-amount">300 000 DZD</div>
+          <span class="pf-status status-ok">✓ Réglé</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:5rem 0;background:var(--navy-mid);border-top:1px solid rgba(201,168,76,0.1);">
+  <div class="container" style="text-align:center;">
+    <h2 class="fade-up">Votre projet sera notre prochaine réussite</h2>
+    <div class="gold-line center"></div>
+    <p style="max-width:500px;margin:0 auto 2.5rem;" class="fade-up">Rejoignez nos clients satisfaits et bénéficiez d'une expertise financière sur mesure.</p>
+    <a href="contact.html" class="btn btn-gold fade-up">Démarrer mon projet →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><img src="../images/logo.png" alt="ProfitPilot"><p>Expert en études financières, économiques et marketing en Algérie.</p></div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Services</h5><ul>
+        <li><a href="services.html">Études Financières</a></li><li><a href="services.html">Analyse des Risques</a></li>
+        <li><a href="services.html">Études Marketing</a></li><li><a href="services.html">Études Économiques</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
+        <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Alger</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
+      <span>NIF : 18716200026511241680</span>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

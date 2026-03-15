@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProfitPilot — Expert Financier & Économique en Algérie</title>
+  <meta name="description" content="BENSAID Farouk accompagne PME, startups et investisseurs en Algérie. Études financières, analyses des risques, études de marché. Consultation gratuite.">
+  <link rel="canonical" href="https://profitpilot.dz/fr/">
+  <link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/">
+  <link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/">
+  <link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/">
+  <link rel="alternate" hreflang="x-default" href="https://profitpilot.dz/fr/">
+  <meta name="robots" content="index, follow">
+  <style>
+    body { margin:0; background:#0D1828; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:sans-serif; }
+    .loader { text-align:center; color:#fff; }
+    .loader img { width:80px; margin-bottom:1rem; }
+    .loader p { color:#A0AEC0; font-size:0.9rem; }
+    .lang-select { display:flex; gap:1rem; justify-content:center; margin-top:1.5rem; }
+    .lang-select a { 
+      color:#fff; text-decoration:none; padding:0.6rem 1.5rem; 
+      border:1px solid rgba(255,255,255,0.2); border-radius:8px;
+      transition:all 0.2s;
+    }
+    .lang-select a:hover { background:#9B4DC0; border-color:#9B4DC0; }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <img src="images/logo.png" alt="ProfitPilot">
+    <p>Redirection en cours...</p>
+    <div class="lang-select">
+      <a href="fr/index.html">Français</a>
+      <a href="ar/index.html">العربية</a>
+      <a href="en/index.html">English</a>
+    </div>
+  </div>
+
+  <script>
+    // Auto-redirect based on browser language
+    const lang = navigator.language || navigator.userLanguage || 'fr';
+    const saved = localStorage.getItem('pp_lang');
+    
+    let target = 'fr';
+    if (saved) {
+      target = saved;
+    } else if (lang.startsWith('ar')) {
+      target = 'ar';
+    } else if (lang.startsWith('en')) {
+      target = 'en';
+    } else {
+      target = 'fr'; // default for all others (fr, dz, etc.)
+    }
+    
+    // Redirect after 300ms (allows bots to read the page)
+    setTimeout(() => {
+      window.location.href = target + '/index.html';
+    }, 300);
+  </script>
+</body>
+</html>

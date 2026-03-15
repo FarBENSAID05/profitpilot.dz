@@ -1,0 +1,35 @@
+# ProfitPilot NextGen Consulting — robots.txt
+# https://profitpilot.dz
+
+User-agent: *
+Allow: /
+
+# Autoriser tous les crawlers IA et moteurs de recherche
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap
+Sitemap: https://profitpilot.dz/sitemap.xml
+
+# Disallow only truly private paths (none currently)

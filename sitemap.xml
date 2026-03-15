@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ══ ROOT ══ -->
+  <url>
+    <loc>https://profitpilot.dz/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ══ FRANÇAIS ══ -->
+  <url>
+    <loc>https://profitpilot.dz/fr/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/"/>
+  </url>
+  <url>
+    <loc>https://profitpilot.dz/fr/a-propos.html</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/من-نحن.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://profitpilot.dz/fr/services.html</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/services.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/الخدمات.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/services.html"/>
+  </url>
+  <url>
+    <loc>https://profitpilot.dz/fr/realisations.html</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/realisations.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/انجازاتنا.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/portfolio.html"/>
+  </url>
+  <url>
+    <loc>https://profitpilot.dz/fr/blog.html</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/المدونة.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/blog.html"/>
+  </url>
+  <url>
+    <loc>https://profitpilot.dz/fr/contact.html</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/تواصل-معنا.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/contact.html"/>
+  </url>
+
+  <!-- ══ ARABIC ══ -->
+  <url>
+    <loc>https://profitpilot.dz/ar/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url><loc>https://profitpilot.dz/ar/من-نحن.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://profitpilot.dz/ar/الخدمات.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/ar/انجازاتنا.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profitpilot.dz/ar/المدونة.html</loc><lastmod>2025-03-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://profitpilot.dz/ar/تواصل-معنا.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ══ ENGLISH ══ -->
+  <url>
+    <loc>https://profitpilot.dz/en/</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url><loc>https://profitpilot.dz/en/about.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://profitpilot.dz/en/services.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profitpilot.dz/en/portfolio.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://profitpilot.dz/en/blog.html</loc><lastmod>2025-03-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://profitpilot.dz/en/contact.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- ══ BLOG ARTICLES ══ -->
+  <url><loc>https://profitpilot.dz/blog/business-plan-algerie.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/blog/import-algerie-procedures.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/blog/etude-de-marche-pme-algerie.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/blog/risques-financiers-pme.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/blog/financement-islamique-algerie.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/blog/auto-entrepreneur-algerie.html</loc><lastmod>2025-03-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+
+  <!-- ══ PAGES SERVICES ══ -->
+  <url><loc>https://profitpilot.dz/etude-faisabilite</loc><lastmod>2025-03-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/conseil-financier</loc><lastmod>2025-03-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://profitpilot.dz/dossier-bancaire</loc><lastmod>2025-03-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+</urlset>
