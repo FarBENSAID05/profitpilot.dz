@@ -1,0 +1,10 @@
+# Archives de déploiement — régénérées, jamais versionnées
+*.zip
+*.rar
+
+# Artefacts système
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+.~lock.*#

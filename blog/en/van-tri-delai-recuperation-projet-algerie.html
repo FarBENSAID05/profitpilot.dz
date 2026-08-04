@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO PRIMARY ═══ -->
+  <title>NPV, IRR and Payback: Calculating Project Profitability</title>
+  <meta name="description" content="The four indicators required by Annex V of Decree 26-154, explained and calculated on a full worked example: NPV, IRR, break-even and payback period.">
+  <meta name="keywords" content="NPV IRR calculation project algeria, net present value calculation, internal rate of return example, discounted payback period, investment project profitability algeria, project discount rate, profitability study algeria, break-even point calculation, projected cash flows, profitability analysis annex V">
+  <meta name="author" content="BENSAID Farouk — ProfitPilot NextGen Consulting">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://profitpilot.dz/blog/en/van-tri-delai-recuperation-projet-algerie.html">
+  <link rel="alternate" hreflang="fr" href="https://profitpilot.dz/blog/van-tri-delai-recuperation-projet-algerie.html">
+  <link rel="alternate" hreflang="ar" href="https://profitpilot.dz/blog/ar/van-tri-delai-recuperation-projet-algerie.html">
+  <link rel="alternate" hreflang="en" href="https://profitpilot.dz/blog/en/van-tri-delai-recuperation-projet-algerie.html">
+  <link rel="alternate" hreflang="x-default" href="https://profitpilot.dz/blog/van-tri-delai-recuperation-projet-algerie.html">
+
+  <!-- ═══ Open Graph ═══ -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NPV, IRR and Payback: Calculating Project Profitability">
+  <meta property="og:description" content="The four indicators required by Annex V of Decree 26-154, explained and calculated on a full worked example: NPV, IRR, break-even and payback period.">
+  <meta property="og:url" content="https://profitpilot.dz/blog/en/van-tri-delai-recuperation-projet-algerie.html">
+  <meta property="og:site_name" content="ProfitPilot NextGen Consulting">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://profitpilot.dz/images/logo.png">
+  <meta property="article:published_time" content="2026-10-07">
+  <meta property="article:modified_time" content="2026-10-07">
+  <meta property="article:author" content="BENSAID Farouk">
+  <meta property="article:section" content="Finance">
+
+  <!-- ═══ Twitter Card ═══ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NPV, IRR and Payback: Calculating Project Profitability">
+  <meta name="twitter:description" content="The four indicators required by Annex V of Decree 26-154, explained and calculated on a full worked example: NPV, IRR, break-even and payback period.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/logo.png">
+
+  <!-- ═══ Schema.org JSON-LD ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "NPV, IRR and payback period: is your project profitable before you borrow?",
+    "description": "The four indicators required by Annex V of Decree 26-154, explained and calculated on a full worked example: NPV, IRR, break-even and payback period.",
+    "image": "https://profitpilot.dz/images/logo.png",
+    "author": {
+      "@type": "Person",
+      "name": "BENSAID Farouk",
+      "url": "https://profitpilot.dz/en/about.html",
+      "jobTitle": "Chargé d'Études Financières et Économiques",
+      "worksFor": { "@type": "Organization", "name": "ProfitPilot NextGen Consulting" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ProfitPilot NextGen Consulting",
+      "url": "https://profitpilot.dz",
+      "logo": { "@type": "ImageObject", "url": "https://profitpilot.dz/images/logo.png" }
+    },
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-10-07",
+    "mainEntityOfPage": "https://profitpilot.dz/blog/en/van-tri-delai-recuperation-projet-algerie.html",
+    "keywords": "NPV IRR calculation project algeria, net present value calculation, internal rate of return example, discounted payback period, investment project profitability algeria, project discount rate, profitability study algeria, break-even point calculation, projected cash flows, profitability analysis annex V",
+    "articleSection": "Finance",
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between NPV and IRR?",
+        "acceptedAnswer": { "@type": "Answer", "text": "NPV measures the value created by the project, expressed in dinars, once future flows are discounted at a chosen rate. IRR measures the project's own return, expressed as a percentage: it is the rate that would make NPV zero. NPV depends on the rate chosen, IRR does not — but it must be compared with that rate to be interpreted." }
+      },
+      {
+        "@type": "Question",
+        "name": "How should the discount rate be chosen?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The rate represents the minimum return required given the cost of the resources raised and the project's risk. It is generally built from the average cost of financing, own contribution and loan combined, plus a risk premium linked to the activity. None of the texts examined sets a regulatory rate: it must therefore be stated and justified within the study." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is discounted payback longer than simple payback?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because it accounts for the cost of time. Each future flow is reduced before being accumulated, which mechanically pushes back the point at which the cumulative total reaches the amount invested. Discounted payback is the only version consistent with NPV and IRR." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a project with a positive NPV always acceptable?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A positive NPV means the project creates value at the chosen rate. It says nothing about the safety margin: if the IRR is very close to the cost of financing, a modest change in assumptions is enough to tip NPV negative. That is why the four indicators are read together, not in isolation." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these indicators mandatory in an Algerian investment application?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Part VI of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 requires a profitability analysis covering IRR, NPV, the break-even point and the margin rate, in addition to a projected income statement, cash flow statement and balance sheet over three to five years." }
+      },
+      {
+        "@type": "Question",
+        "name": "Over how many years should flows be projected?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Annex V template uses a horizon of three to five years for the projected statements. Beyond that, the reliability of assumptions falls sharply; below it, a project whose profitability arrives late is not properly represented." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://profitpilot.dz/en/index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://profitpilot.dz/en/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Calculating project profitability", "item": "https://profitpilot.dz/blog/en/van-tri-delai-recuperation-projet-algerie.html" }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../../images/logo.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    /* ── Article Layout ── */
+    .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
+    .article-body { max-width: 760px; }
+    .article-body h2 { font-size: 1.7rem; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid rgba(155,77,192,0.15); }
+    .article-body h3 { font-size: 1.25rem; margin: 2rem 0 0.8rem; color: var(--purple-light); }
+    .article-body p  { font-size: 1.02rem; line-height: 1.85; color: var(--gray-light); margin-bottom: 1.3rem; }
+    .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.3rem; }
+    .article-body li { font-size: 0.98rem; color: var(--gray-light); line-height: 1.8; margin-bottom: 0.4rem; }
+    .article-body ul li::marker { color: var(--purple); }
+    .article-body ol li::marker { color: var(--purple); font-weight: 700; }
+    .article-body strong { color: var(--white); font-weight: 600; }
+    .article-body a { color: var(--purple-light); border-bottom: 1px solid rgba(155,77,192,0.3); transition: 0.2s; }
+    .article-body a:hover { color: var(--white); border-color: var(--purple-light); }
+
+    /* Highlight box */
+    .highlight-box {
+      background: rgba(155,77,192,0.08); border-left: 3px solid var(--purple);
+      border-radius: 0 8px 8px 0; padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .highlight-box.gold { background: rgba(201,168,76,0.07); border-color: var(--gold); }
+    .highlight-box p { margin: 0; font-size: 0.98rem; }
+
+    /* Table */
+    .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem; }
+    .data-table th { background: rgba(155,77,192,0.15); color: var(--purple-light); padding: 0.8rem 1rem; text-align: left; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--gray-light); }
+    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Step cards */
+    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
+    .step-num { width: 44px; height: 44px; min-width: 44px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: white; }
+    .step-content h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .step-content p  { font-size: 0.9rem; margin: 0; }
+
+    /* Keywords cloud */
+    .kw-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
+    .kw-tag { font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 20px; background: rgba(155,77,192,0.1); color: var(--purple-light); border: 1px solid rgba(155,77,192,0.2); cursor: default; transition: 0.2s; }
+    .kw-tag:hover { background: rgba(155,77,192,0.2); }
+    .kw-tag.lg { font-size: 0.88rem; padding: 0.5rem 1.2rem; }
+    .kw-tag.sm { font-size: 0.7rem; padding: 0.3rem 0.8rem; opacity: 0.8; }
+
+    /* TOC */
+    .toc { background: var(--navy-mid); border: 1px solid rgba(155,77,192,0.2); border-radius: 12px; padding: 1.8rem; margin-bottom: 3rem; }
+    .toc h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; margin: 0; }
+    .toc li { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .toc a { color: var(--gray-light); border: none; }
+    .toc a:hover { color: var(--purple-light); }
+
+    /* Sidebar */
+    .sidebar-sticky { position: sticky; top: 7rem; }
+    .sidebar-widget { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
+    .sidebar-widget h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(155,77,192,0.15); }
+    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .related-link:last-child { border-bottom: none; }
+    .related-link .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .related-link a { font-size: 0.88rem; color: var(--gray-light); border: none; line-height: 1.4; }
+    .related-link a:hover { color: var(--purple-light); }
+
+    /* Author card */
+    .author-card { background: var(--navy-mid); border: 1px solid rgba(155,77,192,0.2); border-radius: 14px; padding: 2rem; margin-top: 3rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .author-photo { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid var(--purple); flex-shrink: 0; }
+    .author-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .author-info h4 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+    .author-info .role { font-size: 0.82rem; color: var(--purple-light); margin-bottom: 0.7rem; }
+    .author-info p { font-size: 0.88rem; margin: 0; }
+
+    /* Article header */
+    .article-header { margin-bottom: 2.5rem; }
+    .article-header h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+    .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+    /* FAQ section */
+    .faq-item { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
+    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    .faq-q:hover { background: rgba(155,77,192,0.08); }
+    .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { color: var(--purple-light); font-size: 1.2rem; transition: 0.3s; }
+
+    @media(max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .sidebar-sticky { position: static; }
+    }
+  
+    /* ── RTL adjustments (generated) ── */
+    [dir="rtl"] .article-body ul, [dir="rtl"] .article-body ol { padding-left: 0; padding-right: 1.5rem; }
+    [dir="rtl"] .toc ol { padding-left: 0; padding-right: 1.2rem; }
+    [dir="rtl"] .data-table th { text-align: right; }
+    [dir="rtl"] .highlight-box { border-left: none; border-right: 3px solid var(--purple); border-radius: 8px 0 0 8px; }
+    [dir="rtl"] .highlight-box.gold { border-right-color: var(--gold); }
+    [dir="rtl"] .step-card { flex-direction: row; }
+    [dir="rtl"] .breadcrumb { direction: rtl; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../../en/index.html" class="nav-logo"><img src="../../images/logo.png" alt="ProfitPilot NextGen Consulting"></a>
+    <ul class="nav-links">
+      <li><a href="../../en/index.html">Home</a></li>
+      <li><a href="../../en/about.html">About</a></li>
+      <li><a href="../../en/services.html">Services</a></li>
+      <li><a href="../../en/portfolio.html">Portfolio</a></li>
+      <li><a href="../../en/blog.html" class="active">Blog</a></li>
+      <li><a href="../../en/contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="nav-lang"><a class="lang-btn" href="../../blog/van-tri-delai-recuperation-projet-algerie.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a><a class="lang-btn" href="../../blog/ar/van-tri-delai-recuperation-projet-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span></div>
+      <a href="../../en/contact.html" class="btn btn-gold nav-cta">Book a Call</a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu"><span class="mobile-close">✕</span>
+  <a href="../../en/index.html">Home</a><a href="../../en/about.html">About</a>
+  <a href="../../en/services.html">Services</a><a href="../../en/blog.html">Blog</a>
+  <a href="../../en/contact.html">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header" style="padding:9rem 0 3rem;">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <div class="breadcrumb">
+        <a href="../../en/index.html">Home</a><span>/</span>
+        <a href="../../en/blog.html">Blog</a><span>/</span>
+        <span>Calculating project profitability</span>
+      </div>
+    </nav>
+    <div class="blog-tag-row" style="justify-content:center;margin-bottom:1.2rem;"><span class="blog-tag">Profitability</span><span class="blog-tag">Method</span><span class="blog-tag">Investment</span></div>
+  </div>
+</div>
+<!-- ARTICLE CONTENT -->
+<section style="padding:0 0 6rem;">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- ── MAIN ARTICLE ── -->
+      <article class="article-body" itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="datePublished" content="2026-10-07">
+        <meta itemprop="dateModified" content="2026-10-07">
+        <meta itemprop="author" content="BENSAID Farouk">
+
+        <div class="article-header">
+          <h1 itemprop="headline">NPV, IRR and payback period: is your project profitable before you borrow?</h1>
+          <div class="article-meta">
+            <span>👤 <strong>BENSAID Farouk</strong> — Financial Expert</span>
+            <span>📅 7 October 2026</span>
+            <span>⏱ 13 min read</span>
+            <span>🔄 Updated: October 2026</span>
+          </div>
+          <div class="highlight-box">
+            <p>📌 In short: Part VI of the template imposed by Annex V to Executive Decree no. 26-154 requires four indicators: <strong>IRR, NPV, break-even point and margin rate</strong>. These are not boxes to fill: they are four answers to a single question — does the project create more value than it costs, and from when? This article explains what each indicator measures, how it is calculated, and works them through a <strong>complete numerical example</strong>, from the initial investment to the decision.</p>
+          </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc" role="navigation" aria-label="📋 Table of contents">
+          <h4>📋 Table of contents</h4>
+          <ol>
+            <li><a href="#pourquoi">Four indicators, one question</a></li>
+            <li><a href="#van">NPV</a></li>
+            <li><a href="#tri">IRR</a></li>
+            <li><a href="#delai">The payback period</a></li>
+            <li><a href="#exemple">A complete worked example</a></li>
+            <li><a href="#erreurs">Six frequent errors</a></li>
+            <li><a href="#faq">FAQ — Frequently asked questions</a></li>
+          </ol>
+        </div>
+
+        <!-- KEYWORDS CLOUD -->
+        <div style="margin-bottom:2.5rem;">
+          <p style="font-size:0.78rem;color:var(--gray);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.1em;">Keywords in this article</p>
+          <div class="kw-cloud">
+            <span class="kw-tag lg">NPV IRR calculation</span>
+            <span class="kw-tag lg">net present value</span>
+            <span class="kw-tag lg">internal rate of return</span>
+            <span class="kw-tag ">discounted payback period</span>
+            <span class="kw-tag ">discount rate</span>
+            <span class="kw-tag ">projected cash flows</span>
+            <span class="kw-tag ">break-even point</span>
+            <span class="kw-tag sm">worked example</span>
+            <span class="kw-tag sm">annex V part VI</span>
+            <span class="kw-tag sm">cost of financing</span>
+            <span class="kw-tag ">profitability study algeria</span>
+            <span class="kw-tag sm">investment decision</span>
+          </div>
+        </div>
+
+        <h2 id="pourquoi">1. Four indicators, one question</h2>
+        <p>A project can be useful, well designed and led by a strong team, and still be a poor financial decision. The four profitability indicators exist to settle that point, and nothing else.</p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Indicator</th><th>The question it answers</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>NPV</strong> — net present value</td><td>Does the project create value once future money is brought back to today's terms?</td></tr>
+            <tr><td><strong>IRR</strong> — internal rate of return</td><td>What financing rate can the project bear before it stops being profitable?</td></tr>
+            <tr><td><strong>Payback period</strong></td><td>After how long is the initial outlay recovered?</td></tr>
+            <tr><td><strong>Break-even point</strong></td><td>From what activity level does the result turn positive?</td></tr>
+          </tbody>
+        </table>
+
+        <p>These four indicators are expressly required in economic land applications: Part VI of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 calls for a projected income statement, cash flow statement and balance sheet over three to five years, together with a "<em>profitability analysis</em>" covering <strong>IRR, NPV, break-even point and margin rate</strong>. We set out that template in our article on <a href="etude-technico-economique-plan-type-aapi.html">the techno-economic study required by AAPI</a>.</p>
+
+        <div class="highlight-box">
+          <p>📌 <strong>The common starting point: cash flows.</strong> None of these indicators is calculated on accounting profit. They are calculated on <strong>net cash flows</strong> — what actually comes in, less what goes out. A project can report an accounting profit while destroying cash; that is precisely what these calculations reveal.</p>
+        </div>
+        <h2 id="van">2. NPV: bringing future money back to today</h2>
+        <p>A dinar received in five years is not worth a dinar received today: you have to wait, and waiting has a cost. NPV corrects for that by <strong>discounting</strong> each future flow, then subtracting the initial investment.</p>
+
+        <div class="highlight-box gold">
+          <p style="font-family:var(--font-display);font-size:1.05rem;">NPV = Σ [ cash flow of year <em>n</em> ÷ (1 + <em>r</em>)<sup><em>n</em></sup> ] − initial investment</p>
+          <p style="margin-top:0.6rem;font-size:0.9rem;">where <em>r</em> is the discount rate and <em>n</em> the year number.</p>
+        </div>
+
+        <h3>How to read the result</h3>
+        <ul>
+          <li><strong>Positive NPV</strong>: the project returns more than the required rate. It creates value.</li>
+          <li><strong>Zero NPV</strong>: the project returns exactly the required rate, no more, no less.</li>
+          <li><strong>Negative NPV</strong>: the project does not cover the cost of the capital raised, even if it shows an accounting profit.</li>
+        </ul>
+
+        <h3>Choosing the discount rate</h3>
+        <p>This is the most structuring decision, and the least explained in applications. The discount rate represents the minimum return required given the cost of the resources raised and the project's risk. It is generally built from the average cost of financing — bank share and own contribution combined — plus a premium for the specific risk of the activity.</p>
+
+        <p><strong>None of the texts we examined sets a regulatory discount rate for these studies.</strong> The rate is therefore a matter of the author's judgement — which makes it essential to state and justify it in the study, failing which the NPV cannot be verified.</p>
+        <h2 id="tri">3. IRR: the rate your project can bear</h2>
+        <p>The IRR is the discount rate that makes NPV exactly zero. It is therefore the <strong>project's own return</strong>, independent of how it is financed.</p>
+
+        <p>Reading it is straightforward:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Situation</th><th>Interpretation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>IRR &gt; cost of financing</td><td>The project supports its financing and generates a margin. Positive NPV.</td></tr>
+            <tr><td>IRR = cost of financing</td><td>Exact break-even. No safety margin.</td></tr>
+            <tr><td>IRR &lt; cost of financing</td><td>The project does not cover its resources. Negative NPV.</td></tr>
+          </tbody>
+        </table>
+
+        <p>The gap between the IRR and the actual cost of financing is the project's <strong>safety margin</strong>: it is what the structure can absorb in rate increases, cost overruns or start-up delays before it tips over.</p>
+
+        <div class="highlight-box">
+          <p>⚠️ <strong>Two limitations to know.</strong> The IRR implicitly assumes that the cash generated is reinvested at that same rate, which is rarely the case. And where flows change sign several times — a project requiring heavy reinvestment midway — several mathematically valid IRRs can exist. In both cases, it is the NPV that settles the matter.</p>
+        </div>
+        <h2 id="delai">4. The payback period: simple, then discounted</h2>
+        <p>The payback period answers the most intuitive question: after how many years is the initial outlay recovered? There are two versions, and the gap between them is instructive.</p>
+
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Simple payback</h4>
+            <p>Cash flows are accumulated year by year until they reach the amount invested. Easy to calculate and easy to grasp — but it ignores the cost of time entirely.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Discounted payback</h4>
+            <p>Flows are accumulated <strong>after discounting</strong>. Always longer than simple payback, it is the only version consistent with NPV and IRR.</p>
+          </div>
+        </div>
+
+        <p>This indicator measures not profitability but <strong>risk exposure</strong>: the longer the period, the more the project depends on distant, and therefore fragile, assumptions. A banker often reads it before the NPV, because it maps directly onto the tenor of the loan they would grant.</p>
+
+        <h3>The break-even point, on the same logic</h3>
+        <p>The break-even point completes the picture by reasoning in volume rather than years: it is the activity level at which revenue covers all costs. It maps directly onto the <strong>production capacity</strong> declared in the technical part of the study — and that cross-check is what gets verified.</p>
+        <h2 id="exemple">5. A complete worked example</h2>
+        <p>The figures below are <strong>illustrative</strong>: they serve only to show how the calculations follow from one another.</p>
+
+        <p><strong>Assumptions.</strong> Initial investment of 100,000,000 DA in year 0. Projected net cash flows over five years. Discount rate applied: <strong>12%</strong>.</p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Year</th><th>Net flow (M DA)</th><th>Factor at 12%</th><th>Discounted flow (M DA)</th><th>Cumulative</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>18.00</td><td>0.8929</td><td>16.07</td><td>16.07</td></tr>
+            <tr><td>2</td><td>26.00</td><td>0.7972</td><td>20.73</td><td>36.80</td></tr>
+            <tr><td>3</td><td>32.00</td><td>0.7118</td><td>22.78</td><td>59.58</td></tr>
+            <tr><td>4</td><td>34.00</td><td>0.6355</td><td>21.61</td><td>81.18</td></tr>
+            <tr><td>5</td><td>36.00</td><td>0.5674</td><td>20.43</td><td><strong>101.61</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3>The four results</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Indicator</th><th>Calculation</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>NPV at 12%</strong></td><td>101.61 − 100.00</td><td><strong>+1.61 M DA</strong></td></tr>
+            <tr><td><strong>IRR</strong></td><td>NPV = +1.61 at 12%; NPV = −1.14 at 13%</td><td><strong>≈ 12.6%</strong></td></tr>
+            <tr><td><strong>Simple payback</strong></td><td>Undiscounted cumulative: 18 · 44 · 76 · 110 → between years 3 and 4</td><td><strong>≈ 3.7 years</strong></td></tr>
+            <tr><td><strong>Discounted payback</strong></td><td>Discounted cumulative: 81.18 at year 4, 101.61 at year 5</td><td><strong>≈ 4.9 years</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3>What these four figures say together</h3>
+        <p>The project is <strong>profitable, but only just</strong>. NPV is positive, so it creates value at the required rate. But an IRR of 12.6% leaves only <strong>0.6 points of margin</strong> above the discount rate applied: a rise in the cost of financing, a 5% overrun on the initial investment or a one-year delay in start-up is enough to push NPV negative.</p>
+
+        <p>The discounted payback of nearly five years confirms that reading: profitability rests on the year 4 and year 5 flows, that is, on the least certain assumptions. Such an application is not one to reject — it is one to strengthen, either on the initial investment or on the first two years' flows.</p>
+
+        <div style="text-align:center;margin:3rem 0;padding:2.5rem;background:linear-gradient(135deg,rgba(155,77,192,0.1),rgba(201,168,76,0.05));border:1px solid rgba(155,77,192,0.2);border-radius:16px;">
+          <h3 style="margin-bottom:0.6rem;">Do your four indicators hold together?</h3>
+          <p style="color:var(--gray-light);margin-bottom:1.5rem;font-size:0.96rem;">We build the financial model on your real data, test the sensitivity of the assumptions, and align the results with the technical part of the study.</p>
+          <a href="../../services/en/etude-faisabilite.html" class="btn btn-gold">Have my profitability calculated →</a>
+        </div>
+        <h2 id="erreurs">6. The six most frequent calculation errors</h2>
+        <p>Observations from our practice preparing and reworking studies, not regulatory provisions.</p>
+
+        <ol>
+          <li><strong>Calculating on accounting profit instead of cash flows.</strong> Depreciation charges do not leave the bank account; changes in working capital do. Confusing the two distorts all four indicators at once.</li>
+          <li><strong>Failing to justify the discount rate.</strong> An unexplained rate makes the NPV unverifiable. It must be linked to the actual cost of the resources set out in the financing plan.</li>
+          <li><strong>Omitting working capital from the initial investment.</strong> This is the costliest omission: it understates the outlay and mechanically flatters the payback period.</li>
+          <li><strong>Ignoring residual value at the end of the horizon.</strong> Over five years, equipment retains value. Omitting it penalises the project; overstating it makes it suspect.</li>
+          <li><strong>Presenting a break-even point incompatible with production capacity.</strong> If break-even assumes a utilisation rate higher than the one stated in the technical study, the inconsistency is visible without any calculation.</li>
+          <li><strong>Not testing sensitivity.</strong> A single set of assumptions says nothing about the project's robustness. Varying the selling price, input costs and start-up date immediately reveals where the structure breaks.</li>
+        </ol>
+
+        <p style="font-size:0.88rem;color:var(--gray);">This article presents a calculation method and an example using illustrative figures; it constitutes neither investment advice, nor a recommendation to undertake a project, nor a guarantee of results. Any decision must rest on the company's real data and on the financing terms actually obtained.</p>
+
+        <h2 id="faq">FAQ — Frequently asked questions</h2>
+        <div class="faq-item">
+          <div class="faq-q">What is the difference between NPV and IRR? <span class="faq-icon">+</span></div>
+          <div class="faq-a">NPV measures the value created by the project, expressed in dinars, once future flows are discounted at a chosen rate. IRR measures the project's own return, expressed as a percentage: it is the rate that would make NPV zero. NPV depends on the rate chosen, IRR does not — but it must be compared with that rate to be interpreted.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How should the discount rate be chosen? <span class="faq-icon">+</span></div>
+          <div class="faq-a">The rate represents the minimum return required given the cost of the resources raised and the project's risk. It is generally built from the average cost of financing, own contribution and loan combined, plus a risk premium linked to the activity. None of the texts examined sets a regulatory rate: it must therefore be stated and justified within the study.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Why is discounted payback longer than simple payback? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Because it accounts for the cost of time. Each future flow is reduced before being accumulated, which mechanically pushes back the point at which the cumulative total reaches the amount invested. Discounted payback is the only version consistent with NPV and IRR.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is a project with a positive NPV always acceptable? <span class="faq-icon">+</span></div>
+          <div class="faq-a">A positive NPV means the project creates value at the chosen rate. It says nothing about the safety margin: if the IRR is very close to the cost of financing, a modest change in assumptions is enough to tip NPV negative. That is why the four indicators are read together, not in isolation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Are these indicators mandatory in an Algerian investment application? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Part VI of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 requires a profitability analysis covering IRR, NPV, the break-even point and the margin rate, in addition to a projected income statement, cash flow statement and balance sheet over three to five years.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Over how many years should flows be projected? <span class="faq-icon">+</span></div>
+          <div class="faq-a">The Annex V template uses a horizon of three to five years for the projected statements. Beyond that, the reliability of assumptions falls sharply; below it, a project whose profitability arrives late is not properly represented.</div>
+        </div>
+
+        <div style="margin-top:3rem;padding:1.8rem 2rem;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.07);">
+          <h3 style="margin-top:0;font-size:1.05rem;">🔎 Sources and references</h3>
+          <ul style="margin:0;padding-left:1.2rem;">
+            <li style="margin-bottom:0.6rem;font-size:0.88rem;">Executive Decree no. 26-154 of 14 April 2026 amending and supplementing Executive Decree no. 23-487 of 28 December 2023 — Annex V, techno-economic study template, Part VI &quot;Economic and financial projections&quot; — <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener nofollow">Official Gazette of the Algerian Republic no. 31 of 28 April 2026</a><span style="color:var(--gray);"> · Verified on 01/08/2026</span></li>
+            <li style="margin-bottom:0.6rem;font-size:0.88rem;">Law no. 22-18 of 24 July 2022 on investment — <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener nofollow">Official Gazette of the Algerian Republic</a><span style="color:var(--gray);"> · Verified on 01/08/2026</span></li>
+          </ul>
+        </div>
+
+        <!-- Internal Links -->
+        <div style="margin-top:3rem;padding:2rem;background:var(--navy-mid);border-radius:12px;border:1px solid rgba(155,77,192,0.15);">
+          <h3 style="margin-top:0;font-size:1.1rem;">📚 Related articles on ProfitPilot</h3>
+          <ul style="margin:0;padding-left:1.5rem;">
+            <li style="margin-bottom:0.7rem;"><a href="etude-technico-economique-plan-type-aapi.html">The official techno-economic study template</a></li>
+            <li style="margin-bottom:0.7rem;"><a href="grille-evaluation-foncier-economique-algerie.html">How your project is scored out of 1,500</a></li>
+            <li style="margin-bottom:0.7rem;"><a href="business-plan-algerie.html">Bankable business plan: structuring a financing file</a></li>
+            <li><a href="../../en/services.html">Our financial study services</a></li>
+          </ul>
+        </div>
+
+        <!-- Author Card -->
+        <div class="author-card">
+          <div class="author-photo"><img src="../../images/farouk.jpg" alt="BENSAID Farouk ProfitPilot" loading="lazy"></div>
+          <div class="author-info">
+            <h4>BENSAID Farouk</h4>
+            <div class="role">Financial &amp; Economic Research Consultant — ProfitPilot NextGen Consulting</div>
+            <p>Certified sole trader and expert in financial studies, risk analysis and market research for SMEs, startups and investors in Algeria. <a href="../../en/about.html">View full profile →</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="sidebar-sticky">
+        <div class="sidebar-widget" style="background:linear-gradient(135deg,rgba(155,77,192,0.1),rgba(155,77,192,0.05));border-color:rgba(155,77,192,0.25);">
+          <h5>A financial model that holds up</h5>
+          <p style="font-size:0.88rem;margin-bottom:1.2rem;color:var(--gray-light);">Model construction, calculation of the four indicators and sensitivity testing. First consultation free.</p>
+          <a href="../../services/en/etude-faisabilite.html" class="btn btn-gold" style="width:100%;justify-content:center;font-size:0.85rem;">Request a study →</a>
+          <div style="margin-top:1rem;text-align:center;">
+            <a href="tel:+213550020287" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h5>Related articles</h5>
+          <div class="related-link"><span class="icon">💧</span><div><a href="tresorerie-bfr-entreprise-rentable-faillite.html">Cash flow: why a profitable company can still go under</a></div></div>
+          <div class="related-link"><span class="icon">🔎</span><div><a href="etude-de-marche-verification-terrain-algerie.html">Your market study is wrong without these three field checks</a></div></div>
+          <div class="related-link"><span class="icon">📈</span><div><a href="etude-de-marche-pme-algerie.html">Market research in Algeria: the full method when you have neither budget nor reliable public data</a></div></div>
+          <div class="related-link"><span class="icon">⚖️</span><div><a href="credit-investissement-ou-leasing-algerie.html">Investment loan or leasing: the comparison your bank will not do for you</a></div></div>
+          <div class="related-link"><span class="icon">🏗️</span><div><a href="etude-technico-economique-plan-type-aapi.html">The official techno-economic study template</a></div></div>
+          <div class="related-link"><span class="icon">📐</span><div><a href="grille-evaluation-foncier-economique-algerie.html">How your project is scored out of 1,500</a></div></div>
+          <div class="related-link"><span class="icon">📊</span><div><a href="business-plan-algerie.html">Bankable business plan: structuring a financing file</a></div></div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h5>Our Services</h5>
+          <ul style="list-style:none;padding:0;margin:0;">
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Financial Studies</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Risk Analysis</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Marketing Studies</a></li>
+            <li style="padding:0.5rem 0;font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Economic Studies</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><img src="../../images/logo.png" alt="ProfitPilot NextGen Consulting"><p>Expert in financial, economic and marketing studies in Algeria.</p></div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="../../en/index.html">Home</a></li><li><a href="../../en/about.html">About</a></li>
+        <li><a href="../../en/services.html">Services</a></li><li><a href="../../en/blog.html">Blog</a></li>
+        <li><a href="../../en/contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Recent articles</h5><ul>
+        <li><a href="etude-technico-economique-plan-type-aapi.html">The official techno-economic study template</a></li>
+        <li><a href="grille-evaluation-foncier-economique-algerie.html">How your project is scored out of 1,500</a></li>
+        <li><a href="business-plan-algerie.html">Bankable business plan: structuring a financing file</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
+        <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Algiers</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ProfitPilot NextGen Consulting. All rights reserved.</span>
+      <span>NIF: 18716200026511241680</span>
+    </div>
+  </div>
+</footer>
+
+<!-- L'accordéon FAQ est géré par js/main.js (section « FAQ Toggle »).
+     Ne PAS rebinder ici : un second écouteur ferait basculer la classe
+     deux fois par clic et la FAQ ne s'ouvrirait jamais. -->
+<script src="../../js/main.js"></script>
+</body>
+</html>

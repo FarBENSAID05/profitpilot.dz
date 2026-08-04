@@ -208,11 +208,19 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   gap: 0.5rem;
   margin-left: 1rem;
 }
+/* Le sélecteur de langue est fait de vrais liens <a> vers la page équivalente
+   (le site est localisé par l'URL, pas par une traduction JS à la volée).
+   Les règles ci-dessous neutralisent l'apparence de lien pour conserver
+   exactement le rendu d'origine en <button>. */
 .lang-btn {
+  display: inline-block;
   padding: 0.3rem 0.7rem;
   font-size: 0.75rem;
   font-weight: 600;
+  font-family: inherit;
+  line-height: 1.2;
   letter-spacing: 0.05em;
+  text-decoration: none;
   border-radius: 3px;
   cursor: pointer;
   border: 1px solid rgba(255,255,255,0.2);
@@ -220,6 +228,8 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   color: var(--gray);
   transition: var(--transition);
 }
+a.lang-btn:hover { text-decoration: none; }
+.lang-btn.active { cursor: default; }
 .lang-btn.active, .lang-btn:hover {
   background: var(--gold);
   color: var(--navy);
@@ -376,7 +386,14 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
 /* ── Services Cards ── */
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
+/* Les cartes de service de l'accueil sont des <a> vers les pages de service.
+   Elles étaient auparavant de simples <div> : aucun lien ne conduisait de
+   l'accueil vers une page de service. Les règles display/color/text-decoration
+   ci-dessous conservent exactement le rendu d'origine. */
 .service-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: var(--navy-mid);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
@@ -385,6 +402,7 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   position: relative;
   overflow: hidden;
 }
+a.service-card:hover { text-decoration: none; }
 .service-card::before {
   content: '';
   position: absolute;

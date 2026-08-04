@@ -181,46 +181,33 @@ const translations = {
 };
 
 // ══════════════════════════════════════════════
-// ── Language Engine ──
+// ── Language ──
 // ══════════════════════════════════════════════
-// Detect language from <html lang=""> attribute (set per language folder)
-const _htmlLang = document.documentElement.lang || 'fr';
+// Le site est localisé par l'URL : chaque langue a ses propres fichiers
+// (fr/ ar/ en/, blog/ar/, services/en/ …) déjà rédigés dans la bonne langue et
+// reliés par des balises hreflang. La langue de la page se lit donc sur
+// <html lang> et ne change JAMAIS côté client.
+//
+// ⚠️ Ne pas réintroduire de setLang() qui traduirait la page à la volée.
+// L'ancienne version écoutait le clic sur .lang-btn et se contentait de basculer
+// dir="rtl" + de réécrire les éléments [data-i18n] SANS changer d'URL. Sur les
+// 72 pages générées (articles et services), qui ne contiennent aucun [data-i18n],
+// le résultat était un article français affiché en RTL, et la traduction — qui
+// existe pourtant à blog/ar/<slug>.html — restait inaccessible.
+// Les .lang-btn sont désormais de vrais liens <a href> : le navigateur navigue,
+// il n'y a plus rien à intercepter.
+
 const _validLangs = ['fr', 'ar', 'en'];
-const _savedLang = localStorage.getItem('pp_lang');
-// If saved lang matches html lang → use saved. Otherwise use html lang (page-level override)
-let currentLang = (_savedLang && _validLangs.includes(_savedLang) && _savedLang === _htmlLang)
-  ? _savedLang
-  : (_validLangs.includes(_htmlLang) ? _htmlLang : 'fr');
+const _htmlLang = document.documentElement.lang || 'fr';
+const currentLang = _validLangs.includes(_htmlLang) ? _htmlLang : 'fr';
 
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('pp_lang', lang);
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+// Direction et classe RTL : déduites de la page servie, jamais d'un clic.
+document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+document.body.classList.toggle('rtl', currentLang === 'ar');
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const val = translations[lang]?.[el.dataset.i18n];
-    if (!val) return;
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else {
-      el.innerHTML = val;
-    }
-  });
-
-  document.body.classList.toggle('rtl', lang === 'ar');
-}
-
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.dataset.lang));
-});
-
-// Apply on load
-setLang(currentLang);
+// Mémorise la dernière langue réellement consultée, pour la redirection
+// automatique de la page d'accueil racine (index.html).
+try { localStorage.setItem('pp_lang', currentLang); } catch (e) {}
 
 // ══════════════════════════════════════════════
 // ── RTL Styles ──
