@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
+
+  <!-- ═══ SEO PRIMARY ═══ -->
+  <title>Our guides — ProfitPilot</title>
+  <meta name="description" content="In-depth, up-to-date guides on company formation, financing and statutory audit requirements in Algeria.">
+  <meta name="keywords" content="">
+  <meta name="author" content="BENSAID Farouk — ProfitPilot NextGen Consulting">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://profitpilot.dz/guides/en/index.html">
+  <link rel="alternate" hreflang="fr" href="https://profitpilot.dz/guides/index.html">
+  <link rel="alternate" hreflang="ar" href="https://profitpilot.dz/guides/ar/index.html">
+  <link rel="alternate" hreflang="en" href="https://profitpilot.dz/guides/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://profitpilot.dz/guides/index.html">
+
+  <!-- ═══ Open Graph ═══ -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Our guides — ProfitPilot">
+  <meta property="og:description" content="In-depth, up-to-date guides on company formation, financing and statutory audit requirements in Algeria.">
+  <meta property="og:url" content="https://profitpilot.dz/guides/en/index.html">
+  <meta property="og:site_name" content="ProfitPilot NextGen Consulting">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://profitpilot.dz/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our guides — ProfitPilot">
+  <meta name="twitter:description" content="In-depth, up-to-date guides on company formation, financing and statutory audit requirements in Algeria.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/logo.png">
+
+  <!-- ═══ Schema.org JSON-LD ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://profitpilot.dz/en/index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://profitpilot.dz/guides/en/index.html" }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="../../images/logo.png">
+  <link rel="stylesheet" href="../../css/style.css?v=19727428">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    /* ── Typographie arabe ──
+       Reprise ici et pas seulement dans css/style.css : les pages de la
+       boutique n'établissent pas de lien vers la feuille globale et
+       n'héritent donc d'aucune variable. Valeurs identiques des deux
+       côtés — l'ordre de cascade est sans effet. */
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+    [dir="rtl"] {
+      --font-display: 'Amiri', 'Playfair Display', serif;
+      --font-body:    'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      --font-accent:  'Amiri', 'Cormorant Garamond', serif;
+    }
+    [dir="rtl"] body { font-family: var(--font-body); }
+
+    /* ── Article Layout ── */
+    .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
+    .article-body { max-width: 760px; }
+    .article-body h2 { font-size: 1.7rem; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid rgba(155,77,192,0.15); }
+    .article-body h3 { font-size: 1.25rem; margin: 2rem 0 0.8rem; color: var(--purple-light); }
+    .article-body p  { font-size: 1.02rem; line-height: 1.85; color: var(--gray-light); margin-bottom: 1.3rem; }
+    .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.3rem; }
+    .article-body li { font-size: 0.98rem; color: var(--gray-light); line-height: 1.8; margin-bottom: 0.4rem; }
+    .article-body ul li::marker { color: var(--purple); }
+    .article-body ol li::marker { color: var(--purple); font-weight: 700; }
+    .article-body strong { color: var(--white); font-weight: 600; }
+    .article-body a { color: var(--purple-light); border-bottom: 1px solid rgba(155,77,192,0.3); transition: 0.2s; }
+    .article-body a:hover { color: var(--white); border-color: var(--purple-light); }
+
+    /* Highlight box */
+    .highlight-box {
+      background: rgba(155,77,192,0.08); border-left: 3px solid var(--purple);
+      border-radius: 0 8px 8px 0; padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .highlight-box.gold { background: rgba(201,168,76,0.07); border-color: var(--gold); }
+    .highlight-box p { margin: 0; font-size: 0.98rem; }
+
+    /* Table */
+    .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem; }
+    .data-table th { background: rgba(155,77,192,0.15); color: var(--purple-light); padding: 0.8rem 1rem; text-align: left; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); color: var(--gray-light); }
+    .data-table tr:hover td { background: var(--surface); }
+
+    /* Step cards */
+    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
+    .step-num { width: 44px; height: 44px; min-width: 44px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: white; }
+    .step-content h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .step-content p  { font-size: 0.9rem; margin: 0; }
+
+    /* Keywords cloud */
+    .kw-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
+    .kw-tag { font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 20px; background: rgba(155,77,192,0.1); color: var(--purple-light); border: 1px solid rgba(155,77,192,0.2); cursor: default; transition: 0.2s; }
+    .kw-tag:hover { background: rgba(155,77,192,0.2); }
+    .kw-tag.lg { font-size: 0.88rem; padding: 0.5rem 1.2rem; }
+    .kw-tag.sm { font-size: 0.7rem; padding: 0.3rem 0.8rem; opacity: 0.8; }
+
+    /* TOC */
+    .toc { background: var(--navy-mid); border: 1px solid rgba(155,77,192,0.2); border-radius: 12px; padding: 1.8rem; margin-bottom: 3rem; }
+    .toc h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; margin: 0; }
+    .toc li { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .toc a { color: var(--gray-light); border: none; }
+    .toc a:hover { color: var(--purple-light); }
+
+    /* Sidebar */
+    .sidebar-sticky { position: sticky; top: 7rem; }
+    .sidebar-widget { background: var(--navy-mid); border: 1px solid var(--border-mid); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
+    .sidebar-widget h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(155,77,192,0.15); }
+    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+    .related-link:last-child { border-bottom: none; }
+    .related-link .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .related-link a { font-size: 0.88rem; color: var(--gray-light); border: none; line-height: 1.4; }
+    .related-link a:hover { color: var(--purple-light); }
+
+    /* Author card */
+    .author-card { background: var(--navy-mid); border: 1px solid rgba(155,77,192,0.2); border-radius: 14px; padding: 2rem; margin-top: 3rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .author-photo { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid var(--purple); flex-shrink: 0; }
+    .author-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .author-info h4 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+    .author-info .role { font-size: 0.82rem; color: var(--purple-light); margin-bottom: 0.7rem; }
+    .author-info p { font-size: 0.88rem; margin: 0; }
+
+    /* Article header */
+    .article-header { margin-bottom: 2.5rem; }
+    .article-header h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid var(--border-mid); border-bottom: 1px solid var(--border-mid); margin-bottom: 2rem; }
+    .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+    /* FAQ section */
+    .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
+    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    .faq-q:hover { background: rgba(155,77,192,0.08); }
+    .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { color: var(--purple-light); font-size: 1.2rem; transition: 0.3s; }
+
+    @media(max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .sidebar-sticky { position: static; }
+    }
+  
+    /* ── RTL adjustments (generated) ── */
+    [dir="rtl"] .article-body ul, [dir="rtl"] .article-body ol { padding-left: 0; padding-right: 1.5rem; }
+    [dir="rtl"] .toc ol { padding-left: 0; padding-right: 1.2rem; }
+    [dir="rtl"] .data-table th { text-align: right; }
+    [dir="rtl"] .highlight-box { border-left: none; border-right: 3px solid var(--purple); border-radius: 8px 0 0 8px; }
+    [dir="rtl"] .highlight-box.gold { border-right-color: var(--gold); }
+    [dir="rtl"] .step-card { flex-direction: row; }
+    [dir="rtl"] .breadcrumb { direction: rtl; }
+
+    /* FAQ — l'accordéon suivait l'alignement latin : question et réponse
+       calées à gauche sur une page arabe. `.faq-q` est une boîte flex et
+       `.faq-a` un bloc de texte ; ni l'une ni l'autre ne portait de règle
+       d'alignement, et le premier élément de flex sans largeur explicite
+       ne se recale pas seul. On force donc l'alignement à droite, et on
+       laisse `justify-content: space-between` renvoyer l'icône du côté
+       opposé au texte, comme en mode latin mais en miroir. */
+    [dir="rtl"] .faq-q { text-align: right; }
+    [dir="rtl"] .faq-q > span:first-child { flex: 1; text-align: right; }
+    [dir="rtl"] .faq-a { text-align: right; }
+    [dir="rtl"] .faq-a p, [dir="rtl"] .faq-a li { text-align: right; }
+    [dir="rtl"] .faq-a ul, [dir="rtl"] .faq-a ol { padding-left: 0; padding-right: 1.5rem; }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MENU DÉROULANT « NOS GUIDES »
+       Alimenté par le registre build_article.GUIDES. Le panneau reste
+       dans le DOM et n'est masqué qu'en CSS : son contenu est ainsi lu
+       par les moteurs et les lecteurs d'écran, et aucun HTML n'est écrit
+       en JavaScript.
+       ══════════════════════════════════════════════════════════════════ */
+    .nav-links .has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-light); transition: var(--transition);
+    }
+    .nav-drop-btn:hover,
+    .has-dropdown.open > .nav-drop-btn,
+    .has-dropdown.active > .nav-drop-btn { color: var(--white); }
+    .nav-caret { font-size: 0.7rem; transition: transform 0.25s ease; }
+    .has-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 1.1rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 320px; max-width: min(92vw, 620px);
+      padding: 1.4rem 1.5rem 1.1rem;
+      background: var(--nav-bg-solid);
+      border: 1px solid var(--border-strong); border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 1200;
+    }
+    /* Pont invisible entre le bouton et le panneau : sans lui, le menu se
+       referme dès que le curseur traverse l'espace qui les sépare. */
+    .nav-dropdown::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: -1.2rem; height: 1.2rem;
+    }
+    .has-dropdown:hover > .nav-dropdown,
+    .has-dropdown:focus-within > .nav-dropdown,
+    .has-dropdown.open > .nav-dropdown {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-drop-head {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gray);
+      margin: 0 0 0.9rem;
+    }
+    .nav-drop-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.2rem;
+    }
+    .nav-drop-link {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.6rem 0.7rem; border-radius: 9px; border: none;
+      font-size: 0.9rem; text-transform: none; letter-spacing: 0;
+      color: var(--gray-light); line-height: 1.4;
+      transition: var(--transition);
+    }
+    .nav-drop-link:hover { background: var(--surface-3); color: var(--white); }
+    .nav-drop-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .nav-drop-all {
+      display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border-mid); border-bottom: none;
+      width: 100%; font-size: 0.8rem; color: var(--purple-light);
+      text-transform: none; letter-spacing: 0;
+    }
+    .nav-drop-all:hover { color: var(--white); }
+
+    /* Le panneau ne doit pas déborder de la fenêtre près du bord droit. */
+    [dir="rtl"] .nav-drop-link { text-align: right; }
+    [dir="rtl"] .nav-dropdown { text-align: right; }
+
+    /* Huit entrées de navigation : l'espacement de 2.5rem déborde en deçà
+       de 1200 px. On resserre avant de basculer sur le menu mobile. */
+    @media (max-width: 1200px) { .nav-links { gap: 1.5rem; } }
+    @media (max-width: 1024px) { .nav-links { gap: 1.1rem; } .nav-links a, .nav-drop-btn { font-size: 0.78rem; } }
+
+    /* Menu mobile : les guides sont listés à plat, en retrait. */
+    .mobile-menu .mobile-sub {
+      font-size: 0.92rem; opacity: 0.85; padding-left: 1.2rem;
+    }
+    [dir="rtl"] .mobile-menu .mobile-sub { padding-left: 0; padding-right: 1.2rem; }
+
+
+    /* ══════════════════════════════════════════════════════════════════
+       GUIDES — feuille propre aux pages pilier (guides/…)
+       Inlinée par build_guide.py APRÈS article.css, dont elle réutilise
+       .article-body, .highlight-box, .data-table, .faq-item, .step-card.
+
+       Règle du projet : aucune couleur de surface en dur. Tout passe par
+       les jetons de :root, sinon le mode clair perd contours et fonds.
+       ══════════════════════════════════════════════════════════════════ */
+
+    /* ── En-tête ── */
+    .guide-header { padding: 9rem 0 3rem; }
+    .guide-header h1 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.2; margin-top: 1.2rem; }
+    .guide-header .gold-line { margin: 1.2rem 0; }
+    .guide-lead { max-width: 780px; color: var(--gray-light); font-size: 1.05rem; }
+    .guide-meta {
+      display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.6rem;
+      padding-top: 1.2rem; border-top: 1px solid var(--border-mid);
+      font-size: 0.84rem; color: var(--gray);
+    }
+
+    /* ── Gabarit à trois colonnes ──
+       Le sommaire est une COLONNE, pas un encadré en tête d'article :
+       c'est ce qui distingue la lecture d'un guide (on saute au chapitre)
+       de celle d'un article (on lit au fil). */
+    .guide-section { padding: 0 0 6rem; }
+    .guide-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 1fr) 280px;
+      gap: 3rem; align-items: start;
+    }
+    .guide-main { max-width: none; }
+
+    /* ── Sommaire collant ── */
+    .guide-toc-col { position: sticky; top: 7rem; }
+    .guide-toc {
+      background: var(--navy-mid); border: 1px solid var(--border-mid);
+      border-radius: 12px; padding: 1.4rem 1.2rem;
+      max-height: calc(100vh - 9rem); overflow-y: auto;
+    }
+    .guide-toc h4 {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple-light);
+      margin-bottom: 1rem; padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--border-mid);
+    }
+    .guide-toc ol { list-style: none; padding: 0; margin: 0; }
+    .guide-toc li { margin-bottom: 0.15rem; }
+    .guide-toc a {
+      display: flex; gap: 0.6rem; align-items: baseline;
+      font-size: 0.83rem; line-height: 1.45; color: var(--gray-light);
+      border: none; padding: 0.45rem 0.5rem; border-radius: 7px;
+      transition: var(--transition);
+    }
+    .guide-toc a:hover { background: var(--surface-2); color: var(--white); }
+    /* Chapitre en cours de lecture — classe posée par js/main.js */
+    .guide-toc a.current { background: var(--surface-3); color: var(--white); }
+    .guide-toc a.current .toc-num { color: var(--gold); }
+    .toc-num {
+      font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+      color: var(--purple-light); flex-shrink: 0; min-width: 1.4em;
+    }
+    .guide-toc-back {
+      display: block; margin-top: 1rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border-mid);
+      font-size: 0.78rem; color: var(--gray); border-bottom: none;
+    }
+    .guide-toc-back:hover { color: var(--purple-light); }
+
+    /* ── Résumé + chapitres ── */
+    .guide-summary { margin-top: 0; }
+    .guide-chapter { scroll-margin-top: 6rem; }
+    .chapter-tag {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+      margin: 3rem 0 0.2rem;
+    }
+    .guide-chapter h2 {
+      font-size: 1.65rem; margin: 0.3rem 0 1.2rem;
+      padding-top: 0; border-top: none; scroll-margin-top: 6rem;
+    }
+    .guide-chapter:first-of-type .chapter-tag { margin-top: 2rem; }
+
+    /* ── L'essentiel en bref ── */
+    .guide-essentials {
+      background: var(--surface); border: 1px solid var(--border-mid);
+      border-radius: 14px; padding: 1.8rem 2rem; margin: 2.5rem 0;
+    }
+    .guide-essentials .ess-h {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple-light);
+      margin: 0 0 1.2rem; padding: 0; border: none;
+    }
+    .ess-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 2rem; }
+    .ess-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .ess-k {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--gray);
+    }
+    .ess-v { font-size: 0.95rem; color: var(--white); font-weight: 600; line-height: 1.5; }
+
+    /* ── Appel à l'action ── */
+    .guide-cta {
+      text-align: center; margin: 3.5rem 0; padding: 2.5rem;
+      background: var(--surface-2); border: 1px solid var(--border-strong);
+      border-radius: 16px;
+    }
+    .guide-cta h3 { margin-bottom: 0.6rem; }
+    .guide-cta p { color: var(--gray-light); margin-bottom: 1.6rem; }
+    .guide-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Aimant à prospects ──
+       Placé après le dernier chapitre et avant le CTA commercial : le lecteur
+       qui arrive là a fini sa lecture et cherche quoi faire ensuite. Le bloc
+       propose un outil, pas une prestation — l'offre commerciale suit juste
+       après, et deux demandes de la même nature côte à côte s'annulent. */
+    .guide-lead-magnet { margin: 3rem 0 0; padding: 2rem 2.2rem; }
+    .guide-lead-kicker {
+      display: inline-block; margin-bottom: 0.6rem;
+      font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+      font-weight: 700; color: var(--gold);
+    }
+    .guide-lead-magnet h3 { margin: 0 0 0.7rem; font-size: 1.22rem; }
+    .guide-lead-magnet p { margin-bottom: 1.1rem; }
+    .guide-lead-list { margin: 0 0 1.6rem; padding-left: 1.15rem; }
+    .guide-lead-list li { margin-bottom: 0.42rem; color: var(--gray-light); font-size: 0.94rem; }
+    [dir="rtl"] .guide-lead-list { padding-left: 0; padding-right: 1.15rem; }
+
+    /* ── Sources ── */
+    .guide-sources {
+      margin-top: 3rem; padding: 1.8rem 2rem;
+      background: var(--surface); border: 1px solid var(--border-mid); border-radius: 12px;
+    }
+    .guide-sources h3 { margin-top: 0; font-size: 1.02rem; }
+    .guide-sources ul { margin: 0; padding-left: 1.2rem; }
+    .guide-sources li { font-size: 0.87rem; margin-bottom: 0.6rem; }
+    .src-date { color: var(--gray); }
+
+    /* ── Blocs de maillage ── */
+    .internal-links-box {
+      margin-top: 2rem; padding: 1.5rem;
+      background: var(--surface); border: 1px solid var(--border-mid); border-radius: 12px;
+    }
+    .internal-links-box h4 { margin-bottom: 1rem; font-size: 0.95rem; color: var(--gold); }
+    .internal-links-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; padding: 0; margin: 0; }
+
+    /* ── Colonne latérale droite ── */
+    .guide-side { position: sticky; top: 7rem; }
+    .guide-side-cta { background: var(--surface-2); border-color: var(--border-strong); }
+    .guide-side-cta p { font-size: 0.87rem; color: var(--gray-light); margin-bottom: 1.2rem; }
+    .guide-side-cta .btn { width: 100%; justify-content: center; font-size: 0.84rem; }
+    .guide-side-tel {
+      display: block; margin-top: 1rem; text-align: center;
+      font-size: 0.82rem; color: var(--purple-light); border: none;
+    }
+
+    /* ── Index des guides ── */
+    .guide-index-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.6rem; padding-top: 1rem;
+    }
+    .guide-card {
+      display: flex; flex-direction: column; gap: 0.7rem;
+      background: var(--navy-mid); border: 1px solid var(--border-mid);
+      border-radius: 14px; padding: 1.8rem; border-bottom: 1px solid var(--border-mid);
+      transition: var(--transition);
+    }
+    .guide-card:hover { border-color: var(--purple); box-shadow: var(--shadow-card); transform: translateY(-3px); }
+    .guide-card-icon { font-size: 1.9rem; }
+    .guide-card h3 { font-size: 1.12rem; margin: 0; color: var(--white); }
+    .guide-card p { font-size: 0.9rem; color: var(--gray-light); margin: 0; line-height: 1.65; }
+    .guide-card-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; margin-top: auto; padding-top: 1rem;
+      border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--gray);
+    }
+    .guide-card-cta { color: var(--purple-light); font-weight: 600; }
+    .guide-empty { color: var(--gray-light); }
+
+    /* ── RTL ── */
+    [dir="rtl"] .guide-sources ul { padding-left: 0; padding-right: 1.2rem; }
+    [dir="rtl"] .guide-toc a { text-align: right; }
+    [dir="rtl"] .guide-card { text-align: right; }
+
+    /* ── Adaptatif ──
+       Sous 1200 px, le sommaire latéral cesse d'être une colonne et
+       repasse en encadré au-dessus du texte : à cette largeur, trois
+       colonnes réduisent la ligne de texte sous le seuil de lisibilité. */
+    @media (max-width: 1200px) {
+      .guide-layout { grid-template-columns: 220px minmax(0, 1fr); }
+      .guide-side { position: static; grid-column: 1 / -1; }
+      .guide-side .sidebar-widget { max-width: 100%; }
+    }
+    @media (max-width: 900px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .guide-toc-col { position: static; }
+      .guide-toc { max-height: none; }
+      .ess-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../../en/index.html" class="nav-logo"><img src="../../images/logo.png" alt="ProfitPilot NextGen Consulting"></a>
+    <ul class="nav-links">
+      <li><a href="../../en/index.html">Home</a></li>
+      <li><a href="../../en/about.html">About</a></li>
+      <li><a href="../../en/services.html">Services</a></li>
+      <li><a href="../../en/portfolio.html">Portfolio</a></li>
+      <li class="nav-item has-dropdown active">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-en"
+                aria-label="Open the guides menu">Guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-en" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../../guides/en/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Setting up a SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../../guides/en/index.html">All guides →</a>
+        </div>
+      </li>
+      <li><a href="../../boutique/en/index.html">Shop</a></li>
+      <li><a href="../../en/blog.html">Blog</a></li>
+      <li><a href="../../en/contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="nav-lang"><a class="lang-btn" href="../../guides/index.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a><a class="lang-btn" href="../../guides/ar/index.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span><button type="button" class="theme-btn" id="themeToggle" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button></div>
+      <a href="../../en/contact.html" class="btn btn-gold nav-cta">Book a Call</a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu"><span class="mobile-close">✕</span>
+  <a href="../../en/index.html">Home</a>
+  <a href="../../en/about.html">About</a>
+  <a href="../../en/services.html">Services</a>
+  <a href="../../en/portfolio.html">Portfolio</a>
+  <a href="../../guides/en/index.html">Guides</a>
+  <a class="mobile-sub" href="../../guides/en/creer-une-sarl-algerie.html">📘 Setting up a SARL</a>
+  <a href="../../boutique/en/index.html">Shop</a>
+  <a href="../../en/blog.html">Blog</a>
+  <a href="../../en/contact.html">Contact</a>
+</div>
+
+<!-- EN-TÊTE -->
+<div class="page-header guide-header">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <div class="breadcrumb">
+        <a href="../../en/index.html">Home</a><span>/</span>
+        <span>Guides</span>
+      </div>
+    </nav>
+    <h1>Our guides</h1>
+    <div class="gold-line"></div>
+    <p class="guide-lead">In-depth, regularly updated briefings on the legal and financial decisions that commit a company in Algeria.</p>
+  </div>
+</div>
+<section class="guide-section">
+  <div class="container">
+    <div class="guide-index-grid">
+        <a class="guide-card" href="../../guides/en/creer-une-sarl-algerie.html">
+          <span class="guide-card-icon" aria-hidden="true">📘</span>
+          <h3>Setting up a SARL in Algeria</h3>
+          <p>Capital, partners, management, CNRC procedure, costs, tax and the statutory audit threshold — the full briefing, with sources.</p>
+          <span class="guide-card-foot"><span>Updated : August 2026</span><span class="guide-card-cta">Read the guide →</span></span>
+        </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><img src="../../images/logo.png" alt="ProfitPilot NextGen Consulting"><p>Expert in financial, economic and marketing studies in Algeria.</p></div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="../../en/index.html">Home</a></li><li><a href="../../en/about.html">About</a></li>
+        <li><a href="../../en/services.html">Services</a></li>
+        <li><a href="../../guides/en/index.html">Guides</a></li>
+        <li><a href="../../boutique/en/index.html">Shop</a></li><li><a href="../../en/blog.html">Blog</a></li>
+        <li><a href="../../en/contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Recent articles</h5><ul>
+
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
+        <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
+        <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Algiers</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ProfitPilot NextGen Consulting. All rights reserved.</span>
+      <span>NIF: 18716200026511241680</span>
+    </div>
+  </div>
+</footer>
+
+<!-- L'accordéon FAQ, le menu mobile et le menu déroulant des guides sont
+     gérés par js/main.js. Ne PAS rebinder ici : un second écouteur ferait
+     basculer la classe deux fois par clic. -->
+<script src="../../js/main.js"></script>
+</body>
+</html>

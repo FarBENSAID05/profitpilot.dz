@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>Contact — Consultation Gratuite | ProfitPilot Algérie | +213 550 02 02 87</title>
   <meta name="description" content="Contactez ProfitPilot pour une première consultation gratuite. Réponse sous 24h. +213 550 02 02 87. contact@profitpilot.dz.">
   <meta name="keywords" content="contact consultant financier algérie, prendre rendez-vous expert financier algérie, consultation gratuite études financières algérie, BENSAID Farouk contact, ProfitPilot algérie contact, expert financier alger téléphone">
@@ -107,7 +109,7 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
 
   <!-- LocalBusiness Schema — boost local SEO Algérie -->
 <script type="application/ld+json">
@@ -184,6 +186,18 @@
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li><li><a href="a-propos.html">À propos</a></li>
       <li><a href="services.html">Services</a></li><li><a href="realisations.html">Réalisations</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-fr"
+                aria-label="Ouvrir le menu des guides">Nos guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-fr" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Créer une SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/index.html">Tous les guides →</a>
+        </div>
+      </li>
       <li><a href="blog.html">Blog</a></li><li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
@@ -191,14 +205,22 @@
         <span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span>
         <a class="lang-btn" href="../ar/تواصل-معنا.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a>
         <a class="lang-btn" href="../en/contact.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
+
   <a href="index.html">Accueil</a><a href="a-propos.html">À propos</a>
   <a href="services.html">Services</a><a href="realisations.html">Réalisations</a>
+
+
+
+
+  <a href="../guides/index.html">Nos guides</a>
+  <a class="mobile-sub" href="../guides/creer-une-sarl-algerie.html">📘 Créer une SARL</a>
   <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
 </div>
 
@@ -227,7 +249,7 @@
             <div class="contact-icon">📞</div>
             <div>
               <h4>Téléphone / WhatsApp</h4>
-              <p><a href="tel:+213550020287" style="color:var(--white);">+213 550 02 02 87</a></p>
+              <p><a href="tel:+213550020287" dir="ltr" style="color:var(--white);">+213 550 02 02 87</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -339,7 +361,7 @@
 <!-- Carte -->
 <section style="padding:0 0 5rem;">
   <div class="container">
-    <div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;height:350px;display:flex;align-items:center;justify-content:center;position:relative;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-mid);border-radius:14px;overflow:hidden;height:350px;display:flex;align-items:center;justify-content:center;position:relative;">
       <div style="text-align:center;z-index:2;">
         <div style="font-size:3rem;margin-bottom:1rem;">📍</div>
         <h4>Cité Soummam Bloc 21, Bab Ezzouar</h4>
@@ -368,13 +390,13 @@
         <li><a href="../services/conseil-financier.html">Études Marketing</a></li><li><a href="../services/conseil-financier.html">Études Économiques</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Alger</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
       <span>NIF : 18716200026511241680</span>
     </div>
   </div>

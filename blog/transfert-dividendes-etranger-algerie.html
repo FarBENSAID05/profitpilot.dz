@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
 
   <!-- ═══ SEO PRIMARY ═══ -->
   <title>Transfert des dividendes en Algérie : la garantie se joue avant</title>
@@ -120,9 +122,22 @@
   </script>
 
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <style>
+    /* ── Typographie arabe ──
+       Reprise ici et pas seulement dans css/style.css : les pages de la
+       boutique n'établissent pas de lien vers la feuille globale et
+       n'héritent donc d'aucune variable. Valeurs identiques des deux
+       côtés — l'ordre de cascade est sans effet. */
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+    [dir="rtl"] {
+      --font-display: 'Amiri', 'Playfair Display', serif;
+      --font-body:    'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      --font-accent:  'Amiri', 'Cormorant Garamond', serif;
+    }
+    [dir="rtl"] body { font-family: var(--font-body); }
+
     /* ── Article Layout ── */
     .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
     .article-body { max-width: 760px; }
@@ -148,11 +163,11 @@
     /* Table */
     .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem; }
     .data-table th { background: rgba(155,77,192,0.15); color: var(--purple-light); padding: 0.8rem 1rem; text-align: left; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
-    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--gray-light); }
-    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); color: var(--gray-light); }
+    .data-table tr:hover td { background: var(--surface); }
 
     /* Step cards */
-    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
+    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
     .step-num { width: 44px; height: 44px; min-width: 44px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: white; }
     .step-content h4 { font-size: 1rem; margin-bottom: 0.4rem; }
     .step-content p  { font-size: 0.9rem; margin: 0; }
@@ -174,9 +189,9 @@
 
     /* Sidebar */
     .sidebar-sticky { position: sticky; top: 7rem; }
-    .sidebar-widget { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
+    .sidebar-widget { background: var(--navy-mid); border: 1px solid var(--border-mid); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
     .sidebar-widget h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(155,77,192,0.15); }
-    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
     .related-link:last-child { border-bottom: none; }
     .related-link .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
     .related-link a { font-size: 0.88rem; color: var(--gray-light); border: none; line-height: 1.4; }
@@ -193,11 +208,11 @@
     /* Article header */
     .article-header { margin-bottom: 2.5rem; }
     .article-header h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
-    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid var(--border-mid); border-bottom: 1px solid var(--border-mid); margin-bottom: 2rem; }
     .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
 
     /* FAQ section */
-    .faq-item { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
+    .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
     .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
@@ -218,6 +233,107 @@
     [dir="rtl"] .highlight-box.gold { border-right-color: var(--gold); }
     [dir="rtl"] .step-card { flex-direction: row; }
     [dir="rtl"] .breadcrumb { direction: rtl; }
+
+    /* FAQ — l'accordéon suivait l'alignement latin : question et réponse
+       calées à gauche sur une page arabe. `.faq-q` est une boîte flex et
+       `.faq-a` un bloc de texte ; ni l'une ni l'autre ne portait de règle
+       d'alignement, et le premier élément de flex sans largeur explicite
+       ne se recale pas seul. On force donc l'alignement à droite, et on
+       laisse `justify-content: space-between` renvoyer l'icône du côté
+       opposé au texte, comme en mode latin mais en miroir. */
+    [dir="rtl"] .faq-q { text-align: right; }
+    [dir="rtl"] .faq-q > span:first-child { flex: 1; text-align: right; }
+    [dir="rtl"] .faq-a { text-align: right; }
+    [dir="rtl"] .faq-a p, [dir="rtl"] .faq-a li { text-align: right; }
+    [dir="rtl"] .faq-a ul, [dir="rtl"] .faq-a ol { padding-left: 0; padding-right: 1.5rem; }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MENU DÉROULANT « NOS GUIDES »
+       Alimenté par le registre build_article.GUIDES. Le panneau reste
+       dans le DOM et n'est masqué qu'en CSS : son contenu est ainsi lu
+       par les moteurs et les lecteurs d'écran, et aucun HTML n'est écrit
+       en JavaScript.
+       ══════════════════════════════════════════════════════════════════ */
+    .nav-links .has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-light); transition: var(--transition);
+    }
+    .nav-drop-btn:hover,
+    .has-dropdown.open > .nav-drop-btn,
+    .has-dropdown.active > .nav-drop-btn { color: var(--white); }
+    .nav-caret { font-size: 0.7rem; transition: transform 0.25s ease; }
+    .has-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 1.1rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 320px; max-width: min(92vw, 620px);
+      padding: 1.4rem 1.5rem 1.1rem;
+      background: var(--nav-bg-solid);
+      border: 1px solid var(--border-strong); border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 1200;
+    }
+    /* Pont invisible entre le bouton et le panneau : sans lui, le menu se
+       referme dès que le curseur traverse l'espace qui les sépare. */
+    .nav-dropdown::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: -1.2rem; height: 1.2rem;
+    }
+    .has-dropdown:hover > .nav-dropdown,
+    .has-dropdown:focus-within > .nav-dropdown,
+    .has-dropdown.open > .nav-dropdown {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-drop-head {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gray);
+      margin: 0 0 0.9rem;
+    }
+    .nav-drop-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.2rem;
+    }
+    .nav-drop-link {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.6rem 0.7rem; border-radius: 9px; border: none;
+      font-size: 0.9rem; text-transform: none; letter-spacing: 0;
+      color: var(--gray-light); line-height: 1.4;
+      transition: var(--transition);
+    }
+    .nav-drop-link:hover { background: var(--surface-3); color: var(--white); }
+    .nav-drop-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .nav-drop-all {
+      display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border-mid); border-bottom: none;
+      width: 100%; font-size: 0.8rem; color: var(--purple-light);
+      text-transform: none; letter-spacing: 0;
+    }
+    .nav-drop-all:hover { color: var(--white); }
+
+    /* Le panneau ne doit pas déborder de la fenêtre près du bord droit. */
+    [dir="rtl"] .nav-drop-link { text-align: right; }
+    [dir="rtl"] .nav-dropdown { text-align: right; }
+
+    /* Huit entrées de navigation : l'espacement de 2.5rem déborde en deçà
+       de 1200 px. On resserre avant de basculer sur le menu mobile. */
+    @media (max-width: 1200px) { .nav-links { gap: 1.5rem; } }
+    @media (max-width: 1024px) { .nav-links { gap: 1.1rem; } .nav-links a, .nav-drop-btn { font-size: 0.78rem; } }
+
+    /* Menu mobile : les guides sont listés à plat, en retrait. */
+    .mobile-menu .mobile-sub {
+      font-size: 0.92rem; opacity: 0.85; padding-left: 1.2rem;
+    }
+    [dir="rtl"] .mobile-menu .mobile-sub { padding-left: 0; padding-right: 1.2rem; }
 </style>
 </head>
 <body>
@@ -231,19 +347,38 @@
       <li><a href="../fr/a-propos.html">À propos</a></li>
       <li><a href="../fr/services.html">Services</a></li>
       <li><a href="../fr/realisations.html">Réalisations</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-fr"
+                aria-label="Ouvrir le menu des guides">Nos guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-fr" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Créer une SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/index.html">Tous les guides →</a>
+        </div>
+      </li>
+      <li><a href="../boutique/index.html">Boutique</a></li>
       <li><a href="../fr/blog.html" class="active">Blog</a></li>
       <li><a href="../fr/contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="nav-lang"><span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span><a class="lang-btn" href="../blog/ar/transfert-dividendes-etranger-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><a class="lang-btn" href="../blog/en/transfert-dividendes-etranger-algerie.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a></div>
+      <div class="nav-lang"><span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span><a class="lang-btn" href="../blog/ar/transfert-dividendes-etranger-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><a class="lang-btn" href="../blog/en/transfert-dividendes-etranger-algerie.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a><button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button></div>
       <a href="../fr/contact.html" class="btn btn-gold nav-cta">Prendre RDV</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
-  <a href="../fr/index.html">Accueil</a><a href="../fr/a-propos.html">À propos</a>
-  <a href="../fr/services.html">Services</a><a href="../fr/blog.html">Blog</a>
+  <a href="../fr/index.html">Accueil</a>
+  <a href="../fr/a-propos.html">À propos</a>
+  <a href="../fr/services.html">Services</a>
+  <a href="../fr/realisations.html">Réalisations</a>
+  <a href="../guides/index.html">Nos guides</a>
+  <a class="mobile-sub" href="../guides/creer-une-sarl-algerie.html">📘 Créer une SARL</a>
+  <a href="../boutique/index.html">Boutique</a>
+  <a href="../fr/blog.html">Blog</a>
   <a href="../fr/contact.html">Contact</a>
 </div>
 
@@ -499,35 +634,35 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q">Un investisseur étranger peut-il détenir 100 % d&#x27;une société algérienne ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Un investisseur étranger peut-il détenir 100 % d&#x27;une société algérienne ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Dans les secteurs non stratégiques, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020 et ne s'applique plus qu'aux activités listées par le décret exécutif n° 21-145 du 17 avril 2021 ainsi qu'à l'importation pour revente en l'état. Le choix de la forme sociale est une question distincte : lorsque l'associé étranger est lui-même une société à responsabilité limitée, la structure unipersonnelle peut ne pas être ouverte, point à trancher avec le notaire.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Quel est le seuil minimum de financement extérieur pour la garantie de transfert ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Quel est le seuil minimum de financement extérieur pour la garantie de transfert ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">25 % du coût total de l'investissement, calculé sur la part de financement d'origine étrangère revenant aux investisseurs. Ce seuil est fixé par le décret exécutif n° 22-300 du 8 septembre 2022, pris pour l'application de l'article 8 de la loi n° 22-18.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Que se passe-t-il si l&#x27;investissement est en dessous du seuil de 25 % ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Que se passe-t-il si l&#x27;investissement est en dessous du seuil de 25 % ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">L'investissement conserve les avantages auxquels il a droit. Ce qu'il perd, c'est la garantie de transfert prévue par l'article 8 de la loi n° 22-18, c'est-à-dire le droit de transférer à l'étranger le capital investi et les revenus qui en découlent.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Dans quel délai un dividende doit-il être mis en paiement ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Dans quel délai un dividende doit-il être mis en paiement ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">L'article 724 du code de commerce algérien impose la mise en paiement dans les neuf mois de la clôture de l'exercice. Pour un exercice clos au 31 décembre, l'échéance tombe fin septembre. Au-delà, une prorogation doit être obtenue par décision de justice.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Quelle retenue à la source s&#x27;applique aux dividendes transférés à un associé étranger ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Quelle retenue à la source s&#x27;applique aux dividendes transférés à un associé étranger ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Une retenue à la source de 15 %, opérée lors du paiement et libératoire. Qu'une convention de non-double imposition la réduise dépend entièrement de la convention : certaines prévoient un taux réduit pour les participations qualifiées, d'autres plafonnent le taux de l'État de la source au même niveau de 15 % que le droit interne et ne procurent donc aucun avantage.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Une réserve du commissaire aux comptes peut-elle empêcher un transfert de dividendes ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Une réserve du commissaire aux comptes peut-elle empêcher un transfert de dividendes ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Le dossier de transfert exige le rapport du commissaire aux comptes certifiant la sincérité et la régularité des comptes, et ce rapport est attendu sans réserve. Lorsque des réserves existent, une attestation complémentaire du commissaire aux comptes indiquant qu'elles ne sont pas bloquantes pour le transfert est requise. Les réserves doivent donc être anticipées bien avant la clôture.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">La garantie couvre-t-elle la vente de la société, ou seulement les dividendes ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>La garantie couvre-t-elle la vente de la société, ou seulement les dividendes ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Elle couvre les deux. L'article 8 de la loi n° 22-18 étend la garantie aux produits réels nets de la cession et de la liquidation des investissements d'origine étrangère, même lorsque leur montant est supérieur au capital initialement investi.</div>
         </div>
 
-        <div style="margin-top:3rem;padding:1.8rem 2rem;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.07);">
+        <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">
           <h3 style="margin-top:0;font-size:1.05rem;">🔎 Sources et références</h3>
           <ul style="margin:0;padding-left:1.2rem;">
             <li style="margin-bottom:0.6rem;font-size:0.88rem;">Loi n° 22-18 du 24 juillet 2022 relative à l&#x27;investissement — article 8 (garantie de transfert du capital et des revenus) — <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener nofollow">Journal officiel de la République algérienne n° 50 du 28 juillet 2022</a><span style="color:var(--gray);"> · Vérifié le 04/08/2026</span></li>
@@ -569,12 +704,13 @@
           <p style="font-size:0.88rem;margin-bottom:1.2rem;color:var(--gray-light);">Revue de votre structure de capital, de votre objet social et de vos justificatifs bancaires, du point de vue du dossier de transfert que vous déposerez dans trois ans. Première consultation gratuite.</p>
           <a href="../services/investisseur-etranger.html" class="btn btn-gold" style="width:100%;justify-content:center;font-size:0.85rem;">Faire auditer ma structure →</a>
           <div style="margin-top:1rem;text-align:center;">
-            <a href="tel:+213550020287" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
+            <a href="tel:+213550020287" dir="ltr" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
           </div>
         </div>
 
         <div class="sidebar-widget">
           <h5>Articles connexes</h5>
+          <div class="related-link"><span class="icon">🧮</span><div><a href="structurer-financement-investisseur-etranger-algerie.html">Financer sa société en Algérie : l&#x27;argent qui pourra ressortir, et celui qui restera</a></div></div>
           <div class="related-link"><span class="icon">🏗️</span><div><a href="creation-societe-investisseur-etranger-algerie.html">Créer une société en Algérie quand on est étranger</a></div></div>
           <div class="related-link"><span class="icon">🏛️</span><div><a href="guichet-unique-aapi-delais-2026.html">Le guichet unique AAPI et ses délais</a></div></div>
           <div class="related-link"><span class="icon">🏗️</span><div><a href="etude-technico-economique-plan-type-aapi.html">Le plan-type officiel de l&#x27;étude technico-économique</a></div></div>
@@ -584,9 +720,9 @@
         <div class="sidebar-widget">
           <h5>Nos Services</h5>
           <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Financières</a></li>
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Analyse des Risques</a></li>
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Marketing</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Financières</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Analyse des Risques</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Marketing</a></li>
             <li style="padding:0.5rem 0;font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Économiques</a></li>
           </ul>
         </div>
@@ -601,7 +737,8 @@
       <div class="footer-brand"><img src="../images/logo.png" alt="ProfitPilot NextGen Consulting"><p>Expert en études financières, économiques et marketing en Algérie.</p></div>
       <div class="footer-col"><h5>Navigation</h5><ul>
         <li><a href="../fr/index.html">Accueil</a></li><li><a href="../fr/a-propos.html">À propos</a></li>
-        <li><a href="../fr/services.html">Services</a></li><li><a href="../fr/blog.html">Blog</a></li>
+        <li><a href="../fr/services.html">Services</a></li>
+        <li><a href="../boutique/index.html">Boutique</a></li><li><a href="../fr/blog.html">Blog</a></li>
         <li><a href="../fr/contact.html">Contact</a></li>
       </ul></div>
       <div class="footer-col"><h5>Articles récents</h5><ul>
@@ -611,13 +748,13 @@
         <li><a href="cout-de-revient-reel-import-algerie.html">Le vrai coût de revient à l&#x27;import</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Alger</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
       <span>NIF : 18716200026511241680</span>
     </div>
   </div>

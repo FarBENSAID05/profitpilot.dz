@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>إنجازاتنا — مهام ProfitPilot في الجزائر | دراسات مالية</title>
   <meta name="description" content="اكتشف المهام المنجزة من ProfitPilot: مخططات أعمال، دراسات سوق، تحليل مخاطر للمؤسسات في الجزائر.">
   <meta name="keywords" content="إنجازات دراسات مالية الجزائر، مهام مستشار مالي الجزائر، مخطط أعمال منجز الجزائر، دراسة سوق منجزة الجزائر، مراجع مستشار الجزائر، مشاريع ProfitPilot الجزائر">
@@ -71,13 +73,13 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <style>
     .filter-bar {
       display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem; justify-content: center;
     }
     .filter-btn {
-      padding: 0.55rem 1.4rem; border-radius: 30px; border: 1.5px solid rgba(255,255,255,0.12);
+      padding: 0.55rem 1.4rem; border-radius: 30px; border: 1.5px solid var(--border-strong);
       background: transparent; color: var(--gray-light); font-size: 0.85rem; font-weight: 600;
       cursor: pointer; transition: var(--transition); font-family: var(--font-body);
     }
@@ -86,7 +88,7 @@
     }
     .portfolio-full-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .pf-card {
-      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      background: var(--navy-mid); border: 1px solid var(--border-mid);
       border-radius: 14px; padding: 2.5rem; transition: var(--transition); position: relative; overflow: hidden;
     }
     .pf-card::after {
@@ -109,11 +111,11 @@
     .pf-services ul { list-style: none; }
     .pf-services ul li {
       font-size: 0.88rem; color: var(--gray-light); padding: 0.35rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.6rem;
+      border-bottom: 1px solid var(--surface); display: flex; align-items: center; gap: 0.6rem;
     }
     .pf-services ul li::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
-    .pf-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.07); }
-    .pf-amount { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    .pf-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid var(--border-mid); }
+    .pf-impact { font-size: 0.9rem; font-weight: 600; color: var(--gold); line-height: 1.4; max-width: 62%; }
     .pf-status {
       font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px;
     }
@@ -204,6 +206,18 @@
     <ul class="nav-links">
       <li><a href="index.html">الرئيسية</a></li><li><a href="من-نحن.html">من نحن</a></li>
       <li><a href="الخدمات.html">الخدمات</a></li><li><a href="انجازاتنا.html" class="active">إنجازاتنا</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-ar"
+                aria-label="فتح قائمة الأدلّة">أدلّتنا<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-ar" role="menu">
+          <p class="nav-drop-head">الأدلّة</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/ar/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>إنشاء شركة ذات مسؤولية محدودة (SARL)</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/ar/index.html">كل الأدلّة ←</a>
+        </div>
+      </li>
       <li><a href="المدونة.html">المدونة</a></li><li><a href="تواصل-معنا.html">تواصل معنا</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
@@ -211,6 +225,7 @@
         <a class="lang-btn" href="../fr/realisations.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <span class="lang-btn active" aria-current="page" lang="ar" title="العربية">AR</span>
         <a class="lang-btn" href="../en/portfolio.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="التبديل بين الوضع الداكن والوضع الفاتح" aria-label="التبديل بين الوضع الداكن والوضع الفاتح"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="تواصل-معنا.html" class="btn btn-gold nav-cta">احجز موعداً</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
@@ -218,8 +233,15 @@
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
+
   <a href="index.html">الرئيسية</a><a href="من-نحن.html">من نحن</a>
   <a href="الخدمات.html">الخدمات</a><a href="انجازاتنا.html">إنجازاتنا</a>
+
+
+
+
+  <a href="../guides/ar/index.html">أدلّتنا</a>
+  <a class="mobile-sub" href="../guides/ar/creer-une-sarl-algerie.html">📘 إنشاء شركة ذات مسؤولية محدودة (SARL)</a>
   <a href="المدونة.html">المدونة</a><a href="تواصل-معنا.html">تواصل معنا</a>
 </div>
 
@@ -237,10 +259,9 @@
 <div class="stats-band">
   <div class="container">
     <div class="stats-row">
-      <div class="stat-item"><div class="stat-num"><span data-target="14" data-suffix="+">0+</span></div><div class="stat-label">مهمة منجزة</div></div>
-      <div class="stat-item"><div class="stat-num"><span data-target="10" data-suffix="">0</span></div><div class="stat-label">عملاء راضون</div></div>
-      <div class="stat-item"><div class="stat-num"><span data-target="6" data-suffix="">0</span></div><div class="stat-label">القطاعات المغطّاة</div></div>
-      <div class="stat-item"><div class="stat-num">+14M</div><div class="stat-label">دج قيمة المهام</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="14" data-suffix="+">14+</span></div><div class="stat-label">مهمة منجزة</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="10" data-suffix="">10</span></div><div class="stat-label">عملاء راضون</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="6" data-suffix="">6</span></div><div class="stat-label">القطاعات المغطّاة</div></div>
     </div>
   </div>
 </div>
@@ -263,8 +284,8 @@
           <span class="pf-sector">استيراد / تصدير</span>
           <span class="pf-year">نوفمبر 2024</span>
         </div>
-        <div class="pf-client">SARL ECC</div>
-        <div class="pf-location">📍 المنطقة الصناعية بجاية</div>
+        <div class="pf-client">مستورد تجهيزات طبية</div>
+        <div class="pf-location">📍 بجاية</div>
         <p class="pf-description">خدمات استشارية لاستيراد التجهيزات الطبية تشمل ثلاث دراسات تكميلية.</p>
         <div class="pf-services">
           <h5>مهمة منجزة</h5>
@@ -275,8 +296,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">2 500 000 دج</div>
-          <span class="pf-status status-ok">✓ مُسدَّد</span>
+          <div class="pf-impact">ملف استيراد مؤمَّن</div>
+          <span class="pf-status status-ok">✓ مهمة منجزة</span>
         </div>
       </div>
 
@@ -286,8 +307,8 @@
           <span class="pf-sector">استيراد / تصدير</span>
           <span class="pf-year">أكتوبر 2024</span>
         </div>
-        <div class="pf-client">SARL ESCLAB</div>
-        <div class="pf-location">📍 المنطقة الصناعية SOMACOB، بجاية</div>
+        <div class="pf-client">مستورد تجهيزات مخبرية</div>
+        <div class="pf-location">📍 بجاية</div>
         <p class="pf-description">استشارة متكاملة لاستيراد التجهيزات المخبرية مع تحليل المطابقة واستراتيجية السوق.</p>
         <div class="pf-services">
           <h5>مهمة منجزة</h5>
@@ -298,8 +319,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">1 500 000 دج</div>
-          <span class="pf-status status-ok">✓ مُسدَّد</span>
+          <div class="pf-impact">مطابقة مُثبتة وتموقع محدَّد</div>
+          <span class="pf-status status-ok">✓ مهمة منجزة</span>
         </div>
       </div>
 
@@ -309,8 +330,8 @@
           <span class="pf-sector">البناء والري</span>
           <span class="pf-year">2025 — 3 مراحل</span>
         </div>
-        <div class="pf-client">OULMI Mohamed Lamine</div>
-        <div class="pf-location">📍 بريكة، ولاية باتنة</div>
+        <div class="pf-client">مستثمر — أشغال عمومية وريّ</div>
+        <div class="pf-location">📍 ولاية باتنة</div>
         <p class="pf-description">مرافقة على ثلاث مراحل لمشروع استثماري في التجهيزات الثقيلة والعتاد الهيدروليكي.</p>
         <div class="pf-services">
           <h5>المهام المنجزة (3 مراحل)</h5>
@@ -321,8 +342,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">4 000 000 دج</div>
-          <span class="pf-status status-pending">⏳ قيد الإنجاز</span>
+          <div class="pf-impact">مخطط تمويل بنكي مهيكل</div>
+          <span class="pf-status status-pending">⏳ مهمة قيد الإنجاز</span>
         </div>
       </div>
 
@@ -332,7 +353,7 @@
           <span class="pf-sector">استيراد / تصدير</span>
           <span class="pf-year">جانفي — ماي 2025</span>
         </div>
-        <div class="pf-client">SARL TRANSIT BOUDEBZA</div>
+        <div class="pf-client">وكيل عبور جمركي</div>
         <div class="pf-location">📍 بجاية</div>
         <p class="pf-description">مرافقة مالية عبر ثلاث مهام منفصلة لفائدة وكيل جمركي.</p>
         <div class="pf-services">
@@ -344,8 +365,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">1 400 000 دج</div>
-          <span class="pf-status status-ok">✓ مُسدَّد</span>
+          <div class="pf-impact">إعادة هيكلة الخزينة واحتياج رأس المال العامل</div>
+          <span class="pf-status status-ok">✓ مهمة منجزة</span>
         </div>
       </div>
 
@@ -355,8 +376,8 @@
           <span class="pf-sector">الصناعات الغذائية</span>
           <span class="pf-year">جوان 2025</span>
         </div>
-        <div class="pf-client">SARL FUTURE GRAIN SAHARIENNE</div>
-        <div class="pf-location">📍 حاسي مسعود، ورقلة</div>
+        <div class="pf-client">مؤسسة تهيئة فلاحية</div>
+        <div class="pf-location">📍 ولاية ورقلة</div>
         <p class="pf-description">مرافقة في إنشاء وهيكلة مؤسسة للتهيئة الفلاحية.</p>
         <div class="pf-services">
           <h5>مهمة منجزة</h5>
@@ -367,8 +388,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">700 000 دج</div>
-          <span class="pf-status status-ok">✓ مُسدَّد</span>
+          <div class="pf-impact">هيكلة مكتملة وانطلاق تشغيلي</div>
+          <span class="pf-status status-ok">✓ مهمة منجزة</span>
         </div>
       </div>
 
@@ -378,8 +399,8 @@
           <span class="pf-sector">التجارة</span>
           <span class="pf-year">فيفري 2024</span>
         </div>
-        <div class="pf-client">BERRI BOUZID</div>
-        <div class="pf-location">📍 المنطقة النشاطات القصر، بجاية</div>
+        <div class="pf-client">تاجر جملة مواد غذائية</div>
+        <div class="pf-location">📍 بجاية</div>
         <p class="pf-description">تحليل الأسعار ودراسة المنافسة واستراتيجيات تحسين المبيعات لتاجر جملة في المواد الغذائية.</p>
         <div class="pf-services">
           <h5>مهمة منجزة</h5>
@@ -389,8 +410,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">300 000 دج</div>
-          <span class="pf-status status-ok">✓ مُسدَّد</span>
+          <div class="pf-impact">سياسة أسعار وهوامش مُراجَعة</div>
+          <span class="pf-status status-ok">✓ مهمة منجزة</span>
         </div>
       </div>
     </div>
@@ -421,13 +442,13 @@
         <li><a href="الخدمات.html">الدراسات التسويقية</a></li><li><a href="الخدمات.html">الدراسات الاقتصادية</a></li>
       </ul></div>
       <div class="footer-col"><h5>تواصل معنا</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">حي الصومام، باب الزوار — الجزائر العاصمة</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. جميع الحقوق محفوظة.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. جميع الحقوق محفوظة.</span>
       <span>الرقم الجبائي: 18716200026511241680</span>
     </div>
   </div>

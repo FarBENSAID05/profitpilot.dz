@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
 
   <!-- ═══ SEO PRIMARY ═══ -->
   <title>Economic Land: How Your Project Is Scored Out of 1,500</title>
@@ -115,9 +117,22 @@
   </script>
 
   <link rel="icon" type="image/png" href="../../images/logo.png">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style.css?v=19727428">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <style>
+    /* ── Typographie arabe ──
+       Reprise ici et pas seulement dans css/style.css : les pages de la
+       boutique n'établissent pas de lien vers la feuille globale et
+       n'héritent donc d'aucune variable. Valeurs identiques des deux
+       côtés — l'ordre de cascade est sans effet. */
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+    [dir="rtl"] {
+      --font-display: 'Amiri', 'Playfair Display', serif;
+      --font-body:    'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      --font-accent:  'Amiri', 'Cormorant Garamond', serif;
+    }
+    [dir="rtl"] body { font-family: var(--font-body); }
+
     /* ── Article Layout ── */
     .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
     .article-body { max-width: 760px; }
@@ -143,11 +158,11 @@
     /* Table */
     .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem; }
     .data-table th { background: rgba(155,77,192,0.15); color: var(--purple-light); padding: 0.8rem 1rem; text-align: left; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
-    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--gray-light); }
-    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); color: var(--gray-light); }
+    .data-table tr:hover td { background: var(--surface); }
 
     /* Step cards */
-    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
+    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
     .step-num { width: 44px; height: 44px; min-width: 44px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: white; }
     .step-content h4 { font-size: 1rem; margin-bottom: 0.4rem; }
     .step-content p  { font-size: 0.9rem; margin: 0; }
@@ -169,9 +184,9 @@
 
     /* Sidebar */
     .sidebar-sticky { position: sticky; top: 7rem; }
-    .sidebar-widget { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
+    .sidebar-widget { background: var(--navy-mid); border: 1px solid var(--border-mid); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
     .sidebar-widget h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(155,77,192,0.15); }
-    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
     .related-link:last-child { border-bottom: none; }
     .related-link .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
     .related-link a { font-size: 0.88rem; color: var(--gray-light); border: none; line-height: 1.4; }
@@ -188,11 +203,11 @@
     /* Article header */
     .article-header { margin-bottom: 2.5rem; }
     .article-header h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
-    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid var(--border-mid); border-bottom: 1px solid var(--border-mid); margin-bottom: 2rem; }
     .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
 
     /* FAQ section */
-    .faq-item { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
+    .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
     .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
@@ -213,6 +228,107 @@
     [dir="rtl"] .highlight-box.gold { border-right-color: var(--gold); }
     [dir="rtl"] .step-card { flex-direction: row; }
     [dir="rtl"] .breadcrumb { direction: rtl; }
+
+    /* FAQ — l'accordéon suivait l'alignement latin : question et réponse
+       calées à gauche sur une page arabe. `.faq-q` est une boîte flex et
+       `.faq-a` un bloc de texte ; ni l'une ni l'autre ne portait de règle
+       d'alignement, et le premier élément de flex sans largeur explicite
+       ne se recale pas seul. On force donc l'alignement à droite, et on
+       laisse `justify-content: space-between` renvoyer l'icône du côté
+       opposé au texte, comme en mode latin mais en miroir. */
+    [dir="rtl"] .faq-q { text-align: right; }
+    [dir="rtl"] .faq-q > span:first-child { flex: 1; text-align: right; }
+    [dir="rtl"] .faq-a { text-align: right; }
+    [dir="rtl"] .faq-a p, [dir="rtl"] .faq-a li { text-align: right; }
+    [dir="rtl"] .faq-a ul, [dir="rtl"] .faq-a ol { padding-left: 0; padding-right: 1.5rem; }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MENU DÉROULANT « NOS GUIDES »
+       Alimenté par le registre build_article.GUIDES. Le panneau reste
+       dans le DOM et n'est masqué qu'en CSS : son contenu est ainsi lu
+       par les moteurs et les lecteurs d'écran, et aucun HTML n'est écrit
+       en JavaScript.
+       ══════════════════════════════════════════════════════════════════ */
+    .nav-links .has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-light); transition: var(--transition);
+    }
+    .nav-drop-btn:hover,
+    .has-dropdown.open > .nav-drop-btn,
+    .has-dropdown.active > .nav-drop-btn { color: var(--white); }
+    .nav-caret { font-size: 0.7rem; transition: transform 0.25s ease; }
+    .has-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 1.1rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 320px; max-width: min(92vw, 620px);
+      padding: 1.4rem 1.5rem 1.1rem;
+      background: var(--nav-bg-solid);
+      border: 1px solid var(--border-strong); border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 1200;
+    }
+    /* Pont invisible entre le bouton et le panneau : sans lui, le menu se
+       referme dès que le curseur traverse l'espace qui les sépare. */
+    .nav-dropdown::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: -1.2rem; height: 1.2rem;
+    }
+    .has-dropdown:hover > .nav-dropdown,
+    .has-dropdown:focus-within > .nav-dropdown,
+    .has-dropdown.open > .nav-dropdown {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-drop-head {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gray);
+      margin: 0 0 0.9rem;
+    }
+    .nav-drop-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.2rem;
+    }
+    .nav-drop-link {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.6rem 0.7rem; border-radius: 9px; border: none;
+      font-size: 0.9rem; text-transform: none; letter-spacing: 0;
+      color: var(--gray-light); line-height: 1.4;
+      transition: var(--transition);
+    }
+    .nav-drop-link:hover { background: var(--surface-3); color: var(--white); }
+    .nav-drop-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .nav-drop-all {
+      display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border-mid); border-bottom: none;
+      width: 100%; font-size: 0.8rem; color: var(--purple-light);
+      text-transform: none; letter-spacing: 0;
+    }
+    .nav-drop-all:hover { color: var(--white); }
+
+    /* Le panneau ne doit pas déborder de la fenêtre près du bord droit. */
+    [dir="rtl"] .nav-drop-link { text-align: right; }
+    [dir="rtl"] .nav-dropdown { text-align: right; }
+
+    /* Huit entrées de navigation : l'espacement de 2.5rem déborde en deçà
+       de 1200 px. On resserre avant de basculer sur le menu mobile. */
+    @media (max-width: 1200px) { .nav-links { gap: 1.5rem; } }
+    @media (max-width: 1024px) { .nav-links { gap: 1.1rem; } .nav-links a, .nav-drop-btn { font-size: 0.78rem; } }
+
+    /* Menu mobile : les guides sont listés à plat, en retrait. */
+    .mobile-menu .mobile-sub {
+      font-size: 0.92rem; opacity: 0.85; padding-left: 1.2rem;
+    }
+    [dir="rtl"] .mobile-menu .mobile-sub { padding-left: 0; padding-right: 1.2rem; }
 </style>
 </head>
 <body>
@@ -226,19 +342,38 @@
       <li><a href="../../en/about.html">About</a></li>
       <li><a href="../../en/services.html">Services</a></li>
       <li><a href="../../en/portfolio.html">Portfolio</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-en"
+                aria-label="Open the guides menu">Guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-en" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../../guides/en/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Setting up a SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../../guides/en/index.html">All guides →</a>
+        </div>
+      </li>
+      <li><a href="../../boutique/en/index.html">Shop</a></li>
       <li><a href="../../en/blog.html" class="active">Blog</a></li>
       <li><a href="../../en/contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="nav-lang"><a class="lang-btn" href="../../blog/grille-evaluation-foncier-economique-algerie.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a><a class="lang-btn" href="../../blog/ar/grille-evaluation-foncier-economique-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span></div>
+      <div class="nav-lang"><a class="lang-btn" href="../../blog/grille-evaluation-foncier-economique-algerie.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a><a class="lang-btn" href="../../blog/ar/grille-evaluation-foncier-economique-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span><button type="button" class="theme-btn" id="themeToggle" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button></div>
       <a href="../../en/contact.html" class="btn btn-gold nav-cta">Book a Call</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
-  <a href="../../en/index.html">Home</a><a href="../../en/about.html">About</a>
-  <a href="../../en/services.html">Services</a><a href="../../en/blog.html">Blog</a>
+  <a href="../../en/index.html">Home</a>
+  <a href="../../en/about.html">About</a>
+  <a href="../../en/services.html">Services</a>
+  <a href="../../en/portfolio.html">Portfolio</a>
+  <a href="../../guides/en/index.html">Guides</a>
+  <a class="mobile-sub" href="../../guides/en/creer-une-sarl-algerie.html">📘 Setting up a SARL</a>
+  <a href="../../boutique/en/index.html">Shop</a>
+  <a href="../../en/blog.html">Blog</a>
   <a href="../../en/contact.html">Contact</a>
 </div>
 
@@ -475,31 +610,31 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q">What is the maximum score on the economic land evaluation grid? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>What is the maximum score on the economic land evaluation grid?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">The maximum score is 1,500 points, spread across eight criteria with coefficients from 1 to 7: nature of the activity (420 points), investment amount (360), employment (300), own funds contribution (200), investment extension (70), job sustainability (60), local content (60) and contribution to export diversification (30).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Which criterion carries the most weight? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Which criterion carries the most weight?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">The nature of the activity, with a coefficient of 7 and a maximum of 420 points, or 28% of the total. The priority 1, 2 or 3 classification is determined by the Agency in consultation with the sectors concerned and the walis, and appears on the technical sheet accompanying the display of the property on the investor digital platform.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">How are projects selected after scoring? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>How are projects selected after scoring?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Ranking is carried out digitally in descending order of score. The Agency draws up a list of pre-selected projects ranked in the top three score levels, whose declared information has been found consistent with the required documents. That list is submitted anonymously to the board, which decides taking into account the score, the coefficient of each criterion, the parameters, the importance of the project and its impact on the national economy.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">How is the integration rate calculated? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>How is the integration rate calculated?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">The grid's reading note specifies that it is calculated as the value of locally produced inputs relative to total inputs of the manufactured product. A rate above 50% is worth 60 points, between 25% and 50% is worth 40, below 25% is worth 20, and a nil rate scores nothing.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Does a high contribution offset a modest investment? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Does a high contribution offset a modest investment?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Partly. The gap between a contribution of 70% or more and one below 30% is 120 points, roughly equivalent to two brackets of the investment amount criterion. The grid itself notes that the correlation between these two criteria allows an assessment of the investor's capacity to raise the necessary financing.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Does the share of fixed-term contracts really affect the score? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Does the share of fixed-term contracts really affect the score?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Yes, by 50 points. A share of fixed-term contracts below 20% is worth 60 points, between 20% and 30% is worth 40, and 30% or more only 10. This criterion reflects the objective of creating sustainable jobs set out in Law no. 22-18 on investment.</div>
         </div>
 
-        <div style="margin-top:3rem;padding:1.8rem 2rem;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.07);">
+        <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">
           <h3 style="margin-top:0;font-size:1.05rem;">🔎 Sources and references</h3>
           <ul style="margin:0;padding-left:1.2rem;">
             <li style="margin-bottom:0.6rem;font-size:0.88rem;">Executive Decree no. 26-154 of 14 April 2026 amending and supplementing Executive Decree no. 23-487 of 28 December 2023 — Art. 2 (rewriting Article 7) and Annex I: investment project evaluation grid — <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener nofollow">Official Gazette of the Algerian Republic no. 31 of 28 April 2026</a><span style="color:var(--gray);"> · Verified on 01/08/2026</span></li>
@@ -537,7 +672,7 @@
           <p style="font-size:0.88rem;margin-bottom:1.2rem;color:var(--gray-light);">Simulation across the eight criteria, amount/contribution trade-off and alignment of the study. First consultation free.</p>
           <a href="../../services/en/etude-faisabilite.html" class="btn btn-gold" style="width:100%;justify-content:center;font-size:0.85rem;">Request a simulation →</a>
           <div style="margin-top:1rem;text-align:center;">
-            <a href="tel:+213550020287" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
+            <a href="tel:+213550020287" dir="ltr" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
           </div>
         </div>
 
@@ -554,9 +689,9 @@
         <div class="sidebar-widget">
           <h5>Our Services</h5>
           <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Financial Studies</a></li>
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Risk Analysis</a></li>
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Marketing Studies</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Financial Studies</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Risk Analysis</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Marketing Studies</a></li>
             <li style="padding:0.5rem 0;font-size:0.88rem;"><a href="../../en/services.html" style="color:var(--gray-light);border:none;">→ Economic Studies</a></li>
           </ul>
         </div>
@@ -571,7 +706,8 @@
       <div class="footer-brand"><img src="../../images/logo.png" alt="ProfitPilot NextGen Consulting"><p>Expert in financial, economic and marketing studies in Algeria.</p></div>
       <div class="footer-col"><h5>Navigation</h5><ul>
         <li><a href="../../en/index.html">Home</a></li><li><a href="../../en/about.html">About</a></li>
-        <li><a href="../../en/services.html">Services</a></li><li><a href="../../en/blog.html">Blog</a></li>
+        <li><a href="../../en/services.html">Services</a></li>
+        <li><a href="../../boutique/en/index.html">Shop</a></li><li><a href="../../en/blog.html">Blog</a></li>
         <li><a href="../../en/contact.html">Contact</a></li>
       </ul></div>
       <div class="footer-col"><h5>Recent articles</h5><ul>
@@ -580,13 +716,13 @@
         <li><a href="business-plan-algerie.html">Bankable business plan: structuring a financing file</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Algiers</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. All rights reserved.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. All rights reserved.</span>
       <span>NIF: 18716200026511241680</span>
     </div>
   </div>

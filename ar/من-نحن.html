@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>من نحن — بن سعيد فاروق | خبير مالي في الجزائر | ProfitPilot</title>
   <meta name="description" content="بن سعيد فاروق، مقاول ذاتي معتمد مقيم بالجزائر العاصمة. خبير في الدراسات المالية والاقتصادية والتسويقية.">
   <meta name="keywords" content="بن سعيد فاروق، خبير مالي الجزائر، مكلف بالدراسات المالية الجزائر، مستشار مالي الجزائر العاصمة، مقاول ذاتي معتمد الجزائر، دراسات مالية واقتصادية الجزائر، ProfitPilot consulting الجزائر">
@@ -94,11 +96,11 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <style>
     .values-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem; }
     .value-card {
-      background:var(--navy-mid);border:1px solid rgba(255,255,255,0.06);
+      background:var(--navy-mid);border:1px solid var(--border);
       border-radius:12px;padding:2rem;text-align:center;transition:var(--transition);
     }
     .value-card:hover { border-color:rgba(201,168,76,0.3);transform:translateY(-3px); }
@@ -106,7 +108,7 @@
     .value-card h4 { margin-bottom:0.5rem; }
     .docs-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
     .doc-card {
-      background:var(--navy-mid);border:1px solid rgba(255,255,255,0.06);
+      background:var(--navy-mid);border:1px solid var(--border);
       border-radius:10px;padding:1.5rem;display:flex;align-items:center;gap:1rem;
       transition:var(--transition);
     }
@@ -196,6 +198,18 @@
       <li><a href="من-نحن.html" class="active">من نحن</a></li>
       <li><a href="الخدمات.html">الخدمات</a></li>
       <li><a href="انجازاتنا.html">إنجازاتنا</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-ar"
+                aria-label="فتح قائمة الأدلّة">أدلّتنا<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-ar" role="menu">
+          <p class="nav-drop-head">الأدلّة</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/ar/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>إنشاء شركة ذات مسؤولية محدودة (SARL)</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/ar/index.html">كل الأدلّة ←</a>
+        </div>
+      </li>
       <li><a href="المدونة.html">المدونة</a></li>
       <li><a href="تواصل-معنا.html">تواصل معنا</a></li>
     </ul>
@@ -204,6 +218,7 @@
         <a class="lang-btn" href="../fr/a-propos.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <span class="lang-btn active" aria-current="page" lang="ar" title="العربية">AR</span>
         <a class="lang-btn" href="../en/about.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="التبديل بين الوضع الداكن والوضع الفاتح" aria-label="التبديل بين الوضع الداكن والوضع الفاتح"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="تواصل-معنا.html" class="btn btn-gold nav-cta">احجز موعداً</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
@@ -212,8 +227,15 @@
 </nav>
 <div class="mobile-menu">
   <span class="mobile-close">✕</span>
+
   <a href="index.html">الرئيسية</a><a href="من-نحن.html">من نحن</a>
   <a href="الخدمات.html">الخدمات</a><a href="انجازاتنا.html">إنجازاتنا</a>
+
+
+
+
+  <a href="../guides/ar/index.html">أدلّتنا</a>
+  <a class="mobile-sub" href="../guides/ar/creer-une-sarl-algerie.html">📘 إنشاء شركة ذات مسؤولية محدودة (SARL)</a>
   <a href="المدونة.html">المدونة</a><a href="تواصل-معنا.html">تواصل معنا</a>
 </div>
 
@@ -240,30 +262,30 @@
           <h3 style="font-size:1.6rem;">بن سعيد فاروق</h3>
           <p class="accent-text" style="font-size:1rem;margin:0.5rem 0 1.5rem;">مكلف بالدراسات المالية والاقتصادية</p>
           <div style="display:flex;flex-direction:column;gap:0.8rem;text-align:left;">
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">الرقم الجبائي</span>
               <span style="font-size:0.82rem;font-weight:600;">18716200026511241680</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">رقم التسجيل</span>
               <span style="font-size:0.82rem;font-weight:600;">108705150026524294</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">الوضعية</span>
               <span style="font-size:0.82rem;color:var(--gold);font-weight:600;">✓ مقاول ذاتي</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">معتمد منذ</span>
               <span style="font-size:0.82rem;font-weight:600;">جانفي 2024</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">صالح إلى غاية</span>
               <span style="font-size:0.82rem;font-weight:600;">جانفي 2029</span>
             </div>
           </div>
           <div style="margin-top:1.5rem;display:flex;gap:0.8rem;">
             <a href="تواصل-معنا.html" class="btn btn-gold" style="flex:1;justify-content:center;">تواصل</a>
-            <a href="tel:+213550020287" class="btn btn-outline" style="flex:1;justify-content:center;">اتصل</a>
+            <a href="tel:+213550020287" dir="ltr" class="btn btn-outline" style="flex:1;justify-content:center;">اتصل</a>
           </div>
         </div>
       </div>
@@ -420,13 +442,13 @@
         <li><a href="الخدمات.html">الدراسات التسويقية</a></li><li><a href="الخدمات.html">الدراسات الاقتصادية</a></li>
       </ul></div>
       <div class="footer-col"><h5>تواصل معنا</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">حي الصومام، باب الزوار — الجزائر العاصمة</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. جميع الحقوق محفوظة.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. جميع الحقوق محفوظة.</span>
       <span>الرقم الجبائي: 18716200026511241680</span>
     </div>
   </div>

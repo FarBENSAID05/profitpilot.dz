@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>Portfolio — ProfitPilot Missions in Algeria | Financial Studies</title>
   <meta name="description" content="Discover ProfitPilot missions: business plans, market studies, risk analysis for companies in Algeria.">
   <meta name="keywords" content="financial studies portfolio algeria, financial consultant assignments algeria, business plan delivered algeria, market research delivered algeria, consultant references algeria, ProfitPilot projects algeria">
@@ -71,13 +73,13 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <style>
     .filter-bar {
       display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem; justify-content: center;
     }
     .filter-btn {
-      padding: 0.55rem 1.4rem; border-radius: 30px; border: 1.5px solid rgba(255,255,255,0.12);
+      padding: 0.55rem 1.4rem; border-radius: 30px; border: 1.5px solid var(--border-strong);
       background: transparent; color: var(--gray-light); font-size: 0.85rem; font-weight: 600;
       cursor: pointer; transition: var(--transition); font-family: var(--font-body);
     }
@@ -86,7 +88,7 @@
     }
     .portfolio-full-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .pf-card {
-      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      background: var(--navy-mid); border: 1px solid var(--border-mid);
       border-radius: 14px; padding: 2.5rem; transition: var(--transition); position: relative; overflow: hidden;
     }
     .pf-card::after {
@@ -109,11 +111,11 @@
     .pf-services ul { list-style: none; }
     .pf-services ul li {
       font-size: 0.88rem; color: var(--gray-light); padding: 0.35rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.6rem;
+      border-bottom: 1px solid var(--surface); display: flex; align-items: center; gap: 0.6rem;
     }
     .pf-services ul li::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
-    .pf-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.07); }
-    .pf-amount { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    .pf-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid var(--border-mid); }
+    .pf-impact { font-size: 0.9rem; font-weight: 600; color: var(--gold); line-height: 1.4; max-width: 62%; }
     .pf-status {
       font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px;
     }
@@ -204,6 +206,18 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-en"
+                aria-label="Open the guides menu">Guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-en" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/en/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Setting up a SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/en/index.html">All guides →</a>
+        </div>
+      </li>
       <li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
@@ -211,6 +225,7 @@
         <a class="lang-btn" href="../fr/realisations.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <a class="lang-btn" href="../ar/انجازاتنا.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a>
         <span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span>
+        <button type="button" class="theme-btn" id="themeToggle" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="contact.html" class="btn btn-gold nav-cta">Book a Call</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
@@ -218,8 +233,15 @@
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
+
   <a href="index.html">Home</a><a href="about.html">About</a>
   <a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+
+
+
+
+  <a href="../guides/en/index.html">Guides</a>
+  <a class="mobile-sub" href="../guides/en/creer-une-sarl-algerie.html">📘 Setting up a SARL</a>
   <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
 </div>
 
@@ -237,10 +259,9 @@
 <div class="stats-band">
   <div class="container">
     <div class="stats-row">
-      <div class="stat-item"><div class="stat-num"><span data-target="14" data-suffix="+">0+</span></div><div class="stat-label">Missions Completed</div></div>
-      <div class="stat-item"><div class="stat-num"><span data-target="10" data-suffix="">0</span></div><div class="stat-label">Satisfied Clients</div></div>
-      <div class="stat-item"><div class="stat-num"><span data-target="6" data-suffix="">0</span></div><div class="stat-label">Sectors covered</div></div>
-      <div class="stat-item"><div class="stat-num">+14M</div><div class="stat-label">DZD in assignments</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="14" data-suffix="+">14+</span></div><div class="stat-label">Missions Completed</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="10" data-suffix="">10</span></div><div class="stat-label">Satisfied Clients</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-target="6" data-suffix="">6</span></div><div class="stat-label">Sectors covered</div></div>
     </div>
   </div>
 </div>
@@ -263,8 +284,8 @@
           <span class="pf-sector">Import/Export</span>
           <span class="pf-year">Nov. 2024</span>
         </div>
-        <div class="pf-client">SARL ECC</div>
-        <div class="pf-location">📍 Béjaïa Industrial Zone</div>
+        <div class="pf-client">Medical equipment importer</div>
+        <div class="pf-location">📍 Béjaïa</div>
         <p class="pf-description">Advisory services for the import of medical equipment, including three complementary studies.</p>
         <div class="pf-services">
           <h5>Missions Completed</h5>
@@ -275,8 +296,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">2,500,000 DZD</div>
-          <span class="pf-status status-ok">✓ Paid</span>
+          <div class="pf-impact">Import file secured</div>
+          <span class="pf-status status-ok">✓ Mission delivered</span>
         </div>
       </div>
 
@@ -286,8 +307,8 @@
           <span class="pf-sector">Import/Export</span>
           <span class="pf-year">Oct. 2024</span>
         </div>
-        <div class="pf-client">SARL ESCLAB</div>
-        <div class="pf-location">📍 SOMACOB Industrial Zone, Béjaïa</div>
+        <div class="pf-client">Laboratory equipment importer</div>
+        <div class="pf-location">📍 Béjaïa</div>
         <p class="pf-description">Full advisory for the import of laboratory equipment, including compliance analysis and market strategy.</p>
         <div class="pf-services">
           <h5>Missions Completed</h5>
@@ -298,8 +319,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">1,500,000 DZD</div>
-          <span class="pf-status status-ok">✓ Paid</span>
+          <div class="pf-impact">Compliance cleared & positioning set</div>
+          <span class="pf-status status-ok">✓ Mission delivered</span>
         </div>
       </div>
 
@@ -309,8 +330,8 @@
           <span class="pf-sector">Construction &amp; Hydraulics</span>
           <span class="pf-year">2025 — 3 Phases</span>
         </div>
-        <div class="pf-client">OULMI Mohamed Lamine</div>
-        <div class="pf-location">📍 Barika, W. Batna</div>
+        <div class="pf-client">Investor — Public works & hydraulics</div>
+        <div class="pf-location">📍 Batna Province</div>
         <p class="pf-description">Three-phase support for an investment project in heavy equipment and hydraulic machinery.</p>
         <div class="pf-services">
           <h5>Assignments completed (3 phases)</h5>
@@ -321,7 +342,7 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">4,000,000 DZD</div>
+          <div class="pf-impact">Bank financing plan structured</div>
           <span class="pf-status status-pending">⏳ In progress</span>
         </div>
       </div>
@@ -332,7 +353,7 @@
           <span class="pf-sector">Import/Export</span>
           <span class="pf-year">Jan. — May 2025</span>
         </div>
-        <div class="pf-client">SARL TRANSIT BOUDEBZA</div>
+        <div class="pf-client">Customs broker</div>
         <div class="pf-location">📍 Béjaïa</div>
         <p class="pf-description">Financial support across 3 separate assignments for a customs broker.</p>
         <div class="pf-services">
@@ -344,8 +365,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">1,400,000 DZD</div>
-          <span class="pf-status status-ok">✓ Paid</span>
+          <div class="pf-impact">Cash flow & WCR restructured</div>
+          <span class="pf-status status-ok">✓ Mission delivered</span>
         </div>
       </div>
 
@@ -355,8 +376,8 @@
           <span class="pf-sector">Agrifood</span>
           <span class="pf-year">June 2025</span>
         </div>
-        <div class="pf-client">SARL FUTURE GRAIN SAHARIENNE</div>
-        <div class="pf-location">📍 Hassi Messaoud, Ouargla</div>
+        <div class="pf-client">Agricultural development company</div>
+        <div class="pf-location">📍 Ouargla Province</div>
         <p class="pf-description">Support with the creation and structuring of an agricultural development company.</p>
         <div class="pf-services">
           <h5>Missions Completed</h5>
@@ -367,8 +388,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">700,000 DZD</div>
-          <span class="pf-status status-ok">✓ Paid</span>
+          <div class="pf-impact">Structuring completed — operational launch</div>
+          <span class="pf-status status-ok">✓ Mission delivered</span>
         </div>
       </div>
 
@@ -378,8 +399,8 @@
           <span class="pf-sector">Retail</span>
           <span class="pf-year">Feb. 2024</span>
         </div>
-        <div class="pf-client">BERRI BOUZID</div>
-        <div class="pf-location">📍 El Kseur Business Park, Béjaïa</div>
+        <div class="pf-client">Food wholesaler</div>
+        <div class="pf-location">📍 Béjaïa</div>
         <p class="pf-description">Price analysis, competitor research and sales improvement strategies for a food wholesaler.</p>
         <div class="pf-services">
           <h5>Missions Completed</h5>
@@ -389,8 +410,8 @@
           </ul>
         </div>
         <div class="pf-footer">
-          <div class="pf-amount">300,000 DZD</div>
-          <span class="pf-status status-ok">✓ Paid</span>
+          <div class="pf-impact">Pricing & margin policy revised</div>
+          <span class="pf-status status-ok">✓ Mission delivered</span>
         </div>
       </div>
     </div>
@@ -421,13 +442,13 @@
         <li><a href="services.html">Marketing Studies</a></li><li><a href="services.html">Economic Studies</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Algiers</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. All rights reserved.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. All rights reserved.</span>
       <span>NIF: 18716200026511241680</span>
     </div>
   </div>

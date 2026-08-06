@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>تواصل معنا — استشارة مجانية | ProfitPilot الجزائر | +213 550 02 02 87</title>
   <meta name="description" content="تواصل مع ProfitPilot للحصول على استشارة أولى مجانية. رد خلال 24 ساعة. +213 550 02 02 87.">
   <meta name="keywords" content="تواصل مستشار مالي الجزائر، حجز موعد خبير مالي الجزائر، استشارة مجانية دراسات مالية الجزائر، بن سعيد فاروق تواصل، ProfitPilot الجزائر تواصل، هاتف خبير مالي الجزائر العاصمة">
@@ -107,7 +109,7 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
 
   <!-- LocalBusiness Schema — boost local SEO Algérie -->
 <script type="application/ld+json">
@@ -184,6 +186,18 @@
     <ul class="nav-links">
       <li><a href="index.html">الرئيسية</a></li><li><a href="من-نحن.html">من نحن</a></li>
       <li><a href="الخدمات.html">الخدمات</a></li><li><a href="انجازاتنا.html">إنجازاتنا</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-ar"
+                aria-label="فتح قائمة الأدلّة">أدلّتنا<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-ar" role="menu">
+          <p class="nav-drop-head">الأدلّة</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/ar/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>إنشاء شركة ذات مسؤولية محدودة (SARL)</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/ar/index.html">كل الأدلّة ←</a>
+        </div>
+      </li>
       <li><a href="المدونة.html">المدونة</a></li><li><a href="تواصل-معنا.html" class="active">تواصل معنا</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
@@ -191,14 +205,22 @@
         <a class="lang-btn" href="../fr/contact.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <span class="lang-btn active" aria-current="page" lang="ar" title="العربية">AR</span>
         <a class="lang-btn" href="../en/contact.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="التبديل بين الوضع الداكن والوضع الفاتح" aria-label="التبديل بين الوضع الداكن والوضع الفاتح"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
+
   <a href="index.html">الرئيسية</a><a href="من-نحن.html">من نحن</a>
   <a href="الخدمات.html">الخدمات</a><a href="انجازاتنا.html">إنجازاتنا</a>
+
+
+
+
+  <a href="../guides/ar/index.html">أدلّتنا</a>
+  <a class="mobile-sub" href="../guides/ar/creer-une-sarl-algerie.html">📘 إنشاء شركة ذات مسؤولية محدودة (SARL)</a>
   <a href="المدونة.html">المدونة</a><a href="تواصل-معنا.html">تواصل معنا</a>
 </div>
 
@@ -227,7 +249,7 @@
             <div class="contact-icon">📞</div>
             <div>
               <h4>هاتف / واتساب</h4>
-              <p><a href="tel:+213550020287" style="color:var(--white);">+213 550 02 02 87</a></p>
+              <p><a href="tel:+213550020287" dir="ltr" style="color:var(--white);">+213 550 02 02 87</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -339,7 +361,7 @@
 <!-- Carte -->
 <section style="padding:0 0 5rem;">
   <div class="container">
-    <div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;height:350px;display:flex;align-items:center;justify-content:center;position:relative;">
+    <div style="background:var(--navy-mid);border:1px solid var(--border-mid);border-radius:14px;overflow:hidden;height:350px;display:flex;align-items:center;justify-content:center;position:relative;">
       <div style="text-align:center;z-index:2;">
         <div style="font-size:3rem;margin-bottom:1rem;">📍</div>
         <h4>حي الصومام، عمارة 21، باب الزوار</h4>
@@ -368,13 +390,13 @@
         <li><a href="../services/ar/conseil-financier.html">الدراسات التسويقية</a></li><li><a href="../services/ar/conseil-financier.html">الدراسات الاقتصادية</a></li>
       </ul></div>
       <div class="footer-col"><h5>تواصل معنا</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">حي الصومام، باب الزوار — الجزائر العاصمة</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. جميع الحقوق محفوظة.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. جميع الحقوق محفوظة.</span>
       <span>الرقم الجبائي: 18716200026511241680</span>
     </div>
   </div>

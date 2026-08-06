@@ -5,6 +5,7 @@
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
 /* ── Variables ── */
 :root {
@@ -33,11 +34,67 @@
   --font-display: 'Playfair Display', serif;
   --font-body:    'DM Sans', sans-serif;
   --font-accent:  'Cormorant Garamond', serif;
+}
 
+/* ── Typographie arabe ──────────────────────────────────────────────────
+   Playfair Display, DM Sans et Cormorant Garamond ne contiennent aucun
+   glyphe arabe. Sur les pages ar/, chaque caractère tombait donc sur la
+   police générique du système : rendu différent d'un poste à l'autre,
+   graisses absentes, hauteurs d'x incohérentes avec la maquette.
+
+   On redéclare les trois variables sous [dir="rtl"] plutôt que d'écrire
+   des règles font-family en cascade : tout ce qui utilise var(--font-*)
+   bascule automatiquement, y compris les pages générées.
+
+   Amiri est un naskh de tradition typographique, contrepartie arabe
+   naturelle d'un display sérif ; IBM Plex Sans Arabic tient le texte
+   courant avec cinq graisses, ce qui préserve la hiérarchie de la
+   maquette latine. Les polices latines restent en repli pour les
+   fragments non arabes (sigles, montants, EURL, SARL, URL). */
+[dir="rtl"] {
+  --font-display: 'Amiri', 'Playfair Display', serif;
+  --font-body:    'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+  --font-accent:  'Amiri', 'Cormorant Garamond', serif;
+}
+
+:root {
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-purple: 0 4px 35px rgba(155, 77, 192, 0.3);
   --shadow-gold:   0 4px 30px rgba(201, 168, 76, 0.2);
   --shadow-deep:   0 20px 60px rgba(0, 0, 0, 0.5);
+
+
+  /* ── Jetons de thème ──────────────────────────────────────────────
+     Ces variables sont surchargées par [data-theme="light"] plus bas.
+     Toute nouvelle couleur de surface DOIT passer par l'un de ces
+     jetons : une couleur écrite en dur casse le mode clair.        */
+  --ink:           #0D1828;   /* texte sur fond doré ou violet — ne change jamais */
+  /* Le doré a deux rôles incompatibles : teinte d'aplat (doit rester la
+     couleur de marque) et couleur de texte (doit être lisible sur blanc,
+     donc assombrie en mode clair). Deux jetons, pas un.                */
+  --gold-surface:  #C9A84C;
+  --gold-surface-2:#DFB95E;
+  /* Même problème pour le violet : un aplat violet reste violet dans les
+     deux thèmes, donc son texte doit rester blanc. --white bascule vers
+     l'encre sombre en mode clair et donnerait 3,58:1 sur le violet.     */
+  --on-brand:      #FFFFFF;
+  --surface:       rgba(255,255,255,0.04);
+  --surface-2:     rgba(255,255,255,0.06);
+  --surface-3:     rgba(255,255,255,0.08);
+  --surface-hover: rgba(255,255,255,0.10);
+  --border:        rgba(255,255,255,0.06);
+  --border-mid:    rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --border-btn:    rgba(255,255,255,0.20);
+  --nav-bg:        rgba(13,27,42,0.96);
+  --nav-bg-solid:  rgba(13,27,42,0.98);
+  --bg-deep:       #0a1520;
+  --bg-deeper:     #060e1a;
+  --bg-footer:     #080e17;
+  --fade-veil:     rgba(22,35,54,0.8);
+  --shadow-nav:    0 4px 30px rgba(0,0,0,0.3);
+  --shadow-card:   0 10px 40px rgba(0,0,0,0.3);
+  --shadow-tab:    0 2px 0 rgba(0,0,0,0.3);
 
   --max-w: 1200px;
 }
@@ -99,7 +156,7 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
 .gold-line {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  background: linear-gradient(90deg, var(--gold-surface), var(--gold-surface-2));
   margin: 1.5rem 0 2rem;
   border-radius: 2px;
 }
@@ -127,15 +184,15 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.08);
+  background: var(--surface-3);
   opacity: 0;
   transition: var(--transition);
 }
 .btn:hover::before { opacity: 1; }
 
 .btn-gold {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--navy);
+  background: linear-gradient(135deg, var(--gold-surface), var(--gold-surface-2));
+  color: var(--ink);
 }
 .btn-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
 
@@ -147,11 +204,11 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
 .btn-outline:hover { background: rgba(201,168,76,0.1); transform: translateY(-2px); }
 
 .btn-ghost {
-  background: rgba(255,255,255,0.05);
+  background: var(--surface-2);
   color: var(--white);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid var(--border-strong);
 }
-.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+.btn-ghost:hover { background: var(--surface-hover); }
 
 /* ── Navigation ── */
 .navbar {
@@ -162,11 +219,11 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   transition: var(--transition);
 }
 .navbar.scrolled {
-  background: rgba(13, 27, 42, 0.96);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(201, 168, 76, 0.15);
   padding: 0.8rem 0;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-nav);
 }
 .nav-inner {
   display: flex;
@@ -197,7 +254,7 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   position: absolute;
   bottom: -4px; left: 0;
   width: 0; height: 1.5px;
-  background: var(--gold);
+  background: var(--gold-surface);
   transition: var(--transition);
 }
 .nav-links a:hover, .nav-links a.active { color: var(--white); }
@@ -223,7 +280,7 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   text-decoration: none;
   border-radius: 3px;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--border-btn);
   background: transparent;
   color: var(--gray);
   transition: var(--transition);
@@ -231,12 +288,41 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
 a.lang-btn:hover { text-decoration: none; }
 .lang-btn.active { cursor: default; }
 .lang-btn.active, .lang-btn:hover {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--gold-surface);
+  color: var(--ink);
   border-color: var(--gold);
 }
 
 .nav-cta { margin-left: 1.5rem; }
+
+/* ── Barre de navigation en écriture arabe ──────────────────────────────
+   Cette feuille ne comportait aucune règle RTL pour la navigation : ordre
+   des blocs, marges et soulignements étaient calés sur l'écriture latine.
+   Résultat sur les pages ar/ : le logo restait à gauche et le menu se
+   lisait de gauche à droite, à rebours du sens de lecture de la page.
+
+   Le défaut est toujours le même — une propriété **physique**
+   (margin-left, left) là où il fallait raisonner en début et fin de ligne.
+   On épingle donc la direction sur la barre au lieu de s'en remettre à
+   l'héritage, puis on renvoie chaque propriété physique du côté opposé. */
+[dir="rtl"] .navbar,
+[dir="rtl"] .nav-inner,
+[dir="rtl"] .nav-links,
+[dir="rtl"] .nav-lang,
+[dir="rtl"] .mobile-menu { direction: rtl; }
+
+/* Le logo revient à droite, le sélecteur de langue et le bouton d'action
+   passent à gauche : c'est l'ordre qu'attend un lecteur arabe. */
+[dir="rtl"] .nav-lang { margin-left: 0; margin-right: 1rem; }
+[dir="rtl"] .nav-cta  { margin-left: 0; margin-right: 1.5rem; }
+
+/* Le trait doré de l'onglet actif naissait du bord gauche du mot,
+   c'est-à-dire de sa fin en arabe : il se dépliait à l'envers. */
+[dir="rtl"] .nav-links a::after { left: auto; right: 0; }
+
+/* La croix de fermeture du menu mobile était posée du côté où commence
+   le texte arabe, sous le pouce qui vient de dérouler le menu. */
+[dir="rtl"] .mobile-close { right: auto; left: 2rem; }
 
 .hamburger {
   display: none;
@@ -268,7 +354,7 @@ a.lang-btn:hover { text-decoration: none; }
   background:
     radial-gradient(ellipse 80% 60% at 70% 50%, rgba(123, 94, 167, 0.12) 0%, transparent 60%),
     radial-gradient(ellipse 50% 80% at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
-    linear-gradient(180deg, var(--navy) 0%, #0a1520 100%);
+    linear-gradient(180deg, var(--navy) 0%, var(--bg-deep) 100%);
 }
 .hero-grid-overlay {
   position: absolute;
@@ -300,7 +386,7 @@ a.lang-btn:hover { text-decoration: none; }
 }
 .hero-badge .dot {
   width: 6px; height: 6px;
-  background: var(--gold);
+  background: var(--gold-surface);
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
@@ -326,7 +412,7 @@ a.lang-btn:hover { text-decoration: none; }
   display: flex;
   gap: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--border-mid);
 }
 .stat-item {}
 .stat-num {
@@ -395,7 +481,7 @@ a.lang-btn:hover { text-decoration: none; }
   color: inherit;
   text-decoration: none;
   background: var(--navy-mid);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2.5rem;
   transition: var(--transition);
@@ -408,7 +494,7 @@ a.service-card:hover { text-decoration: none; }
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--purple));
+  background: linear-gradient(90deg, var(--gold-surface), var(--purple));
   opacity: 0;
   transition: var(--transition);
 }
@@ -472,8 +558,8 @@ a.service-card:hover { text-decoration: none; }
   position: absolute;
   bottom: -1.5rem;
   right: -1.5rem;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--gold-surface);
+  color: var(--ink);
   border-radius: 10px;
   padding: 1.2rem 1.5rem;
   text-align: center;
@@ -488,18 +574,21 @@ a.service-card:hover { text-decoration: none; }
 .about-badge .lbl { font-size: 0.75rem; font-weight: 600; }
 
 .about-content { padding-left: 2rem; }
+/* Le retrait qui éloigne le texte de la photo tombait du mauvais côté :
+   en arabe il s'ajoutait à la gouttière au lieu de la creuser. */
+[dir="rtl"] .about-content { padding-left: 0; padding-right: 2rem; }
 .expertise-list { margin-top: 2rem; }
 .expertise-item {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border);
 }
 .expertise-item:last-child { border-bottom: none; }
 .expertise-dot {
   width: 8px; height: 8px;
-  background: var(--gold);
+  background: var(--gold-surface);
   border-radius: 50%;
   flex-shrink: 0;
   margin-top: 0.5rem;
@@ -512,7 +601,7 @@ a.service-card:hover { text-decoration: none; }
 
 .portfolio-card {
   background: var(--navy-mid);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2rem;
   transition: var(--transition);
@@ -520,7 +609,7 @@ a.service-card:hover { text-decoration: none; }
 .portfolio-card:hover {
   border-color: rgba(201,168,76,0.3);
   transform: translateY(-3px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-card);
 }
 .portfolio-card .client-name {
   font-family: var(--font-display);
@@ -536,10 +625,10 @@ a.service-card:hover { text-decoration: none; }
   margin-bottom: 1rem;
 }
 .portfolio-card .mission { font-size: 0.92rem; margin-bottom: 1.2rem; }
-.portfolio-card .amount {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
+.portfolio-card .impact {
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
   color: var(--gold);
 }
 
@@ -547,7 +636,7 @@ a.service-card:hover { text-decoration: none; }
 .testimonials-section { background: var(--navy-mid); }
 .testimonial-card {
   background: var(--navy);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2.5rem;
   position: relative;
@@ -568,14 +657,14 @@ a.service-card:hover { text-decoration: none; }
 .testimonial-author { display: flex; align-items: center; gap: 1rem; }
 .author-avatar {
   width: 44px; height: 44px;
-  background: linear-gradient(135deg, var(--gold), var(--purple));
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--navy);
+  color: var(--on-brand);
 }
 .author-name { font-weight: 600; font-size: 0.95rem; }
 .author-role { font-size: 0.8rem; color: var(--gray); }
@@ -584,7 +673,7 @@ a.service-card:hover { text-decoration: none; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .blog-card {
   background: var(--navy-mid);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   transition: var(--transition);
@@ -604,7 +693,7 @@ a.service-card:hover { text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(22,35,54,0.8));
+  background: linear-gradient(180deg, transparent 50%, var(--fade-veil));
 }
 .blog-content { padding: 1.8rem; }
 .blog-cat {
@@ -655,7 +744,7 @@ a.service-card:hover { text-decoration: none; }
 /* ── Form ── */
 .contact-form {
   background: var(--navy);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--border-mid);
   border-radius: 16px;
   padding: 3rem;
 }
@@ -674,8 +763,8 @@ a.service-card:hover { text-decoration: none; }
 .form-group select,
 .form-group textarea {
   width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
   padding: 0.9rem 1.2rem;
   font-family: var(--font-body);
@@ -704,7 +793,7 @@ a.service-card:hover { text-decoration: none; }
 
 /* ── Footer ── */
 .footer {
-  background: #080e17;
+  background: var(--bg-footer);
   border-top: 1px solid rgba(201,168,76,0.1);
   padding: 5rem 0 2rem;
 }
@@ -732,13 +821,16 @@ a.service-card:hover { text-decoration: none; }
   transition: var(--transition);
 }
 .footer-col ul li a:hover { color: var(--white); padding-left: 4px; }
+/* Le lien du pied de page se décalait vers la droite au survol : en arabe
+   il s'écartait donc de sa puce au lieu de s'en rapprocher. */
+[dir="rtl"] .footer-col ul li a:hover { padding-left: 0; padding-right: 4px; }
 
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--border);
   font-size: 0.82rem;
   color: var(--gray);
 }
@@ -795,7 +887,7 @@ a.service-card:hover { text-decoration: none; }
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(13,27,42,0.98);
+  background: var(--nav-bg-solid);
   z-index: 999;
   flex-direction: column;
   align-items: center;
@@ -867,8 +959,8 @@ a.service-card:hover { text-decoration: none; }
 /* Primary Button → Purple gradient */
 .btn-gold {
   background: linear-gradient(135deg, var(--purple-dark), var(--purple));
-  color: var(--white);
-  box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+  color: var(--on-brand);
+  box-shadow: var(--shadow-tab);
 }
 .btn-gold:hover {
   background: linear-gradient(135deg, var(--purple), var(--purple-light));
@@ -889,13 +981,13 @@ a.service-card:hover { text-decoration: none; }
 /* Lang button active → Purple */
 .lang-btn.active, .lang-btn:hover {
   background: var(--purple);
-  color: var(--white);
+  color: var(--on-brand);
   border-color: var(--purple);
 }
 
 /* Service cards top border → Purple to Gold */
 .service-card::before {
-  background: linear-gradient(90deg, var(--purple), var(--gold));
+  background: linear-gradient(90deg, var(--purple), var(--gold-surface));
 }
 
 /* Service icons → Purple bg */
@@ -912,15 +1004,15 @@ a.service-card:hover { text-decoration: none; }
 .expertise-dot { background: var(--purple); }
 
 /* Portfolio card amount → keep gold (premium feel) */
-.portfolio-card .amount { color: var(--gold); }
+.portfolio-card .impact { color: var(--gold); }
 
 /* PF card top stripe → Purple */
 .pf-card::after {
-  background: linear-gradient(90deg, var(--purple), var(--gold));
+  background: linear-gradient(90deg, var(--purple), var(--gold-surface));
 }
 .pf-sector {
   background: var(--purple);
-  color: var(--white);
+  color: var(--on-brand);
 }
 
 /* Stats number → Purple-to-Gold gradient text */
@@ -950,8 +1042,10 @@ a.service-card:hover { text-decoration: none; }
 
 /* Author avatar → Purple gradient */
 .author-avatar {
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
-  color: var(--white);
+  /* Le dégradé va vers --purple-dark, pas vers --purple-light : les initiales
+     sont en blanc, et le blanc ne tient pas sur le violet clair (3,08:1). */
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  color: var(--on-brand);
 }
 
 /* Nav active underline → Purple */
@@ -961,7 +1055,7 @@ a.service-card:hover { text-decoration: none; }
 .hero-stats { border-top: 1px solid rgba(155,77,192,0.15); }
 
 /* About badge → Purple */
-.about-badge { background: var(--purple); color: var(--white); box-shadow: var(--shadow-purple); }
+.about-badge { background: var(--purple); color: var(--on-brand); box-shadow: var(--shadow-purple); }
 
 /* Testimonial quote mark */
 .testimonial-card .quote-mark { color: rgba(155,77,192,0.2); }
@@ -987,7 +1081,7 @@ a.service-card:hover { text-decoration: none; }
   background:
     radial-gradient(ellipse 80% 60% at 70% 50%, rgba(155, 77, 192, 0.18) 0%, transparent 60%),
     radial-gradient(ellipse 50% 80% at 20% 80%, rgba(155, 77, 192, 0.08) 0%, transparent 50%),
-    linear-gradient(180deg, var(--navy) 0%, #060e1a 100%);
+    linear-gradient(180deg, var(--navy) 0%, var(--bg-deeper) 100%);
 }
 
 /* Hero grid overlay → Purple tint */
@@ -1015,7 +1109,7 @@ a.service-card:hover { text-decoration: none; }
 /* About phase numbers */
 .about-phase-num {
   background: var(--purple) !important;
-  color: var(--white) !important;
+  color: var(--on-brand) !important;
 }
 
 /* Value card hover */
@@ -1029,3 +1123,203 @@ a.service-card:hover { text-decoration: none; }
   background: linear-gradient(135deg, rgba(155,77,192,0.1) 0%, rgba(201,168,76,0.06) 100%) !important;
   border-color: rgba(155,77,192,0.18) !important;
 }
+
+/* ============================================================
+   MODE CLAIR
+   ------------------------------------------------------------
+   Le thème est porté par l'attribut data-theme sur <html>.
+   Un script inline en <head> le pose AVANT le premier rendu,
+   sinon la page apparaît en sombre pendant un instant.
+
+   Règle : ne jamais écrire une couleur de surface en dur dans
+   une feuille ou un attribut style. Passer par les jetons
+   déclarés dans :root — sans quoi l'élément restera sombre ici.
+   ============================================================ */
+html[data-theme="light"] {
+  /* Fonds — le bleu nuit de la marque devient une encre, pas un fond */
+  --navy:       #F6F4FA;
+  --navy-mid:   #FFFFFF;
+  --navy-light: #ECE7F3;
+  --navy-card:  #FFFFFF;
+
+  /* Textes */
+  --white:      #101B2D;
+  --gray-light: #3D4759;
+  /* #66718A tombait à 4,48:1 sur le fond clair — sous le seuil AA.
+     Assombri jusqu'à passer aussi sur la bande de pied de page. */
+  --gray:       #5C677F;
+
+  /* Violet — assombri pour rester lisible sur fond clair.
+     --purple reste la teinte de marque des aplats et dégradés ;
+     --purple-light devient la couleur de lien.                   */
+  --purple-light: #7A3A99;
+  --purple-glow:  rgba(155, 77, 192, 0.18);
+
+  /* Doré — le doré de marque est illisible en texte sur blanc.
+     Il est conservé pour les aplats, assombri pour le texte.     */
+  --gold:       #7E611B;
+  --gold-light: #96792A;
+  --gold-pale:  #634C15;
+
+  /* Surfaces et bordures : voiles noirs au lieu de voiles blancs */
+  --surface:       rgba(16, 27, 45, 0.035);
+  --surface-2:     rgba(16, 27, 45, 0.055);
+  --surface-3:     rgba(16, 27, 45, 0.075);
+  --surface-hover: rgba(16, 27, 45, 0.10);
+  --border:        rgba(16, 27, 45, 0.10);
+  --border-mid:    rgba(16, 27, 45, 0.13);
+  --border-strong: rgba(16, 27, 45, 0.18);
+  --border-btn:    rgba(16, 27, 45, 0.22);
+
+  --nav-bg:        rgba(255, 255, 255, 0.92);
+  --nav-bg-solid:  rgba(255, 255, 255, 0.98);
+  --bg-deep:       #EFEBF6;
+  --bg-deeper:     #EBE6F3;
+  --bg-footer:     #ECE8F4;
+  --fade-veil:     rgba(246, 244, 250, 0.9);
+
+  --shadow-nav:    0 4px 24px rgba(16, 27, 45, 0.10);
+  --shadow-card:   0 10px 34px rgba(16, 27, 45, 0.10);
+  --shadow-tab:    0 2px 0 rgba(16, 27, 45, 0.10);
+  --shadow-deep:   0 20px 60px rgba(16, 27, 45, 0.14);
+  --shadow-purple: 0 4px 28px rgba(155, 77, 192, 0.28);
+  --shadow-gold:   0 4px 24px rgba(138, 106, 30, 0.22);
+}
+
+/* Le pied de page est un aplat sombre en mode nuit ; en mode jour
+   il devient une bande claire, donc son texte doit s'inverser. */
+html[data-theme="light"] .footer { color: var(--gray-light); }
+
+/* Les aplats dorés utilisent --gold-surface, identique dans les deux
+   thèmes, et leur texte utilise --ink : rien à surcharger ici. */
+
+/* Les images et illustrations n'ont pas à être éclaircies, mais les
+   grands aplats décoratifs en opacité faible deviennent invisibles :
+   on les renforce légèrement. */
+html[data-theme="light"] .hero::before,
+html[data-theme="light"] .section-glow { opacity: 0.55; }
+
+/* ── Bouton jour / nuit ────────────────────────────────────────────── */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 26px;
+  margin-inline-start: 0.55rem;
+  padding: 0;
+  border: 1px solid var(--border-btn);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 0.82rem;
+  line-height: 1;
+  transition: var(--transition);
+}
+.theme-btn:hover {
+  background: var(--gold-surface);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.theme-btn:focus-visible {
+  outline: 2px solid var(--gold-surface);
+  outline-offset: 2px;
+}
+/* Une seule des deux icônes est visible, selon le thème actif. */
+.theme-btn .icon-sun  { display: none; }
+.theme-btn .icon-moon { display: inline; }
+html[data-theme="light"] .theme-btn .icon-sun  { display: inline; }
+html[data-theme="light"] .theme-btn .icon-moon { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-btn { transition: none; }
+}
+
+    /* ══════════════════════════════════════════════════════════════════
+       MENU DÉROULANT « NOS GUIDES »
+       Alimenté par le registre build_article.GUIDES. Le panneau reste
+       dans le DOM et n'est masqué qu'en CSS : son contenu est ainsi lu
+       par les moteurs et les lecteurs d'écran, et aucun HTML n'est écrit
+       en JavaScript.
+       ══════════════════════════════════════════════════════════════════ */
+    .nav-links .has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-light); transition: var(--transition);
+    }
+    .nav-drop-btn:hover,
+    .has-dropdown.open > .nav-drop-btn,
+    .has-dropdown.active > .nav-drop-btn { color: var(--white); }
+    .nav-caret { font-size: 0.7rem; transition: transform 0.25s ease; }
+    .has-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 1.1rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 320px; max-width: min(92vw, 620px);
+      padding: 1.4rem 1.5rem 1.1rem;
+      background: var(--nav-bg-solid);
+      border: 1px solid var(--border-strong); border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 1200;
+    }
+    /* Pont invisible entre le bouton et le panneau : sans lui, le menu se
+       referme dès que le curseur traverse l'espace qui les sépare. */
+    .nav-dropdown::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: -1.2rem; height: 1.2rem;
+    }
+    .has-dropdown:hover > .nav-dropdown,
+    .has-dropdown:focus-within > .nav-dropdown,
+    .has-dropdown.open > .nav-dropdown {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-drop-head {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gray);
+      margin: 0 0 0.9rem;
+    }
+    .nav-drop-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.2rem;
+    }
+    .nav-drop-link {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.6rem 0.7rem; border-radius: 9px; border: none;
+      font-size: 0.9rem; text-transform: none; letter-spacing: 0;
+      color: var(--gray-light); line-height: 1.4;
+      transition: var(--transition);
+    }
+    .nav-drop-link:hover { background: var(--surface-3); color: var(--white); }
+    .nav-drop-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .nav-drop-all {
+      display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border-mid); border-bottom: none;
+      width: 100%; font-size: 0.8rem; color: var(--purple-light);
+      text-transform: none; letter-spacing: 0;
+    }
+    .nav-drop-all:hover { color: var(--white); }
+
+    /* Le panneau ne doit pas déborder de la fenêtre près du bord droit. */
+    [dir="rtl"] .nav-drop-link { text-align: right; }
+    [dir="rtl"] .nav-dropdown { text-align: right; }
+
+    /* Huit entrées de navigation : l'espacement de 2.5rem déborde en deçà
+       de 1200 px. On resserre avant de basculer sur le menu mobile. */
+    @media (max-width: 1200px) { .nav-links { gap: 1.5rem; } }
+    @media (max-width: 1024px) { .nav-links { gap: 1.1rem; } .nav-links a, .nav-drop-btn { font-size: 0.78rem; } }
+
+    /* Menu mobile : les guides sont listés à plat, en retrait. */
+    .mobile-menu .mobile-sub {
+      font-size: 0.92rem; opacity: 0.85; padding-left: 1.2rem;
+    }
+    [dir="rtl"] .mobile-menu .mobile-sub { padding-left: 0; padding-right: 1.2rem; }

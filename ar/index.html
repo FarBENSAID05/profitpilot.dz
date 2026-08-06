@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>ProfitPilot — خبير مالي واقتصادي في الجزائر</title>
   <meta name="description" content="بن سعيد فاروق يرافق المؤسسات والناشئات والمستثمرين في الجزائر. دراسات مالية، تحليل مخاطر، دراسات سوق. استشارة مجانية.">
   <meta name="keywords" content="خبير مالي الجزائر، دراسات مالية الجزائر، مخطط أعمال الجزائر، مستشار مالي الجزائر العاصمة، دراسة سوق الجزائر، تحليل المخاطر الجزائر، تمويل المؤسسات الصغيرة والمتوسطة الجزائر، بن سعيد فاروق، ProfitPilot الجزائر، دراسات اقتصادية الجزائر، مقاول ذاتي الجزائر">
@@ -150,7 +152,7 @@
 </script>
 
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
@@ -166,6 +168,18 @@
       <li><a href="من-نحن.html" data-i18n="nav.about">من نحن</a></li>
       <li><a href="الخدمات.html" data-i18n="nav.services">الخدمات</a></li>
       <li><a href="انجازاتنا.html" data-i18n="nav.portfolio">إنجازاتنا</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-ar"
+                aria-label="فتح قائمة الأدلّة">أدلّتنا<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-ar" role="menu">
+          <p class="nav-drop-head">الأدلّة</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/ar/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>إنشاء شركة ذات مسؤولية محدودة (SARL)</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/ar/index.html">كل الأدلّة ←</a>
+        </div>
+      </li>
       <li><a href="المدونة.html" data-i18n="nav.blog">المدونة</a></li>
       <li><a href="تواصل-معنا.html" data-i18n="nav.contact">تواصل معنا</a></li>
     </ul>
@@ -174,6 +188,7 @@
         <a class="lang-btn" href="../fr/index.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <span class="lang-btn active" aria-current="page" lang="ar" title="العربية">AR</span>
         <a class="lang-btn" href="../en/index.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="التبديل بين الوضع الداكن والوضع الفاتح" aria-label="التبديل بين الوضع الداكن والوضع الفاتح"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="تواصل-معنا.html" class="btn btn-gold nav-cta" data-i18n="nav.cta">احجز موعداً</a>
       <div class="hamburger">
@@ -186,10 +201,17 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu">
   <span class="mobile-close">✕</span>
+
   <a href="index.html" data-i18n="nav.home">الرئيسية</a>
   <a href="من-نحن.html" data-i18n="nav.about">من نحن</a>
   <a href="الخدمات.html" data-i18n="nav.services">الخدمات</a>
   <a href="انجازاتنا.html" data-i18n="nav.portfolio">إنجازاتنا</a>
+
+
+
+
+  <a href="../guides/ar/index.html">أدلّتنا</a>
+  <a class="mobile-sub" href="../guides/ar/creer-une-sarl-algerie.html">📘 إنشاء شركة ذات مسؤولية محدودة (SARL)</a>
   <a href="المدونة.html" data-i18n="nav.blog">المدونة</a>
   <a href="تواصل-معنا.html" data-i18n="nav.contact">تواصل معنا</a>
   <div class="nav-lang" style="margin-top:1rem;">
@@ -373,22 +395,22 @@
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-card fade-up delay-1">
-        <div class="client-name">SARL ECC</div>
+        <div class="client-name">مستورد تجهيزات طبية</div>
         <div class="client-sector">تجهيزات طبية • استيراد</div>
         <p class="mission">يقظة تنظيمية وتحليل تنافسي ومخطط خزينة تقديري لاستيراد التجهيزات الطبية.</p>
-        <div class="amount">2 500 000 دج</div>
+        <div class="impact">ملف استيراد مؤمَّن</div>
       </div>
       <div class="portfolio-card fade-up delay-2">
-        <div class="client-name">SARL ESCLAB</div>
+        <div class="client-name">مستورد تجهيزات مخبرية</div>
         <div class="client-sector">تجهيزات مخبرية • استيراد</div>
         <p class="mission">دراسة مطابقة، تحسين التمويل ودراسة سوق موجّهة لاستيراد التجهيزات المخبرية.</p>
-        <div class="amount">1 500 000 دج</div>
+        <div class="impact">مطابقة مُثبتة وتموقع محدَّد</div>
       </div>
       <div class="portfolio-card fade-up delay-3">
-        <div class="client-name">OULMI Mohamed Lamine</div>
+        <div class="client-name">مستثمر — أشغال عمومية وريّ</div>
         <div class="client-sector">الأشغال العمومية والري</div>
         <p class="mission">مرافقة على ثلاث مراحل: تشخيص المشروع، دراسة الجدوى، مخطط التمويل والمساعدة التقنية في التفاوض.</p>
-        <div class="amount">4 000 000 دج</div>
+        <div class="impact">مخطط تمويل بنكي مهيكل</div>
       </div>
     </div>
     <div style="text-align:center;margin-top:3rem;" class="fade-up">
@@ -454,38 +476,38 @@
     </div>
     <div class="blog-grid">
       <div class="blog-card fade-up delay-1">
-        <div class="blog-img">📊</div>
+        <div class="blog-img">🚢</div>
         <div class="blog-content">
-          <span class="blog-cat">مالية</span>
-          <h3>كيف تُعِدّ مخطط أعمال فعّالاً في الجزائر؟</h3>
-          <p>الخطوات الأساسية لبناء ملف مالي متين ومقنع لبنوككم ومستثمريكم.</p>
+          <span class="blog-cat">استيراد / تصدير</span>
+          <h3><a href="../blog/ar/domiciliation-bancaire-importation-algerie-2026.html" style="color:inherit;">التوطين البنكي عند الاستيراد: ما غيّرته التعليمة 05-2026 والمذكرة 01/DGC/2026</a></h3>
+          <p>نصّان صدرا في ماي 2026 يغيّران آلية الاستيراد جذرياً: مراقبة الملاءة المالية قبل التوطين، وإلزامية التوطين قبل شحن البضاعة.</p>
           <div class="blog-meta">
-            <span>📅 جانفي 2025</span>
-            <span>⏱ 8 دقائق</span>
+            <span>📅 5 أوت 2026 · ⏱ 12 د</span>
+            <a href="../blog/ar/domiciliation-bancaire-importation-algerie-2026.html" class="read-more">اقرأ ←</a>
           </div>
         </div>
       </div>
       <div class="blog-card fade-up delay-2">
-        <div class="blog-img">🌍</div>
+        <div class="blog-img">🧑‍💻</div>
         <div class="blog-content">
-          <span class="blog-cat">استيراد / تصدير</span>
-          <h3>الاستيراد في الجزائر: دليل شامل للإجراءات الجمركية</h3>
-          <p>كل ما تحتاج معرفته حول التنظيمات والتكاليف وتحسين إجراءات الاستيراد.</p>
+          <span class="blog-cat">شركات ناشئة</span>
+          <h3><a href="../blog/ar/auto-entrepreneur-algerie.html" style="color:inherit;">المقاول الذاتي في الجزائر: ما الذي يسمح به القانون 22-23 فعلاً، وما الذي يمنعه؟</a></h3>
+          <p>الصفة التي أنشأها القانون 22-23 تختصر في بضع مواد، لكن الجوهر في مكان آخر: السقف الجبائي، وقائمة النشاطات المستثناة، وما لا تتيحه هذه الصفة أصلاً.</p>
           <div class="blog-meta">
-            <span>📅 فيفري 2025</span>
-            <span>⏱ 12 دقيقة</span>
+            <span>📅 2 أفريل 2025 · ⏱ 13 د</span>
+            <a href="../blog/ar/auto-entrepreneur-algerie.html" class="read-more">اقرأ ←</a>
           </div>
         </div>
       </div>
       <div class="blog-card fade-up delay-3">
-        <div class="blog-img">📈</div>
+        <div class="blog-img">☪️</div>
         <div class="blog-content">
-          <span class="blog-cat">تسويق</span>
-          <h3>دراسة السوق: مناهج وأدوات للمؤسسات الصغيرة والمتوسطة الجزائرية</h3>
-          <p>كيف تنجز دراسة سوق وجيهة بموارد محدودة لتعظيم حظوظ نجاحك.</p>
+          <span class="blog-cat">التمويل الإسلامي</span>
+          <h3><a href="../blog/ar/financement-islamique-algerie.html" style="color:inherit;">التمويل الإسلامي في الجزائر: ما الذي ينظّمه القانون فعلاً، وما الذي تغيّر في 2025؟</a></h3>
+          <p>غالباً ما يُعالَج الموضوع من زاوية دينية. لكنه في الواقع محسوم في ستة أنظمة صادرة عن بنك الجزائر — ثلاثة منها في 2025، وهي التي تغيّر المعادلة بالنسبة للمؤسسات.</p>
           <div class="blog-meta">
-            <span>📅 مارس 2025</span>
-            <span>⏱ 10 دقائق</span>
+            <span>📅 18 مارس 2025 · ⏱ 12 د</span>
+            <a href="../blog/ar/financement-islamique-algerie.html" class="read-more">اقرأ ←</a>
           </div>
         </div>
       </div>
@@ -515,8 +537,8 @@
         <img src="../images/logo.png" alt="ProfitPilot">
         <p>خبير في الدراسات المالية والاقتصادية والتسويقية. نرافق نموّكم بصرامة واحترافية.</p>
         <div style="margin-top:1.5rem;display:flex;gap:0.8rem;">
-          <a href="https://www.linkedin.com/in/farouk-bensaid" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">in</a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">f</a>
+          <a href="https://www.linkedin.com/in/farouk-bensaid" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='var(--border)'">in</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='var(--border)'">f</a>
         </div>
       </div>
       <div class="footer-col">
@@ -544,15 +566,15 @@
       <div class="footer-col">
         <h5>تواصل معنا</h5>
         <ul>
-          <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+          <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
           <li><a href="mailto:contact@profitpilot.dz">faroukbensaid@<br>comptalegal.dz</a></li>
           <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">حي الصومام، باب الزوار<br>الجزائر العاصمة، الجزائر</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. <span data-i18n="footer.rights">جميع الحقوق محفوظة.</span></span>
-      <span>الرقم الجبائي: 18716200026511241680 | <a href="تواصل-معنا.html">سياسة الخصوصية</a></span>
+      <span>© 2026 ProfitPilot NextGen Consulting. <span data-i18n="footer.rights">جميع الحقوق محفوظة.</span></span>
+      <span>الرقم الجبائي: 18716200026511241680 | <a href="../legal/ar/politique-confidentialite.html">سياسة الخصوصية</a></span>
     </div>
   </div>
 </footer>

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>Blog — Analyses, Guides & Ressources pour Entrepreneurs Algériens | ProfitPilot</title>
   <meta name="description" content="Articles sur la finance, le business plan, les procédures d'import, les risques PME et le financement islamique en Algérie.">
   <meta name="keywords" content="blog finance algérie, articles économie algérie, business plan algérie guide, import algérie 2025, financement islamique algérie, étude de marché PME algérie, risques financiers PME, auto-entrepreneur algérie, consultant financier blog algérie">
@@ -50,6 +52,16 @@
     "url": "https://profitpilot.dz/fr/a-propos.html"
   },
   "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Financer sa société en Algérie : l'argent qui pourra ressortir, et celui qui restera",
+      "url": "https://profitpilot.dz/blog/structurer-financement-investisseur-etranger-algerie.html",
+      "datePublished": "2026-11-18",
+      "author": {
+        "@type": "Person",
+        "name": "BENSAID Farouk"
+      }
+    },
     {
       "@type": "BlogPosting",
       "headline": "Soumissionner à un marché public : la capacité financière que personne ne vous chiffre",
@@ -119,16 +131,6 @@
         "@type": "Person",
         "name": "BENSAID Farouk"
       }
-    },
-    {
-      "@type": "BlogPosting",
-      "headline": "Guichet unique AAPI : qui y siège, quels délais, et quelle valeur ont les documents délivrés",
-      "url": "https://profitpilot.dz/blog/guichet-unique-aapi-delais-2026.html",
-      "datePublished": "2026-09-23",
-      "author": {
-        "@type": "Person",
-        "name": "BENSAID Farouk"
-      }
     }
   ]
 }
@@ -154,12 +156,12 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <style>
     .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; align-items: start; }
     .blog-main-grid { display: grid; gap: 2.5rem; }
     .blog-featured-card {
-      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      background: var(--navy-mid); border: 1px solid var(--border-mid);
       border-radius: 14px; overflow: hidden; transition: var(--transition); display: grid; grid-template-columns: 1.2fr 1fr;
     }
     .blog-featured-card:hover { border-color: rgba(201,168,76,0.25); box-shadow: var(--shadow-deep); }
@@ -180,7 +182,7 @@
     .read-more:hover { gap: 0.8rem; }
 
     .blog-small-card {
-      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      background: var(--navy-mid); border: 1px solid var(--border-mid);
       border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 130px 1fr;
       transition: var(--transition);
     }
@@ -196,7 +198,7 @@
     /* Sidebar */
     .sidebar-section { margin-bottom: 2.5rem; }
     .sidebar-card {
-      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.8rem;
+      background: var(--navy-mid); border: 1px solid var(--border-mid); border-radius: 12px; padding: 1.8rem;
     }
     .sidebar-card h5 {
       font-family: var(--font-body); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
@@ -205,14 +207,14 @@
     }
     .category-item {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: var(--transition);
+      padding: 0.6rem 0; border-bottom: 1px solid var(--surface-2); cursor: pointer; transition: var(--transition);
     }
     .category-item:hover { color: var(--gold); padding-left: 5px; }
     .category-item:last-child { border-bottom: none; }
     .cat-name { font-size: 0.9rem; }
-    .cat-count { font-size: 0.75rem; color: var(--gray); background: rgba(255,255,255,0.06); padding: 0.2rem 0.6rem; border-radius: 10px; }
+    .cat-count { font-size: 0.75rem; color: var(--gray); background: var(--border); padding: 0.2rem 0.6rem; border-radius: 10px; }
     .newsletter-form input {
-      width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+      width: 100%; background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 8px;
       padding: 0.8rem 1rem; color: var(--white); font-family: var(--font-body); font-size: 0.9rem; outline: none;
       margin-bottom: 0.8rem; transition: var(--transition);
     }
@@ -298,7 +300,7 @@
   .page-btn {
     min-width: 40px; height: 40px; padding: 0 0.6rem;
     background: var(--navy-mid); color: var(--gray-light);
-    border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+    border: 1px solid var(--border-strong); border-radius: 8px;
     font-weight: 600; cursor: pointer; transition: 0.3s; font-family: inherit; font-size: 0.92rem;
   }
   .page-btn:hover { border-color: rgba(201,168,76,0.4); color: var(--gold); }
@@ -314,6 +316,18 @@
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li><li><a href="a-propos.html">À propos</a></li>
       <li><a href="services.html">Services</a></li><li><a href="realisations.html">Réalisations</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-fr"
+                aria-label="Ouvrir le menu des guides">Nos guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-fr" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Créer une SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/index.html">Tous les guides →</a>
+        </div>
+      </li>
       <li><a href="blog.html" class="active">Blog</a></li><li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
@@ -321,6 +335,7 @@
         <span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span>
         <a class="lang-btn" href="../ar/المدونة.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a>
         <a class="lang-btn" href="../en/blog.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="contact.html" class="btn btn-gold nav-cta">Prendre RDV</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
@@ -328,8 +343,15 @@
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
+
   <a href="index.html">Accueil</a><a href="a-propos.html">À propos</a>
   <a href="services.html">Services</a><a href="realisations.html">Réalisations</a>
+
+
+
+
+  <a href="../guides/index.html">Nos guides</a>
+  <a class="mobile-sub" href="../guides/creer-une-sarl-algerie.html">📘 Créer une SARL</a>
   <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
 </div>
 
@@ -352,6 +374,18 @@
 
         <!-- Articles liste -->
         <div class="blog-main-grid">
+          <div class="blog-small-card fade-up delay-2" data-cat="investissement" data-slug="structurer-financement-investisseur-etranger-algerie">
+            <div class="blog-small-img">🧮</div>
+            <div class="blog-small-content">
+              <div class="blog-tag-row"><span class="blog-tag">Investissement</span></div>
+              <h4>Financer sa société en Algérie : l&#x27;argent qui pourra ressortir, et celui qui restera</h4>
+              <p>Capital, avance de la maison mère ou crédit bancaire local : sur un plan de trésorerie, les trois se valent. Un seul construit le droit de faire ressortir le bénéfice du pays.</p>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.78rem;color:var(--gray);">📅 18 novembre 2026 · ⏱ 12 min</span>
+                <a href="../blog/structurer-financement-investisseur-etranger-algerie.html" class="read-more">Lire →</a>
+              </div>
+            </div>
+          </div>
           <div class="blog-small-card fade-up delay-1" data-cat="investissement" data-slug="transfert-dividendes-etranger-algerie">
             <div class="blog-small-img">🌍</div>
             <div class="blog-small-content">
@@ -640,9 +674,9 @@
         <div class="sidebar-section fade-up delay-1">
           <div class="sidebar-card">
             <h5>Catégories</h5>
-            <div class="category-item active" data-cat="all"><span class="cat-name">Tous les articles</span><span class="cat-count">23</span></div>
+            <div class="category-item active" data-cat="all"><span class="cat-name">Tous les articles</span><span class="cat-count">24</span></div>
             <div class="category-item" data-cat="finance"><span class="cat-name">Finance</span><span class="cat-count">9</span></div>
-            <div class="category-item" data-cat="investissement"><span class="cat-name">Investissement</span><span class="cat-count">6</span></div>
+            <div class="category-item" data-cat="investissement"><span class="cat-name">Investissement</span><span class="cat-count">7</span></div>
             <div class="category-item" data-cat="import-export"><span class="cat-name">Import / Export</span><span class="cat-count">3</span></div>
             <div class="category-item" data-cat="marketing"><span class="cat-name">Études marketing</span><span class="cat-count">2</span></div>
             <div class="category-item" data-cat="risques"><span class="cat-name">Analyse des risques</span><span class="cat-count">1</span></div>
@@ -689,13 +723,13 @@
         <li><a href="../services/conseil-financier.html">Études Marketing</a></li><li><a href="../services/conseil-financier.html">Études Économiques</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Alger</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
       <span>NIF : 18716200026511241680</span>
     </div>
   </div>

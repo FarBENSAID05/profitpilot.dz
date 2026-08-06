@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>ProfitPilot — Expert Financier & Économique en Algérie</title>
   <meta name="description" content="BENSAID Farouk accompagne PME, startups et investisseurs en Algérie. Études financières, analyses des risques, études de marché. Consultation gratuite.">
   <link rel="canonical" href="https://profitpilot.dz/fr/">
@@ -19,7 +21,7 @@
     .lang-select { display:flex; gap:1rem; justify-content:center; margin-top:1.5rem; }
     .lang-select a { 
       color:#fff; text-decoration:none; padding:0.6rem 1.5rem; 
-      border:1px solid rgba(255,255,255,0.2); border-radius:8px;
+      border:1px solid var(--border-btn); border-radius:8px;
       transition:all 0.2s;
     }
     .lang-select a:hover { background:#9B4DC0; border-color:#9B4DC0; }

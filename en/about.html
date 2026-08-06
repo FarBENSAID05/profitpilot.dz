@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>About — BENSAID Farouk | Financial Expert Algeria | ProfitPilot</title>
   <meta name="description" content="BENSAID Farouk, certified self-employed consultant based in Algiers. Expert in financial, economic and marketing studies.">
   <meta name="keywords" content="BENSAID Farouk, financial expert algeria, financial research consultant algeria, financial consultant algiers, certified sole trader algeria, financial economic studies algeria, ProfitPilot consulting algeria">
@@ -94,11 +96,11 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <style>
     .values-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem; }
     .value-card {
-      background:var(--navy-mid);border:1px solid rgba(255,255,255,0.06);
+      background:var(--navy-mid);border:1px solid var(--border);
       border-radius:12px;padding:2rem;text-align:center;transition:var(--transition);
     }
     .value-card:hover { border-color:rgba(201,168,76,0.3);transform:translateY(-3px); }
@@ -106,7 +108,7 @@
     .value-card h4 { margin-bottom:0.5rem; }
     .docs-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
     .doc-card {
-      background:var(--navy-mid);border:1px solid rgba(255,255,255,0.06);
+      background:var(--navy-mid);border:1px solid var(--border);
       border-radius:10px;padding:1.5rem;display:flex;align-items:center;gap:1rem;
       transition:var(--transition);
     }
@@ -196,6 +198,18 @@
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-en"
+                aria-label="Open the guides menu">Guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-en" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/en/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Setting up a SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/en/index.html">All guides →</a>
+        </div>
+      </li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -204,6 +218,7 @@
         <a class="lang-btn" href="../fr/a-propos.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <a class="lang-btn" href="../ar/من-نحن.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a>
         <span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span>
+        <button type="button" class="theme-btn" id="themeToggle" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="contact.html" class="btn btn-gold nav-cta">Book a Call</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
@@ -212,8 +227,15 @@
 </nav>
 <div class="mobile-menu">
   <span class="mobile-close">✕</span>
+
   <a href="index.html">Home</a><a href="about.html">About</a>
   <a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+
+
+
+
+  <a href="../guides/en/index.html">Guides</a>
+  <a class="mobile-sub" href="../guides/en/creer-une-sarl-algerie.html">📘 Setting up a SARL</a>
   <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
 </div>
 
@@ -240,30 +262,30 @@
           <h3 style="font-size:1.6rem;">BENSAID Farouk</h3>
           <p class="accent-text" style="font-size:1rem;margin:0.5rem 0 1.5rem;">Financial &amp; Economic Research Consultant</p>
           <div style="display:flex;flex-direction:column;gap:0.8rem;text-align:left;">
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">NIF</span>
               <span style="font-size:0.82rem;font-weight:600;">18716200026511241680</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">Registration No.</span>
               <span style="font-size:0.82rem;font-weight:600;">108705150026524294</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">Status</span>
               <span style="font-size:0.82rem;color:var(--gold);font-weight:600;">✓ Sole Trader</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">Certified since</span>
               <span style="font-size:0.82rem;font-weight:600;">January 2024</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
+            <div style="background:var(--surface);border-radius:8px;padding:0.8rem 1rem;display:flex;justify-content:space-between;">
               <span style="font-size:0.82rem;color:var(--gray);">Valid until</span>
               <span style="font-size:0.82rem;font-weight:600;">January 2029</span>
             </div>
           </div>
           <div style="margin-top:1.5rem;display:flex;gap:0.8rem;">
             <a href="contact.html" class="btn btn-gold" style="flex:1;justify-content:center;">Contact</a>
-            <a href="tel:+213550020287" class="btn btn-outline" style="flex:1;justify-content:center;">Call</a>
+            <a href="tel:+213550020287" dir="ltr" class="btn btn-outline" style="flex:1;justify-content:center;">Call</a>
           </div>
         </div>
       </div>
@@ -420,13 +442,13 @@
         <li><a href="services.html">Marketing Studies</a></li><li><a href="services.html">Economic Studies</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Algiers</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. All rights reserved.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. All rights reserved.</span>
       <span>NIF: 18716200026511241680</span>
     </div>
   </div>

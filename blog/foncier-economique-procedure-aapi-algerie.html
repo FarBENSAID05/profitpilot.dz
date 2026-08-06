@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
 
   <!-- ═══ SEO PRIMARY ═══ -->
   <title>Foncier économique : le parcours complet et ses délais</title>
@@ -115,9 +117,22 @@
   </script>
 
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <style>
+    /* ── Typographie arabe ──
+       Reprise ici et pas seulement dans css/style.css : les pages de la
+       boutique n'établissent pas de lien vers la feuille globale et
+       n'héritent donc d'aucune variable. Valeurs identiques des deux
+       côtés — l'ordre de cascade est sans effet. */
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+    [dir="rtl"] {
+      --font-display: 'Amiri', 'Playfair Display', serif;
+      --font-body:    'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      --font-accent:  'Amiri', 'Cormorant Garamond', serif;
+    }
+    [dir="rtl"] body { font-family: var(--font-body); }
+
     /* ── Article Layout ── */
     .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
     .article-body { max-width: 760px; }
@@ -143,11 +158,11 @@
     /* Table */
     .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem; }
     .data-table th { background: rgba(155,77,192,0.15); color: var(--purple-light); padding: 0.8rem 1rem; text-align: left; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
-    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--gray-light); }
-    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); color: var(--gray-light); }
+    .data-table tr:hover td { background: var(--surface); }
 
     /* Step cards */
-    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
+    .step-card { display: flex; gap: 1.5rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem; }
     .step-num { width: 44px; height: 44px; min-width: 44px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: white; }
     .step-content h4 { font-size: 1rem; margin-bottom: 0.4rem; }
     .step-content p  { font-size: 0.9rem; margin: 0; }
@@ -169,9 +184,9 @@
 
     /* Sidebar */
     .sidebar-sticky { position: sticky; top: 7rem; }
-    .sidebar-widget { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
+    .sidebar-widget { background: var(--navy-mid); border: 1px solid var(--border-mid); border-radius: 12px; padding: 1.8rem; margin-bottom: 1.5rem; }
     .sidebar-widget h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(155,77,192,0.15); }
-    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .related-link { display: flex; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
     .related-link:last-child { border-bottom: none; }
     .related-link .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
     .related-link a { font-size: 0.88rem; color: var(--gray-light); border: none; line-height: 1.4; }
@@ -188,11 +203,11 @@
     /* Article header */
     .article-header { margin-bottom: 2.5rem; }
     .article-header h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
-    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; font-size: 0.83rem; color: var(--gray); padding: 1.2rem 0; border-top: 1px solid var(--border-mid); border-bottom: 1px solid var(--border-mid); margin-bottom: 2rem; }
     .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
 
     /* FAQ section */
-    .faq-item { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
+    .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
     .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
@@ -213,6 +228,107 @@
     [dir="rtl"] .highlight-box.gold { border-right-color: var(--gold); }
     [dir="rtl"] .step-card { flex-direction: row; }
     [dir="rtl"] .breadcrumb { direction: rtl; }
+
+    /* FAQ — l'accordéon suivait l'alignement latin : question et réponse
+       calées à gauche sur une page arabe. `.faq-q` est une boîte flex et
+       `.faq-a` un bloc de texte ; ni l'une ni l'autre ne portait de règle
+       d'alignement, et le premier élément de flex sans largeur explicite
+       ne se recale pas seul. On force donc l'alignement à droite, et on
+       laisse `justify-content: space-between` renvoyer l'icône du côté
+       opposé au texte, comme en mode latin mais en miroir. */
+    [dir="rtl"] .faq-q { text-align: right; }
+    [dir="rtl"] .faq-q > span:first-child { flex: 1; text-align: right; }
+    [dir="rtl"] .faq-a { text-align: right; }
+    [dir="rtl"] .faq-a p, [dir="rtl"] .faq-a li { text-align: right; }
+    [dir="rtl"] .faq-a ul, [dir="rtl"] .faq-a ol { padding-left: 0; padding-right: 1.5rem; }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MENU DÉROULANT « NOS GUIDES »
+       Alimenté par le registre build_article.GUIDES. Le panneau reste
+       dans le DOM et n'est masqué qu'en CSS : son contenu est ainsi lu
+       par les moteurs et les lecteurs d'écran, et aucun HTML n'est écrit
+       en JavaScript.
+       ══════════════════════════════════════════════════════════════════ */
+    .nav-links .has-dropdown { position: relative; }
+
+    .nav-drop-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray-light); transition: var(--transition);
+    }
+    .nav-drop-btn:hover,
+    .has-dropdown.open > .nav-drop-btn,
+    .has-dropdown.active > .nav-drop-btn { color: var(--white); }
+    .nav-caret { font-size: 0.7rem; transition: transform 0.25s ease; }
+    .has-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 1.1rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 320px; max-width: min(92vw, 620px);
+      padding: 1.4rem 1.5rem 1.1rem;
+      background: var(--nav-bg-solid);
+      border: 1px solid var(--border-strong); border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 1200;
+    }
+    /* Pont invisible entre le bouton et le panneau : sans lui, le menu se
+       referme dès que le curseur traverse l'espace qui les sépare. */
+    .nav-dropdown::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: -1.2rem; height: 1.2rem;
+    }
+    .has-dropdown:hover > .nav-dropdown,
+    .has-dropdown:focus-within > .nav-dropdown,
+    .has-dropdown.open > .nav-dropdown {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-drop-head {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gray);
+      margin: 0 0 0.9rem;
+    }
+    .nav-drop-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.2rem;
+    }
+    .nav-drop-link {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.6rem 0.7rem; border-radius: 9px; border: none;
+      font-size: 0.9rem; text-transform: none; letter-spacing: 0;
+      color: var(--gray-light); line-height: 1.4;
+      transition: var(--transition);
+    }
+    .nav-drop-link:hover { background: var(--surface-3); color: var(--white); }
+    .nav-drop-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .nav-drop-all {
+      display: inline-block; margin-top: 0.9rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border-mid); border-bottom: none;
+      width: 100%; font-size: 0.8rem; color: var(--purple-light);
+      text-transform: none; letter-spacing: 0;
+    }
+    .nav-drop-all:hover { color: var(--white); }
+
+    /* Le panneau ne doit pas déborder de la fenêtre près du bord droit. */
+    [dir="rtl"] .nav-drop-link { text-align: right; }
+    [dir="rtl"] .nav-dropdown { text-align: right; }
+
+    /* Huit entrées de navigation : l'espacement de 2.5rem déborde en deçà
+       de 1200 px. On resserre avant de basculer sur le menu mobile. */
+    @media (max-width: 1200px) { .nav-links { gap: 1.5rem; } }
+    @media (max-width: 1024px) { .nav-links { gap: 1.1rem; } .nav-links a, .nav-drop-btn { font-size: 0.78rem; } }
+
+    /* Menu mobile : les guides sont listés à plat, en retrait. */
+    .mobile-menu .mobile-sub {
+      font-size: 0.92rem; opacity: 0.85; padding-left: 1.2rem;
+    }
+    [dir="rtl"] .mobile-menu .mobile-sub { padding-left: 0; padding-right: 1.2rem; }
 </style>
 </head>
 <body>
@@ -226,19 +342,38 @@
       <li><a href="../fr/a-propos.html">À propos</a></li>
       <li><a href="../fr/services.html">Services</a></li>
       <li><a href="../fr/realisations.html">Réalisations</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-fr"
+                aria-label="Ouvrir le menu des guides">Nos guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-fr" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Créer une SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/index.html">Tous les guides →</a>
+        </div>
+      </li>
+      <li><a href="../boutique/index.html">Boutique</a></li>
       <li><a href="../fr/blog.html" class="active">Blog</a></li>
       <li><a href="../fr/contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="nav-lang"><span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span><a class="lang-btn" href="../blog/ar/foncier-economique-procedure-aapi-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><a class="lang-btn" href="../blog/en/foncier-economique-procedure-aapi-algerie.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a></div>
+      <div class="nav-lang"><span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span><a class="lang-btn" href="../blog/ar/foncier-economique-procedure-aapi-algerie.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><a class="lang-btn" href="../blog/en/foncier-economique-procedure-aapi-algerie.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a><button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button></div>
       <a href="../fr/contact.html" class="btn btn-gold nav-cta">Prendre RDV</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
 <div class="mobile-menu"><span class="mobile-close">✕</span>
-  <a href="../fr/index.html">Accueil</a><a href="../fr/a-propos.html">À propos</a>
-  <a href="../fr/services.html">Services</a><a href="../fr/blog.html">Blog</a>
+  <a href="../fr/index.html">Accueil</a>
+  <a href="../fr/a-propos.html">À propos</a>
+  <a href="../fr/services.html">Services</a>
+  <a href="../fr/realisations.html">Réalisations</a>
+  <a href="../guides/index.html">Nos guides</a>
+  <a class="mobile-sub" href="../guides/creer-une-sarl-algerie.html">📘 Créer une SARL</a>
+  <a href="../boutique/index.html">Boutique</a>
+  <a href="../fr/blog.html">Blog</a>
   <a href="../fr/contact.html">Contact</a>
 </div>
 
@@ -458,31 +593,31 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q">Combien de temps dure l&#x27;affichage d&#x27;un bien sur la plate-forme numérique ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Combien de temps dure l&#x27;affichage d&#x27;un bien sur la plate-forme numérique ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">L'article 4 du décret exécutif n° 23-487, tel que modifié par le décret n° 26-154, fixe la durée d'affichage à trente jours. Les demandes enregistrées sont ensuite traitées dans un délai n'excédant pas quinze jours à compter de l'expiration du délai d'affichage, puis soumises au conseil d'administration lors de sa prochaine session.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Un investisseur étranger peut-il postuler à un foncier économique ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Un investisseur étranger peut-il postuler à un foncier économique ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Oui. Le texte prévoit que toute personne physique ou morale, nationale ou étrangère, résidente ou non résidente au sens de la loi n° 22-18 relative à l'investissement, porteuse d'un projet d'investissement, peut postuler au bénéfice d'une concession de gré à gré convertible en cession d'un bien immobilier relevant du domaine privé de l'État.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Quand la décision d&#x27;octroi devient-elle définitive ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Quand la décision d&#x27;octroi devient-elle définitive ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">La décision provisoire ne devient définitive qu'après expiration des délais de recours prévus par le décret présidentiel n° 22-296 du 4 septembre 2022. Le bénéficiaire est ensuite invité à se rapprocher du guichet unique territorialement compétent dans un délai n'excédant pas quinze jours pour en effectuer le retrait.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Quel est le délai pour déposer la demande de permis de construire ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Quel est le délai pour déposer la demande de permis de construire ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Le cahier des charges type prévoit que le concessionnaire doit déposer la demande de permis de construire au niveau du guichet unique territorialement compétent dans un délai ne dépassant pas deux mois à compter de la délivrance de l'acte de concession. Les travaux doivent démarrer dans un délai ne dépassant pas six mois à compter de l'obtention du permis.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Combien de temps prend la conversion de la concession en cession ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Combien de temps prend la conversion de la concession en cession ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">L'instruction de la demande intervient dans un délai n'excédant pas trois mois à compter de la date de réception de la demande. Le représentant de l'administration des domaines au guichet unique établit ensuite l'acte de cession dans un délai n'excédant pas quinze jours à compter de la transmission du dossier.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Que se passe-t-il en cas de retard de paiement de la redevance ? <span class="faq-icon">+</span></div>
+          <div class="faq-q"><span>Que se passe-t-il en cas de retard de paiement de la redevance ?</span> <span class="faq-icon">+</span></div>
           <div class="faq-a">Le concessionnaire dispose de quinze jours à compter de la réception de l'ordre de versement pour s'acquitter de la redevance locative annuelle. Au-delà, il est mis en demeure par le receveur des domaines de régler sous huitaine le montant majoré d'une pénalité de 5 %. À défaut, le receveur saisit le guichet unique de l'Agence pour procéder à la résiliation de la concession.</div>
         </div>
 
-        <div style="margin-top:3rem;padding:1.8rem 2rem;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.07);">
+        <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">
           <h3 style="margin-top:0;font-size:1.05rem;">🔎 Sources et références</h3>
           <ul style="margin:0;padding-left:1.2rem;">
             <li style="margin-bottom:0.6rem;font-size:0.88rem;">Décret exécutif n° 26-154 du 14 avril 2026 modifiant et complétant le décret exécutif n° 23-487 du 28 décembre 2023 — art. 2 (réécriture des art. 4, 6, 7 et 9), art. 3 (art. 9 bis et 9 bis 1), art. 4 (art. 11, 13, 15 et 17), et annexe IV (cahier des charges type, art. 18 à 25) — <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener nofollow">Journal officiel de la République algérienne n° 31 du 28 avril 2026</a><span style="color:var(--gray);"> · Vérifié le 01/08/2026</span></li>
@@ -520,7 +655,7 @@
           <p style="font-size:0.88rem;margin-bottom:1.2rem;color:var(--gray-light);">De la préparation du dossier au suivi des engagements post-concession. Première consultation gratuite.</p>
           <a href="../services/etude-faisabilite.html" class="btn btn-gold" style="width:100%;justify-content:center;font-size:0.85rem;">Être accompagné →</a>
           <div style="margin-top:1rem;text-align:center;">
-            <a href="tel:+213550020287" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
+            <a href="tel:+213550020287" dir="ltr" style="font-size:0.82rem;color:var(--purple-light);border:none;">📞 +213 550 02 02 87</a>
           </div>
         </div>
 
@@ -534,9 +669,9 @@
         <div class="sidebar-widget">
           <h5>Nos Services</h5>
           <ul style="list-style:none;padding:0;margin:0;">
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Financières</a></li>
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Analyse des Risques</a></li>
-            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Marketing</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Financières</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Analyse des Risques</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Marketing</a></li>
             <li style="padding:0.5rem 0;font-size:0.88rem;"><a href="../fr/services.html" style="color:var(--gray-light);border:none;">→ Études Économiques</a></li>
           </ul>
         </div>
@@ -551,7 +686,8 @@
       <div class="footer-brand"><img src="../images/logo.png" alt="ProfitPilot NextGen Consulting"><p>Expert en études financières, économiques et marketing en Algérie.</p></div>
       <div class="footer-col"><h5>Navigation</h5><ul>
         <li><a href="../fr/index.html">Accueil</a></li><li><a href="../fr/a-propos.html">À propos</a></li>
-        <li><a href="../fr/services.html">Services</a></li><li><a href="../fr/blog.html">Blog</a></li>
+        <li><a href="../fr/services.html">Services</a></li>
+        <li><a href="../boutique/index.html">Boutique</a></li><li><a href="../fr/blog.html">Blog</a></li>
         <li><a href="../fr/contact.html">Contact</a></li>
       </ul></div>
       <div class="footer-col"><h5>Articles récents</h5><ul>
@@ -560,13 +696,13 @@
         <li><a href="guichet-unique-aapi-delais-2026.html">Guichet unique AAPI : 15 jours pour vos autorisations</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Alger</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
       <span>NIF : 18716200026511241680</span>
     </div>
   </div>

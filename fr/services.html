@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>Services — Études Financières, Marketing & Risques | ProfitPilot Algérie</title>
   <meta name="description" content="Études financières, analyse des risques, études de marché et études économiques pour PME, startups et investisseurs en Algérie. Devis gratuit sous 24h.">
   <meta name="keywords" content="études financières algérie, analyse des risques algérie, études de marché algérie, études économiques algérie, business plan algérie, consultant financier alger, due diligence algérie, étude faisabilité algérie, veille économique algérie">
@@ -117,12 +119,12 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <style>
     .services-full-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .service-full-card {
       background: var(--navy-mid);
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid var(--border-mid);
       border-radius: 14px;
       padding: 3rem;
       transition: var(--transition);
@@ -138,14 +140,14 @@
       padding: 0.5rem 0;
       font-size: 0.92rem;
       color: var(--gray-light);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid var(--surface-2);
       display: flex; align-items: center; gap: 0.8rem;
     }
     .service-list li::before { content: '→'; color: var(--gold); font-size: 0.8rem; }
     .segments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
     .segment-card {
       background: var(--navy-mid);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2rem;
       text-align: center;
@@ -239,6 +241,18 @@
       <li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li>
       <li><a href="services.html" class="active" data-i18n="nav.services">Services</a></li>
       <li><a href="realisations.html" data-i18n="nav.portfolio">Réalisations</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-fr"
+                aria-label="Ouvrir le menu des guides">Nos guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-fr" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Créer une SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/index.html">Tous les guides →</a>
+        </div>
+      </li>
       <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -247,6 +261,7 @@
         <span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span>
         <a class="lang-btn" href="../ar/الخدمات.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a>
         <a class="lang-btn" href="../en/services.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a>
+        <button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="contact.html" class="btn btn-gold nav-cta" data-i18n="nav.cta">Prendre RDV</a>
       <div class="hamburger"><span></span><span></span><span></span></div>
@@ -255,10 +270,17 @@
 </nav>
 <div class="mobile-menu">
   <span class="mobile-close">✕</span>
+
   <a href="index.html">Accueil</a>
   <a href="a-propos.html">À propos</a>
   <a href="services.html">Services</a>
   <a href="realisations.html">Réalisations</a>
+
+
+
+
+  <a href="../guides/index.html">Nos guides</a>
+  <a class="mobile-sub" href="../guides/creer-une-sarl-algerie.html">📘 Créer une SARL</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
 </div>
@@ -443,7 +465,7 @@
       <div class="gold-line center"></div>
     </div>
     <div class="grid-3" style="gap:2rem;">
-      <div style="text-align:center;padding:2.5rem;background:var(--navy-mid);border-radius:14px;border:1px solid rgba(255,255,255,0.06);" class="fade-up delay-1">
+      <div style="text-align:center;padding:2.5rem;background:var(--navy-mid);border-radius:14px;border:1px solid var(--border);" class="fade-up delay-1">
         <div style="width:56px;height:56px;background:var(--purple);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--navy);margin:0 auto 1.5rem;">1</div>
         <h4>Phase Initiale</h4>
         <div class="gold-line center" style="width:40px;"></div>
@@ -455,7 +477,7 @@
         <div class="gold-line center" style="width:40px;"></div>
         <p style="font-size:0.9rem;">Collecte exhaustive des données, analyses approfondies avec des outils professionnels et validation intermédiaire.</p>
       </div>
-      <div style="text-align:center;padding:2.5rem;background:var(--navy-mid);border-radius:14px;border:1px solid rgba(255,255,255,0.06);" class="fade-up delay-3">
+      <div style="text-align:center;padding:2.5rem;background:var(--navy-mid);border-radius:14px;border:1px solid var(--border);" class="fade-up delay-3">
         <div style="width:56px;height:56px;background:var(--purple);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--navy);margin:0 auto 1.5rem;">3</div>
         <h4>Finalisation</h4>
         <div class="gold-line center" style="width:40px;"></div>
@@ -496,13 +518,13 @@
         <li><a href="../services/conseil-financier.html">Études Économiques</a></li>
       </ul></div>
       <div class="footer-col"><h5>Contact</h5><ul>
-        <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+        <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
         <li><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></li>
         <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar — Alger</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
+      <span>© 2026 ProfitPilot NextGen Consulting. Tous droits réservés.</span>
       <span>NIF : 18716200026511241680</span>
     </div>
   </div>

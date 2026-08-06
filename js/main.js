@@ -11,6 +11,53 @@ window.addEventListener('scroll', () => {
   navbar?.classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// ══════════════════════════════════════════════
+// ── Thème jour / nuit ──
+// ══════════════════════════════════════════════
+// Le thème est DÉJÀ posé sur <html> par le script inline du <head> : ce bloc
+// ne fait que gérer la bascule et le suivi du système. Ne jamais poser le
+// thème ici seulement — main.js est chargé en fin de page, la couleur
+// arriverait après le premier rendu et produirait un flash blanc.
+(function () {
+  const root = document.documentElement;
+  const KEY = 'pp_theme';
+
+  const stored = () => {
+    try {
+      const v = localStorage.getItem(KEY);
+      return v === 'light' || v === 'dark' ? v : null;
+    } catch (e) { return null; }
+  };
+
+  const apply = (theme) => {
+    root.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      // aria-pressed décrit l'état, pas l'action : « clair activé ».
+      b.setAttribute('aria-pressed', String(theme === 'light'));
+    });
+  };
+
+  // Le bouton peut être absent d'une page non encore migrée : on ne casse rien.
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+    });
+  });
+
+  // Tant que le visiteur n'a rien choisi, on suit son système en direct :
+  // basculer le thème de l'OS change la page sans rechargement.
+  const mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
+  if (mq) {
+    const onChange = (e) => { if (!stored()) apply(e.matches ? 'light' : 'dark'); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
+
+  apply(root.getAttribute('data-theme') || 'dark');
+})();
+
 // ── Mobile Menu ──
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -402,3 +449,76 @@ if (newsletterForm) {
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
 });
+
+// ── Menu déroulant « Nos guides » ──
+// Le survol suffit à la souris (règles CSS :hover / :focus-within) ; ce bloc
+// ajoute le clic et le clavier, indispensables sur écran tactile et pour la
+// navigation sans souris. On ne rebinde rien : `.nav-drop-btn` est un
+// sélecteur neuf, aucun autre écouteur ne le vise.
+document.querySelectorAll('.nav-drop-btn').forEach(btn => {
+  const item = btn.closest('.has-dropdown');
+  if (!item) return;
+
+  const setOpen = state => {
+    item.classList.toggle('open', state);
+    btn.setAttribute('aria-expanded', state ? 'true' : 'false');
+  };
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    setOpen(!item.classList.contains('open'));
+  });
+
+  // Échap referme et rend le focus au bouton : sans ce retour, le focus
+  // reste sur un panneau devenu invisible et la tabulation part dans le vide.
+  item.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { setOpen(false); btn.focus(); }
+  });
+
+  document.addEventListener('click', e => {
+    if (!item.contains(e.target)) setOpen(false);
+  });
+});
+
+// ── Sommaire collant des guides : chapitre en cours ──
+// Un IntersectionObserver sert de DÉCLENCHEUR (il ne se réveille qu'au passage
+// d'un titre), mais la décision est reprise à zéro à chaque réveil en lisant la
+// position réelle des titres. Une première version tenait un ensemble de titres
+// « vus » mis à jour au fil des entrées de l'observateur : la logique dépendait
+// de l'ordre d'arrivée des callbacks et se désynchronisait au défilement rapide.
+(() => {
+  const toc = document.querySelector('.guide-toc');
+  if (!toc || !('IntersectionObserver' in window)) return;
+
+  const pairs = [];
+  toc.querySelectorAll('a[href^="#"]').forEach(a => {
+    const el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (el) pairs.push({ a, el });
+  });
+  if (!pairs.length) return;
+
+  const mark = () => {
+    // Le chapitre courant est le dernier dont le titre est passé au-dessus du
+    // tiers supérieur de l'écran ; à défaut, le premier de la page.
+    const limit = window.innerHeight * 0.33;
+    let current = pairs[0];
+    pairs.forEach(p => {
+      if (p.el.getBoundingClientRect().top <= limit) current = p;
+    });
+
+    pairs.forEach(p => p.a.classList.toggle('current', p === current));
+
+    // Garder l'entrée visible dans un sommaire qui défile lui-même, sans
+    // toucher au défilement de la page : on agit sur scrollTop du conteneur.
+    const box = toc.getBoundingClientRect();
+    const pos = current.a.getBoundingClientRect();
+    if (pos.top < box.top) toc.scrollTop -= (box.top - pos.top) + 8;
+    else if (pos.bottom > box.bottom) toc.scrollTop += (pos.bottom - box.bottom) + 8;
+  };
+
+  const obs = new IntersectionObserver(mark, {
+    rootMargin: '-33% 0px -60% 0px', threshold: [0, 1]
+  });
+  pairs.forEach(p => obs.observe(p.el));
+  mark();
+})();

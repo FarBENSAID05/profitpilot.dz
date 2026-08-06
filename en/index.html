@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
   <title>ProfitPilot — Financial & Economic Expert in Algeria</title>
   <meta name="description" content="BENSAID Farouk supports SMEs, startups and investors in Algeria. Financial studies, risk analysis, market research. Free consultation.">
   <meta name="keywords" content="financial expert algeria, financial studies algeria, business plan algeria, financial consultant algiers, market research algeria, risk analysis algeria, SME financing algeria, BENSAID Farouk, ProfitPilot algeria, economic studies algeria, sole trader algeria">
@@ -150,7 +152,7 @@
 </script>
 
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=19727428">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
@@ -166,6 +168,18 @@
       <li><a href="about.html" data-i18n="nav.about">About</a></li>
       <li><a href="services.html" data-i18n="nav.services">Services</a></li>
       <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-en"
+                aria-label="Open the guides menu">Guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-en" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../guides/en/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Setting up a SARL</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../guides/en/index.html">All guides →</a>
+        </div>
+      </li>
       <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -174,6 +188,7 @@
         <a class="lang-btn" href="../fr/index.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a>
         <a class="lang-btn" href="../ar/index.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a>
         <span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span>
+        <button type="button" class="theme-btn" id="themeToggle" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="contact.html" class="btn btn-gold nav-cta" data-i18n="nav.cta">Book a Call</a>
       <div class="hamburger">
@@ -186,10 +201,17 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu">
   <span class="mobile-close">✕</span>
+
   <a href="index.html" data-i18n="nav.home">Home</a>
   <a href="about.html" data-i18n="nav.about">About</a>
   <a href="services.html" data-i18n="nav.services">Services</a>
   <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+
+
+
+
+  <a href="../guides/en/index.html">Guides</a>
+  <a class="mobile-sub" href="../guides/en/creer-une-sarl-algerie.html">📘 Setting up a SARL</a>
   <a href="blog.html" data-i18n="nav.blog">Blog</a>
   <a href="contact.html" data-i18n="nav.contact">Contact</a>
   <div class="nav-lang" style="margin-top:1rem;">
@@ -373,22 +395,22 @@
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-card fade-up delay-1">
-        <div class="client-name">SARL ECC</div>
+        <div class="client-name">Medical equipment importer</div>
         <div class="client-sector">Medical Equipment • Import</div>
         <p class="mission">Regulatory monitoring, competitive analysis and forecast cash-flow plan for the import of medical equipment.</p>
-        <div class="amount">2,500,000 DZD</div>
+        <div class="impact">Import file secured</div>
       </div>
       <div class="portfolio-card fade-up delay-2">
-        <div class="client-name">SARL ESCLAB</div>
+        <div class="client-name">Laboratory equipment importer</div>
         <div class="client-sector">Laboratory Equipment • Import</div>
         <p class="mission">Compliance study, financing optimisation and targeted market research for the import of laboratory equipment.</p>
-        <div class="amount">1,500,000 DZD</div>
+        <div class="impact">Compliance cleared & positioning set</div>
       </div>
       <div class="portfolio-card fade-up delay-3">
-        <div class="client-name">OULMI Mohamed Lamine</div>
+        <div class="client-name">Investor — Public works & hydraulics</div>
         <div class="client-sector">Public Works &amp; Hydraulics</div>
         <p class="mission">Three-phase support: project diagnosis, feasibility study, financing plan and technical assistance during negotiation.</p>
-        <div class="amount">4,000,000 DZD</div>
+        <div class="impact">Bank financing plan structured</div>
       </div>
     </div>
     <div style="text-align:center;margin-top:3rem;" class="fade-up">
@@ -454,38 +476,38 @@
     </div>
     <div class="blog-grid">
       <div class="blog-card fade-up delay-1">
-        <div class="blog-img">📊</div>
+        <div class="blog-img">🚢</div>
         <div class="blog-content">
-          <span class="blog-cat">Finance</span>
-          <h3>How to Build an Effective Business Plan in Algeria</h3>
-          <p>The key steps to building a solid, convincing financial file for your bankers and investors.</p>
+          <span class="blog-cat">Import/Export</span>
+          <h3><a href="../blog/en/domiciliation-bancaire-importation-algerie-2026.html" style="color:inherit;">Bank domiciliation for imports: what Instruction 05-2026 and Note 01/DGC/2026 change</a></h3>
+          <p>Two texts issued in May 2026 fundamentally change import mechanics: financial standing checked before domiciliation, and domiciliation now mandatory before shipment.</p>
           <div class="blog-meta">
-            <span>📅 Jan. 2025</span>
-            <span>⏱ 8 min</span>
+            <span>📅 5 August 2026 · ⏱ 12 min</span>
+            <a href="../blog/en/domiciliation-bancaire-importation-algerie-2026.html" class="read-more">Read →</a>
           </div>
         </div>
       </div>
       <div class="blog-card fade-up delay-2">
-        <div class="blog-img">🌍</div>
+        <div class="blog-img">🧑‍💻</div>
         <div class="blog-content">
-          <span class="blog-cat">Import/Export</span>
-          <h3>Importing into Algeria: A Complete Guide to Customs Procedures</h3>
-          <p>Everything you need to know about regulations, costs and optimising import procedures.</p>
+          <span class="blog-cat">Startup</span>
+          <h3><a href="../blog/en/auto-entrepreneur-algerie.html" style="color:inherit;">Auto-entrepreneur status in Algeria: what Law 22-23 actually allows, and what it rules out</a></h3>
+          <p>The status created by Law 22-23 fits into a handful of articles. What matters sits elsewhere: the tax ceiling, the list of excluded activities, and what the status simply does not let you do.</p>
           <div class="blog-meta">
-            <span>📅 Feb. 2025</span>
-            <span>⏱ 12 min</span>
+            <span>📅 2 April 2025 · ⏱ 13 min</span>
+            <a href="../blog/en/auto-entrepreneur-algerie.html" class="read-more">Read →</a>
           </div>
         </div>
       </div>
       <div class="blog-card fade-up delay-3">
-        <div class="blog-img">📈</div>
+        <div class="blog-img">☪️</div>
         <div class="blog-content">
-          <span class="blog-cat">Marketing</span>
-          <h3>Market Research: Methods and Tools for Algerian SMEs</h3>
-          <p>How to carry out relevant market research on limited resources to maximise your chances of success.</p>
+          <span class="blog-cat">Islamic Finance</span>
+          <h3><a href="../blog/en/financement-islamique-algerie.html" style="color:inherit;">Islamic finance in Algeria: what the regulation actually covers, and what changed in 2025</a></h3>
+          <p>The subject is usually approached from a religious angle. In practice it is settled in six Bank of Algeria regulations — three of them issued in 2025, and those are the ones that change the picture for companies.</p>
           <div class="blog-meta">
-            <span>📅 Mar. 2025</span>
-            <span>⏱ 10 min</span>
+            <span>📅 18 March 2025 · ⏱ 12 min</span>
+            <a href="../blog/en/financement-islamique-algerie.html" class="read-more">Read →</a>
           </div>
         </div>
       </div>
@@ -515,8 +537,8 @@
         <img src="../images/logo.png" alt="ProfitPilot">
         <p>Expert in financial, economic and marketing studies. We support your growth with rigour and professionalism.</p>
         <div style="margin-top:1.5rem;display:flex;gap:0.8rem;">
-          <a href="https://www.linkedin.com/in/farouk-bensaid" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">in</a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">f</a>
+          <a href="https://www.linkedin.com/in/farouk-bensaid" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='var(--border)'">in</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;background:var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;" onmouseover="this.style.background='rgba(155,77,192,0.3)'" onmouseout="this.style.background='var(--border)'">f</a>
         </div>
       </div>
       <div class="footer-col">
@@ -544,15 +566,15 @@
       <div class="footer-col">
         <h5>Contact</h5>
         <ul>
-          <li><a href="tel:+213550020287">+213 550 02 02 87</a></li>
+          <li><a href="tel:+213550020287" dir="ltr">+213 550 02 02 87</a></li>
           <li><a href="mailto:contact@profitpilot.dz">faroukbensaid@<br>comptalegal.dz</a></li>
           <li><a href="https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6" target="_blank" rel="noopener">Cité Soummam, Bab Ezzouar<br>Algiers, Algeria</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ProfitPilot NextGen Consulting. <span data-i18n="footer.rights">All rights reserved.</span></span>
-      <span>NIF: 18716200026511241680 | <a href="contact.html">Privacy Policy</a></span>
+      <span>© 2026 ProfitPilot NextGen Consulting. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span>NIF: 18716200026511241680 | <a href="../legal/en/politique-confidentialite.html">Privacy Policy</a></span>
     </div>
   </div>
 </footer>
