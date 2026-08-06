@@ -1379,4 +1379,31 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html"/>
   </url>
 
+  <url>
+    <loc>https://profitpilot.dz/guides/creer-un-holding-algerie.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/guides/creer-un-holding-algerie.html"/>
+  </url>
+
+  <url>
+    <loc>https://profitpilot.dz/guides/ar/creer-un-holding-algerie.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/guides/creer-un-holding-algerie.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/guides/ar/creer-un-holding-algerie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/guides/en/creer-un-holding-algerie.html"/>
+  </url>
+  <url>
+    <loc>https://profitpilot.dz/guides/en/creer-un-holding-algerie.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://profitpilot.dz/guides/creer-un-holding-algerie.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://profitpilot.dz/guides/ar/creer-un-holding-algerie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://profitpilot.dz/guides/en/creer-un-holding-algerie.html"/>
+  </url>
+
 </urlset>
