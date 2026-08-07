@@ -446,8 +446,51 @@ if (newsletterForm) {
 }
 
 // ── FAQ Toggle ──
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+// Double compatibilité : ce bloc fonctionne que `.faq-q` soit encore un
+// `<div>` (ancien balisage) ou déjà un `<button type="button">` (balisage
+// cible produit par les générateurs). Il n'y a donc pas d'instant où le site
+// est cassé pendant la bascule.
+//
+// Pour un `<div>`, `role="button"` + `tabindex="0"` + `keydown` sont ajoutés
+// ici : les trois ensemble, jamais `tabindex` seul, qui rendrait l'élément
+// atteignable sans le rendre activable ni annonçable. C'est une béquille
+// transitoire ; le vrai correctif est le `<button>` dans les gabarits.
+document.querySelectorAll('.faq-q').forEach((q, i) => {
+  const item = q.parentElement;
+  if (!item) return;
+  const answer = item.querySelector('.faq-a');
+
+  // Relier la question à sa réponse si le gabarit ne l'a pas déjà fait.
+  if (answer) {
+    if (!answer.id) answer.id = 'faq-a-' + (i + 1);
+    if (!q.hasAttribute('aria-controls')) q.setAttribute('aria-controls', answer.id);
+  }
+
+  const nativeButton = q.tagName === 'BUTTON';
+  if (!nativeButton) {
+    q.setAttribute('role', 'button');
+    if (!q.hasAttribute('tabindex')) q.setAttribute('tabindex', '0');
+  }
+
+  const setOpen = state => {
+    item.classList.toggle('open', state);
+    q.setAttribute('aria-expanded', state ? 'true' : 'false');
+    if (answer) answer.hidden = !state;
+  };
+
+  // Synchroniser l'état annoncé avec l'état réel au chargement.
+  setOpen(item.classList.contains('open'));
+
+  q.addEventListener('click', () => setOpen(!item.classList.contains('open')));
+
+  if (!nativeButton) {
+    q.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();          // empêche le défilement sur Espace
+        setOpen(!item.classList.contains('open'));
+      }
+    });
+  }
 });
 
 // ── Menu déroulant « Nos guides » ──
