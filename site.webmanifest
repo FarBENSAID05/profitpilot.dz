@@ -1,0 +1,14 @@
+{
+  "name": "ProfitPilot NextGen Consulting",
+  "short_name": "ProfitPilot",
+  "description": "Études financières, économiques et marketing en Algérie.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1828",
+  "theme_color": "#0D1828",
+  "icons": [
+    { "src": "/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/images/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

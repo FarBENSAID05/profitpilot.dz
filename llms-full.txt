@@ -2138,8 +2138,8 @@ Le modèle financier, le tableau de bord de trésorerie et le plan d'action chif
 - → Le vrai coût de revient à l'import
 - → Auto-entrepreneur : ce que la loi 22-23 autorise
 - → Domiciliation bancaire à l'import : instruction 05-2026
-- → Soumissionner à un marché public
 - → Sortir l'argent de sa société en Algérie
+- → Soumissionner à un marché public
 
 
 ------------------------------------------------------------------------
@@ -2849,9 +2849,9 @@ FinancementRéglementationPME
 ## Crédit bancaire en Algérie : ce que la réglementation oblige votre banque à calculer sur vous
 
 👤 BENSAID Farouk — Expert Financier
-📅 12 août 2026
+📅 29 mai 2026
 ⏱ 14 min de lecture
-🔄 Mis à jour : Août 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : La plupart des refus de crédit en Algérie ne s'expliquent pas par la qualité du projet, mais par des règles prudentielles que la banque n'a pas le pouvoir d'écarter. Trois règlements de la Banque d'Algérie du 16 février 2014 encadrent la division des risques, le classement des créances et la valeur reconnue aux garanties. Ils imposent notamment : un plafond de 25 % des fonds propres réglementaires par bénéficiaire, l'agrégation de vos sociétés liées dans un même risque, un déclassement automatique à 90 jours d'impayé qui contamine tous vos autres engagements, et une hypothèque retenue à 50 % seulement. Comprendre ces mécanismes, c'est comprendre ce qui se joue réellement dans l'analyse de votre dossier.
 
@@ -3156,9 +3156,9 @@ FinancementMontage financierPME
 ## Combien d'apport personnel votre banque exige-t-elle réellement ?
 
 👤 BENSAID Farouk — Expert Financier
-📅 2 septembre 2026
+📅 6 juin 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : Septembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : « Il faut 30 % d'apport » est la phrase la plus répétée — et l'une des moins vérifiées — du financement d'entreprise en Algérie. Les trois règlements prudentiels de la Banque d'Algérie qui encadrent le crédit ne fixent aucun taux d'apport à la charge de l'emprunteur : ils encadrent le comportement de la banque, pas la structure de votre montage. Là où un barème existe, c'est dans les dispositifs publics : NESDA publie des taux de 5 %, 10 %, 12 % ou 15 % selon le statut du porteur et la région. Cet article distingue ce qui est réglementé de ce qui relève de la politique bancaire, et montre pourquoi un dinar d'apport ne vaut pas un dinar de garantie.
 
@@ -3886,9 +3886,9 @@ InvestissementInvestisseur étrangerFiscalité
 ## Céder sa société algérienne quand on est étranger : les trois portes avant que l'argent ne bouge
 
 👤 BENSAID Farouk — Expert Financier
-📅 2 décembre 2026
+📅 2 juillet 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : décembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Un actionnaire étranger qui sort d'une société algérienne franchit trois portes distinctes : une autorisation sectorielle préalable, un règlement fiscal et un transfert de change — et une quatrième lorsque les biens ont bénéficié d'avantages à l'investissement. Le décret exécutif n° 25-304 du 16 novembre 2025 fixe pour la première fois la procédure d'autorisation : c'est la société cible qui dépose, huit avis sont obligatoires, le ministère dispose de soixante jours, et le rejet est obligatoire dans deux cas. Cet article parcourt le décret article par article, expose le taux de 20 % des articles 149 bis et 150-3 du CIDTA et son horloge de trente jours, et explique pourquoi la transférabilité du produit s'est décidée à la constitution.
 
@@ -4159,9 +4159,9 @@ Import/ExportTrésorerieRentabilité
 ## Le vrai coût de revient à l'import : les six postes financiers que les importateurs oublient
 
 👤 BENSAID Farouk — Expert Financier
-📅 14 octobre 2026
+📅 29 juillet 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : Octobre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Le coût de revient à l'import se calcule presque toujours à partir de la facture fournisseur, du fret et des droits de douane. C'est la partie visible. Les six postes détaillés ici sont financiers : ils ne figurent sur aucune facture, ne s'inscrivent dans aucun compte de charges évident, et pèsent pourtant directement sur la marge. Plusieurs se sont alourdis en 2026 avec l'obligation de domicilier avant l'expédition et le plafonnement de l'encours d'importation à 100 % des fonds propres.
 
@@ -4412,9 +4412,9 @@ InvestissementProcéduresRéglementation
 ## Créer une société en Algérie quand on est étranger : les décisions des trois premières semaines
 
 👤 BENSAID Farouk — Expert Financier
-📅 18 août 2026
+📅 2 août 2026
 ⏱ 14 min de lecture
-🔄 Mis à jour : Août 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : S'immatriculer n'est pas la partie difficile. Se structurer l'est. Quatre décisions se prennent dans les trois premières semaines — la forme, le montant du capital, l'objet social et la gérance — et chacune est coûteuse à défaire. Ensemble, elles déterminent si vous pourrez détenir 100 %, si vos fonds pourront être débloqués, et si les bénéfices seront un jour transférables. Cet article expose ce que disent réellement les textes : la rédaction exacte de l'article 590 bis 2, souvent paraphrasée trop largement, le délai de six mois qui court sur les fonds déposés au titre de l'article 567 bis 1, et le changement du 9 juillet 2026, date d'entrée en vigueur de la convention Apostille en Algérie, qui met fin à la légalisation consulaire.
 
@@ -4716,9 +4716,9 @@ FinancementInvestissementPME
 ## Crédit d'investissement ou leasing : le comparatif que votre banquier ne fera pas à votre place
 
 👤 BENSAID Farouk — Expert Financier
-📅 4 novembre 2026
+📅 25 mai 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : novembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Le crédit d'investissement et le crédit-bail financent le même équipement, mais ce ne sont pas deux versions du même produit : le régime juridique diffère (ordonnance n° 96-09 du 10 janvier 1996), le régime fiscal diffère, et le risque en cas d'impayé diffère radicalement. Comparer les deux sur le total des sommes versées n'a aucun sens. Voici la méthode de comparaison correcte, appliquée à un cas chiffré de 10 millions de dinars.
 
@@ -5515,9 +5515,9 @@ Contact
 ## Votre étude de marché est fausse sans ces trois vérifications terrain
 
 👤 BENSAID Farouk — Expert Financier
-📅 28 octobre 2026
+📅 25 juillet 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : Octobre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : La partie IV du plan-type imposé par l'annexe V du décret exécutif n° 26-154 exige une analyse de la demande, de l'offre et de la concurrence, des tendances sectorielles, du positionnement et de l'accès au marché. Rien n'y précise comment établir ces éléments — et c'est là que la plupart des études basculent dans le déclaratif. Trois vérifications de terrain, réalisables en quelques jours et sans budget, suffisent à ancrer une étude dans le réel : le comptage, le test de prix et la vérification de l'accès au circuit.
 
@@ -5763,9 +5763,9 @@ InvestissementFoncier économiqueRéglementation
 ## Foncier économique : le plan-type officiel de l'étude technico-économique exigée par l'AAPI
 
 👤 BENSAID Farouk — Expert Financier
-📅 9 septembre 2026
+📅 6 juillet 2026
 ⏱ 14 min de lecture
-🔄 Mis à jour : Septembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Le décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, ne se contente plus d'exiger une étude technico-économique dans le dossier de demande de foncier économique : il impose qu'elle soit « dûment établie par un professionnel qualifié » et rédigée conformément au plan-type figurant à son annexe V. Ce plan-type compte neuf parties, de l'identification du porteur jusqu'aux annexes, en passant par le procédé de production, le plan de financement et le calcul du TRI, de la VAN et du seuil de rentabilité. Cet article en détaille le contenu exact, partie par partie.
 
@@ -6304,9 +6304,9 @@ InvestissementFoncier économiqueProcédures
 ## Foncier économique en Algérie : le parcours complet, de la préinscription à l'acte de cession
 
 👤 BENSAID Farouk — Expert Financier
-📅 30 septembre 2026
+📅 18 juillet 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : Septembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Obtenir un foncier économique n'est pas une démarche, c'est un parcours à onze étapes, dont chacune a son délai. Le décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, en a réécrit plusieurs et en a resserré la plupart : 30 jours d'affichage, 15 jours de traitement, 48 heures de réponse après décision du conseil, 8 jours pour souscrire au cahier des charges, 8 jours pour l'acte de concession, 3 mois pour la conversion en cession. Voici la chronologie complète, et ce qui continue de courir après la signature.
 
@@ -6556,9 +6556,9 @@ FinancementGarantiesPME
 ## Pas d'hypothèque à offrir ? Les garanties qui valent plus qu'un bien immobilier
 
 👤 BENSAID Farouk — Expert Financier
-📅 26 août 2026
+📅 13 juin 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : Août 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : L'absence de bien immobilier à hypothéquer n'est pas rédhibitoire — et l'hypothèque n'est de toute façon pas la garantie la plus efficace. La réglementation prudentielle ne retient une hypothèque qu'à 50 % de sa valeur, contre 100 % pour une garantie de l'État ou d'un fonds public assimilé. Trois dispositifs algériens émettent ce type de garantie : le FGAR, la CGCI-PME et la garantie déléguée TPE/PE. Cet article en détaille les quotités, les plafonds et — point rarement écrit — les exclusions, à commencer par celle des activités commerciales et de l'import/export.
 
@@ -6882,9 +6882,9 @@ InvestissementFoncier économiqueRéglementation
 ## Grille d'évaluation du foncier économique : comment votre projet est noté sur 1500 points
 
 👤 BENSAID Farouk — Expert Financier
-📅 16 septembre 2026
+📅 10 juillet 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : Septembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : L'attribution du foncier économique ne relève pas de l'appréciation : elle repose sur une grille d'évaluation chiffrée, publiée en annexe I du décret exécutif n° 26-154 du 14 avril 2026. Huit critères, des coefficients allant de 1 à 7, et un score maximal de 1500 points. Le traitement des demandes est numérique, le classement se fait par ordre décroissant de score, et seuls les projets classés dans les trois meilleurs niveaux de score sont présélectionnés. Comprendre le poids réel de chaque critère, c'est savoir où se joue réellement un dossier.
 
@@ -7196,9 +7196,9 @@ InvestissementProcéduresRéglementation
 ## Guichet unique AAPI : qui y siège, quels délais, et quelle valeur ont les documents délivrés
 
 👤 BENSAID Farouk — Expert Financier
-📅 23 septembre 2026
+📅 14 juillet 2026
 ⏱ 11 min de lecture
-🔄 Mis à jour : Septembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Le décret exécutif n° 26-153 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, réorganise l'AAPI et donne au guichet unique une portée nouvelle. Trois dispositions en font l'essentiel : un délai de quinze jours pour délivrer les autorisations nécessaires à la concrétisation d'un projet, une délégation de signature donnée aux représentants des administrations, et le caractère opposable des documents délivrés sur place. Voici qui siège au guichet, ce qu'il peut signer, et ce qui déclenche — ou non — le décompte des délais.
 
@@ -7673,9 +7673,9 @@ FinancementPMEMarchés publics
 ## Soumissionner à un marché public : la capacité financière que personne ne vous chiffre
 
 👤 BENSAID Farouk — Expert Financier
-📅 11 novembre 2026
+📅 28 juin 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : novembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Beaucoup d'entreprises renoncent à un appel d'offres en estimant « ne pas avoir la surface financière ». C'est presque toujours une erreur de lecture : la loi n° 23-12 du 5 août 2023 ne fixe aucun seuil chiffré de capacité financière. Elle impose en revanche que les critères soient proportionnels à l'étendue du marché, et elle ouvre quatre leviers pour les entreprises qui n'atteignent pas le niveau demandé seules. Le vrai obstacle est ailleurs — dans la trésorerie nécessaire à l'exécution.
 
@@ -7950,9 +7950,9 @@ FinancementDiagnosticPME
 ## Refus de crédit bancaire : les 5 vérifications à faire avant de représenter votre dossier
 
 👤 BENSAID Farouk — Expert Financier
-📅 19 août 2026
+📅 2 juin 2026
 ⏱ 11 min de lecture
-🔄 Mis à jour : Août 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Un refus de crédit est rarement motivé, et presque jamais définitif. Avant de redéposer le même dossier ailleurs — la pire des stratégies — cinq vérifications permettent d'identifier la cause réelle. La première est un droit que la plupart des dirigeants ignorent : tout emprunteur peut accéder gratuitement aux données enregistrées le concernant à la Centrale des risques de la Banque d'Algérie, et en demander la rectification. Les quatre suivantes portent sur votre classement, le périmètre de vos sociétés liées, la recevabilité de vos garanties et le choix de l'établissement.
 
@@ -8394,9 +8394,9 @@ FiscalitéDirigeantPME
 ## Sortir l'argent de sa société en Algérie : ce que coûte réellement chaque canal
 
 👤 BENSAID Farouk — Expert Financier
-📅 25 novembre 2026
+📅 25 juin 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : novembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Sortir de l'argent d'une société algérienne emprunte nécessairement l'un de quatre canaux : la rémunération de gérance, le dividende, le remboursement de compte courant d'associé et la cession des titres. Chacun a sa base légale et son taux, et l'écart entre le plus cher et le moins cher dépasse trente points. Cet article compare les quatre sur les textes en vigueur — article 104 et article 150 du CIDTA, articles 77 bis à 80 pour les plus-values, code de l'enregistrement pour la transmission — et écarte deux montages importés de l'étranger qui n'ont aucun équivalent en droit algérien.
 
@@ -8666,9 +8666,9 @@ InvestissementFinanceRéglementation
 ## Financer sa société en Algérie : l'argent qui pourra ressortir, et celui qui restera
 
 👤 BENSAID Farouk — Expert Financier
-📅 18 novembre 2026
+📅 21 juin 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : Novembre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Deux ratios décident de la part du bénéfice algérien qui pourra quitter le pays, et ils n'ont pas le même dénominateur. Le premier est une porte : l'article 8 de la loi n° 22-18 et le décret exécutif n° 22-300 exigent des apports en capital importés représentant au moins 25 % du coût global du projet, faute de quoi la garantie de transfert n'est tout simplement pas acquise. Le second est un plafond : l'article 4 du règlement n° 05-03 de la Banque d'Algérie limite ce qu'une société mixte peut transférer à la part de l'apport étranger dans le capital. Franchir le premier ne signifie donc pas transférer la totalité. Cet article expose ce qui alimente chacun des deux ratios, pourquoi le compte courant d'associé n'en alimente aucun, et comment une extension financée localement peut défaire une structure conforme le premier jour.
 
@@ -8946,9 +8946,9 @@ InvestissementFinanceRéglementation
 ## Transférer ses dividendes hors d'Algérie : ce qui se décide trois ans avant la demande
 
 👤 BENSAID Farouk — Expert Financier
-📅 11 août 2026
+📅 17 juin 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : Août 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : La garantie de transfert n'est pas une formalité bancaire de fin d'exercice. C'est un statut juridique que l'investissement acquiert à sa constitution, ou n'acquiert jamais. L'article 8 de la loi n° 22-18 du 24 juillet 2022 le subordonne à quatre conditions cumulatives portant sur la manière dont le capital est entré dans le pays, et le décret exécutif n° 22-300 y ajoute un seuil minimum de financement extérieur de 25 % du coût global. En deçà du seuil, l'investissement conserve tous ses avantages fiscaux — il perd seulement le droit de faire sortir l'argent. Cet article expose les quatre conditions, le contenu du dossier de transfert, les délais, la fiscalité réellement prélevée et les points sur lesquels nous voyons les dossiers échouer.
 
@@ -9239,9 +9239,9 @@ TrésorerieDiagnosticPME
 ## Trésorerie : pourquoi une entreprise rentable peut déposer le bilan
 
 👤 BENSAID Farouk — Expert Financier
-📅 21 octobre 2026
+📅 9 juin 2026
 ⏱ 12 min de lecture
-🔄 Mis à jour : Octobre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : Une entreprise ne dépose pas le bilan parce qu'elle perd de l'argent : elle dépose le bilan parce qu'elle n'a plus de quoi payer. Ce sont deux choses différentes, et l'écart entre elles porte un nom : le besoin en fonds de roulement. Cet article montre, sur un exemple chiffré, comment une croissance de 60 % du chiffre d'affaires peut absorber plus de trésorerie que l'entreprise n'en dégage de résultat — et pourquoi le découvert permanent qui en résulte est précisément ce que la réglementation bancaire surveille.
 
@@ -9462,9 +9462,9 @@ RentabilitéMéthodeInvestissement
 ## VAN, TRI, délai de récupération : votre projet est-il rentable avant d'emprunter ?
 
 👤 BENSAID Farouk — Expert Financier
-📅 7 octobre 2026
+📅 22 juillet 2026
 ⏱ 13 min de lecture
-🔄 Mis à jour : Octobre 2026
+🔄 Mis à jour : août 2026
 
 📌 En résumé : La partie VI du plan-type imposé par l'annexe V du décret exécutif n° 26-154 exige quatre indicateurs : TRI, VAN, seuil de rentabilité et taux de marge. Ce ne sont pas des cases à remplir : ce sont quatre réponses à une même question — le projet crée-t-il plus de valeur qu'il ne coûte, et à partir de quand ? Cet article explique ce que mesure chaque indicateur, comment il se calcule, et les déroule sur un exemple chiffré complet, de l'investissement initial jusqu'à la décision.
 

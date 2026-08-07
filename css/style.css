@@ -241,7 +241,28 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
    langue et le bouton d'action, dépassaient la largeur disponible autour de
    1450 px. Le menu passait sur deux lignes et le logo tombait à zéro. */
 .nav-logo { flex-shrink: 0; }
-.nav-logo img { height: 52px; display: block; }
+/* `width: auto` est indispensable depuis que les balises portent des attributs
+   `width` et `height` : sans lui, le navigateur garderait la largeur écrite
+   dans l'attribut et n'appliquerait que la hauteur du CSS — logo étiré. */
+.nav-logo img { height: 52px; width: auto; display: block; }
+
+/* ── Les deux variantes du logo ────────────────────────────────────────────
+   Le mot « PROFITPILOT » du logo est en encre foncée : lisible sur fond
+   clair, invisible sur fond sombre. Chaque page embarque donc les deux
+   fichiers et n'en montre qu'un, selon `data-theme` — même procédé que les
+   icônes ☾ / ☀ du bouton de thème, quelques centaines de lignes plus bas.
+
+   Pourquoi pas un `<picture>` : il choisit sa source sur
+   `prefers-color-scheme`, la préférence du SYSTÈME. Or ce site laisse le
+   visiteur basculer le thème à la main, et ce choix est mémorisé. Les deux
+   se contrediraient dès la première bascule.
+
+   Le thème par défaut est sombre : c'est donc `logo-encre` qui est masqué
+   tant que `data-theme="light"` n'est pas posé. */
+.logo-encre { display: none; }
+.logo-clair { display: block; }
+html[data-theme="light"] .logo-encre { display: block; }
+html[data-theme="light"] .logo-clair { display: none; }
 
 .nav-links {
   display: flex;
@@ -834,7 +855,7 @@ a.service-card:hover { text-decoration: none; }
   gap: 3rem;
   margin-bottom: 4rem;
 }
-.footer-brand img { height: 50px; margin-bottom: 1.2rem; }
+.footer-brand img { height: 50px; width: auto; margin-bottom: 1.2rem; }
 .footer-brand p { font-size: 0.9rem; max-width: 280px; }
 .footer-col h5 {
   font-family: var(--font-body);
