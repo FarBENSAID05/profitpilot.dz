@@ -1923,23 +1923,6 @@ Elle ne peut pas entrer en bourse : l'article 715 bis 139 lui interdit de faire 
 URL : https://profitpilot.dz/guides/index.html
 Résumé : Guides complets et à jour sur la création d'entreprise, le financement et l'obligation de commissariat aux comptes en Algérie.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-## Nos guides
-
-Des dossiers complets, tenus à jour, sur les décisions juridiques et financières qui engagent une entreprise en Algérie.
-
 📘
 
 #### Créer une SARL en Algérie
@@ -2831,21 +2814,6 @@ Non. La société à responsabilité limitée est gérée par une ou plusieurs p
 URL : https://profitpilot.dz/blog/analyse-dossier-credit-bancaire-algerie.html
 Résumé : Plafond de 25 %, personnes liées, classement à 90/180/360 jours, hypothèque retenue à 50 % : les règles prudentielles qui décident de votre crédit en Algérie.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinancementRéglementationPME
-
 ## Crédit bancaire en Algérie : ce que la réglementation oblige votre banque à calculer sur vous
 
 👤 BENSAID Farouk — Expert Financier
@@ -3138,21 +3106,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/apport-personnel-credit-bancaire-algerie.html
 Résumé : Les 30 % souvent cités n'ont pas de base réglementaire. Barème NESDA vérifié, mécanique prudentielle de l'apport et arbitrage apport / garantie.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinancementMontage financierPME
-
 ## Combien d'apport personnel votre banque exige-t-elle réellement ?
 
 👤 BENSAID Farouk — Expert Financier
@@ -3392,21 +3345,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/auto-entrepreneur-algerie.html
 Résumé : Loi 22-23, décrets 23-196 à 23-198, IFU à 0,5 %, plafond de 5 000 000 DA et micro-importation : le cadre complet du statut d'auto-entrepreneur en 2026.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-StartupFiscalitéRéglementation
 
 ## Auto-entrepreneur en Algérie : ce que la loi 22-23 autorise réellement, et ce qu'elle interdit
 
@@ -3675,21 +3613,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/business-plan-algerie.html
 Résumé : Le business plan destiné à une banque est la matière première d'une analyse encadrée par la réglementation. Structure attendue, projections, erreurs à éviter.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinanceFinancementCréation d'entreprise
-
 ## Business plan en Algérie : ce que la banque en fait réellement, et comment le structurer en conséquence
 
 👤 BENSAID Farouk — Expert Financier
@@ -3867,21 +3790,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/ceder-parts-societe-algerienne-etranger.html
 Résumé : Décret 25-304, taux de 20 % de l'article 150-3 et garantie de transfert : les trois portes qu'un actionnaire étranger franchit pour sortir d'Algérie.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementInvestisseur étrangerFiscalité
 
 ## Céder sa société algérienne quand on est étranger : les trois portes avant que l'argent ne bouge
 
@@ -4141,21 +4049,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/cout-de-revient-reel-import-algerie.html
 Résumé : Immobilisation, ligne documentaire, plafond d'encours, frais bancaires, surestaries : les six coûts absents de la facture fournisseur.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-Import/ExportTrésorerieRentabilité
-
 ## Le vrai coût de revient à l'import : les six postes financiers que les importateurs oublient
 
 👤 BENSAID Farouk — Expert Financier
@@ -4393,21 +4286,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/creation-societe-investisseur-etranger-algerie.html
 Résumé : Forme, capital, objet social, gérant : les choix pris avant le notaire sur lesquels on ne revient pas — et ce qui a changé pour vos documents le 9 juillet 2026.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementProcéduresRéglementation
 
 ## Créer une société en Algérie quand on est étranger : les décisions des trois premières semaines
 
@@ -4697,21 +4575,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/credit-investissement-ou-leasing-algerie.html
 Résumé : Ordonnance 96-09, fiscalité du crédit-bail et calcul actualisé : la méthode pour comparer un crédit d'investissement et un leasing sur la même base.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinancementInvestissementPME
 
 ## Crédit d'investissement ou leasing : le comparatif que votre banquier ne fera pas à votre place
 
@@ -5014,21 +4877,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/domiciliation-bancaire-importation-algerie-2026.html
 Résumé : Surface financière, actif net, plafond de 100 % des fonds propres, domiciliation avant expédition : ce que tout importateur algérien doit préparer en 2026.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-Import/ExportRéglementationFinancement
-
 ## Domiciliation bancaire à l'import : ce que changent l'instruction 05-2026 et la note 01/DGC/2026
 
 👤 BENSAID Farouk — Expert Financier
@@ -5294,21 +5142,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/etude-de-marche-pme-algerie.html
 Résumé : Comment mener une étude de marché exploitable en Algérie sans budget : sources disponibles, méthode en six étapes, analyse concurrentielle et pièges à éviter.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-MarketingÉtudesCréation d'entreprise
-
 ## Étude de marché en Algérie : la méthode complète quand on n'a ni budget ni données publiques fiables
 
 👤 BENSAID Farouk — Expert Financier
@@ -5496,21 +5329,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/etude-de-marche-verification-terrain-algerie.html
 Résumé : Comptage, test de prix, accès au circuit : trois vérifications qui transforment une étude de marché déclarative en étude vérifiable.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-Études marketingMéthodePME
 
 ## Votre étude de marché est fausse sans ces trois vérifications terrain
 
@@ -5744,21 +5562,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/etude-technico-economique-plan-type-aapi.html
 Résumé : Le décret 26-154 du 14 avril 2026 impose un plan-type en neuf parties pour l'étude technico-économique du dossier de foncier économique. Contenu détaillé.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementFoncier économiqueRéglementation
 
 ## Foncier économique : le plan-type officiel de l'étude technico-économique exigée par l'AAPI
 
@@ -6053,21 +5856,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/financement-islamique-algerie.html
 Résumé : Règlement 20-02 et les trois textes de 2025 sur la comptabilisation, le plan de comptes et le marché interbancaire islamique : le cadre algérien en 2026.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-Finance IslamiqueFinancementRéglementation
-
 ## Financement islamique en Algérie : ce que la réglementation encadre vraiment, et ce qui a changé en 2025
 
 👤 BENSAID Farouk — Expert Financier
@@ -6285,21 +6073,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/foncier-economique-procedure-aapi-algerie.html
 Résumé : Préinscription, notation, présélection, décision, cahier des charges, concession, conversion en cession : les onze étapes et leurs délais, texte à l'appui.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementFoncier économiqueProcédures
 
 ## Foncier économique en Algérie : le parcours complet, de la préinscription à l'acte de cession
 
@@ -6537,21 +6310,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/garanties-credit-sans-hypotheque-algerie.html
 Résumé : FGAR, CGCI-PME, garantie déléguée TPE : quotités, plafonds et exclusions. Pourquoi une garantie publique vaut prudentiellement le double d'une hypothèque.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinancementGarantiesPME
 
 ## Pas d'hypothèque à offrir ? Les garanties qui valent plus qu'un bien immobilier
 
@@ -6864,21 +6622,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/grille-evaluation-foncier-economique-algerie.html
 Résumé : L'annexe I du décret 26-154 fixe une grille de notation à huit critères, sur 1500 points. Poids réel de chaque critère et leviers d'optimisation.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementFoncier économiqueRéglementation
-
 ## Grille d'évaluation du foncier économique : comment votre projet est noté sur 1500 points
 
 👤 BENSAID Farouk — Expert Financier
@@ -7178,21 +6921,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/guichet-unique-aapi-delais-2026.html
 Résumé : Le décret 26-153 fixe un délai de 15 jours pour les autorisations d'investissement et rend les documents du guichet unique opposables aux administrations.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementProcéduresRéglementation
-
 ## Guichet unique AAPI : qui y siège, quels délais, et quelle valeur ont les documents délivrés
 
 👤 BENSAID Farouk — Expert Financier
@@ -7422,21 +7150,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/import-algerie-procedures.html
 Résumé : Domiciliation bancaire préalable, déclaration en détail, TVA à 19 % ou 9 %, apurement du dossier : les étapes réelles pour importer en Algérie en 2026.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-Import/ExportRéglementationFinancement
-
 ## Importer en Algérie : la chaîne complète, de la domiciliation bancaire à la mise à la consommation
 
 👤 BENSAID Farouk — Expert Financier
@@ -7654,21 +7367,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/marche-public-capacite-financiere-algerie.html
 Résumé : La loi 23-12 ne fixe aucun seuil financier. Où se cache réellement l'exigence, les quatre leviers légaux, et le besoin de trésorerie chiffré.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinancementPMEMarchés publics
 
 ## Soumissionner à un marché public : la capacité financière que personne ne vous chiffre
 
@@ -7932,21 +7630,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/refus-credit-bancaire-que-faire-algerie.html
 Résumé : Votre crédit a été refusé sans explication ? Cinq vérifications concrètes, dont l'accès gratuit à votre rapport de la Centrale des risques, avant de redéposer.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FinancementDiagnosticPME
-
 ## Refus de crédit bancaire : les 5 vérifications à faire avant de représenter votre dossier
 
 👤 BENSAID Farouk — Expert Financier
@@ -8179,21 +7862,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/risques-financiers-pme.html
 Résumé : Liquidité, change, concentration client, classement bancaire et risque fiscal de forme : les cinq risques qui font tomber une PME algérienne, et comment les mesurer.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-RisquesFinanceGestion
-
 ## Risques financiers d'une PME en Algérie : les cinq qui font réellement tomber les entreprises
 
 👤 BENSAID Farouk — Expert Financier
@@ -8375,21 +8043,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/sortir-argent-societe-algerie.html
 Résumé : Rémunération, dividende, compte courant, cession de parts : les quatre canaux comparés, taux à l'appui, sur les textes fiscaux algériens en vigueur.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-FiscalitéDirigeantPME
 
 ## Sortir l'argent de sa société en Algérie : ce que coûte réellement chaque canal
 
@@ -8647,21 +8300,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/structurer-financement-investisseur-etranger-algerie.html
 Résumé : Capital, compte courant d'associé ou dette bancaire locale ? Un seul construit le droit de sortir les bénéfices d'Algérie. Deux ratios en décident.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementFinanceRéglementation
 
 ## Financer sa société en Algérie : l'argent qui pourra ressortir, et celui qui restera
 
@@ -8927,21 +8565,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/transfert-dividendes-etranger-algerie.html
 Résumé : La garantie de transfert s'acquiert à la constitution, pas à la distribution. Seuil de 25 %, dossier Banque d'Algérie, délais et ce qui bloque.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-InvestissementFinanceRéglementation
 
 ## Transférer ses dividendes hors d'Algérie : ce qui se décide trois ans avant la demande
 
@@ -9221,21 +8844,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 URL : https://profitpilot.dz/blog/tresorerie-bfr-entreprise-rentable-faillite.html
 Résumé : Résultat positif et trésorerie négative : la mécanique du besoin en fonds de roulement, le piège de la croissance et le signal que votre banque surveille.
 
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-TrésorerieDiagnosticPME
-
 ## Trésorerie : pourquoi une entreprise rentable peut déposer le bilan
 
 👤 BENSAID Farouk — Expert Financier
@@ -9443,21 +9051,6 @@ Expert certifié auto-entrepreneur, spécialisé en études financières, analys
 
 URL : https://profitpilot.dz/blog/van-tri-delai-recuperation-projet-algerie.html
 Résumé : Les quatre indicateurs exigés par l'annexe V du décret 26-154, expliqués et calculés sur un exemple complet : VAN, TRI, seuil et délai de récupération.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-RentabilitéMéthodeInvestissement
 
 ## VAN, TRI, délai de récupération : votre projet est-il rentable avant d'emprunter ?
 
@@ -10490,23 +10083,6 @@ Les références réglementaires portent leur date de vérification. Le règleme
 
 URL : https://profitpilot.dz/boutique/index.html
 Résumé : Modèles, séances de diagnostic, forfaits d'étude et ateliers. Chaque offre indique son livrable, son délai et ce qu'elle ne couvre pas.
-
-Accueil
-À propos
-Services
-Réalisations
-Nos guides
-📘 Créer une SARL
-🏛️ Créer une SPA
-🏗️ Créer un holding
-🚀 Créer une SPAS
-Boutique
-Blog
-Contact
-
-## Boutique — offres à périmètre défini
-
-Des prestations à périmètre fermé, livrable annoncé et délai tenu. Les missions sur mesure restent traitées sur devis, après cadrage.
 
 Les tarifs sont communiqués sur demande, après cadrage du besoin.
 
