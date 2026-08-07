@@ -119,7 +119,7 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css?v=37d36236">
+  <link rel="stylesheet" href="../css/style.css?v=74065ce5">
   <style>
     .services-full-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .service-full-card {
@@ -268,17 +268,22 @@
         <button type="button" class="theme-btn" id="themeToggle" title="التبديل بين الوضع الداكن والوضع الفاتح" aria-label="التبديل بين الوضع الداكن والوضع الفاتح"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="تواصل-معنا.html" class="btn btn-gold nav-cta" data-i18n="nav.cta">احجز موعداً</a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button type="button" class="hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="menu-mobile"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu">
-  <span class="mobile-close">✕</span>
+<div class="mobile-menu" id="menu-mobile">
+  <button type="button" class="mobile-close" aria-label="إغلاق القائمة">✕</button>
 
   <a href="index.html">الرئيسية</a>
   <a href="من-نحن.html">من نحن</a>
   <a href="الخدمات.html">الخدمات</a>
   <a href="انجازاتنا.html">إنجازاتنا</a>
+
+
+
+
+
 
 
 

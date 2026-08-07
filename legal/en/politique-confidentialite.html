@@ -58,7 +58,7 @@
 
   <link rel="icon" href="../../images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="../../css/style.css?v=37d36236">
+  <link rel="stylesheet" href="../../css/style.css?v=74065ce5">
   <style>
 
     /* ── Typographie arabe ──
@@ -149,8 +149,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -283,6 +295,21 @@
       <li><a href="../../en/about.html">About</a></li>
       <li><a href="../../en/services.html">Services</a></li>
       <li><a href="../../en/portfolio.html">Portfolio</a></li>
+      <li class="nav-item has-dropdown">
+        <button type="button" class="nav-drop-btn" aria-expanded="false"
+                aria-haspopup="true" aria-controls="navGuides-en"
+                aria-label="Open the guides menu">Guides<span class="nav-caret" aria-hidden="true">▾</span></button>
+        <div class="nav-dropdown" id="navGuides-en" role="menu">
+          <p class="nav-drop-head">Guides</p>
+          <div class="nav-drop-grid">
+          <a class="nav-drop-link" role="menuitem" href="../../guides/en/creer-une-sarl-algerie.html"><span class="nav-drop-icon" aria-hidden="true">📘</span><span>Setting up a SARL</span></a>
+          <a class="nav-drop-link" role="menuitem" href="../../guides/en/creer-une-spa-algerie.html"><span class="nav-drop-icon" aria-hidden="true">🏛️</span><span>Setting up a SPA</span></a>
+          <a class="nav-drop-link" role="menuitem" href="../../guides/en/creer-un-holding-algerie.html"><span class="nav-drop-icon" aria-hidden="true">🏗️</span><span>Setting up a holding</span></a>
+          <a class="nav-drop-link" role="menuitem" href="../../guides/en/creer-une-spas-algerie.html"><span class="nav-drop-icon" aria-hidden="true">🚀</span><span>Setting up a SPAS</span></a>
+          </div>
+          <a class="nav-drop-all" role="menuitem" href="../../guides/en/index.html">All guides →</a>
+        </div>
+      </li>
       <li><a href="../../boutique/en/index.html">Shop</a></li>
       <li><a href="../../en/blog.html">Blog</a></li>
       <li><a href="../../en/contact.html">Contact</a></li>
@@ -290,15 +317,20 @@
     <div style="display:flex;align-items:center;gap:1rem;">
       <div class="nav-lang"><a class="lang-btn" href="../../legal/politique-confidentialite.html" lang="fr" hreflang="fr" title="Français" rel="alternate">FR</a><a class="lang-btn" href="../../legal/ar/politique-confidentialite.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><span class="lang-btn active" aria-current="page" lang="en" title="English">EN</span><button type="button" class="theme-btn" id="themeToggle" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button></div>
       <a href="../../en/contact.html" class="btn btn-gold nav-cta">Book a Call</a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu-mobile"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu"><span class="mobile-close">✕</span>
+<div class="mobile-menu" id="menu-mobile"><button type="button" class="mobile-close" aria-label="Close menu">✕</button>
   <a href="../../en/index.html">Home</a>
   <a href="../../en/about.html">About</a>
   <a href="../../en/services.html">Services</a>
   <a href="../../en/portfolio.html">Portfolio</a>
+  <a href="../../guides/en/index.html">Guides</a>
+  <a class="mobile-sub" href="../../guides/en/creer-une-sarl-algerie.html">📘 Setting up a SARL</a>
+  <a class="mobile-sub" href="../../guides/en/creer-une-spa-algerie.html">🏛️ Setting up a SPA</a>
+  <a class="mobile-sub" href="../../guides/en/creer-un-holding-algerie.html">🏗️ Setting up a holding</a>
+  <a class="mobile-sub" href="../../guides/en/creer-une-spas-algerie.html">🚀 Setting up a SPAS</a>
   <a href="../../boutique/en/index.html">Shop</a>
   <a href="../../en/blog.html">Blog</a>
   <a href="../../en/contact.html">Contact</a>

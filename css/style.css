@@ -339,12 +339,28 @@ a.lang-btn:hover { text-decoration: none; }
    le texte arabe, sous le pouce qui vient de dérouler le menu. */
 [dir="rtl"] .mobile-close { right: auto; left: 2rem; }
 
+/* `.hamburger` est un <button> depuis le chantier UI d'août 2026 : sans quoi
+   le menu mobile était inatteignable au clavier et muet pour un lecteur
+   d'écran. Les déclarations de remise à zéro neutralisent le style natif du
+   bouton pour que le rendu ne bouge pas. `display: none` reste, la règle
+   `display: flex` du media query à 768 px prend le relais. */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
   padding: 5px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.hamburger:focus-visible {
+  outline: 3px solid var(--purple-light);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 .hamburger span {
   width: 25px;
@@ -917,12 +933,25 @@ a.service-card:hover { text-decoration: none; }
   transition: var(--transition);
 }
 .mobile-menu a:hover { color: var(--gold); }
+/* Même bascule que `.hamburger` : la croix de fermeture est un <button>. */
 .mobile-close {
   position: absolute;
   top: 1.5rem; right: 2rem;
   font-size: 2rem;
   cursor: pointer;
   color: var(--gray);
+  line-height: 1;
+  padding: 0.2rem 0.5rem;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.mobile-close:focus-visible {
+  outline: 3px solid var(--purple-light);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ── Responsive ── */

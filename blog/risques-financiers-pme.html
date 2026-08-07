@@ -112,7 +112,7 @@
   </script>
 
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css?v=37d36236">
+  <link rel="stylesheet" href="../css/style.css?v=74065ce5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <style>
     /* ── Typographie arabe ──
@@ -371,11 +371,11 @@
     <div style="display:flex;align-items:center;gap:1rem;">
       <div class="nav-lang"><span class="lang-btn active" aria-current="page" lang="fr" title="Français">FR</span><a class="lang-btn" href="../blog/ar/risques-financiers-pme.html" lang="ar" hreflang="ar" title="العربية" rel="alternate">AR</a><a class="lang-btn" href="../blog/en/risques-financiers-pme.html" lang="en" hreflang="en" title="English" rel="alternate">EN</a><button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button></div>
       <a href="../fr/contact.html" class="btn btn-gold nav-cta">Prendre RDV</a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button type="button" class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu"><span class="mobile-close">✕</span>
+<div class="mobile-menu" id="menu-mobile"><button type="button" class="mobile-close" aria-label="Fermer le menu">✕</button>
   <a href="../fr/index.html">Accueil</a>
   <a href="../fr/a-propos.html">À propos</a>
   <a href="../fr/services.html">Services</a>

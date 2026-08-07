@@ -156,7 +156,7 @@
 }
 </script>
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../css/style.css?v=37d36236">
+  <link rel="stylesheet" href="../css/style.css?v=74065ce5">
   <style>
     .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; align-items: start; }
     .blog-main-grid { display: grid; gap: 2.5rem; }
@@ -342,14 +342,19 @@
         <button type="button" class="theme-btn" id="themeToggle" title="Basculer entre le mode sombre et le mode clair" aria-label="Basculer entre le mode sombre et le mode clair"><span class="icon-moon" aria-hidden="true">☾</span><span class="icon-sun" aria-hidden="true">☀</span></button>
       </div>
       <a href="contact.html" class="btn btn-gold nav-cta">Prendre RDV</a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <button type="button" class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu"><span class="mobile-close">✕</span>
+<div class="mobile-menu" id="menu-mobile"><button type="button" class="mobile-close" aria-label="Fermer le menu">✕</button>
 
   <a href="index.html">Accueil</a><a href="a-propos.html">À propos</a>
   <a href="services.html">Services</a><a href="realisations.html">Réalisations</a>
+
+
+
+
+
 
 
 

@@ -59,14 +59,76 @@ window.addEventListener('scroll', () => {
 })();
 
 // ── Mobile Menu ──
+// Double compatibilité, comme l'accordéon FAQ plus bas : `.hamburger` et
+// `.mobile-close` peuvent être encore un <div>/<span> sur une page pas encore
+// reprise, ou déjà un <button>. Le clavier fonctionne dans les deux cas.
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileClose = document.querySelector('.mobile-close');
-hamburger?.addEventListener('click', () => mobileMenu?.classList.add('open'));
-mobileClose?.addEventListener('click', () => mobileMenu?.classList.remove('open'));
-mobileMenu?.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
+
+if (hamburger && mobileMenu) {
+  if (!mobileMenu.id) mobileMenu.id = 'menu-mobile';
+  if (!hamburger.hasAttribute('aria-controls')) {
+    hamburger.setAttribute('aria-controls', mobileMenu.id);
+  }
+
+  // Béquille pour l'ancien balisage : role + tabindex + keydown, les trois
+  // ensemble. Jamais tabindex seul, qui rendrait l'élément atteignable sans
+  // le rendre activable ni annonçable.
+  const armer = el => {
+    if (!el || el.tagName === 'BUTTON') return false;
+    el.setAttribute('role', 'button');
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    return true;
+  };
+  const hamburgerBequille = armer(hamburger);
+  const closeBequille = armer(mobileClose);
+
+  hamburger.setAttribute('aria-expanded',
+    mobileMenu.classList.contains('open') ? 'true' : 'false');
+
+  // `focus` n'est déplacé que sur une action de l'utilisateur, jamais à
+  // l'initialisation — sinon la page volerait le focus au chargement.
+  const setOpen = (state, deplacerFocus) => {
+    mobileMenu.classList.toggle('open', state);
+    hamburger.setAttribute('aria-expanded', state ? 'true' : 'false');
+    if (!deplacerFocus) return;
+    if (state) (mobileClose || mobileMenu.querySelector('a'))?.focus?.();
+    else hamburger.focus?.();
+  };
+
+  // Sur un vrai <button>, Entrée et Espace déclenchent déjà `click` : on ne
+  // câble le clavier que sur la béquille, sinon l'action partirait deux fois.
+  const clavier = (el, action) => {
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        action();
+      }
+    });
+  };
+
+  hamburger.addEventListener('click', () => setOpen(true, true));
+  if (hamburgerBequille) clavier(hamburger, () => setOpen(true, true));
+
+  if (mobileClose) {
+    mobileClose.addEventListener('click', () => setOpen(false, true));
+    if (closeBequille) clavier(mobileClose, () => setOpen(false, true));
+  }
+
+  // Échap ferme le panneau : c'est le geste attendu de toute boîte modale.
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      setOpen(false, true);
+    }
+  });
+
+  // Suivre un lien referme le menu ; la navigation emporte le focus, on ne
+  // le déplace donc pas nous-mêmes.
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => setOpen(false, false));
+  });
+}
 
 // ══════════════════════════════════════════════
 // ── TRANSLATIONS ──
