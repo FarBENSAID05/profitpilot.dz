@@ -1,0 +1,205 @@
+# ═══════════════════════════════════════════════════════════════════════
+#  profitpilot.dz — configuration serveur (Hostinger / LiteSpeed)
+#  Dernière révision : 2026-08-07
+#
+#  Hostinger sert les sites avec LiteSpeed Web Server, qui lit les fichiers
+#  .htaccess exactement comme Apache. C'est donc CE fichier qui pilote le
+#  serveur, et non `nginx.conf` — ce dernier n'est utile que si le site est
+#  un jour redéployé derrière nginx (VPS, conteneur Docker).
+#
+#  Placer ce fichier à la racine de public_html/. Il s'applique aussitôt,
+#  sans redémarrage ni intervention dans hPanel.
+# ═══════════════════════════════════════════════════════════════════════
+
+
+# ═══ 1. SÉCURITÉ — À APPLIQUER EN PREMIER ═══════════════════════════════
+
+# ── Archives du site ───────────────────────────────────────────────────
+# `public_html.zip` (11 Mo) est présent à la racine et donc téléchargeable
+# par n'importe qui : tout le code source du site, en un clic. Le blocage
+# ci-dessous est une rustine — le fichier doit être SUPPRIMÉ du serveur.
+<FilesMatch "\.(zip|rar|tar|gz|bak|sql|log|old|swp)$">
+    Require all denied
+</FilesMatch>
+
+# ── Fichiers d'infrastructure ──────────────────────────────────────────
+# `nginx.conf` et `Dockerfile` ne servent à rien sur Hostinger (LiteSpeed
+# lit ce .htaccess), mais ils sont dans le dépôt : une configuration
+# serveur téléchargeable est une information de trop.
+<FilesMatch "^(nginx\.conf|Dockerfile|.*\.conf|.*\.yml|.*\.yaml|package(-lock)?\.json)$">
+    Require all denied
+</FilesMatch>
+
+# ── Dépôt Git ──────────────────────────────────────────────────────────
+# Le dossier .git (30 Mo) se trouve dans public_html. Sans cette règle,
+# /.git/config puis tout l'historique du dépôt sont récupérables.
+RewriteEngine On
+RewriteRule ^\.git(/|$) - [F,L]
+RedirectMatch 404 /\.git
+
+<FilesMatch "^\.(env|gitignore|gitattributes|htaccess|htpasswd)$">
+    Require all denied
+</FilesMatch>
+
+# Empêcher le listage des dossiers sans fichier d'index.
+Options -Indexes
+
+
+# ═══ 2. UNE PAGE = UNE URL ══════════════════════════════════════════════
+# Deux URL différentes servant le même contenu divisent le signal entre
+# elles. On en impose une seule : https, sans www.
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://profitpilot.dz/$1 [R=301,L]
+
+
+# ═══ 3. ANCIENNES URL ═══════════════════════════════════════════════════
+# Ces chemins étaient traités par une page HTML de redirection JavaScript :
+# un robot qui n'exécute pas JavaScript ne suivait donc rien, et
+# l'antériorité de l'URL restait bloquée sur une page vide. Un 301 serveur
+# la transmet réellement à la page de destination.
+
+Redirect 301 /conseil-financier.html  /services/conseil-financier.html
+Redirect 301 /dossier-bancaire.html   /services/dossier-bancaire.html
+Redirect 301 /etude-faisabilite.html  /services/etude-faisabilite.html
+Redirect 301 /pages/about.html        /fr/a-propos.html
+Redirect 301 /pages/services.html     /fr/services.html
+Redirect 301 /pages/contact.html      /fr/contact.html
+Redirect 301 /pages/blog.html         /fr/blog.html
+Redirect 301 /pages/portfolio.html    /fr/realisations.html
+
+
+# ═══ 4. IMAGES WEBP — NÉGOCIATION AUTOMATIQUE ═══════════════════════════
+# Sert la variante .webp aux navigateurs qui l'annoncent, sans modifier une
+# seule balise <img> dans les 196 pages. Gain mesuré sur l'image du hero :
+# 843 Ko → 22 Ko.
+#
+# Les icônes du manifeste PWA sont exclues : un installeur d'application
+# attend exactement l'octet PNG déclaré dans site.webmanifest.
+
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_URI} !^/images/(icon-|apple-touch-icon|favicon)
+RewriteCond %{REQUEST_FILENAME} \.(png|jpe?g)$
+RewriteCond %{REQUEST_FILENAME}\.webp -f
+RewriteRule ^(.+)\.(png|jpe?g)$ $1.$2.webp [T=image/webp,E=webp_served:1,L]
+
+# Variante pour les fichiers nommés `image.webp` (et non `image.png.webp`),
+# qui est la convention utilisée ici.
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_URI} !^/images/(icon-|apple-touch-icon|favicon)
+RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+RewriteRule ^(.+)\.(png|jpe?g)$ /$1.webp [T=image/webp,E=webp_served:1,L]
+
+<IfModule mod_headers.c>
+    # Sans Vary, un cache intermédiaire servirait du WebP à un client qui
+    # ne sait pas le lire.
+    <FilesMatch "\.(png|jpe?g)$">
+        Header append Vary Accept
+    </FilesMatch>
+</IfModule>
+
+
+# ═══ 5. COMPRESSION ═════════════════════════════════════════════════════
+# LiteSpeed active Brotli par défaut ; ces directives couvrent le cas
+# contraire et ajoutent les types que le réglage global oublie souvent
+# (JSON-LD, XML du sitemap, .txt destinés aux robots).
+# Mesuré ici : 60 pages HTML 3450 Ko → 881 Ko ; llms-full.txt 748 → 213 Ko.
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript
+    AddOutputFilterByType DEFLATE application/json application/ld+json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml
+    AddOutputFilterByType DEFLATE application/manifest+json
+    AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf
+</IfModule>
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+    AddOutputFilterByType BROTLI_COMPRESS application/ld+json image/svg+xml
+</IfModule>
+
+
+# ═══ 6. CACHE NAVIGATEUR ════════════════════════════════════════════════
+# Règle de fond : cache long sur ce qui est versionné ou immuable, cache
+# court sur le HTML et sur tout ce que lisent les robots. Un sitemap figé
+# une journée retarde d'autant la prise en compte d'une publication.
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                          "access plus 1 hour"
+
+    ExpiresByType text/html                 "access plus 10 minutes"
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType text/javascript           "access plus 1 year"
+
+    ExpiresByType image/png                 "access plus 1 month"
+    ExpiresByType image/jpeg                "access plus 1 month"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType image/x-icon              "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+
+    ExpiresByType application/xml           "access plus 10 minutes"
+    ExpiresByType text/plain                "access plus 10 minutes"
+    ExpiresByType application/manifest+json "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Les CSS et JS portent un ?v=<hash> dans le HTML : leur URL change à
+    # chaque modification, on peut donc les figer sans risque.
+    <FilesMatch "\.(css|js|woff2?|webp|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    <FilesMatch "\.html$">
+        Header set Cache-Control "public, max-age=600, must-revalidate"
+    </FilesMatch>
+
+    <FilesMatch "^(robots\.txt|sitemap\.xml|llms\.txt|llms-full\.txt)$">
+        Header set Cache-Control "public, max-age=600, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+
+# ═══ 7. EN-TÊTES DE SÉCURITÉ ════════════════════════════════════════════
+# Aucun n'améliore le classement directement, mais leur absence est
+# systématiquement relevée par les audits techniques.
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options    "nosniff"
+    Header always set X-Frame-Options           "SAMEORIGIN"
+    Header always set Referrer-Policy           "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy        "geolocation=(), microphone=(), camera=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+
+# ═══ 8. TYPES MIME ══════════════════════════════════════════════════════
+# `llms.txt` doit sortir en text/plain UTF-8 : servi autrement, il s'affiche
+# en caractères accentués cassés chez certains agents.
+
+AddType text/plain                  .txt
+AddType application/xml             .xml
+AddType image/webp                  .webp
+AddType application/manifest+json   .webmanifest
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .txt .xml .json
+
+
+# ═══ 9. URL SANS EXTENSION ══════════════════════════════════════════════
+# Permet /guides/creer-une-sarl-algerie en plus de …-algerie.html.
+# Les canoniques continuent de désigner la forme avec .html : aucune
+# duplication n'est créée, on ajoute seulement une porte d'entrée.
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+
+# ═══ 10. PAGE D'ERREUR ══════════════════════════════════════════════════
+ErrorDocument 404 /404.html

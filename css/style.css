@@ -210,6 +210,59 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
 }
 .btn-ghost:hover { background: var(--surface-hover); }
 
+/* ── Lien d'évitement (chantier UI, lot 7) ────────────────────────────────
+   Sept entrées de menu, un sélecteur de langue, un bouton de thème et un
+   appel à l'action : une personne qui navigue au clavier ou au lecteur
+   d'écran traversait tout cela AVANT le premier mot de la page, sur chacune
+   des 196 pages. WCAG 2.4.1 (Contourner des blocs), niveau A.
+
+   Le lien est le premier élément du <body> et pointe `#contenu`, l'id que
+   les cinq générateurs et `fix_a11y_main.py` posent sur l'unique <main>.
+
+   Il n'est PAS masqué par `display:none` ni `visibility:hidden` : les deux
+   le retireraient de l'ordre de tabulation, ce qui le rendrait inatteignable
+   — le correctif qui a l'air de marcher tant qu'on ne s'en sert pas. Il est
+   donc hors cadre par une translation, et revient à sa place au focus.
+
+   `inset-inline-start` plutôt que `left` : sur les pages arabes, le site
+   passe en [dir="rtl"] et le lien doit se poser du côté d'où commence la
+   lecture, c'est-à-dire à droite. Une seule déclaration couvre les deux.  */
+.skip-link {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  z-index: 2000;                 /* au-dessus de la navbar, qui est à 1000 */
+  padding: 0.85rem 1.4rem;
+  /* Le couple de marque `--purple` / `--white` tombe à 4,5:1 en thème sombre
+     et à 3,5:1 en thème clair — sous le seuil AA dans les deux cas, parce
+     que `--white` bascule en encre foncée en mode jour alors que `--purple`
+     ne bascule pas. On reprend donc le couple de fond du site, le seul qui
+     soit garanti dans les deux thèmes, et c'est la BORDURE violette qui
+     porte l'identité. Un lien d'évitement illisible ne sert personne. */
+  background: var(--navy-mid);
+  color: var(--white);
+  border: 2px solid var(--purple-light);
+  box-shadow: var(--shadow-deep);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-end-end-radius: 8px;
+  transform: translateY(-120%);
+  transition: transform 0.15s ease-out;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--gold);
+  outline-offset: -3px;
+}
+/* Le <main> reçoit tabindex="-1" pour que le focus l'atteigne réellement
+   après le saut — sans quoi certains navigateurs font défiler la page mais
+   laissent le focus dans le <body>, et la tabulation suivante repart du
+   menu. Cet anneau-là ne doit rien afficher : il est la CONSÉQUENCE du
+   saut, pas une cible que l'on désigne. */
+main[tabindex="-1"]:focus { outline: none; }
+
 /* ── Navigation ── */
 .navbar {
   position: fixed;

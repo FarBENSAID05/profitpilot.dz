@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
+
+  <title>Page introuvable — ProfitPilot</title>
+  <meta name="description" content="Cette page n'existe pas ou a été déplacée. Retrouvez les guides, articles et services de ProfitPilot depuis cette page.">
+  <!-- Une page d'erreur ne doit jamais entrer dans l'index : elle y ferait
+       doublon avec toutes les autres URL cassées du domaine. -->
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    .e404        { max-width: 780px; margin: 0 auto; padding: 4rem 1.5rem 5rem; text-align: center; }
+    .e404 img    { width: 80px; height: auto; margin-bottom: 2rem; }
+    .e404 .code  { font-family: var(--font-display); font-size: clamp(3.5rem, 12vw, 6rem);
+                   line-height: 1; color: var(--purple-light); margin: 0; }
+    .e404 h1     { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2rem);
+                   color: var(--white); margin: .6rem 0 1rem; }
+    .e404 .lead  { color: var(--gray-light); line-height: 1.75; max-width: 56ch;
+                   margin: 0 auto 2.5rem; }
+    .e404 .lead + .lead { margin-top: -1.6rem; }
+    .paths       { display: grid; gap: .8rem; text-align: left;
+                   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 2.5rem; }
+    .paths a     { display: block; text-decoration: none; padding: 1.05rem 1.2rem;
+                   background: var(--surface); border: 1px solid var(--border-mid);
+                   border-radius: 12px; transition: var(--transition); }
+    .paths a:hover, .paths a:focus-visible { background: var(--surface-2); border-color: var(--purple); }
+    .paths b     { display: block; color: var(--white); margin-bottom: .25rem; font-size: 1rem; }
+    .paths span  { display: block; color: var(--gray); font-size: .86rem; line-height: 1.55; }
+    .langbar     { border-top: 1px solid var(--border-mid); padding-top: 1.6rem;
+                   color: var(--gray); font-size: .88rem; line-height: 2; }
+    .langbar a   { color: var(--purple-light); text-decoration: none; margin: 0 .5rem; }
+    .langbar a:hover { text-decoration: underline; }
+    .rtl         { direction: rtl; }
+  </style>
+</head>
+<body>
+<main class="e404">
+
+  <img src="/images/logo.png" alt="ProfitPilot" width="80" height="52">
+
+  <p class="code">404</p>
+  <h1>Cette page n'existe pas</h1>
+
+  <p class="lead">
+    L'adresse demandée est erronée, ou la page a été déplacée lors de la
+    réorganisation du site. Rien n'est perdu : tout le contenu reste
+    accessible depuis les entrées ci-dessous.
+  </p>
+  <p class="lead rtl" lang="ar">هذه الصفحة غير موجودة أو تم نقلها. يمكنك المتابعة من الروابط أدناه.</p>
+  <p class="lead" lang="en">This page does not exist or has been moved. Everything remains reachable from the entries below.</p>
+
+  <nav class="paths" aria-label="Où aller">
+    <a href="/">
+      <b>Accueil</b>
+      <span>Le cabinet, ses services et ses coordonnées.</span>
+    </a>
+    <a href="/fr/blog.html">
+      <b>Articles</b>
+      <span>Financement, import, investissement, gestion — 26 analyses sourcées.</span>
+    </a>
+    <a href="/guides/index.html">
+      <b>Guides</b>
+      <span>Créer une SARL, une SPA, une SPAS ou un holding en Algérie.</span>
+    </a>
+    <a href="/fr/services.html">
+      <b>Services</b>
+      <span>Dossier bancaire, étude technico-économique, conseil financier.</span>
+    </a>
+    <a href="/boutique/index.html">
+      <b>Boutique</b>
+      <span>Carnets, modèles financiers, revues de dossier et ateliers.</span>
+    </a>
+    <a href="/fr/contact.html">
+      <b>Contact</b>
+      <span>+213 550 02 02 87 — contact@profitpilot.dz</span>
+    </a>
+  </nav>
+
+  <p class="langbar">
+    <a href="/fr/">Français</a> ·
+    <a href="/ar/" lang="ar">العربية</a> ·
+    <a href="/en/" lang="en">English</a><br>
+    Vous pensez être arrivé ici par un lien du site ?
+    <a href="mailto:contact@profitpilot.dz?subject=Lien%20cass%C3%A9%20sur%20profitpilot.dz">Signalez-le</a>.
+  </p>
+
+</main>
+</body>
+</html>
