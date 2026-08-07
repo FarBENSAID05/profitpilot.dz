@@ -233,18 +233,33 @@ p  { font-size: 1.05rem; color: var(--gray-light); }
   margin: 0 auto;
   padding: 0 2rem;
 }
-.nav-logo img { height: 52px; }
+/* Le logo ne cède JAMAIS. `.nav-inner` est une boîte flex ; sans
+   `flex-shrink: 0`, le logo est le premier élément que le navigateur écrase
+   quand la barre déborde — et il disparaît purement et simplement, sans
+   aucun signe visible dans le HTML. C'est ce qui s'est produit le 06/08/2026
+   en ajoutant l'entrée « Boutique » : sept entrées, plus le sélecteur de
+   langue et le bouton d'action, dépassaient la largeur disponible autour de
+   1450 px. Le menu passait sur deux lignes et le logo tombait à zéro. */
+.nav-logo { flex-shrink: 0; }
+.nav-logo img { height: 52px; display: block; }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  /* Espacement élastique plutôt que fixe : la barre compte désormais sept
+     entrées et doit tenir sur une seule ligne de 1280 à 1920 px. Les points
+     de rupture de fin de fichier resserrent encore en deçà de 1200 px. */
+  gap: clamp(0.9rem, 1.6vw, 2.5rem);
+  flex-wrap: nowrap;
 }
 .nav-links a {
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  /* « À PROPOS » et « NOS GUIDES » passaient à la ligne au lieu de forcer le
+     conteneur à se resserrer : deux lignes de menu, et un logo écrasé. */
+  white-space: nowrap;
   color: var(--gray-light);
   transition: var(--transition);
   position: relative;
@@ -1314,9 +1329,16 @@ html[data-theme="light"] .theme-btn .icon-moon { display: none; }
     [dir="rtl"] .nav-dropdown { text-align: right; }
 
     /* Huit entrées de navigation : l'espacement de 2.5rem déborde en deçà
-       de 1200 px. On resserre avant de basculer sur le menu mobile. */
+       de 1200 px. On resserre avant de basculer sur le menu mobile.
+       Depuis l'ajout de « Boutique », le débordement commence plus haut —
+       le `clamp()` de `.nav-links` s'en charge au-dessus de 1200 px. */
     @media (max-width: 1200px) { .nav-links { gap: 1.5rem; } }
     @media (max-width: 1024px) { .nav-links { gap: 1.1rem; } .nav-links a, .nav-drop-btn { font-size: 0.78rem; } }
+
+    /* Le bouton du menu déroulant suit la même règle que les liens : sans
+       `nowrap`, « Nos guides » se coupe en deux lignes et casse l'alignement
+       vertical de toute la barre. */
+    .nav-drop-btn { white-space: nowrap; }
 
     /* Menu mobile : les guides sont listés à plat, en retrait. */
     .mobile-menu .mobile-sub {
