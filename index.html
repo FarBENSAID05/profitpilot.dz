@@ -5,75 +5,373 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
   <script>(function(){try{var s=localStorage.getItem("pp_theme");var t=(s==="light"||s==="dark")?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","dark");}})();</script>
-  <title>ProfitPilot — Expert Financier & Économique en Algérie</title>
-  <meta name="description" content="BENSAID Farouk accompagne PME, startups et investisseurs en Algérie. Études financières, analyses des risques, études de marché. Consultation gratuite.">
-  <link rel="canonical" href="https://profitpilot.dz/fr/">
+
+  <title>ProfitPilot — BENSAID Farouk, expert en études financières et économiques en Algérie</title>
+  <meta name="description" content="Cabinet algérien d'études financières, économiques et marketing établi à Alger. Dossier bancaire, étude technico-économique au plan-type AAPI, création de société, accompagnement de l'investisseur étranger. Documentation de référence en français, arabe et anglais.">
+  <meta name="author" content="BENSAID Farouk — ProfitPilot NextGen Consulting">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <link rel="canonical" href="https://profitpilot.dz/">
   <link rel="alternate" hreflang="fr" href="https://profitpilot.dz/fr/">
   <link rel="alternate" hreflang="ar" href="https://profitpilot.dz/ar/">
   <link rel="alternate" hreflang="en" href="https://profitpilot.dz/en/">
-  <link rel="alternate" hreflang="x-default" href="https://profitpilot.dz/fr/">
-  <meta name="robots" content="index, follow">
+  <link rel="alternate" hreflang="x-default" href="https://profitpilot.dz/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ProfitPilot NextGen Consulting">
+  <meta property="og:title" content="ProfitPilot — expert en études financières et économiques en Algérie">
+  <meta property="og:description" content="Dossier bancaire, étude technico-économique, création de société et investissement étranger en Algérie. Documentation sourcée sur les textes officiels.">
+  <meta property="og:url" content="https://profitpilot.dz/">
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="600">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:locale:alternate" content="ar_DZ">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ProfitPilot — Expert Financier Algérie | BENSAID Farouk">
+  <meta name="twitter:description" content="Études financières et économiques pour PME, startups et investisseurs en Algérie.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/farouk.jpg">
+
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    body { margin:0; background:#0D1828; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:sans-serif; }
-    .loader { text-align:center; color:#fff; }
-    .loader img { width:80px; margin-bottom:1rem; }
-    .loader p { color:#A0AEC0; font-size:0.9rem; }
-    .lang-select { display:flex; gap:1rem; justify-content:center; margin-top:1.5rem; }
-    .lang-select a { 
-      color:#fff; text-decoration:none; padding:0.6rem 1.5rem; 
-      border:1px solid var(--border-btn); border-radius:8px;
-      transition:all 0.2s;
-    }
-    .lang-select a:hover { background:#9B4DC0; border-color:#9B4DC0; }
+    /* ── Page d'entrée : autonome et volontairement légère ──────────
+       C'est l'URL la plus liée du domaine (partages, citations, saisie
+       directe). Elle ne charge ni la navigation JavaScript ni les
+       animations : tout son contenu doit être lisible sans script.  */
+    .door        { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    .door-head   { text-align: center; padding: 1rem 0 2.5rem; }
+    .door-head img { width: 92px; height: auto; margin-bottom: 1.25rem; }
+    .door-head h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.6rem);
+                    line-height: 1.25; margin: 0 0 .9rem; color: var(--white); }
+    .door-head h1 em { font-style: normal; color: var(--purple-light); }
+    .door-head p  { max-width: 62ch; margin: 0 auto; color: var(--gray-light);
+                    font-size: 1.03rem; line-height: 1.7; }
+
+    .langs       { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                   margin: 2.5rem 0 3.5rem; }
+    .lang        { display: block; text-decoration: none; padding: 1.4rem 1.5rem;
+                   background: var(--surface-2); border: 1px solid var(--border-strong);
+                   border-radius: 14px; transition: var(--transition); }
+    .lang:hover, .lang:focus-visible { background: var(--surface-hover); border-color: var(--purple);
+                   transform: translateY(-3px); box-shadow: var(--shadow-purple); }
+    .lang b      { display: block; font-size: 1.22rem; color: var(--white); margin-bottom: .3rem; }
+    .lang span   { display: block; color: var(--gray); font-size: .9rem; line-height: 1.55; }
+    .lang.ar     { direction: rtl; text-align: right; }
+
+    .door h2     { font-family: var(--font-display); font-size: 1.5rem; color: var(--white);
+                   margin: 3rem 0 1.1rem; padding-bottom: .6rem; border-bottom: 1px solid var(--border-mid); }
+    .door h3     { font-size: 1.02rem; color: var(--white); margin: 0 0 .35rem; }
+    .door p      { color: var(--gray-light); line-height: 1.75; }
+
+    .grid        { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card        { display: block; text-decoration: none; padding: 1.15rem 1.25rem;
+                   background: var(--surface); border: 1px solid var(--border-mid);
+                   border-radius: 12px; transition: var(--transition); }
+    .card:hover, .card:focus-visible { background: var(--surface-2); border-color: var(--purple); }
+    .card p      { margin: 0; font-size: .89rem; color: var(--gray); line-height: 1.6; }
+
+    .idcard      { background: var(--surface); border: 1px solid var(--border-mid);
+                   border-radius: 14px; padding: 1.5rem; }
+    .idcard dl   { display: grid; grid-template-columns: max-content 1fr; gap: .55rem 1.2rem;
+                   margin: 0; font-size: .93rem; }
+    .idcard dt   { color: var(--gray); }
+    .idcard dd   { margin: 0; color: var(--gray-light); }
+    .idcard a    { color: var(--purple-light); text-decoration: none; }
+    .idcard a:hover { text-decoration: underline; }
+
+    .links       { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem;
+                   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+    .links a     { color: var(--gray-light); text-decoration: none; font-size: .93rem;
+                   display: block; padding: .4rem .1rem; border-bottom: 1px solid var(--border); }
+    .links a:hover, .links a:focus-visible { color: var(--purple-light); }
+
+    .door-foot   { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-mid);
+                   text-align: center; color: var(--gray); font-size: .84rem; line-height: 1.9; }
+    .door-foot a { color: var(--gray-light); }
+    @media (max-width: 520px) { .idcard dl { grid-template-columns: 1fr; gap: .15rem .5rem; }
+                                .idcard dt { margin-top: .55rem; } }
   </style>
 </head>
 <body>
-  <div class="loader">
-    <img src="images/logo.png" alt="ProfitPilot">
-    <p>Redirection en cours...</p>
-    <div class="lang-select">
-      <a href="fr/index.html">Français</a>
-      <a href="ar/index.html">العربية</a>
-      <a href="en/index.html">English</a>
-    </div>
+<main class="door">
+
+  <header class="door-head">
+    <img src="images/logo.png" alt="ProfitPilot NextGen Consulting" width="92" height="92">
+    <h1>ProfitPilot — études <em>financières et économiques</em> en Algérie</h1>
+    <p>
+      Cabinet dirigé par <strong>BENSAID Farouk</strong>, chargé d'études financières,
+      économiques et marketing, établi à Bab Ezzouar (Alger). Montage de dossier bancaire,
+      étude technico-économique au plan-type officiel, création de société et accompagnement
+      de l'investisseur étranger. Le site publie une documentation de référence, sourcée
+      texte par texte sur la réglementation algérienne, en trois langues.
+    </p>
+  </header>
+
+  <nav class="langs" aria-label="Choix de la langue">
+    <a class="lang" href="fr/index.html" hreflang="fr" lang="fr" data-lang="fr">
+      <b>Français</b>
+      <span>Version principale du site — services, guides, articles et boutique.</span>
+    </a>
+    <a class="lang ar" href="ar/index.html" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">
+      <b>العربية</b>
+      <span>النسخة العربية الكاملة — الخدمات، الأدلة، المقالات والمتجر.</span>
+    </a>
+    <a class="lang" href="en/index.html" hreflang="en" lang="en" data-lang="en">
+      <b>English</b>
+      <span>Full English version — services, guides, articles and shop.</span>
+    </a>
+  </nav>
+
+  <h2>Ce que fait le cabinet</h2>
+  <div class="grid">
+    <a class="card" href="services/dossier-bancaire.html">
+      <h3>Montage de dossier bancaire</h3>
+      <p>Étude technico-économique, projections financières, garanties et suivi jusqu'au comité de crédit.</p>
+    </a>
+    <a class="card" href="services/etude-faisabilite.html">
+      <h3>Étude technico-économique</h3>
+      <p>Au plan-type officiel de l'annexe V du décret exécutif 26-154 : projections sur 5 ans, VAN, TRI, plan de financement.</p>
+    </a>
+    <a class="card" href="services/conseil-financier.html">
+      <h3>Conseil financier</h3>
+      <p>Diagnostic, trésorerie et besoin en fonds de roulement, coût de revient réel, risques financiers, opérations d'import.</p>
+    </a>
+    <a class="card" href="services/investisseur-etranger.html">
+      <h3>Investisseur étranger</h3>
+      <p>Structuration et constitution d'une entité algérienne : forme, capital, objet social, gérance, garantie de transfert.</p>
+    </a>
+    <a class="card" href="services/creation-entreprise.html">
+      <h3>Création d'entreprise</h3>
+      <p>SARL, EURL, SPA : forme, capital, objet social, parcours notaire, banque, CNRC et BOAL.</p>
+    </a>
+    <a class="card" href="boutique/index.html">
+      <h3>Boutique</h3>
+      <p>Carnets de bord, modèles financiers, revues de dossier et forfaits — chaque offre indique son livrable et son délai.</p>
+    </a>
   </div>
 
-  <script>
-    // Auto-redirect based on browser language
-    const lang = navigator.language || navigator.userLanguage || 'fr';
-    const saved = localStorage.getItem('pp_lang');
-    
-    let target = 'fr';
-    if (saved) {
-      target = saved;
-    } else if (lang.startsWith('ar')) {
-      target = 'ar';
-    } else if (lang.startsWith('en')) {
-      target = 'en';
-    } else {
-      target = 'fr'; // default for all others (fr, dz, etc.)
-    }
-    
-    // Redirect after 300ms (allows bots to read the page)
-    setTimeout(() => {
-      window.location.href = target + '/index.html';
-    }, 300);
-  </script>
+  <h2>Documentation de référence</h2>
+  <p>
+    Chaque affirmation réglementaire publiée ici est rattachée à son texte officiel algérien,
+    cité par numéro et par date. Lorsqu'un chiffre couramment répété n'a pas de base légale,
+    le site le signale plutôt que de le relayer.
+  </p>
+  <ul class="links">
+    <li><a href="guides/creer-une-sarl-algerie.html">Créer une SARL en Algérie — guide complet 2026</a></li>
+    <li><a href="guides/creer-une-spa-algerie.html">Créer une SPA en Algérie — guide complet 2026</a></li>
+    <li><a href="guides/creer-une-spas-algerie.html">Créer une SPAS (start-up labellisée) en Algérie</a></li>
+    <li><a href="guides/creer-un-holding-algerie.html">Créer un holding en Algérie — article 731 du code de commerce</a></li>
+    <li><a href="blog/analyse-dossier-credit-bancaire-algerie.html">Comment la banque analyse votre dossier de crédit</a></li>
+    <li><a href="blog/domiciliation-bancaire-importation-algerie-2026.html">Domiciliation bancaire à l'import : les règles 2026</a></li>
+    <li><a href="blog/etude-technico-economique-plan-type-aapi.html">Étude technico-économique AAPI : le plan-type officiel</a></li>
+    <li><a href="blog/foncier-economique-procedure-aapi-algerie.html">Foncier économique : le parcours complet et ses délais</a></li>
+    <li><a href="blog/transfert-dividendes-etranger-algerie.html">Transfert des dividendes : la garantie se joue avant</a></li>
+    <li><a href="blog/van-tri-delai-recuperation-projet-algerie.html">VAN, TRI, délai de récupération : calculer la rentabilité</a></li>
+    <li><a href="guides/index.html"><strong>Tous les guides →</strong></a></li>
+    <li><a href="fr/blog.html"><strong>Tous les articles →</strong></a></li>
+  </ul>
 
-  <script>
-  (function(d,t) {
-    var BASE_URL="https://chatwoot.panel.profitpilot.dz";
-    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=BASE_URL+"/packs/js/sdk.js";
-    g.async = true;
-    s.parentNode.insertBefore(g,s);
-    g.onload=function(){
-      window.chatwootSDK.run({
-        websiteToken: 'P3qoRUZZrhm1TFPsK1pMHYdM',
-        baseUrl: BASE_URL
-      })
+  <h2>Identité du cabinet</h2>
+  <div class="idcard">
+    <dl>
+      <dt>Raison sociale</dt>
+      <dd>ProfitPilot NextGen Consulting</dd>
+      <dt>Dirigeant</dt>
+      <dd>BENSAID Farouk — chargé d'études financières, économiques et marketing (code activité 7022), auto-entrepreneur certifié</dd>
+      <dt>NIF</dt>
+      <dd>18716200026511241680</dd>
+      <dt>N° d'immatriculation</dt>
+      <dd>108705150026524294</dd>
+      <dt>Adresse</dt>
+      <dd>Cité Soummam Bloc 21, Apt 04 — Bab Ezzouar, 16311 Alger, Algérie</dd>
+      <dt>Téléphone</dt>
+      <dd><a href="tel:+213550020287">+213 550 02 02 87</a></dd>
+      <dt>Courriel</dt>
+      <dd><a href="mailto:contact@profitpilot.dz">contact@profitpilot.dz</a></dd>
+      <dt>Horaires</dt>
+      <dd>Dimanche à jeudi, 8 h – 18 h · Samedi, 9 h – 13 h</dd>
+      <dt>Zone servie</dt>
+      <dd>Algérie — 58 wilayas, et investisseurs étrangers s'implantant en Algérie</dd>
+      <dt>Langues</dt>
+      <dd>Français, arabe, anglais</dd>
+      <dt>LinkedIn</dt>
+      <dd><a href="https://www.linkedin.com/in/farouk-bensaid" rel="me noopener">linkedin.com/in/farouk-bensaid</a></dd>
+    </dl>
+  </div>
+
+  <h2 lang="ar" dir="rtl" style="text-align:right;">بروفيت بايلوت — من نحن</h2>
+  <p lang="ar" dir="rtl" style="text-align:right;">
+    مكتب دراسات مالية واقتصادية وتسويقية مقره باب الزوار بالجزائر العاصمة، يديره
+    <strong>فاروق بن سعيد</strong>، مكلّف بالدراسات المالية والاقتصادية والتسويقية.
+    نرافق المؤسسات الصغيرة والمتوسطة والمستثمرين في إعداد ملفات القروض البنكية،
+    والدراسات التقنية والاقتصادية وفق النموذج الرسمي، وإنشاء الشركات، ومرافقة
+    المستثمر الأجنبي. كل معلومة قانونية منشورة هنا مرتبطة بنصها الرسمي الجزائري.
+    <a href="ar/index.html">النسخة العربية الكاملة ←</a>
+  </p>
+
+  <h2 lang="en">About ProfitPilot</h2>
+  <p lang="en">
+    An Algerian financial, economic and marketing advisory practice based in Bab Ezzouar,
+    Algiers, led by <strong>BENSAID Farouk</strong>. We build bankable credit files,
+    technical and economic feasibility studies to the official Algerian template, company
+    formation files, and inbound structuring for foreign investors. Every regulatory
+    statement published here is tied to its source text, cited by number and date.
+    <a href="en/index.html">Full English version →</a>
+  </p>
+
+  <footer class="door-foot">
+    <p>
+      © 2026 ProfitPilot NextGen Consulting — NIF 18716200026511241680 ·
+      <a href="fr/contact.html">Contact</a> ·
+      <a href="fr/a-propos.html">À propos</a> ·
+      <a href="legal/politique-confidentialite.html">Politique de confidentialité</a> ·
+      <a href="sitemap.xml">Plan du site</a>
+    </p>
+  </footer>
+
+</main>
+
+<script>
+  /* Visiteur qui a déjà choisi sa langue : on le renvoie directement.
+     Aucun robot ne possède cette préférence — la page reste donc
+     entièrement indexable, et le premier visiteur voit le contenu. */
+  (function () {
+    try {
+      var saved = localStorage.getItem('pp_lang');
+      if (saved === 'fr' || saved === 'ar' || saved === 'en') {
+        location.replace(saved + '/index.html');
+        return;
+      }
+    } catch (e) {}
+    document.querySelectorAll('.lang').forEach(function (a) {
+      a.addEventListener('click', function () {
+        try { localStorage.setItem('pp_lang', a.dataset.lang); } catch (e) {}
+      });
+    });
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://profitpilot.dz/#organization",
+      "name": "ProfitPilot NextGen Consulting",
+      "alternateName": ["ProfitPilot", "بروفيت بايلوت"],
+      "url": "https://profitpilot.dz/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://profitpilot.dz/#logo",
+        "url": "https://profitpilot.dz/images/logo.png",
+        "caption": "ProfitPilot NextGen Consulting"
+      },
+      "image": "https://profitpilot.dz/images/farouk.jpg",
+      "description": "Cabinet algérien d'études financières, économiques et marketing : montage de dossier bancaire, étude technico-économique au plan-type AAPI, création de société et accompagnement de l'investisseur étranger.",
+      "telephone": "+213550020287",
+      "email": "contact@profitpilot.dz",
+      "taxID": "18716200026511241680",
+      "vatID": "18716200026511241680",
+      "identifier": [
+        { "@type": "PropertyValue", "name": "NIF", "value": "18716200026511241680" },
+        { "@type": "PropertyValue", "name": "Numéro d'immatriculation", "value": "108705150026524294" },
+        { "@type": "PropertyValue", "name": "Code activité", "value": "7022" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Cité Soummam Bloc 21, Apt 04",
+        "addressLocality": "Bab Ezzouar",
+        "addressRegion": "Alger",
+        "postalCode": "16311",
+        "addressCountry": "DZ"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 36.7282, "longitude": 3.1865 },
+      "hasMap": "https://maps.app.goo.gl/N17ZD2PqhvZyA2uG6",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "08:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
+      ],
+      "areaServed": { "@type": "Country", "name": "Algérie" },
+      "knowsLanguage": ["fr", "ar", "en"],
+      "knowsAbout": [
+        "Financement bancaire des entreprises en Algérie",
+        "Étude technico-économique au plan-type AAPI",
+        "Création de société en Algérie (SARL, EURL, SPA, SPAS, holding)",
+        "Investissement étranger et garantie de transfert",
+        "Domiciliation bancaire et procédures d'importation",
+        "Foncier économique et guichet unique AAPI",
+        "Trésorerie, besoin en fonds de roulement et risques financiers",
+        "Financement islamique en Algérie"
+      ],
+      "sameAs": ["https://www.linkedin.com/in/farouk-bensaid"],
+      "founder": { "@id": "https://profitpilot.dz/#farouk" },
+      "employee": { "@id": "https://profitpilot.dz/#farouk" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://profitpilot.dz/#farouk",
+      "name": "BENSAID Farouk",
+      "alternateName": "فاروق بن سعيد",
+      "jobTitle": "Chargé d'études financières, économiques et marketing",
+      "image": "https://profitpilot.dz/images/farouk.jpg",
+      "worksFor": { "@id": "https://profitpilot.dz/#organization" },
+      "workLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bab Ezzouar",
+          "addressRegion": "Alger",
+          "addressCountry": "DZ"
+        }
+      },
+      "knowsLanguage": ["fr", "ar", "en"],
+      "sameAs": ["https://www.linkedin.com/in/farouk-bensaid"],
+      "url": "https://profitpilot.dz/fr/a-propos.html"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://profitpilot.dz/#website",
+      "url": "https://profitpilot.dz/",
+      "name": "ProfitPilot NextGen Consulting",
+      "description": "Documentation de référence sur le financement, la création de sociétés et l'investissement en Algérie.",
+      "publisher": { "@id": "https://profitpilot.dz/#organization" },
+      "inLanguage": ["fr-DZ", "ar-DZ", "en"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/#webpage",
+      "url": "https://profitpilot.dz/",
+      "name": "ProfitPilot — BENSAID Farouk, expert en études financières et économiques en Algérie",
+      "isPartOf": { "@id": "https://profitpilot.dz/#website" },
+      "about": { "@id": "https://profitpilot.dz/#organization" },
+      "primaryImageOfPage": { "@id": "https://profitpilot.dz/#logo" },
+      "inLanguage": "fr-DZ"
     }
-  })(document,"script");
+  ]
+}
+</script>
+
+<script>
+  (function (d, t) {
+    var BASE_URL = "https://chatwoot.panel.profitpilot.dz";
+    var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    g.src = BASE_URL + "/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
+    g.onload = function () {
+      window.chatwootSDK.run({ websiteToken: 'P3qoRUZZrhm1TFPsK1pMHYdM', baseUrl: BASE_URL })
+    }
+  })(document, "script");
 </script>
 
 </body>

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="المقاول الذاتي: من التسجيل إلى أول ربح">
+  <meta name="twitter:description" content="دليل المقاول الذاتي في الجزائر: الشروط، السقوف، النظام الجبائي، الالتزامات التصريحية وحدود النظام.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "المقاول الذاتي: من التسجيل إلى أول ربح",
+          "item": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html#offer-item",
+      "name": "المقاول الذاتي: من التسجيل إلى أول ربح",
+      "description": "النظام، وسقوفه، والتزاماته الحقيقية، واللحظة التي يجب فيها الخروج منه. نظام المقاول الذاتي سهل الحصول عليه، ويُساء فهمه بعد ذلك: ما يُجيزه، وما يمنعه، وقبل ذلك السقف الذي يصير البقاء تحته أكثر كلفة من الخروج منه. يعالج الدليل الخروج من النظام بالعناية نفسها التي يعالج بها الدخول — وهو الجزء الذي تُغفله الوثائق الأخرى.",
+      "url": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "قوالب وأدلة",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "الاستشارة المالية",
+        "url": "https://profitpilot.dz/services/ar/conseil-financier.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "فوري"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "مستقلّ يبدأ، أو يبلغ السقوف"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "دليل PDF: شروط الالتحاق، الأنشطة المؤهَّلة، وإجراءات التسجيل."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "النظام الجبائي وشبه الجبائي، مع الرزنامة التصريحية السنوية."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "السقوف التي تُحوّلك إلى نظام آخر، وما يترتّب على الخروج."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "إنجاز الإجراءات نيابةً عنك"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "الاستشارة في وضع فردي"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "مسك محاسبتك"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html",
+      "name": "المقاول الذاتي: من التسجيل إلى أول ربح",
+      "description": "دليل المقاول الذاتي في الجزائر: الشروط، السقوف، النظام الجبائي، الالتزامات التصريحية وحدود النظام.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/guide-auto-entrepreneur.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل الدليل محيَّن على آخر قانون مالية؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تاريخ التحقق مذكور مع كل رقم. وتبقى نقطة مفتوحة: النص الكامل للمرسوم التنفيذي 25-170 المتعلق بالمستورد المصغَّر لم يُتحصَّل عليه، والدليل يشير إلى ذلك بدل إعادة صياغته."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يصلح لنشاط استيراد؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يتناوله، مع التحفّظ أعلاه. ونظام المستورد المصغَّر مُشار إليه بوصفه غير مُتحقَّق منه على النص الأصلي."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يُغني عن محاسب؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. لكنه يجعلك تعرف ما عليك، ومتى، ولمن."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

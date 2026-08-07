@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guide to Islamic finance for companies">
+  <meta name="twitter:description" content="Guide to Islamic finance in Algeria: available formulas, distributing banks, documents required and real cost compared.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guide to Islamic finance for companies",
+          "item": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html#offer-item",
+      "name": "Guide to Islamic finance for companies",
+      "description": "Murabaha, ijara, musharaka: the formulas actually distributed in Algeria, and what they cost. Islamic finance is distributed in Algeria by several institutions, under names that resemble one another and mechanisms that differ markedly. The guide compares them on the only ground that concerns a director: what the formula actually costs, and what it requires. The guide does not address religious compliance. That assessment belongs to the competent bodies, not to a financial practice. We describe mechanisms, costs and procedures.",
+      "url": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Templates and guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Bank file preparation",
+        "url": "https://profitpilot.dz/services/en/dossier-bancaire.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immediate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "A director looking for an alternative to conventional credit"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A PDF guide: each formula, its mechanism, its real cost and its use case."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A comparison table against conventional credit, at equal amount and term."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "The documents required, by type of formula."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any opinion on religious compliance — we are not a sharia authority"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Preparation of your file"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "The pricing terms of any particular bank, which are negotiated"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html",
+      "name": "Guide to Islamic finance for companies",
+      "description": "Guide to Islamic finance in Algeria: available formulas, distributing banks, documents required and real cost compared.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/guide-financement-islamique.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the guide say which formula is cheapest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It gives the comparison method and a table at equal amount and term. The answer depends on your file and on the terms negotiated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it cover sharia compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, deliberately. It is not our field of competence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the texts cited current?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every regulatory reference carries its verification date. The Bank of Algeria regulation framing these products is cited, and the source file of the related article flags the points not yet verified against the original text."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

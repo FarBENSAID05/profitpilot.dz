@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atelier — l&#x27;étude de marché qui tient debout">
+  <meta name="twitter:description" content="Atelier sur l&#x27;étude de marché en Algérie : méthode, vérifications terrain, et erreurs qui invalident une étude entière.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Atelier — l'étude de marché qui tient debout",
+          "item": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html#offer-item",
+      "name": "Atelier — l'étude de marché qui tient debout",
+      "description": "Trois vérifications terrain sans lesquelles une étude de marché ne vaut rien. La plupart des études de marché jointes à un dossier de financement sont construites pour confirmer une décision déjà prise. Elles se reconnaissent à trois signes, et l'atelier apprend à les repérer — dans les études des autres comme dans les siennes.",
+      "url": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "Une demi-journée : construire un échantillon, formuler des questions non biaisées, lire les résultats.",
+        "Les trois vérifications terrain qui invalident le plus souvent une étude.",
+        "Une trame de questionnaire et une grille de dépouillement."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Sessions programmées"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Porteurs de projet et créateurs d'entreprise"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une demi-journée : construire un échantillon, formuler des questions non biaisées, lire les résultats."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Les trois vérifications terrain qui invalident le plus souvent une étude."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une trame de questionnaire et une grille de dépouillement."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "La réalisation de votre étude de marché"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "L'accès à des bases de données de marché payantes"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le traitement statistique de vos propres données"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html#webpage",
+      "url": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html",
+      "name": "Atelier — l'étude de marché qui tient debout",
+      "description": "Atelier sur l'étude de marché en Algérie : méthode, vérifications terrain, et erreurs qui invalident une étude entière.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il des notions de statistique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. La taille d'échantillon et la lecture des résultats sont abordées sans formalisme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'étude de marché est-elle obligatoire pour un dossier bancaire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aucun texte ne l'impose de manière générale pour une demande de crédit ordinaire. Elle est en pratique attendue, et c'est une distinction que l'atelier explicite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-il certifiant ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

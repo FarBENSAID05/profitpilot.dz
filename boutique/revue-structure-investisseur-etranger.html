@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,180 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Revue de structure — investisseur étranger">
+  <meta name="twitter:description" content="Revue de la structure de capital d&#x27;une société algérienne à participation étrangère, au regard de la garantie de transfert.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Revue de structure — investisseur étranger",
+          "item": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html#offer-item",
+      "name": "Revue de structure — investisseur étranger",
+      "description": "Votre montage examiné sous l'angle du transfert : ce qui pourra ressortir du pays, et ce qui ne le pourra pas. Le droit de faire sortir les bénéfices d'Algérie s'acquiert à la constitution, pas à la distribution. Quand la question se pose pour de bon, les faits déterminants ont trois ans et ne se corrigent plus. Cette revue regarde votre montage sous le seul angle qui compte à ce moment-là : quelle part de vos apports construit réellement la garantie de transfert, et quelles preuves votre banque exigera dans plusieurs années.",
+      "url": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "Séances",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Société algérienne à capitaux étrangers, constituée ou en cours"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Note sous 5 jours ouvrés"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Société algérienne à capitaux étrangers, constituée ou en cours"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "L'examen de votre répartition de financement au regard des deux ratios : le seuil d'éligibilité et le plafond de prorata."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une note écrite sur les preuves d'origine externe dont votre banque aura besoin, et celles qui manquent aujourd'hui."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une séance de 90 minutes pour en discuter."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "La constitution du dossier de transfert lui-même"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute démarche auprès de la banque domiciliataire ou de la Banque d'Algérie"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le rapport du commissaire aux comptes exigé au dossier de transfert"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le conseil fiscal relevant d'une convention de non-double imposition"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html#webpage",
+      "url": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html",
+      "name": "Revue de structure — investisseur étranger",
+      "description": "Revue de la structure de capital d'une société algérienne à participation étrangère, au regard de la garantie de transfert.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il que la société soit déjà constituée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, et c'est même le meilleur moment pour cette revue. Les décisions les plus coûteuses se prennent avant le premier virement de capital."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fournissez-vous une consultation juridique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Nous intervenons sur la structure financière et sur les preuves comptables et bancaires. La rédaction des statuts et les questions de droit des sociétés relèvent de votre notaire ou de votre avocat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La note peut-elle être remise à ma banque ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est un document de travail. Il vous aide à préparer l'échange avec la banque, il ne s'y substitue pas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,178 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Le calendrier des obligations légales d&#x27;une SPA">
+  <meta name="twitter:description" content="Aide-mémoire gratuit des délais légaux d&#x27;une société par actions algérienne : assemblée annuelle, information des actionnaires, actif net, autorisations de caution, mandats.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Le calendrier des obligations légales d'une SPA",
+          "item": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html#offer-item",
+      "name": "Le calendrier des obligations légales d'une SPA",
+      "description": "Six mois, quatre mois, trente jours, un an : tous les délais du code de commerce sur une seule référence, avec leur point de départ réel. Les manquements que nous relevons en mission de commissariat aux comptes sont rarement des fraudes. Ce sont presque toujours des délais dépassés, parce que personne ne les avait notés. La raison est structurelle : la plupart des délais d'une société par actions ne se comptent pas depuis une date fixe du calendrier, mais depuis un événement . Les quatre mois de l'article 715 bis 20 courent depuis l'approbation des comptes faisant apparaître la perte, pas depuis la clôture — une société qui approuve au sixième mois se retrouve avec une échéance au dixième mois de l'exercice suivant, une date qui ne ressemble à rien et que nul ne consigne. Les trois mois de régularisation des actions de garantie courent depuis le jour où un administrateur cesse d'en être propriétaire. L'autorisation de caution de l'article 624 expire un an après avoir été donnée, quelle que soit la durée des engagements qu'elle couvre. Ce document rassemble ces délais, article par article, avec leur point de départ réel — celui qui les rend faciles à manquer.",
+      "url": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        },
+        "price": "0",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "DZD"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Modèles et guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Conseil financier et structuration",
+        "url": "https://profitpilot.dz/services/conseil-financier.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immédiat"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Dirigeants, administrateurs et directions financières de sociétés par actions"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un PDF de 13 pages, organisé par nature de délai plutôt que par article."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le calendrier de l'exercice à rebours de la clôture, avec une colonne à remplir pour vos propres dates."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un tableau de bord annuel de vingt points à cocher — celui que nous passons en mission de commissariat aux comptes."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Les échéances fiscales et sociales, qui relèvent d'autres textes et d'un autre calendrier"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "La revue de votre situation réelle — c'est l'objet d'une séance dédiée"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute consultation juridique personnalisée"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html#webpage",
+      "url": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html",
+      "name": "Le calendrier des obligations légales d'une SPA",
+      "description": "Aide-mémoire gratuit des délais légaux d'une société par actions algérienne : assemblée annuelle, information des actionnaires, actif net, autorisations de caution, mandats.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À qui s'adresse-t-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aux dirigeants et administrateurs d'une société par actions déjà constituée, et aux directions financières qui préparent l'arrêté des comptes. Pour la phase de constitution, c'est le carnet de bord « Créer une SPA » qu'il faut demander."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Couvre-t-il les échéances fiscales ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, et c'est délibéré. Il ne traite que les délais du code de commerce applicables à la société par actions. Les déclarations, versements et obligations de télédéclaration relèvent d'autres textes et d'un calendrier différent, qui n'a pas les mêmes points de départ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vaut-il aussi pour une SARL ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partiellement seulement. Le délai de six mois pour l'approbation des comptes et la réserve légale de 5 % sont communs. En revanche, les actions de garantie, les quorums d'assemblée, l'autorisation de caution annuelle, la procédure d'alerte et le seuil d'actif net de l'article 715 bis 20 sont propres à la société par actions."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -406,9 +585,9 @@
 
       <aside class="article-sidebar">
         <div class="sidebar-widget bq-achat">
-          <div class="bq-prix-grand"><span class="prix-devis">Sur devis</span></div>
+          <div class="bq-prix-grand"><span class="prix-gratuit">Gratuit</span></div>
           <div class="bq-fiche-meta"><div><span>Délai</span><strong>Immédiat</strong></div><div><span>Pour qui</span><strong>Dirigeants, administrateurs et directions financières de sociétés par actions</strong></div></div>
-          <a href="mailto:contact@profitpilot.dz?subject=Demander%20cette%20prestation%20%E2%80%94%20Le%20calendrier%20des%20obligations%20l%C3%A9gales%20d%27une%20SPA" class="btn btn-gold">Demander cette prestation</a>
+          <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Le%20calendrier%20des%20obligations%20l%C3%A9gales%20d%27une%20SPA" class="btn btn-gold">Demander le document</a>
           <p style="font-size:0.82rem;color:var(--gray);margin-top:0.8rem;">Le paiement en ligne n&#x27;est pas encore ouvert : votre demande est traitée par e-mail.</p>
         </div>
         <div class="sidebar-widget">

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ورشة — الاستيراد في الجزائر: الإجراء والتكلفة الحقيقية">
+  <meta name="twitter:description" content="ورشة عن الاستيراد في الجزائر: التوطين البنكي، الإجراء، واحتساب سعر التكلفة الحقيقي بنداً بنداً.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ورشة — الاستيراد في الجزائر: الإجراء والتكلفة الحقيقية",
+          "item": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html#offer-item",
+      "name": "ورشة — الاستيراد في الجزائر: الإجراء والتكلفة الحقيقية",
+      "description": "من التوطين إلى الجمركة، والبنود الستة التي تنسف سعر التكلفة. موضوعان، لأنهما لا ينفصلان عملياً: الإجراء، حيث خطأ في الترتيب يوقف شحنة كاملة؛ وسعر التكلفة، حيث ستة بنود مالية نادراً ما تُتوقَّع تحوّل هامشاً مرتقَباً إلى خسارة. تذكر الورشة التعليمة والمذكّرة الساريتين بمرجعيهما، ليتمكّن المشاركون من التحقق بأنفسهم.",
+      "url": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "يوم كامل: الإطار التنظيمي للتوطين، السلسلة الوثائقية، والجمركة.",
+        "احتساب سعر التكلفة الحقيقي على حالة مرقَّمة، بنداً بنداً.",
+        "ملف حساب سعر التكلفة للاصطحاب."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "دورات مبرمجة"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "مستوردون ومسؤولو مشتريات"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "يوم كامل: الإطار التنظيمي للتوطين، السلسلة الوثائقية، والجمركة."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "احتساب سعر التكلفة الحقيقي على حالة مرقَّمة، بنداً بنداً."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ملف حساب سعر التكلفة للاصطحاب."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "معالجة عملية استيراد جارية"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "الاستشارة الجمركية بالمعنى التنظيمي، فهي من اختصاص وكيل الجمارك"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي مسعى لدى بنك أو إدارة"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html",
+      "name": "ورشة — الاستيراد في الجزائر: الإجراء والتكلفة الحقيقية",
+      "description": "ورشة عن الاستيراد في الجزائر: التوطين البنكي، الإجراء، واحتساب سعر التكلفة الحقيقي بنداً بنداً.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-importer-en-algerie.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل يراعي المحتوى آخر تعليمة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، وكل نص مذكور يحمل تاريخ التحقق منه. والمقالات المرتبطة تُراجَع كل ثلاثة أشهر، شأن كل محتوى تنظيمي في الموقع."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تتناولون الجمركة بالتفصيل؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعطي منطقها ونقاط التعثّر المالية. أما التقنية الجمركية فمن اختصاص وكيل الجمارك."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تصلح لمبتدئ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم لجزء الإجراء. أما جزء سعر التكلفة فيفترض إلماماً بجدول الحسابات."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,178 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="كرّاس المتابعة — إنشاء شركة ذات مسؤولية محدودة في الجزائر">
+  <meta name="twitter:description" content="كرّاس مجّاني لإنشاء شركة ذات مسؤولية محدودة في الجزائر: حساب الرأسمال، تحكيمات القانون الأساسي، الموضوع الاجتماعي، قائمة الوثائق والرزنامة العكسية.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "كرّاس المتابعة — إنشاء شركة ذات مسؤولية محدودة في الجزائر",
+          "item": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html#offer-item",
+      "name": "كرّاس المتابعة — إنشاء شركة ذات مسؤولية محدودة في الجزائر",
+      "description": "عشر بطاقات تُملأ قبل دخولك مكتب الموثّق: حساب الرأسمال، والتحكيمات الستّة في القانون الأساسي، وقائمة الوثائق. الدليل الإلكتروني يشرح القانون المطبَّق على الشركة الجزائرية ذات المسؤولية المحدودة. أمّا هذا الكرّاس فيفعل شيئاً آخر: يحوّل ذلك القانون إلى قرارات تُتَّخذ، في شكل يمكنك طبعه وملؤه ووضعه على طاولة الموثّق. وينطلق من ملاحظة ميدانية. ففي ملفّات التمويل التي ندرسها، تعود أربعة قرارات تأسيسية بانتظام في العوائق التي تظهر بعد ثمانية عشر شهراً: رأسمال محدَّد على أساس حدّ أدنى قانوني لم يعد قائماً منذ 2015، وموضوع اجتماعي ضيّق، وغياب شرط الخروج، والتزام محافظة الحسابات يُكتشَف لحظة تعطيله تحويلَ أرباح. ولا يكلّف أيّ منها شيئاً إن حُسم قبل التوقيع. وكلّها تكلّف عقداً معدِّلاً بعده.",
+      "url": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        },
+        "price": "0",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "DZD"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "قوالب وأدلة",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "إنشاء المؤسسة — مرافقة كاملة",
+        "url": "https://profitpilot.dz/services/ar/creation-entreprise.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "فوري"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "منشئ المؤسسة، قبل أوّل موعد لدى الموثّق"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ملفّ PDF من 21 صفحة، مصمَّم للطبع والتعليق: كلّ بطاقة تبدأ في صفحة جديدة."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ورقة حساب الرأسمال المستهدَف، مع الحساب نفسه مملوءاً على حالة واقعية."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ثلاث قوائم مراجعة — الوثائق، والرزنامة العكسية أسبوعاً بأسبوع، والمراجعة الأخيرة قبل التوقيع."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "المبلغ الإجمالي لمصاريف التأسيس — لا وجود لسلّم رسمي وحيد، والكرّاس يعطي بنيتها"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "تحرير قانونك الأساسي، وهو من اختصاص الموثّق"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أيّ استشارة قانونية شخصية"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html",
+      "name": "كرّاس المتابعة — إنشاء شركة ذات مسؤولية محدودة في الجزائر",
+      "description": "كرّاس مجّاني لإنشاء شركة ذات مسؤولية محدودة في الجزائر: حساب الرأسمال، تحكيمات القانون الأساسي، الموضوع الاجتماعي، قائمة الوثائق والرزنامة العكسية.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-sarl.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل يعوّض الكرّاس الموثّق؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا، وهو يقول ذلك صراحةً. فالموثّق وحده يحرّر قانونك الأساسي ويوثّقه — والمادة 545 من القانون التجاري تفرض ذلك تحت طائلة البطلان. أمّا الكرّاس فيحضّر القرارات التي لا يستطيع الموثّق اتّخاذها مكانك: مبلغ الرأسمال، والموضوع الاجتماعي، وشروط التسيير والخروج."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "لماذا لا يعطي أيّ مبلغ لمصاريف التأسيس؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لأنّه لا وجود لسلّم رسمي وحيد. فهذه المصاريف تجمع بين حقوق ثابتة، وحقوق نسبية من الرأسمال، وخدمات حرّة التسعير، والأرقام المتداولة تتفاوت إلى الثلث للنطاق نفسه. الكرّاس يعطي بنية التكاليف — ما هو ثابت وما يتوقّف على الرأسمال — وأنت تطلب تسعيرها."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل هو محيَّن؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "طبعة أوت 2026، مبنيّة على القوانين المدمجة لسنة 2026 وعلى الجريدة الرسمية بالنسبة للقانون 15-20. وكلّ تأكيد معياري يحيل إلى مادة. وحيثما لم نتمكّن من قراءة النصّ — كما في عتبات محافظة الحسابات — يقول الكرّاس ذلك ويعطي القاعدة دون الرقم."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -406,9 +585,9 @@
 
       <aside class="article-sidebar">
         <div class="sidebar-widget bq-achat">
-          <div class="bq-prix-grand"><span class="prix-devis">حسب الدراسة</span></div>
+          <div class="bq-prix-grand"><span class="prix-gratuit">مجاني</span></div>
           <div class="bq-fiche-meta"><div><span>أجل التسليم</span><strong>فوري</strong></div><div><span>لمن هذه الخدمة</span><strong>منشئ المؤسسة، قبل أوّل موعد لدى الموثّق</strong></div></div>
-          <a href="mailto:contact@profitpilot.dz?subject=%D8%A7%D8%B7%D9%84%D8%A8%20%D9%87%D8%B0%D9%87%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%20%E2%80%94%20%D9%83%D8%B1%D9%91%D8%A7%D8%B3%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%A8%D8%B9%D8%A9%20%E2%80%94%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B0%D8%A7%D8%AA%20%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9%20%D9%85%D8%AD%D8%AF%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1" class="btn btn-gold">اطلب هذه الخدمة</a>
+          <a href="mailto:contact@profitpilot.dz?subject=%D8%A7%D8%B7%D9%84%D8%A8%20%D8%A7%D9%84%D9%88%D8%AB%D9%8A%D9%82%D8%A9%20%E2%80%94%20%D9%83%D8%B1%D9%91%D8%A7%D8%B3%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%A8%D8%B9%D8%A9%20%E2%80%94%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%B0%D8%A7%D8%AA%20%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9%20%D9%85%D8%AD%D8%AF%D9%88%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1" class="btn btn-gold">اطلب الوثيقة</a>
           <p style="font-size:0.82rem;color:var(--gray);margin-top:0.8rem;">الدفع الإلكتروني غير مفتوح بعد — يُعالَج طلبك عبر البريد.</p>
         </div>
         <div class="sidebar-widget">

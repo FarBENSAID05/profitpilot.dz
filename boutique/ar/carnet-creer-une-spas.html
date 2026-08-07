@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,178 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="دفتر الطريق — إنشاء شركة مساهمة مبسطة في الجزائر">
+  <meta name="twitter:description" content="دفتر مجاني لإنشاء شركة مساهمة مبسطة في الجزائر: اختبار علامة المؤسسة الناشئة، ملفّ الوسم، حساب الرأسمال، اثنا عشر بنداً أساسياً، والمراقبة النهائية.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "دفتر الطريق — إنشاء شركة مساهمة مبسطة في الجزائر",
+          "item": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html#offer-item",
+      "name": "دفتر الطريق — إنشاء شركة مساهمة مبسطة في الجزائر",
+      "description": "ثماني بطاقات للتعبئة وفق الترتيب الفعلي للعمليات: العلامة أولاً، ثمّ القانون الأساسي، ثمّ الموثّق. شركة المساهمة المبسطة هي الشكل الجزائري الوحيد الذي لا يُختار: فالمادة 715 مكرر 133 من القانون التجاري تحصره «حصرياً» في الشركات الحائزة على علامة «مؤسسة ناشئة». والعمل الأول إذن ليس قانونياً بل وثائقياً — ويُحكَم عليه بوثائق لا يطلبها الموثّق أبداً. يتبع هذا الدفتر الترتيب الفعلي للعمليات. البطاقتان 02 و03 تُعدّان ملفّ الوسم: المعايير الستّة، والمسلك المختار لإثبات الطابع الابتكاري، والوثائق، وآجال تتوقّف — ثلاثون يوماً للردّ وخمسة عشر للاستكمال. والبطاقات من 04 إلى 07 تُعدّ القانون الأساسي: الرأسمال الذي لم يعد له حدّ أدنى قانوني لكنّ الجميع سيقرأه؛ وخيار مندوب الحصص الذي يُلزم المساهمين خمس سنوات؛ والبنود الاثنا عشر التي لن يسدّها القانون إن صمت القانون الأساسي؛ وتعيين أوّل محافظ حسابات، وهو يتمّ في القانون الأساسي لا بعده. أمّا البطاقة 08 فتخدم بعد التأسيس: ملفّ تجديد العلامة لا يُسترجَع عشيّة الإيداع.",
+      "url": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        },
+        "price": "0",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "DZD"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "قوالب وأدلة",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "إنشاء المؤسسة — مرافقة كاملة",
+        "url": "https://profitpilot.dz/services/ar/creation-entreprise.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "فوري"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "مؤسِّس مؤسسة ناشئة موسومة أو في طور الوسم، قبل أوّل موعد عند الموثّق"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ملفّ PDF من 21 صفحة، مصمَّم للطبع والتعليق: كلّ بطاقة تبدأ في صفحة جديدة."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ورقة حساب الرأسمال المستهدَف، مكيَّفة مع شركة بلا رأسمال أدنى قانوني."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "أربع قوائم تحقّق — معايير العلامة الستّة، ووثائق الملفّ، والبنود الاثنا عشر، والمراقبة النهائية قبل التوقيع."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "ضمان الحصول على العلامة، فهو من اختصاص اللجنة الوطنية للوسم"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "تحرير قانونك الأساسي، وهو من اختصاص الموثّق"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أيّ استشارة قانونية خاصّة بحالتك"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html",
+      "name": "دفتر الطريق — إنشاء شركة مساهمة مبسطة في الجزائر",
+      "description": "دفتر مجاني لإنشاء شركة مساهمة مبسطة في الجزائر: اختبار علامة المؤسسة الناشئة، ملفّ الوسم، حساب الرأسمال، اثنا عشر بنداً أساسياً، والمراقبة النهائية.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/carnet-creer-une-spas.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل يمكنني إنشاء شركة مساهمة مبسطة بدون علامة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. تحصر الفقرة الأخيرة من المادة 715 مكرر 133 هذا الشكل في الشركات الحائزة على علامة «مؤسسة ناشئة». ويشرح الدفتر المفارقة التي تخلقها هذه الصياغة بالنسبة إلى إنشاء أوّل، ولماذا يُطرَح السؤال على المركز الوطني للسجلّ التجاري بولايتك وقرار الوسم بيدك."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يحلّ الدفتر محلّ الموثّق؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. الموثّق وحده يحرّر القانون الأساسي ويوثّقه. والدفتر يُعدّ القرارات التي لا يستطيع اتّخاذها بدلاً عنك — وهي في شركة المساهمة المبسطة قرارات لا تسدّها أيّ مادة من القانون."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يجب أن يكون لها محافظ حسابات؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "المسألة لم يحسمها النصّ. تعرض البطاقة 07 القراءتين، والحجّة الحرفية المستمدّة من المادة 715 مكرر 135، والموقف الذي نأخذ به — مع الإشارة إلى أنّه لا اجتهاد قضائي معلوماً يؤكّده."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -406,9 +585,9 @@
 
       <aside class="article-sidebar">
         <div class="sidebar-widget bq-achat">
-          <div class="bq-prix-grand"><span class="prix-devis">حسب الدراسة</span></div>
+          <div class="bq-prix-grand"><span class="prix-gratuit">مجاني</span></div>
           <div class="bq-fiche-meta"><div><span>أجل التسليم</span><strong>فوري</strong></div><div><span>لمن هذه الخدمة</span><strong>مؤسِّس مؤسسة ناشئة موسومة أو في طور الوسم، قبل أوّل موعد عند الموثّق</strong></div></div>
-          <a href="mailto:contact@profitpilot.dz?subject=%D8%A7%D8%B7%D9%84%D8%A8%20%D9%87%D8%B0%D9%87%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%20%E2%80%94%20%D8%AF%D9%81%D8%AA%D8%B1%20%D8%A7%D9%84%D8%B7%D8%B1%D9%8A%D9%82%20%E2%80%94%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%B4%D8%B1%D9%83%D8%A9%20%D9%85%D8%B3%D8%A7%D9%87%D9%85%D8%A9%20%D9%85%D8%A8%D8%B3%D8%B7%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1" class="btn btn-gold">اطلب هذه الخدمة</a>
+          <a href="mailto:contact@profitpilot.dz?subject=%D8%A7%D8%B7%D9%84%D8%A8%20%D8%A7%D9%84%D9%88%D8%AB%D9%8A%D9%82%D8%A9%20%E2%80%94%20%D8%AF%D9%81%D8%AA%D8%B1%20%D8%A7%D9%84%D8%B7%D8%B1%D9%8A%D9%82%20%E2%80%94%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%B4%D8%B1%D9%83%D8%A9%20%D9%85%D8%B3%D8%A7%D9%87%D9%85%D8%A9%20%D9%85%D8%A8%D8%B3%D8%B7%D8%A9%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1" class="btn btn-gold">اطلب الوثيقة</a>
           <p style="font-size:0.82rem;color:var(--gray);margin-top:0.8rem;">الدفع الإلكتروني غير مفتوح بعد — يُعالَج طلبك عبر البريد.</p>
         </div>
         <div class="sidebar-widget">

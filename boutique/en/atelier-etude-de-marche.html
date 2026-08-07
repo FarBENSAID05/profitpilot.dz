@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Workshop — the market study that holds up">
+  <meta name="twitter:description" content="Workshop on market research in Algeria: method, field verification, and the errors that invalidate a whole study.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Workshop — the market study that holds up",
+          "item": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html#offer-item",
+      "name": "Workshop — the market study that holds up",
+      "description": "Three field checks without which a market study is worth nothing. Most market studies attached to a funding file are built to confirm a decision already taken. They can be recognised by three signs, and the workshop teaches you to spot them — in other people's studies and in your own.",
+      "url": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "Half a day: building a sample, phrasing unbiased questions, reading the results.",
+        "The three field checks that most often invalidate a study.",
+        "A questionnaire structure and a tabulation grid."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Scheduled sessions"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Founders and new business owners"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Half a day: building a sample, phrasing unbiased questions, reading the results."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "The three field checks that most often invalidate a study."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A questionnaire structure and a tabulation grid."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Carrying out your market study"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Access to paid market databases"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Statistical processing of your own data"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html",
+      "name": "Workshop — the market study that holds up",
+      "description": "Workshop on market research in Algeria: method, field verification, and the errors that invalidate a whole study.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-etude-de-marche.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need statistics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sample size and reading results are covered without formalism."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a market study compulsory for a bank file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No text imposes one generally for an ordinary credit application. It is expected in practice, and that is a distinction the workshop makes explicit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it certified?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

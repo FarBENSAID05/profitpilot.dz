@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atelier — monter une étude de faisabilité finançable">
+  <meta name="twitter:description" content="Atelier pratique : construire une étude de faisabilité bancable en Algérie, du prévisionnel à la défense des hypothèses.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Atelier — monter une étude de faisabilité finançable",
+          "item": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html#offer-item",
+      "name": "Atelier — monter une étude de faisabilité finançable",
+      "description": "Construire un dossier qui passe le comité de crédit, du prévisionnel à la justification des hypothèses. L'atelier prend un cas de bout en bout : hypothèses commerciales, plan d'investissement, plan de financement, prévisionnel, trésorerie, ratios, et enfin la partie que l'on néglige — la justification écrite des hypothèses, qui est ce que l'analyste attaque en premier. Deux demi-journées, parce qu'une seule ne suffit pas pour aller jusqu'à la défense du dossier.",
+      "url": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "Deux demi-journées sur un cas complet, monté de bout en bout.",
+        "Le classeur de travail et la trame rédactionnelle utilisés pendant l'atelier.",
+        "Une grille de relecture : ce que l'analyste vérifie, dans quel ordre."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Sessions programmées"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Porteurs de projet, cadres financiers, bureaux d'études"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Deux demi-journées sur un cas complet, monté de bout en bout."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le classeur de travail et la trame rédactionnelle utilisés pendant l'atelier."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une grille de relecture : ce que l'analyste vérifie, dans quel ordre."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le travail sur votre propre dossier, qui relève de la revue ou du forfait"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute attestation reconnue par un organisme certificateur"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Tout engagement quant à l'issue de vos demandes de financement"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html#webpage",
+      "url": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html",
+      "name": "Atelier — monter une étude de faisabilité finançable",
+      "description": "Atelier pratique : construire une étude de faisabilité bancable en Algérie, du prévisionnel à la défense des hypothèses.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Puis-je venir avec mon propre projet ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous pouvez vous en inspirer pendant les exercices, mais l'atelier travaille sur un cas commun. Le traitement de votre dossier relève d'une prestation individuelle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel niveau faut-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Savoir lire un bilan et manipuler un tableur. Le reste est construit pendant l'atelier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-il certifiant ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Aucune attestation reconnue par un organisme certificateur n'est délivrée."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,175 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Express diagnosis — 60 minutes">
+  <meta name="twitter:description" content="A 60-minute financial diagnosis session, with a written note and direction. Closed scope, no obligation to continue.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/diagnostic-express.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Express diagnosis — 60 minutes",
+          "item": "https://profitpilot.dz/boutique/en/diagnostic-express.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/en/diagnostic-express.html#offer-item",
+      "name": "Express diagnosis — 60 minutes",
+      "description": "One hour to place your problem and know what to do next. Written note afterwards. Many enquiries begin with a solution rather than a problem: \"I need a business plan\", \"I need a feasibility study\". Half the time, that is not what the company needs. This session exists to settle that question, at closed scope and for a known amount. It creates no obligation to continue, and the note is yours — including if you take the next step elsewhere.",
+      "url": "https://profitpilot.dz/boutique/en/diagnostic-express.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/diagnostic-express.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "Sessions",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "A director who does not yet know what the real problem is"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Written note within 48 h"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "A director who does not yet know what the real problem is"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A 60-minute meeting, in person in Algiers or by video."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A two- to three-page written note within 48 hours: what we observed, what to deal with first, and in what order."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A clear direction: what you can do alone, what needs support."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any costed study or modelling"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any audit or certification of accounts"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "A second meeting, which is a new session"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/diagnostic-express.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/diagnostic-express.html",
+      "name": "Express diagnosis — 60 minutes",
+      "description": "A 60-minute financial diagnosis session, with a written note and direction. Closed scope, no obligation to continue.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/diagnostic-express.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/diagnostic-express.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/diagnostic-express.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this a free consultation in disguise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The free consultation serves to find out whether we can help you. This session produces a written deliverable and involves an hour of preparation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I prepare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your last two sets of accounts if you have them, and a written description of your situation in a few lines. That is enough."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the note be shown to my bank?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is not designed for that. It is an internal working document, not a certificate or a report addressed to a third party."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,180 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Étude technico-économique au plan-type AAPI">
+  <meta name="twitter:description" content="Étude technico-économique conforme au plan-type officiel de l&#x27;annexe V du décret exécutif 26-154, pour un dossier AAPI.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Étude technico-économique au plan-type AAPI",
+          "item": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html#offer-item",
+      "name": "Étude technico-économique au plan-type AAPI",
+      "description": "L'étude en neuf parties de l'annexe V du décret 26-154, montée pour être déposée au guichet unique. Depuis le décret exécutif 26-154, l'étude technico-économique n'est plus un document libre : son plan est fixé par l'annexe V, en neuf parties. Une étude bien faite mais présentée dans un autre ordre se fait renvoyer sur la forme. Nous montons l'étude directement dans ce plan, avec le modèle financier qui l'alimente. Le tarif dépend de la taille et de la complexité du projet, ce qui est la raison pour laquelle il est annoncé « à partir de » et arrêté après la réunion de cadrage.",
+      "url": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "Forfaits d'étude",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Investisseur enregistrant un projet auprès de l'AAPI"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "3 à 5 semaines selon le dossier"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Investisseur enregistrant un projet auprès de l'AAPI"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "L'étude complète suivant les neuf parties du plan-type officiel, dans l'ordre et sous les intitulés attendus."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le modèle financier associé : investissement, financement, exploitation prévisionnelle, indicateurs de rentabilité."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une version prête au dépôt, plus les fichiers sources."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Les études techniques d'ingénierie, les devis de fournisseurs et les plans d'architecte"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "L'étude de marché terrain, qui fait l'objet d'une mission distincte"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le dépôt et le suivi du dossier auprès de l'AAPI"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute garantie quant à la décision de l'administration"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html#webpage",
+      "url": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html",
+      "name": "Étude technico-économique au plan-type AAPI",
+      "description": "Étude technico-économique conforme au plan-type officiel de l'annexe V du décret exécutif 26-154, pour un dossier AAPI.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le montant est-il ferme ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il est arrêté après la réunion de cadrage, avant tout démarrage, et ne bouge plus ensuite sauf changement de périmètre demandé par vous et accepté par écrit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il si l'AAPI demande des compléments ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les compléments portant sur le contenu de notre étude sont repris sans supplément. Ceux qui portent sur des pièces hors périmètre — techniques, foncières, administratives — ne le sont pas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Garantissez-vous l'enregistrement du projet ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, et personne ne peut le faire. La décision appartient à l'administration. Nous nous engageons sur la conformité de l'étude au plan-type et sur la cohérence du modèle financier."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

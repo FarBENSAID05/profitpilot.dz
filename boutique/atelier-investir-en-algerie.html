@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atelier — investir en Algérie depuis l&#x27;étranger">
+  <meta name="twitter:description" content="Atelier pour investisseurs étrangers : forme sociale, capital, garantie de transfert, guichet unique AAPI, calendrier réel.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Atelier — investir en Algérie depuis l'étranger",
+          "item": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html#offer-item",
+      "name": "Atelier — investir en Algérie depuis l'étranger",
+      "description": "Les décisions des trois premières semaines, et celles qui coûtent cher trois ans plus tard. Le champ « créer une société en Algérie » est saturé de guides qui s'arrêtent à l'immatriculation. Cet atelier commence là où ils s'arrêtent : ce qui se décide au moment de la constitution et qui détermine, des années plus tard, ce que l'on pourra faire sortir du pays. Le support cite les textes applicables avec leurs références exactes, pour que les participants puissent les vérifier eux-mêmes.",
+      "url": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "Une demi-journée : forme sociale, structure de capital, garantie de transfert, parcours du guichet unique.",
+        "Un calendrier type des formalités, avec les délais réellement observés.",
+        "Un support écrit avec les références des textes applicables."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Sessions programmées"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Dirigeants étrangers et leurs conseils"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une demi-journée : forme sociale, structure de capital, garantie de transfert, parcours du guichet unique."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un calendrier type des formalités, avec les délais réellement observés."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un support écrit avec les références des textes applicables."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "L'examen de votre projet particulier, qui relève de la revue de structure"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le conseil juridique et la rédaction d'actes"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le conseil fiscal international et l'application des conventions"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html#webpage",
+      "url": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html",
+      "name": "Atelier — investir en Algérie depuis l'étranger",
+      "description": "Atelier pour investisseurs étrangers : forme sociale, capital, garantie de transfert, guichet unique AAPI, calendrier réel.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'atelier se tient-il en anglais ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, sur demande, ainsi qu'en français et en arabe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Remplace-t-il un conseil juridique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Il donne le cadre et les bonnes questions. La rédaction des actes et le conseil juridique relèvent du notaire et de l'avocat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Traitez-vous des conventions fiscales ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le principe est expliqué, sans examen d'une convention particulière : cela dépend du pays de résidence et relève d'un conseil individuel."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

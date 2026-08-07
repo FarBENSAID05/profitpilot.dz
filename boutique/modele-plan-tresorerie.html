@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Modèle de plan de trésorerie 12 mois">
+  <meta name="twitter:description" content="Modèle Excel de plan de trésorerie sur 12 mois avec calcul du BFR, décalages d&#x27;encaissement et point de rupture.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Modèle de plan de trésorerie 12 mois",
+          "item": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html#offer-item",
+      "name": "Modèle de plan de trésorerie 12 mois",
+      "description": "Le tableau qui montre le mois où l'argent manque, avant qu'il ne manque. Une entreprise ne dépose pas le bilan parce qu'elle perd de l'argent. Elle le dépose parce qu'un jour elle ne peut pas payer, alors même que son compte de résultat est bénéficiaire. L'écart entre les deux s'appelle le besoin en fonds de roulement, et il se voit uniquement sur un plan de trésorerie mensuel. Ce classeur sépare strictement le résultat de l'encaissement. Une facture émise en janvier et réglée en avril apparaît en janvier au résultat et en avril à la trésorerie — c'est tout l'objet de l'outil.",
+      "url": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Modèles et guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Étude de faisabilité et rentabilité",
+        "url": "https://profitpilot.dz/services/etude-faisabilite.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immédiat"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Entreprise rentable qui manque de trésorerie"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un classeur Excel : encaissements et décaissements mensuels, TVA, échéances sociales et fiscales."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le calcul automatique du besoin en fonds de roulement et du point de rupture."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un paramétrage des délais clients, fournisseurs et stocks, pour tester les décalages."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "La saisie de vos données"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "L'analyse de vos écarts"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute mission comptable ou de révision des comptes"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html#webpage",
+      "url": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html",
+      "name": "Modèle de plan de trésorerie 12 mois",
+      "description": "Modèle Excel de plan de trésorerie sur 12 mois avec calcul du BFR, décalages d'encaissement et point de rupture.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "En quoi diffère-t-il d'un prévisionnel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le prévisionnel raisonne en résultat, à la date de la facture. Le plan de trésorerie raisonne en encaissement, à la date du règlement. Une entreprise peut être bénéficiaire sur le premier et en rupture sur le second."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il une comptabilité à jour pour l'utiliser ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non pour la partie prévisionnelle. Oui si vous voulez comparer le prévu au réalisé, ce que le classeur permet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Convient-il à une activité d'importation ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, et c'est un usage fréquent : les décalages y sont longs et le modèle permet de paramétrer le délai entre la domiciliation, le paiement du fournisseur et la vente."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

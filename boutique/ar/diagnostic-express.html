@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,175 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="تشخيص سريع — 60 دقيقة">
+  <meta name="twitter:description" content="جلسة تشخيص مالي من 60 دقيقة، مع تقرير كتابي وتوجيه. نطاق مغلق، دون التزام بأي تكملة.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/diagnostic-express.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "تشخيص سريع — 60 دقيقة",
+          "item": "https://profitpilot.dz/boutique/ar/diagnostic-express.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/ar/diagnostic-express.html#offer-item",
+      "name": "تشخيص سريع — 60 دقيقة",
+      "description": "ساعة لتحديد مشكلتك ومعرفة الخطوة التالية. مع تقرير كتابي بعدها. كثير من الطلبات تبدأ بحلّ لا بمشكلة: «أحتاج مخطط أعمال»، «أحتاج دراسة جدوى». وفي حالة من كل اثنتين، ليس هذا ما تحتاجه المؤسسة. وُجدت هذه الجلسة لحسم هذا السؤال، بنطاق مغلق ومبلغ معروف سلفاً. ولا يترتّب عليها أي التزام بتكملة، والتقرير ملكك — حتى لو أسندتَ التكملة إلى زميل.",
+      "url": "https://profitpilot.dz/boutique/ar/diagnostic-express.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/diagnostic-express.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "جلسات",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "مسيّر لا يعرف بعدُ ما هي المشكلة الحقيقية"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "التقرير خلال 48 ساعة"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "مسيّر لا يعرف بعدُ ما هي المشكلة الحقيقية"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "لقاء من 60 دقيقة، حضورياً بالجزائر العاصمة أو عن بُعد."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "تقرير كتابي من صفحتين إلى ثلاث خلال 48 ساعة: ما لاحظناه، وما يجب معالجته أولاً، وبأي ترتيب."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "توجيه واضح: ما يمكنك فعله وحدك، وما يستلزم مرافقة."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي دراسة مرقَّمة أو نمذجة"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "مراجعة الحسابات أو المصادقة عليها"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "لقاء ثانٍ، فهو موضوع جلسة جديدة"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/diagnostic-express.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/diagnostic-express.html",
+      "name": "تشخيص سريع — 60 دقيقة",
+      "description": "جلسة تشخيص مالي من 60 دقيقة، مع تقرير كتابي وتوجيه. نطاق مغلق، دون التزام بأي تكملة.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/diagnostic-express.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/diagnostic-express.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/diagnostic-express.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "أليست استشارة مجانية متنكّرة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. الاستشارة المجانية تخدم معرفة ما إذا كنا نستطيع مساعدتك. أما هذه الجلسة فتنتج مخرجاً كتابياً وتستهلك ساعة عمل تحضيري."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ماذا أُحضّر؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "آخر ميزانيتين إن وُجدتا، ووصفاً كتابياً لوضعك في بضعة أسطر. هذا يكفي."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يمكن تقديم التقرير إلى بنكي؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "غير مُعدّ لذلك. هو وثيقة عمل داخلية، لا شهادة ولا تقرير موجَّه إلى الغير."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

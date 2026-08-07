@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,196 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Boutique — offres à périmètre défini">
+  <meta name="twitter:description" content="Modèles, séances de diagnostic, forfaits d&#x27;étude et ateliers. Chaque offre indique son livrable, son délai et ce qu&#x27;elle ne couvre pas.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://profitpilot.dz/boutique/index.html#webpage",
+      "url": "https://profitpilot.dz/boutique/index.html",
+      "name": "Boutique — offres à périmètre défini",
+      "description": "Modèles, séances de diagnostic, forfaits d'étude et ateliers. Chaque offre indique son livrable, son délai et ce qu'elle ne couvre pas.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/index.html#breadcrumb"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://profitpilot.dz/boutique/index.html#list"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://profitpilot.dz/boutique/index.html#list",
+      "name": "Boutique — offres à périmètre défini",
+      "numberOfItems": 21,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://profitpilot.dz/boutique/carnet-creer-une-sarl.html",
+          "name": "Carnet de bord — Créer une SARL en Algérie"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html",
+          "name": "Carnet de bord — Créer une SPA en Algérie"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://profitpilot.dz/boutique/carnet-creer-une-spas.html",
+          "name": "Carnet de bord — Créer une SPAS en Algérie"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://profitpilot.dz/boutique/carnet-cartographie-groupe.html",
+          "name": "Carnet de bord — Cartographier votre groupe"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://profitpilot.dz/boutique/calendrier-obligations-spa.html",
+          "name": "Le calendrier des obligations légales d'une SPA"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "url": "https://profitpilot.dz/boutique/modele-business-plan-bancaire.html",
+          "name": "Modèle de business plan pour dossier bancaire"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "url": "https://profitpilot.dz/boutique/checklist-dossier-credit.html",
+          "name": "Checklist du dossier de crédit bancaire"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "url": "https://profitpilot.dz/boutique/modele-plan-tresorerie.html",
+          "name": "Modèle de plan de trésorerie 12 mois"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "url": "https://profitpilot.dz/boutique/diagnostic-express.html",
+          "name": "Diagnostic express — 60 minutes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "url": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html",
+          "name": "Revue de dossier bancaire avant dépôt"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "url": "https://profitpilot.dz/boutique/revue-structure-investisseur-etranger.html",
+          "name": "Revue de structure — investisseur étranger"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "url": "https://profitpilot.dz/boutique/forfait-etude-technico-economique.html",
+          "name": "Étude technico-économique au plan-type AAPI"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "url": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html",
+          "name": "Montage complet du dossier bancaire"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "url": "https://profitpilot.dz/boutique/guide-financement-islamique.html",
+          "name": "Guide du financement islamique pour l'entreprise"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "url": "https://profitpilot.dz/boutique/guide-auto-entrepreneur.html",
+          "name": "Auto-entrepreneur : de l'inscription au premier bénéfice"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "url": "https://profitpilot.dz/boutique/pack-modeles-investisseur.html",
+          "name": "Pack investisseur — six modèles financiers"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "url": "https://profitpilot.dz/boutique/atelier-etude-faisabilite-bancable.html",
+          "name": "Atelier — monter une étude de faisabilité finançable"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "url": "https://profitpilot.dz/boutique/atelier-importer-en-algerie.html",
+          "name": "Atelier — importer en Algérie : procédure et coût réel"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "url": "https://profitpilot.dz/boutique/atelier-etude-de-marche.html",
+          "name": "Atelier — l'étude de marché qui tient debout"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "url": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html",
+          "name": "Atelier — évaluer la rentabilité d'un projet"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "url": "https://profitpilot.dz/boutique/atelier-investir-en-algerie.html",
+          "name": "Atelier — investir en Algérie depuis l'étranger"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -376,14 +573,19 @@
   <div class="container">
     <div class="highlight-box" style="margin-bottom:2rem;"><p>Les tarifs sont communiqués sur demande, après cadrage du besoin.</p></div>
     <div class="bq-filtres" role="group">
-          <button type="button" class="bq-filtre actif" data-f="all">Toutes les offres</button>
-          <button type="button" class="bq-filtre" data-f="produit-numerique">Modèles et guides</button>
-          <button type="button" class="bq-filtre" data-f="seance">Séances</button>
-          <button type="button" class="bq-filtre" data-f="forfait">Forfaits d&#x27;étude</button>
-          <button type="button" class="bq-filtre" data-f="formation">Ateliers</button>
+          <button type="button" class="bq-filtre actif" data-f="all" aria-pressed="true">Toutes les offres</button>
+          <button type="button" class="bq-filtre" data-f="produit-numerique" aria-pressed="false">Modèles et guides</button>
+          <button type="button" class="bq-filtre" data-f="seance" aria-pressed="false">Séances</button>
+          <button type="button" class="bq-filtre" data-f="forfait" aria-pressed="false">Forfaits d&#x27;étude</button>
+          <button type="button" class="bq-filtre" data-f="formation" aria-pressed="false">Ateliers</button>
+    </div>
+    <div class="bq-filtres bq-filtres-prix" role="group">
+          <button type="button" class="bq-filtre actif" data-p="all" aria-pressed="true">Tous</button>
+          <button type="button" class="bq-filtre" data-p="gratuit" aria-pressed="false">Gratuit</button>
+          <button type="button" class="bq-filtre" data-p="payant" aria-pressed="false">Payant</button>
     </div>
     <div class="bq-grille">
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="gratuit">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">📘</span>
             </div>
@@ -396,13 +598,13 @@
                 <span>📦 Immédiat</span>
               </div>
               <div class="bq-pied">
-                <div class="bq-prix"><span class="prix-devis">Sur devis</span></div>
-                <a href="mailto:contact@profitpilot.dz?subject=Demander%20cette%20prestation%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SARL%20en%20Alg%C3%A9rie" class="btn btn-gold bq-btn">Demander cette prestation</a>
+                <div class="bq-prix"><span class="prix-gratuit">Gratuit</span></div>
+                <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SARL%20en%20Alg%C3%A9rie" class="btn btn-gold bq-btn">Demander le document</a>
               </div>
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="gratuit">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">🏛️</span>
             </div>
@@ -415,13 +617,13 @@
                 <span>📦 Immédiat</span>
               </div>
               <div class="bq-pied">
-                <div class="bq-prix"><span class="prix-devis">Sur devis</span></div>
-                <a href="mailto:contact@profitpilot.dz?subject=Demander%20cette%20prestation%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SPA%20en%20Alg%C3%A9rie" class="btn btn-gold bq-btn">Demander cette prestation</a>
+                <div class="bq-prix"><span class="prix-gratuit">Gratuit</span></div>
+                <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SPA%20en%20Alg%C3%A9rie" class="btn btn-gold bq-btn">Demander le document</a>
               </div>
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="gratuit">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">🚀</span>
             </div>
@@ -434,13 +636,32 @@
                 <span>📦 Immédiat</span>
               </div>
               <div class="bq-pied">
-                <div class="bq-prix"><span class="prix-devis">Sur devis</span></div>
-                <a href="mailto:contact@profitpilot.dz?subject=Demander%20cette%20prestation%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SPAS%20en%20Alg%C3%A9rie" class="btn btn-gold bq-btn">Demander cette prestation</a>
+                <div class="bq-prix"><span class="prix-gratuit">Gratuit</span></div>
+                <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SPAS%20en%20Alg%C3%A9rie" class="btn btn-gold bq-btn">Demander le document</a>
               </div>
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="gratuit">
+            <div class="bq-visuel bq-v-produit-numerique">
+              <span aria-hidden="true">🗺️</span>
+            </div>
+            <div class="bq-corps">
+              <span class="bq-famille">Modèles et guides</span>
+              <h3><a href="carnet-cartographie-groupe.html">Carnet de bord — Cartographier votre groupe</a></h3>
+              <p>Trois tests indépendants, trois seuils différents : société holding, entité consolidante, groupe fiscal. Un seul tableau pour y répondre.</p>
+              <div class="bq-meta">
+                
+                <span>📦 Immédiat</span>
+              </div>
+              <div class="bq-pied">
+                <div class="bq-prix"><span class="prix-gratuit">Gratuit</span></div>
+                <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cartographier%20votre%20groupe" class="btn btn-gold bq-btn">Demander le document</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="bq-carte" data-f="produit-numerique" data-p="gratuit">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">🗓️</span>
             </div>
@@ -453,13 +674,13 @@
                 <span>📦 Immédiat</span>
               </div>
               <div class="bq-pied">
-                <div class="bq-prix"><span class="prix-devis">Sur devis</span></div>
-                <a href="mailto:contact@profitpilot.dz?subject=Demander%20cette%20prestation%20%E2%80%94%20Le%20calendrier%20des%20obligations%20l%C3%A9gales%20d%27une%20SPA" class="btn btn-gold bq-btn">Demander cette prestation</a>
+                <div class="bq-prix"><span class="prix-gratuit">Gratuit</span></div>
+                <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Le%20calendrier%20des%20obligations%20l%C3%A9gales%20d%27une%20SPA" class="btn btn-gold bq-btn">Demander le document</a>
               </div>
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="payant">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">📊</span>
             </div>
@@ -478,7 +699,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="payant">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">✅</span>
             </div>
@@ -497,7 +718,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="payant">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">💧</span>
             </div>
@@ -516,7 +737,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="seance">
+          <article class="bq-carte" data-f="seance" data-p="payant">
             <div class="bq-visuel bq-v-seance">
               <span aria-hidden="true">🔍</span>
             </div>
@@ -535,7 +756,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="seance">
+          <article class="bq-carte" data-f="seance" data-p="payant">
             <div class="bq-visuel bq-v-seance">
               <span aria-hidden="true">🏦</span>
             </div>
@@ -554,7 +775,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="seance">
+          <article class="bq-carte" data-f="seance" data-p="payant">
             <div class="bq-visuel bq-v-seance">
               <span aria-hidden="true">🌍</span>
             </div>
@@ -573,7 +794,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="forfait">
+          <article class="bq-carte" data-f="forfait" data-p="payant">
             <div class="bq-visuel bq-v-forfait">
               <span aria-hidden="true">🏗️</span>
             </div>
@@ -592,7 +813,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="forfait">
+          <article class="bq-carte" data-f="forfait" data-p="payant">
             <div class="bq-visuel bq-v-forfait">
               <span aria-hidden="true">📁</span>
             </div>
@@ -611,7 +832,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="payant">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">📘</span>
             </div>
@@ -630,7 +851,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="payant">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">📕</span>
             </div>
@@ -649,7 +870,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="produit-numerique">
+          <article class="bq-carte" data-f="produit-numerique" data-p="payant">
             <div class="bq-visuel bq-v-produit-numerique">
               <span aria-hidden="true">🧮</span><span class="bq-badge">Édition 2026</span>
             </div>
@@ -668,7 +889,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="formation">
+          <article class="bq-carte" data-f="formation" data-p="payant">
             <div class="bq-visuel bq-v-formation">
               <span aria-hidden="true">🎓</span>
             </div>
@@ -687,7 +908,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="formation">
+          <article class="bq-carte" data-f="formation" data-p="payant">
             <div class="bq-visuel bq-v-formation">
               <span aria-hidden="true">🌍</span>
             </div>
@@ -706,7 +927,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="formation">
+          <article class="bq-carte" data-f="formation" data-p="payant">
             <div class="bq-visuel bq-v-formation">
               <span aria-hidden="true">📈</span><span class="bq-badge">Nouveau</span>
             </div>
@@ -725,7 +946,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="formation">
+          <article class="bq-carte" data-f="formation" data-p="payant">
             <div class="bq-visuel bq-v-formation">
               <span aria-hidden="true">🎓</span>
             </div>
@@ -744,7 +965,7 @@
             </div>
           </article>
 
-          <article class="bq-carte" data-f="formation">
+          <article class="bq-carte" data-f="formation" data-p="payant">
             <div class="bq-visuel bq-v-formation">
               <span aria-hidden="true">🧭</span>
             </div>
@@ -768,20 +989,38 @@
 </section>
 <script>
 (function(){
-  var btns = document.querySelectorAll('.bq-filtre');
+  // Deux axes indépendants : la famille (data-f) et le prix (data-p).
+  // Un même bouton n'appartient qu'à un axe ; l'état actif se gère donc par
+  // barre, sinon cliquer « Gratuit » désélectionnerait « Séances ».
   var cartes = document.querySelectorAll('.bq-carte');
   var vide = document.querySelector('.bq-vide');
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){
-      btns.forEach(function(x){ x.classList.remove('actif'); });
-      b.classList.add('actif');
-      var f = b.dataset.f, n = 0;
-      cartes.forEach(function(c){
-        var ok = (f === 'all' || c.dataset.f === f);
-        c.hidden = !ok;
-        if (ok) n++;
+  var etat = { f: 'all', p: 'all' };
+
+  function appliquer(){
+    var n = 0;
+    cartes.forEach(function(c){
+      var ok = (etat.f === 'all' || c.dataset.f === etat.f)
+            && (etat.p === 'all' || c.dataset.p === etat.p);
+      c.hidden = !ok;
+      if (ok) n++;
+    });
+    if (vide) vide.hidden = n > 0;
+  }
+
+  document.querySelectorAll('.bq-filtres').forEach(function(barre){
+    var btns = barre.querySelectorAll('.bq-filtre');
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){
+          x.classList.remove('actif');
+          x.setAttribute('aria-pressed', 'false');
+        });
+        b.classList.add('actif');
+        b.setAttribute('aria-pressed', 'true');
+        if (b.dataset.f !== undefined) etat.f = b.dataset.f;
+        if (b.dataset.p !== undefined) etat.p = b.dataset.p;
+        appliquer();
       });
-      if (vide) vide.hidden = n > 0;
     });
   });
 })();

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,180 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Montage complet du dossier bancaire">
+  <meta name="twitter:description" content="Montage complet d&#x27;un dossier de crédit bancaire en Algérie : prévisionnel, business plan, pièces, cohérence d&#x27;ensemble.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Montage complet du dossier bancaire",
+          "item": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html#offer-item",
+      "name": "Montage complet du dossier bancaire",
+      "description": "Du prévisionnel au dossier relié, prêt à déposer. Une seule interlocution jusqu'au dépôt. Le montage complet s'adresse à ceux qui partent de zéro, ou dont le dossier existant doit être repris entièrement. Le travail est le même que celui d'une revue, augmenté de la production des documents. Le périmètre s'arrête au dépôt. Nous ne représentons pas nos clients auprès des banques : c'est une limite que nous posons, et elle est volontaire.",
+      "url": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "Forfaits d'étude",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "PME ou porteur de projet sans dossier constitué"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "2 à 4 semaines selon le dossier"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "PME ou porteur de projet sans dossier constitué"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le prévisionnel financier complet et le plan de trésorerie."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le business plan rédigé, structuré selon ce que l'analyste cherche."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "La liste des pièces vérifiée une à une, et le dossier assemblé prêt au dépôt."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Les pièces administratives qui vous incombent (registre, fiscal, parafiscal)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Les garanties et leur constitution"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute démarche, négociation ou représentation auprès de la banque"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute garantie quant à la décision de la banque"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html#webpage",
+      "url": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html",
+      "name": "Montage complet du dossier bancaire",
+      "description": "Montage complet d'un dossier de crédit bancaire en Algérie : prévisionnel, business plan, pièces, cohérence d'ensemble.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/forfait-dossier-bancaire-complet.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi ne pas accompagner jusqu'à l'accord ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que l'issue ne dépend pas de nous et qu'un accompagnement facturé sur un résultat que nous ne maîtrisons pas serait un engagement que nous ne pouvons pas tenir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le tarif varie selon quoi ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Selon le type de concours, l'existence ou non d'une comptabilité à jour, et le nombre d'activités à modéliser. Il est arrêté après cadrage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si la banque refuse ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le rapport de refus est analysé, et la reprise du dossier fait l'objet d'une prestation distincte, à tarif réduit."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

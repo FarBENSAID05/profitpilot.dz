@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,175 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Revue de dossier bancaire avant dépôt">
+  <meta name="twitter:description" content="Revue critique d&#x27;un dossier de crédit avant dépôt : cohérence des chiffres, ratios, pièces manquantes, points de fragilité.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Revue de dossier bancaire avant dépôt",
+          "item": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html#offer-item",
+      "name": "Revue de dossier bancaire avant dépôt",
+      "description": "Votre dossier lu comme l'analyste le lira, avec la liste des points qui le feront revenir. Un dossier qui revient coûte rarement moins de six semaines : le temps de l'instruction, le temps de la correction, le temps d'un nouveau passage en comité. Une revue avant dépôt coûte quelques jours. Nous lisons le dossier avec la grille de l'analyste : les chiffres se recoupent-ils d'un tableau à l'autre, les ratios tiennent-ils, les hypothèses sont-elles justifiées ou affirmées, les garanties proposées sont-elles recevables. Le rapport est classé par gravité, parce que tout n'a pas la même importance et qu'il faut savoir où passer son temps.",
+      "url": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "Séances",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Dossier déjà monté, pas encore déposé"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Rapport sous 5 jours ouvrés"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Dossier déjà monté, pas encore déposé"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une revue complète du dossier : cohérence entre les tableaux, ratios recalculés, pièces manquantes."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un rapport écrit listant les points par ordre de gravité, avec pour chacun la correction proposée."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une séance de 90 minutes pour passer le rapport en revue."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "La correction elle-même du dossier"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le montage d'un dossier inexistant — c'est le forfait complet"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute démarche ou représentation auprès de la banque"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html#webpage",
+      "url": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html",
+      "name": "Revue de dossier bancaire avant dépôt",
+      "description": "Revue critique d'un dossier de crédit avant dépôt : cohérence des chiffres, ratios, pièces manquantes, points de fragilité.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/revue-dossier-bancaire.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Et si le dossier est mauvais au point d'être irrécupérable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nous vous le disons, et nous le disons tôt. C'est précisément la valeur d'une revue avant dépôt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Intervenez-vous auprès de la banque ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, pas dans le cadre de cette prestation. Aucune démarche ni représentation n'est incluse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le tarif dépend-il du montant du crédit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le périmètre est le même quel que soit le montant, et le tarif est indépendant de l'issue de la demande."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

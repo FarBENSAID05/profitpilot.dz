@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,175 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bank file review before filing">
+  <meta name="twitter:description" content="Critical review of a credit file before filing: consistency of figures, ratios, missing documents, weak points.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bank file review before filing",
+          "item": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html#offer-item",
+      "name": "Bank file review before filing",
+      "description": "Your file read as the analyst will read it, with the list of points that will send it back. A file that comes back rarely costs less than six weeks: the time to be reviewed, the time to be corrected, the time to go before committee again. A review before filing costs a few days. We read the file with the analyst's grid: do the figures reconcile across tables, do the ratios hold, are the assumptions justified or merely asserted, are the guarantees offered acceptable. The report is ordered by severity, because not everything matters equally and you need to know where to spend your time.",
+      "url": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "Sessions",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "A file already built, not yet filed"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Report within 5 working days"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "A file already built, not yet filed"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A full review of the file: consistency across tables, ratios recalculated, missing documents."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A written report listing points by severity, each with the correction proposed."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A 90-minute session to go through the report."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Making the corrections themselves"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Building a file that does not exist — that is the full package"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any approach to or representation before the bank"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html",
+      "name": "Bank file review before filing",
+      "description": "Critical review of a credit file before filing: consistency of figures, ratios, missing documents, weak points.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/revue-dossier-bancaire.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What if the file is beyond saving?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We tell you, and we tell you early. That is precisely the value of a review before filing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you intervene with the bank?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, not under this service. No approach or representation is included."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the fee depend on the amount of credit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The scope is the same whatever the amount, and the fee is independent of the outcome."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

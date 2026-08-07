@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,178 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Carnet de bord — Créer une SPA en Algérie">
+  <meta name="twitter:description" content="Carnet de bord gratuit pour créer une SPA en Algérie : sept actionnaires, capital et actions de garantie, conseil ou directoire, checklist et rétroplanning.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Carnet de bord — Créer une SPA en Algérie",
+          "item": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html#offer-item",
+      "name": "Carnet de bord — Créer une SPA en Algérie",
+      "description": "Neuf fiches à remplir avant de signer les statuts : les sept actionnaires, le capital et la contrainte des 20 %, la checklist des pièces et le rétroplanning. Créer une société par actions engage pour deux exercices complets au minimum : l'article 715 bis 15 interdit toute transformation avant deux ans d'existence et deux bilans approuvés. Les décisions rassemblées dans ce carnet se prennent donc une fois, avant le notaire, et se corrigent au prix d'une assemblée extraordinaire. Il traite en particulier la contrainte que presque personne ne publie : l'article 619 impose au conseil d'administration de détenir ensemble au moins 20 % du capital en actions inaliénables , et l'administrateur qui n'en est pas propriétaire est réputé démissionnaire d'office sous trois mois. La composition du conseil et la répartition du capital ne se décident donc pas séparément — c'est l'objet de la deuxième feuille de calcul, et c'est ce qui distingue ce carnet de son équivalent SARL.",
+      "url": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        },
+        "price": "0",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "DZD"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Modèles et guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Création d'entreprise — accompagnement complet",
+        "url": "https://profitpilot.dz/services/creation-entreprise.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immédiat"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Fondateurs d'une société par actions, avant le premier rendez-vous chez le notaire"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un PDF de 23 pages, conçu pour être imprimé et annoté : chaque fiche commence sur une page neuve."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Deux feuilles de calcul : le montant du capital, puis sa répartition sous la contrainte de l'article 619."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Trois checklists — les pièces, le rétroplanning à huit semaines, et le contrôle final en dix points avant signature."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le montant total des frais de constitution — une part est proportionnelle au capital, le carnet en donne la structure"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "La rédaction de vos statuts, qui relève du notaire"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le rapport du commissaire aux apports, qui relève d'un professionnel désigné"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html#webpage",
+      "url": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html",
+      "name": "Carnet de bord — Créer une SPA en Algérie",
+      "description": "Carnet de bord gratuit pour créer une SPA en Algérie : sept actionnaires, capital et actions de garantie, conseil ou directoire, checklist et rétroplanning.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/carnet-creer-une-spa.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "En quoi diffère-t-il du carnet SARL ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Par trois fiches qui n'ont pas d'équivalent : la constitution de l'actionnariat à sept, la répartition du capital sous la contrainte des 20 % de l'article 619, et le choix du commissaire aux comptes — qui en SPA se nomme dans les statuts (article 609), donc avant la signature et non après le premier exercice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le commissaire aux comptes est-il vraiment obligatoire quelle que soit la taille ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. L'article 715 bis 4 rattache l'obligation à la forme sociale et non au chiffre d'affaires : une SPA de sept actionnaires sans activité y est soumise dès son premier exercice. C'est la différence structurante avec la SARL, où l'obligation naît du franchissement d'un seuil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Contient-il le capital minimum ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, avec sa référence et sa date : 1 000 000 DA, ou 5 000 000 DA en cas d'appel public à l'épargne, à l'article 594 tel qu'il résulte du décret législatif 93-08. Nous signalons dans le carnet que nous n'avons pas pu confronter ces montants à une version consolidée récente du Journal officiel , et nous invitons à les faire confirmer si le projet se joue à ce montant près."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -406,9 +585,9 @@
 
       <aside class="article-sidebar">
         <div class="sidebar-widget bq-achat">
-          <div class="bq-prix-grand"><span class="prix-devis">Sur devis</span></div>
+          <div class="bq-prix-grand"><span class="prix-gratuit">Gratuit</span></div>
           <div class="bq-fiche-meta"><div><span>Délai</span><strong>Immédiat</strong></div><div><span>Pour qui</span><strong>Fondateurs d&#x27;une société par actions, avant le premier rendez-vous chez le notaire</strong></div></div>
-          <a href="mailto:contact@profitpilot.dz?subject=Demander%20cette%20prestation%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SPA%20en%20Alg%C3%A9rie" class="btn btn-gold">Demander cette prestation</a>
+          <a href="mailto:contact@profitpilot.dz?subject=Demander%20le%20document%20%E2%80%94%20Carnet%20de%20bord%20%E2%80%94%20Cr%C3%A9er%20une%20SPA%20en%20Alg%C3%A9rie" class="btn btn-gold">Demander le document</a>
           <p style="font-size:0.82rem;color:var(--gray);margin-top:0.8rem;">Le paiement en ligne n&#x27;est pas encore ouvert : votre demande est traitée par e-mail.</p>
         </div>
         <div class="sidebar-widget">

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ورشة — إعداد دراسة جدوى قابلة للتمويل">
+  <meta name="twitter:description" content="ورشة تطبيقية: بناء دراسة جدوى قابلة للتمويل في الجزائر، من التقديرات إلى الدفاع عن الفرضيات.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ورشة — إعداد دراسة جدوى قابلة للتمويل",
+          "item": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html#offer-item",
+      "name": "ورشة — إعداد دراسة جدوى قابلة للتمويل",
+      "description": "بناء ملف يجتاز لجنة القرض، من الجداول التقديرية إلى تبرير الفرضيات. تأخذ الورشة حالة من أولها إلى آخرها: الفرضيات التجارية، مخطط الاستثمار، مخطط التمويل، الجداول التقديرية، الخزينة، النسب، وأخيراً الجزء المُهمَل — التبرير الكتابي للفرضيات، وهو أول ما يهاجمه المحلّل. نصفا يوم، لأن نصفاً واحداً لا يكفي للوصول إلى الدفاع عن الملف.",
+      "url": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "نصفا يوم على حالة كاملة، مبنية من أولها إلى آخرها.",
+        "ملف العمل والهيكل التحريري المستعمَلان في الورشة.",
+        "شبكة قراءة: ما يتحقّق منه المحلّل، وبأي ترتيب."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "دورات مبرمجة"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "أصحاب مشاريع وإطارات مالية ومكاتب دراسات"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "نصفا يوم على حالة كاملة، مبنية من أولها إلى آخرها."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ملف العمل والهيكل التحريري المستعمَلان في الورشة."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "شبكة قراءة: ما يتحقّق منه المحلّل، وبأي ترتيب."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "العمل على ملفك الخاص، فهو من اختصاص المراجعة أو الحزمة"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي شهادة معترف بها من هيئة تأهيل"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي التزام بشأن نتيجة طلبات تمويلك"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html",
+      "name": "ورشة — إعداد دراسة جدوى قابلة للتمويل",
+      "description": "ورشة تطبيقية: بناء دراسة جدوى قابلة للتمويل في الجزائر، من التقديرات إلى الدفاع عن الفرضيات.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/atelier-etude-faisabilite-bancable.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل آتي بمشروعي الخاص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك الاستئناس به في التمارين، لكن الورشة تشتغل على حالة مشتركة. أما معالجة ملفك فمن اختصاص خدمة فردية."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "أي مستوى مطلوب؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "قراءة ميزانية والتعامل مع جدول حسابات. والباقي يُبنى في الورشة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل هي مؤهِّلة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. لا تُسلَّم أي شهادة معترف بها من هيئة تأهيل."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

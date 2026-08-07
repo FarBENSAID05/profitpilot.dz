@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,180 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="الإعداد الكامل للملف البنكي">
+  <meta name="twitter:description" content="إعداد كامل لملف قرض بنكي في الجزائر: الجداول التقديرية، مخطط الأعمال، الوثائق، والتماسك العام.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "الإعداد الكامل للملف البنكي",
+          "item": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html#offer-item",
+      "name": "الإعداد الكامل للملف البنكي",
+      "description": "من الجداول التقديرية إلى الملف المجلَّد، جاهزاً للإيداع. متحدّث واحد حتى الإيداع. الإعداد الكامل موجَّه لمن يبدأ من الصفر، أو لمن يجب إعادة بناء ملفه القائم بالكامل. والعمل هو عمل المراجعة نفسه، مضافاً إليه إنتاج الوثائق. ويتوقف النطاق عند الإيداع. نحن لا نمثّل زبائننا لدى البنوك: وهذا حدّ نضعه، ونضعه عن قصد.",
+      "url": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "serviceType": "حزم دراسات",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Algérie"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "مؤسسة أو صاحب مشروع بلا ملف مُعدّ"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "أسبوعان إلى أربعة حسب الملف"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "مؤسسة أو صاحب مشروع بلا ملف مُعدّ"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "الجداول المالية التقديرية الكاملة ومخطط الخزينة."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "مخطط الأعمال محرَّراً، مبنياً على ما يبحث عنه المحلّل."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "قائمة الوثائق مُتحقَّقاً منها واحدة واحدة، والملف مجمَّعاً جاهزاً للإيداع."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "الوثائق الإدارية التي تقع عليك (السجل، الجبائي، شبه الجبائي)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "الضمانات وتكوينها"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي مسعى أو تفاوض أو تمثيل لدى البنك"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي ضمان بشأن قرار البنك"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html",
+      "name": "الإعداد الكامل للملف البنكي",
+      "description": "إعداد كامل لملف قرض بنكي في الجزائر: الجداول التقديرية، مخطط الأعمال، الوثائق، والتماسك العام.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/forfait-dossier-bancaire-complet.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "لماذا لا ترافقون حتى الموافقة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لأن النتيجة لا تتوقف علينا، ولأن مرافقةً تُفوتَر على نتيجة لا نتحكّم فيها التزامٌ لا نستطيع الوفاء به."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "على أي أساس يتغيّر السعر؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "على نوع التمويل، ووجود محاسبة محيَّنة من عدمه، وعدد الأنشطة المطلوب نمذجتها. ويُحسم بعد التأطير."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "وإن رفض البنك؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يُحلَّل تقرير الرفض، وتكون إعادة بناء الملف خدمة مستقلة بسعر مخفَّض."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,178 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Workbook — Setting up a SARL in Algeria">
+  <meta name="twitter:description" content="Free workbook for setting up a SARL in Algeria: capital calculation, trade-offs in the articles, corporate purpose, document checklist and countdown.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Workbook — Setting up a SARL in Algeria",
+          "item": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html#offer-item",
+      "name": "Workbook — Setting up a SARL in Algeria",
+      "description": "Ten worksheets to fill in before you walk into the notary's office: the capital calculation, the six trade-offs in the articles, the document checklist. The online guide explains the law applicable to the Algerian SARL. This workbook does something else: it turns that law into decisions to be taken, in a form you can print, fill in and lay on the notary's desk. It starts from what we see in the field. Across the funding files we review, four incorporation decisions come back systematically in the blockages encountered eighteen months later: capital set against a legal minimum that has not existed since 2015, a corporate purpose drawn too narrowly, no exit clause, and a statutory audit obligation discovered at the moment it blocks a dividend transfer. None costs anything to settle before signature. All cost an amending deed afterwards.",
+      "url": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        },
+        "price": "0",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "DZD"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Templates and guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Company formation — full support",
+        "url": "https://profitpilot.dz/services/en/creation-entreprise.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immediate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Founders, before the first appointment with the notary"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A 21-page PDF designed to be printed and annotated: each worksheet starts on a fresh page."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A target-capital calculation sheet, with the same calculation worked through on a real case."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Three checklists — the documents, the week-by-week countdown, and the final review before signing."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "The total cost of incorporation — no single official scale exists; the workbook gives you its structure"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "The drafting of your articles, which is the notary's role"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any personalised legal advice"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html",
+      "name": "Workbook — Setting up a SARL in Algeria",
+      "description": "Free workbook for setting up a SARL in Algeria: capital calculation, trade-offs in the articles, corporate purpose, document checklist and countdown.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/carnet-creer-une-sarl.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the workbook replace the notary?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and it says so plainly. The notary alone drafts and authenticates your articles — article 545 of the Commercial Code requires it on pain of nullity. The workbook prepares the decisions the notary cannot take for you: the amount of capital, the corporate purpose, the management and exit clauses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does it give no figure for incorporation costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because no single official scale exists. Those costs combine fixed duties, duties proportional to capital and freely priced services, and the figures in circulation vary threefold for the same scope. The workbook gives the structure of the costs — what is fixed, what depends on capital — and you have it quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it up to date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "August 2026 edition, built on the 2026 consolidated codes and on the Official Journal for Law 15-20. Every normative statement points to an article. Where we could not read the text — as with the statutory audit thresholds — the workbook says so and gives the rule without the figure."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -406,9 +585,9 @@
 
       <aside class="article-sidebar">
         <div class="sidebar-widget bq-achat">
-          <div class="bq-prix-grand"><span class="prix-devis">On request</span></div>
+          <div class="bq-prix-grand"><span class="prix-gratuit">Free</span></div>
           <div class="bq-fiche-meta"><div><span>Turnaround</span><strong>Immediate</strong></div><div><span>Who it is for</span><strong>Founders, before the first appointment with the notary</strong></div></div>
-          <a href="mailto:contact@profitpilot.dz?subject=Request%20this%20service%20%E2%80%94%20Workbook%20%E2%80%94%20Setting%20up%20a%20SARL%20in%20Algeria" class="btn btn-gold">Request this service</a>
+          <a href="mailto:contact@profitpilot.dz?subject=Request%20the%20document%20%E2%80%94%20Workbook%20%E2%80%94%20Setting%20up%20a%20SARL%20in%20Algeria" class="btn btn-gold">Request the document</a>
           <p style="font-size:0.82rem;color:var(--gray);margin-top:0.8rem;">Online payment is not open yet — your request is handled by e-mail.</p>
         </div>
         <div class="sidebar-widget">

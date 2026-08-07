@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guide du financement islamique pour l&#x27;entreprise">
+  <meta name="twitter:description" content="Guide du financement islamique en Algérie : formules disponibles, banques qui les distribuent, pièces exigées et coût réel comparé.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/guide-financement-islamique.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guide du financement islamique pour l'entreprise",
+          "item": "https://profitpilot.dz/boutique/guide-financement-islamique.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/guide-financement-islamique.html#offer-item",
+      "name": "Guide du financement islamique pour l'entreprise",
+      "description": "Mourabaha, ijara, moucharaka : les formules réellement distribuées en Algérie, et ce qu'elles coûtent. La finance islamique est distribuée en Algérie par plusieurs établissements, avec des formules dont les noms se ressemblent et dont les mécanismes diffèrent nettement. Le guide les compare sur le seul terrain qui intéresse un dirigeant : ce que la formule coûte réellement, et ce qu'elle exige. Le guide ne traite pas de la conformité religieuse. Cette appréciation relève des instances compétentes, pas d'un cabinet financier. Nous décrivons les mécanismes, les coûts et les procédures.",
+      "url": "https://profitpilot.dz/boutique/guide-financement-islamique.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/guide-financement-islamique.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Modèles et guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Montage de dossier bancaire",
+        "url": "https://profitpilot.dz/services/dossier-bancaire.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immédiat"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Dirigeant cherchant une alternative au crédit classique"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un guide PDF : chaque formule, son mécanisme, son coût réel et son cas d'usage."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un tableau comparatif avec le crédit conventionnel, à montant et durée égaux."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "La liste des pièces demandées, par type de formule."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Tout avis de conformité religieuse — nous ne sommes pas une autorité de charia"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Le montage de votre dossier"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Les conditions tarifaires d'une banque en particulier, qui se négocient"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/guide-financement-islamique.html#webpage",
+      "url": "https://profitpilot.dz/boutique/guide-financement-islamique.html",
+      "name": "Guide du financement islamique pour l'entreprise",
+      "description": "Guide du financement islamique en Algérie : formules disponibles, banques qui les distribuent, pièces exigées et coût réel comparé.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/guide-financement-islamique.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/guide-financement-islamique.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/guide-financement-islamique.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le guide dit-il quelle formule est la moins chère ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il donne la méthode de comparaison et un tableau à montant et durée égaux. Le résultat dépend de votre dossier et des conditions négociées."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Traite-t-il de la conformité charaïque ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, et c'est délibéré. Ce n'est pas notre domaine de compétence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les textes cités sont-ils à jour ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les références réglementaires portent leur date de vérification. Le règlement de la Banque d'Algérie encadrant ces produits est cité, et la fiche sources de l'article associé signale les points non encore vérifiés sur le texte original."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="قالب مخطط أعمال لملف بنكي">
+  <meta name="twitter:description" content="قالب مخطط أعمال لطلب قرض في الجزائر: ملف Excel مترابط، هيكل Word، والنسب التي يعيد البنك حسابها.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://profitpilot.dz/ar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "المتجر",
+          "item": "https://profitpilot.dz/boutique/ar/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "قالب مخطط أعمال لملف بنكي",
+          "item": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html#offer-item",
+      "name": "قالب مخطط أعمال لملف بنكي",
+      "description": "الملف المالي والهيكل التحريري اللذان ينتظرهما بنك جزائري، جاهزان للتعبئة. نادراً ما يُرفض ملف قرض بسبب جودة المشروع. يُرفض لأن الأرقام لا تتطابق من جدول إلى آخر، أو لأن نسبةً يحسبها المحلّل آلياً تقع في الجهة الخاطئة، أو لأن الهيكل لا يجيب عن أسئلته. بُني هذا القالب بالمقلوب: انطلاقاً مما يعيد البنك حسابه، لا مما يرغب صاحب المشروع في سرده. خلايا الفرضيات معزولة ومُعلَّمة، وكل ما عداها مترابط، فهو متماسك بحكم البناء. هذا ليس مخطط أعمال. هو الأداة التي تجنّبك أخطاء الشكل. أما المضمون فيبقى لك.",
+      "url": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "ar-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "قوالب وأدلة",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "إعداد الملف البنكي",
+        "url": "https://profitpilot.dz/services/ar/dossier-bancaire.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "فوري"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "صاحب مشروع أو مؤسسة تُعدّ طلب قرض"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ملف Excel مترابط بالكامل: الاستثمارات، التمويل، حسابات النتائج التقديرية على 5 سنوات، مخطط خزينة شهري للسنة الأولى، وجدول التسديد."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "هيكل Word من 12 قسماً، مع بيان ما يبحث عنه البنك في كل قسم."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "ورقة نسب تُحتسب آلياً — وهي النسب نفسها التي يعيد المحلّل حسابها."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "تعبئة القالب ببياناتك"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "التحقق من فرضياتك التجارية"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "أي مرافقة لدى البنك"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html#webpage",
+      "url": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html",
+      "name": "قالب مخطط أعمال لملف بنكي",
+      "description": "قالب مخطط أعمال لطلب قرض في الجزائر: ملف Excel مترابط، هيكل Word، والنسب التي يعيد البنك حسابها.",
+      "inLanguage": "ar-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/ar/modele-business-plan-bancaire.html#faq",
+      "inLanguage": "ar-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل القالب مطابق لنموذج رسمي؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا، ولا يوجد نموذج مخطط أعمال يفرضه نص لطلب قرض عادي. يتبع القالب البنية المنتظَرة عملياً لدى بنوك الساحة. أما ملف استثمار مسجَّل لدى AAPI فينطبق عليه المخطط النموذجي للملحق الخامس من المرسوم 26-154: انظر حزمة الدراسة التقنية والاقتصادية."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يلزم Excel أم يكفي LibreOffice؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يُفتح الملف في كليهما. لا تستعمل الصيغ أي دالة حديثة محتكَرة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يضمن القالب الحصول على القرض؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. لا أداة تستطيع ذلك، ولا نلتزم بأي نتيجة. هو يزيل صنفاً من الأخطاء — أخطاء التماسك والعرض — تُفقد ملفات متينة في ذاتها."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

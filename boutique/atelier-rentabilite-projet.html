@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,180 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atelier — évaluer la rentabilité d&#x27;un projet">
+  <meta name="twitter:description" content="Atelier pratique sur l&#x27;évaluation de la rentabilité d&#x27;un projet : VAN, TRI, délai de récupération, taux d&#x27;actualisation.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://profitpilot.dz/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Boutique",
+          "item": "https://profitpilot.dz/boutique/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Atelier — évaluer la rentabilité d'un projet",
+          "item": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html#offer-item",
+      "name": "Atelier — évaluer la rentabilité d'un projet",
+      "description": "VAN, TRI, délai de récupération : savoir les calculer, et surtout savoir ce qu'ils ne disent pas. Un taux de rentabilité interne se calcule en une formule. Ce qui se maîtrise moins bien, c'est le choix du taux d'actualisation, le traitement de la valeur résiduelle, et ce que le délai de récupération dissimule lorsqu'il est utilisé seul. L'atelier travaille sur des cas chiffrés construits pour faire apparaître ces pièges, plutôt que sur des exemples qui tombent juste.",
+      "url": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "fr-DZ",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "Une demi-journée en petit groupe, sur cas chiffrés.",
+        "Le classeur de calcul utilisé pendant l'atelier, à emporter.",
+        "Un support écrit reprenant les formules et leurs limites."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Sessions programmées"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Dirigeants, porteurs de projet, cadres financiers"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Une demi-journée en petit groupe, sur cas chiffrés."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Le classeur de calcul utilisé pendant l'atelier, à emporter."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Un support écrit reprenant les formules et leurs limites."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "L'application aux chiffres de votre entreprise, qui relève du conseil"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Toute attestation de formation reconnue par un organisme certificateur"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html#webpage",
+      "url": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html",
+      "name": "Atelier — évaluer la rentabilité d'un projet",
+      "description": "Atelier pratique sur l'évaluation de la rentabilité d'un projet : VAN, TRI, délai de récupération, taux d'actualisation.",
+      "inLanguage": "fr-DZ",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/atelier-rentabilite-projet.html#faq",
+      "inLanguage": "fr-DZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il un niveau en finance ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Une aisance avec un tableur suffit. Les notions sont construites depuis le début."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'atelier est-il certifiant ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Il ne délivre aucun diplôme ni attestation reconnue par un organisme certificateur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-il être organisé en interne dans mon entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, sur demande, avec un cadrage préalable du contenu."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investor pack — six financial models">
+  <meta name="twitter:description" content="A pack of six Excel financial models: capital expenditure, funding, operations, cash, profitability and a summary dashboard.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Investor pack — six financial models",
+          "item": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html#offer-item",
+      "name": "Investor pack — six financial models",
+      "description": "The six workbooks of a complete investment file, linked together and consistent. The three models sold separately in this shop each cover one need. The pack brings them together and adds three more workbooks, all linked: a customer payment term entered once flows through to cash, to the working capital requirement and to the profitability indicators. It is the tool of someone who builds files regularly, not of a one-off founder.",
+      "url": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Templates and guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Feasibility and profitability studies",
+        "url": "https://profitpilot.dz/services/en/etude-faisabilite.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immediate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "An investor or advisory firm building files repeatedly"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Six Excel workbooks: capital expenditure plan, funding plan, forecast operations, cash plan, profitability indicators (NPV, IRR, payback), and a summary dashboard."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "All six are linked: an assumption entered once propagates everywhere."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "An eight-page usage note."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Populating and configuring with your data"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Validation of your assumptions"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "A redistribution licence: the pack is for your own use"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html",
+      "name": "Investor pack — six financial models",
+      "description": "A pack of six Excel financial models: capital expenditure, funding, operations, cash, profitability and a summary dashboard.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/pack-modeles-investisseur.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I use it for my own clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To produce their files, yes. To redistribute or resell the files, no: the licence is for your own use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it add over the models bought separately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three additional workbooks, and above all the links between the six — which is what prevents inconsistencies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the formulas locked?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Assumption cells are flagged, but nothing is protected: you can adapt."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

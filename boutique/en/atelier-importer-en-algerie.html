@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,185 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Workshop — importing into Algeria: procedure and real cost">
+  <meta name="twitter:description" content="Workshop on importing into Algeria: bank domiciliation, procedure, and computing the real landed cost item by item.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Workshop — importing into Algeria: procedure and real cost",
+          "item": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html"
+        }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html#offer-item",
+      "name": "Workshop — importing into Algeria: procedure and real cost",
+      "description": "From domiciliation to clearance, and the six items that blow up your landed cost. Two subjects, because in practice they are inseparable: the procedure, where an error of sequence blocks an entire shipment; and the landed cost, where six financial items that are rarely anticipated turn an expected margin into a loss. The workshop cites the instruction and the note in force with their references, so participants can verify them for themselves.",
+      "url": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "provider": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "courseMode": "blended",
+      "teaches": [
+        "One day: the regulatory framework of domiciliation, the documentary chain, customs clearance.",
+        "The real landed cost computed on a worked case, item by item.",
+        "A landed cost workbook to take away."
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "blended",
+        "courseWorkload": "PT3H",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Alger",
+            "addressCountry": "DZ"
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Scheduled sessions"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Importers and procurement managers"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "One day: the regulatory framework of domiciliation, the documentary chain, customs clearance."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "The real landed cost computed on a worked case, item by item."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A landed cost workbook to take away."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Handling an import operation in progress"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Customs advice in the regulatory sense, which belongs to the customs broker"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any approach to a bank or the administration"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html",
+      "name": "Workshop — importing into Algeria: procedure and real cost",
+      "description": "Workshop on importing into Algeria: bank domiciliation, procedure, and computing the real landed cost item by item.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/atelier-importer-en-algerie.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the content reflect the latest instruction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and every text cited carries its verification date. The related articles are reviewed every three months, like all regulatory content on the site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you cover customs clearance in detail?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We give the logic and the financial choke points. Customs technique belongs to the customs broker."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it suitable for a beginner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes for the procedure part. The landed cost part assumes you are comfortable with a spreadsheet."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,172 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Twelve-month cash plan template">
+  <meta name="twitter:description" content="Excel cash-flow plan template over twelve months, with working capital requirement, collection lags and break point.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Twelve-month cash plan template",
+          "item": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html#offer-item",
+      "name": "Twelve-month cash plan template",
+      "description": "The table that shows the month the money runs out, before it runs out. A company does not fail because it loses money. It fails because one day it cannot pay, while its P&L is in profit. The gap between the two is the working capital requirement, and it is visible only on a monthly cash plan. This workbook separates result from collection strictly. An invoice issued in January and settled in April appears in January in the result and in April in the cash — which is the whole point of the tool.",
+      "url": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Templates and guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Feasibility and profitability studies",
+        "url": "https://profitpilot.dz/services/en/etude-faisabilite.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immediate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "A profitable company that is short of cash"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "An Excel workbook: monthly receipts and payments, VAT, social and tax due dates."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Automatic calculation of the working capital requirement and of the break point."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "Adjustable customer, supplier and inventory terms, to test the effect of lags."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Entering your data"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Analysing your variances"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any bookkeeping or audit engagement"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html",
+      "name": "Twelve-month cash plan template",
+      "description": "Excel cash-flow plan template over twelve months, with working capital requirement, collection lags and break point.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/modele-plan-tresorerie.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does it differ from a forecast?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A forecast thinks in results, at invoice date. A cash plan thinks in collections, at settlement date. A company can be profitable on the first and out of cash on the second."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need up-to-date bookkeeping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not for the forecast part. Yes if you want to compare planned against actual, which the workbook supports."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it suit an import business?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and that is a frequent use: lags are long there, and the model lets you set the delay between domiciliation, payment of the supplier and the sale."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 

@@ -264,6 +264,12 @@
   transition:var(--transition); }
 .bq-filtre:hover, .bq-filtre.actif { background:var(--gold-surface); color:var(--ink);
   border-color:var(--gold-surface); }
+/* La barre prix est un second axe : on la resserre et on la détache
+   visuellement, sinon elle se lit comme la suite des familles. */
+.bq-filtres-prix { margin-top:-1.2rem; margin-bottom:2.2rem; }
+.bq-filtres-prix .bq-filtre { padding:.35rem .85rem; font-size:.76rem; border-radius:999px; }
+.bq-filtres-prix .bq-filtre.actif { background:var(--purple-light); color:var(--white);
+  border-color:var(--purple-light); }
 .bq-grille { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
 .bq-carte { display:flex; flex-direction:column; background:var(--navy-mid);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -293,6 +299,7 @@
 .bq-btn { font-size:.75rem; padding:.6rem 1.1rem; }
 .prix-montant { font-size:1.15rem; font-weight:600; color:var(--white); }
 .prix-devis { font-size:.92rem; color:var(--gray-light); font-style:italic; }
+.prix-gratuit { font-size:1.05rem; font-weight:600; color:var(--gold); letter-spacing:.02em; }
 .prix-prefixe, .prix-note { font-size:.76rem; color:var(--gray); }
 .bq-retour { display:inline-block; font-size:.85rem; color:var(--purple-light); margin-bottom:1.5rem; }
 .bq-achat { background:linear-gradient(135deg,var(--purple-glow),transparent);
@@ -307,6 +314,178 @@
 .bq-vide { text-align:center; color:var(--gray); padding:3rem 0; }
 @media (max-width:640px){ .bq-pied { flex-direction:column; align-items:stretch; } }
 </style>
+  <meta property="og:image" content="https://profitpilot.dz/images/faroukclose.png">
+  <meta property="og:image:width" content="3375">
+  <meta property="og:image:height" content="1777">
+  <meta property="og:image:alt" content="ProfitPilot — BENSAID Farouk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The legal obligations calendar of a SPA">
+  <meta name="twitter:description" content="Free reference sheet on the legal deadlines of an Algerian joint-stock company: annual meeting, shareholder information, net assets, guarantee authorisations, terms of office.">
+  <meta name="twitter:image" content="https://profitpilot.dz/images/faroukclose.png">
+<!-- ══ Données structurées boutique — généré par build_boutique_schema.py ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://profitpilot.dz/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://profitpilot.dz/boutique/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The legal obligations calendar of a SPA",
+          "item": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html#offer-item",
+      "name": "The legal obligations calendar of a SPA",
+      "description": "Six months, four months, thirty days, one year: every Commercial Code deadline on a single reference, with its real starting point. The failings we find on statutory audit engagements are rarely fraud. They are almost always missed deadlines, because nobody had written them down. The reason is structural: most of a joint-stock company's deadlines are not counted from a fixed calendar date but from an event . The four months in article 715 bis 20 run from the approval of the accounts showing the loss, not from year-end — a company approving in the sixth month ends up with a deadline in the tenth month of the following financial year, a date that looks like nothing and that nobody records. The three months to regularise guarantee shares run from the day a director ceases to own them. The guarantee authorisation in article 624 expires one year after it was given, whatever the duration of the commitments it covers. This document gathers those deadlines, article by article, with their real starting point — the thing that makes them so easy to miss.",
+      "url": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html",
+      "image": "https://profitpilot.dz/images/faroukclose.png",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "DZD",
+        "seller": {
+          "@id": "https://profitpilot.dz/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "DZ"
+        },
+        "price": "0",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "DZD"
+        }
+      },
+      "brand": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "category": "Templates and guides",
+      "isRelatedTo": {
+        "@type": "Service",
+        "name": "Financial advice and structuring",
+        "url": "https://profitpilot.dz/services/en/conseil-financier.html"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Délai",
+          "value": "Immediate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Pour qui",
+          "value": "Officers, directors and finance teams of joint-stock companies"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A 13-page PDF organised by type of deadline rather than by article."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "The financial-year calendar counting back from year-end, with a column to fill in your own dates."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Livrable",
+          "value": "A twenty-point annual review to tick off — the one we run on statutory audit engagements."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Tax and social security deadlines, which come from other texts and another calendar"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "A review of your actual position — that is the subject of a dedicated session"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Non couvert",
+          "value": "Any personalised legal advice"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html#webpage",
+      "url": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html",
+      "name": "The legal obligations calendar of a SPA",
+      "description": "Free reference sheet on the legal deadlines of an Algerian joint-stock company: annual meeting, shareholder information, net assets, guarantee authorisations, terms of office.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://profitpilot.dz/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html#offer-item"
+      },
+      "publisher": {
+        "@id": "https://profitpilot.dz/#organization"
+      },
+      "primaryImageOfPage": "https://profitpilot.dz/images/faroukclose.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://profitpilot.dz/boutique/en/calendrier-obligations-spa.html#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is it for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Officers and directors of an existing joint-stock company, and finance teams preparing the year-end close. For the incorporation phase, the “Setting up a SPA” workbook is the one to request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it cover tax deadlines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and that is deliberate. It deals only with Commercial Code deadlines applicable to joint-stock companies. Filings, payments and electronic filing obligations come from other texts and a different calendar, which does not share the same starting points."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it apply to a SARL too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only partly. The six-month period for approving the accounts and the 5% legal reserve are common to both. Guarantee shares, meeting quorums, the annual guarantee authorisation, the alert procedure and the net-asset threshold in article 715 bis 20 are specific to the joint-stock company."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ══ fin données structurées boutique ══ -->
 </head>
 <body>
 
@@ -406,9 +585,9 @@
 
       <aside class="article-sidebar">
         <div class="sidebar-widget bq-achat">
-          <div class="bq-prix-grand"><span class="prix-devis">On request</span></div>
+          <div class="bq-prix-grand"><span class="prix-gratuit">Free</span></div>
           <div class="bq-fiche-meta"><div><span>Turnaround</span><strong>Immediate</strong></div><div><span>Who it is for</span><strong>Officers, directors and finance teams of joint-stock companies</strong></div></div>
-          <a href="mailto:contact@profitpilot.dz?subject=Request%20this%20service%20%E2%80%94%20The%20legal%20obligations%20calendar%20of%20a%20SPA" class="btn btn-gold">Request this service</a>
+          <a href="mailto:contact@profitpilot.dz?subject=Request%20the%20document%20%E2%80%94%20The%20legal%20obligations%20calendar%20of%20a%20SPA" class="btn btn-gold">Request the document</a>
           <p style="font-size:0.82rem;color:var(--gray);margin-top:0.8rem;">Online payment is not open yet — your request is handled by e-mail.</p>
         </div>
         <div class="sidebar-widget">
