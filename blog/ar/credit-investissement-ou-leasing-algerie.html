@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -637,28 +649,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الفرق القانوني بين القرض الاستثماري والاعتماد الإيجاري في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يصنّف الأمر رقم 96-09 المؤرخ في 10 يناير 1996 الاعتماد الإيجاري ضمن عمليات القرض (المادة 2)، غير أن المادة 19 توضّح أن المؤجِّر يبقى مالكًا للمال المؤجَّر طيلة مدة العقد، إلى غاية رفع خيار الشراء من طرف المستأجر. أما في القرض الاستثماري فالمؤسسة مالكة منذ الاقتناء وليس للبنك سوى ضمان.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما الفرق القانوني بين القرض الاستثماري والاعتماد الإيجاري في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>يصنّف الأمر رقم 96-09 المؤرخ في 10 يناير 1996 الاعتماد الإيجاري ضمن عمليات القرض (المادة 2)، غير أن المادة 19 توضّح أن المؤجِّر يبقى مالكًا للمال المؤجَّر طيلة مدة العقد، إلى غاية رفع خيار الشراء من طرف المستأجر. أما في القرض الاستثماري فالمؤسسة مالكة منذ الاقتناء وليس للبنك سوى ضمان.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الفرق بين الإيجار التمويلي المالي والإيجار التمويلي العملياتي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">حسب المادة 2 من الأمر 96-09، يُسمّى الإيجار ماليًا إذا حوّل العقد إلى المستأجر كل الحقوق والالتزامات والمزايا والمساوئ والمخاطر المرتبطة بملكية المال، وإذا كان غير قابل للفسخ، وإذا ضمن للمؤجِّر استرجاع نفقاته الرأسمالية. ويُسمّى عملياتيًا إذا بقيت كل هذه العناصر أو جلّها لفائدة المؤجِّر أو على عاتقه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما الفرق بين الإيجار التمويلي المالي والإيجار التمويلي العملياتي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>حسب المادة 2 من الأمر 96-09، يُسمّى الإيجار ماليًا إذا حوّل العقد إلى المستأجر كل الحقوق والالتزامات والمزايا والمساوئ والمخاطر المرتبطة بملكية المال، وإذا كان غير قابل للفسخ، وإذا ضمن للمؤجِّر استرجاع نفقاته الرأسمالية. ويُسمّى عملياتيًا إذا بقيت كل هذه العناصر أو جلّها لفائدة المؤجِّر أو على عاتقه.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الذي يجب أن يذكره عقد الاعتماد الإيجاري للمنقولات وجوبًا؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تفرض المادة 11 من الأمر 96-09، وإلا فقد العقد تكييفه كإيجار تمويلي مالي، ذكرَ مدة الإيجار والإيجارات وخيار الشراء الممنوح للمستأجر في نهاية العقد والقيمة المتبقية من ثمن اقتناء المال المؤجَّر.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما الذي يجب أن يذكره عقد الاعتماد الإيجاري للمنقولات وجوبًا؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>تفرض المادة 11 من الأمر 96-09، وإلا فقد العقد تكييفه كإيجار تمويلي مالي، ذكرَ مدة الإيجار والإيجارات وخيار الشراء الممنوح للمستأجر في نهاية العقد والقيمة المتبقية من ثمن اقتناء المال المؤجَّر.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا فوّتُّ قسط إيجار واحدًا في الليزينغ؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تجيز المادة 20 من الأمر 96-09 للمؤجِّر، بعد إشعار أو إعذار بخمسة عشر يومًا كاملة، إنهاءَ حق الانتفاع واسترجاع المال وديًّا أو بمجرد أمر غير قابل للاستئناف، في حالة عدم دفع قسط إيجار واحد. وعدم دفع قسط واحد يشكّل فسخًا تعسّفيًا للعقد.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ماذا يحدث إذا فوّتُّ قسط إيجار واحدًا في الليزينغ؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>تجيز المادة 20 من الأمر 96-09 للمؤجِّر، بعد إشعار أو إعذار بخمسة عشر يومًا كاملة، إنهاءَ حق الانتفاع واسترجاع المال وديًّا أو بمجرد أمر غير قابل للاستئناف، في حالة عدم دفع قسط إيجار واحد. وعدم دفع قسط واحد يشكّل فسخًا تعسّفيًا للعقد.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل الليزينغ أغلى من القرض الاستثماري؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ليس بالضرورة، ومقارنة مجموع المبالغ المدفوعة لا تسمح بالحكم. يجب مقارنة القيم الحالية للتدفقات الخارجة صافيةً من الضريبة، بما فيها المساهمة الشخصية. في المثال الرقمي المعروض في هذا المقال — 10 ملايين دينار على 5 سنوات — يظهر القرض أقل تكلفة بـ 344 206 دج بالقيمة الحالية، لكنه يجمّد 3 ملايين دينار فورًا: ويصبح الليزينغ أفضل متى حقّقت هذه المساهمة المحرَّرة عائدًا يفوق 2,2 % سنويًا داخل المؤسسة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل الليزينغ أغلى من القرض الاستثماري؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>ليس بالضرورة، ومقارنة مجموع المبالغ المدفوعة لا تسمح بالحكم. يجب مقارنة القيم الحالية للتدفقات الخارجة صافيةً من الضريبة، بما فيها المساهمة الشخصية. في المثال الرقمي المعروض في هذا المقال — 10 ملايين دينار على 5 سنوات — يظهر القرض أقل تكلفة بـ 344 206 دج بالقيمة الحالية، لكنه يجمّد 3 ملايين دينار فورًا: ويصبح الليزينغ أفضل متى حقّقت هذه المساهمة المحرَّرة عائدًا يفوق 2,2 % سنويًا داخل المؤسسة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي الخيارات في نهاية عقد الاعتماد الإيجاري؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تترك المادة 16 من الأمر 96-09 للمستأجر، عند انقضاء الفترة غير القابلة للإلغاء وحسب تقديره وحده، ثلاث إمكانيات: شراء المال المؤجَّر بقيمته المتبقية المحدَّدة في العقد، أو تجديد الإيجار لمدة وبإيجار يُتّفق عليهما بين الطرفين، أو إرجاع المال إلى المؤجِّر.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>ما هي الخيارات في نهاية عقد الاعتماد الإيجاري؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>تترك المادة 16 من الأمر 96-09 للمستأجر، عند انقضاء الفترة غير القابلة للإلغاء وحسب تقديره وحده، ثلاث إمكانيات: شراء المال المؤجَّر بقيمته المتبقية المحدَّدة في العقد، أو تجديد الإيجار لمدة وبإيجار يُتّفق عليهما بين الطرفين، أو إرجاع المال إلى المؤجِّر.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

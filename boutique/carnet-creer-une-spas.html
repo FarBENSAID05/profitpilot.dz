@@ -122,8 +122,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -374,16 +386,16 @@
 
 <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Puis-je créer une SPAS sans label ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. L'article 715 bis 133, dernier alinéa, réserve la forme aux sociétés certifiées « start-up ». Le carnet explique le paradoxe que cette rédaction crée pour une première création, et pourquoi la question se pose au CNRC de votre wilaya, décision de labellisation en main.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Puis-je créer une SPAS sans label ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Non. L'article 715 bis 133, dernier alinéa, réserve la forme aux sociétés certifiées « start-up ». Le carnet explique le paradoxe que cette rédaction crée pour une première création, et pourquoi la question se pose au CNRC de votre wilaya, décision de labellisation en main.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Le carnet remplace-t-il le notaire ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Le notaire seul rédige et authentifie les statuts. Le carnet prépare les décisions qu'il ne peut pas prendre à votre place — et qui, dans une SPAS, ne sont comblées par aucun article du code.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Le carnet remplace-t-il le notaire ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Non. Le notaire seul rédige et authentifie les statuts. Le carnet prépare les décisions qu'il ne peut pas prendre à votre place — et qui, dans une SPAS, ne sont comblées par aucun article du code.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Une SPAS doit-elle avoir un commissaire aux comptes ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La question n'est pas tranchée par le texte. La fiche 07 présente les deux lectures, l'argument littéral tiré de l'article 715 bis 135, et la position que nous retenons — en signalant qu'aucune jurisprudence connue ne la confirme.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Une SPAS doit-elle avoir un commissaire aux comptes ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>La question n'est pas tranchée par le texte. La fiche 07 présente les deux lectures, l'argument littéral tiré de l'article 715 bis 135, et la position que nous retenons — en signalant qu'aucune jurisprudence connue ne la confirme.</div>
         </div>
 
         <div class="internal-links-box" style="margin-top:3rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border-mid);border-radius:12px;">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -590,28 +602,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يجب أن يتضمّن قسم «دراسة السوق» في ملف استثماري بالجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يضمّ القسم الرابع من المخطط النموذجي في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026 خمسة بنود: تحليل الطلب الوطني والجهوي والدولي؛ وتحليل العرض والمنافسة؛ والاتجاهات القطاعية؛ والتموقع الاستراتيجي للمشروع بالنسبة للسوق؛ والسياسة التجارية والنفاذ إلى السوق.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ماذا يجب أن يتضمّن قسم «دراسة السوق» في ملف استثماري بالجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>يضمّ القسم الرابع من المخطط النموذجي في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026 خمسة بنود: تحليل الطلب الوطني والجهوي والدولي؛ وتحليل العرض والمنافسة؛ والاتجاهات القطاعية؛ والتموقع الاستراتيجي للمشروع بالنسبة للسوق؛ والسياسة التجارية والنفاذ إلى السوق.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>لماذا لا تكفي المعطيات العمومية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لثلاثة أسباب متمايزة: مستوى التجميع، إذ تصف بلداً بينما يُقام المشروع على منطقة استقطاب؛ والفجوة الزمنية، فالمعطى المنشور يصف فترة انقضت؛ والنشاط غير الرسمي، الذي يفلت بحكم طبيعته من الإحصائيات مع أنه قد يشكّل المنافس الرئيسي في بعض الشرائح.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>لماذا لا تكفي المعطيات العمومية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>لثلاثة أسباب متمايزة: مستوى التجميع، إذ تصف بلداً بينما يُقام المشروع على منطقة استقطاب؛ والفجوة الزمنية، فالمعطى المنشور يصف فترة انقضت؛ والنشاط غير الرسمي، الذي يفلت بحكم طبيعته من الإحصائيات مع أنه قد يشكّل المنافس الرئيسي في بعض الشرائح.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف تُحدَّد منطقة الاستقطاب؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">بزمن التنقّل لا بالمسافة، مع كتابتها صراحةً في الدراسة. فبدون محيط محدَّد لا يكون أي إحصاء قابلاً للتأويل ولا أي حصّة سوقية قابلة للتحقّق. والمحيط المعتمَد يجب أن يكون قابلاً لإعادة الإنتاج من طرف ثالث.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>كيف تُحدَّد منطقة الاستقطاب؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>بزمن التنقّل لا بالمسافة، مع كتابتها صراحةً في الدراسة. فبدون محيط محدَّد لا يكون أي إحصاء قابلاً للتأويل ولا أي حصّة سوقية قابلة للتحقّق. والمحيط المعتمَد يجب أن يكون قابلاً لإعادة الإنتاج من طرف ثالث.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>لماذا تُرصَد الأسعار المدفوعة فعلاً لا المعروضة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لأنّ السعر المعروض لا قيمة تقديرية له في القطاعات التي يكون فيها التخفيض منهجياً. وبناء رقم أعمال على أسعار معروضة يضخّم آلياً كلّ أسطر التوقّعات المالية. وفارق 10 % في سعر البيع قد يكفي لقلب قيمة حالية صافية من موجبة إلى سالبة في مشروع ضعيف الهامش.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>لماذا تُرصَد الأسعار المدفوعة فعلاً لا المعروضة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>لأنّ السعر المعروض لا قيمة تقديرية له في القطاعات التي يكون فيها التخفيض منهجياً. وبناء رقم أعمال على أسعار معروضة يضخّم آلياً كلّ أسطر التوقّعات المالية. وفارق 10 % في سعر البيع قد يكفي لقلب قيمة حالية صافية من موجبة إلى سالبة في مشروع ضعيف الهامش.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم مقابلة يلزم للتحقّق من النفاذ إلى السوق؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ثلاث تكفي لكشف بنية القناة: موزّع من المنطقة، ومنافس غير مباشر، وزبون ممثّل للشريحة المستهدَفة. وتتناول هذه المقابلات وقائع معيشة — شروط دفع، وكميات دنيا، وآجال إدراج — لا نوايا مصرَّحاً بها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>كم مقابلة يلزم للتحقّق من النفاذ إلى السوق؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>ثلاث تكفي لكشف بنية القناة: موزّع من المنطقة، ومنافس غير مباشر، وزبون ممثّل للشريحة المستهدَفة. وتتناول هذه المقابلات وقائع معيشة — شروط دفع، وكميات دنيا، وآجال إدراج — لا نوايا مصرَّحاً بها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف تُعرَف دراسة سوق غير محقَّقة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">خمس علامات تتكرّر: لا تاريخ ولا مكان ولا عدد ملاحظات مذكور؛ وحصّة سوقية معبَّر عنها بنسبة من مجموع وطني؛ وسعر بيع يساوي سعر التكلفة مضافاً إليه هامش مدوَّر؛ ومنافسون موصوفون بالفئة دون تسمية أو تحديد موقع؛ وسياسة تجارية محرَّرة بصيغة المستقبل دون ذكر أي محاور.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>كيف تُعرَف دراسة سوق غير محقَّقة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>خمس علامات تتكرّر: لا تاريخ ولا مكان ولا عدد ملاحظات مذكور؛ وحصّة سوقية معبَّر عنها بنسبة من مجموع وطني؛ وسعر بيع يساوي سعر التكلفة مضافاً إليه هامش مدوَّر؛ ومنافسون موصوفون بالفئة دون تسمية أو تحديد موقع؛ وسياسة تجارية محرَّرة بصيغة المستقبل دون ذكر أي محاور.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

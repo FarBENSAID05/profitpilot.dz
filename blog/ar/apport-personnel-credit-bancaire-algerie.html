@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -583,28 +595,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل توجد نسبة مساهمة ذاتية إلزامية في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">الأنظمة الثلاثة لبنك الجزائر المؤرخة في 16 فيفري 2014 والمؤطِّرة للقرض — رقم 14-01 و14-02 و14-03 — لا تحدّد أي نسبة مساهمة على عاتق المقترض. بل تؤطّر التزامات البنك: سقف 25 % من الأموال الخاصة التنظيمية لكل مستفيد، وترجيح بـ100 % لقروض المؤسسات، وحصص الضمانات ونسب المؤونات. فنسبة المساهمة تعود إذاً إلى سياسة القرض لدى كل مؤسسة. في المقابل توجد سلالم في الأجهزة العمومية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل توجد نسبة مساهمة ذاتية إلزامية في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>الأنظمة الثلاثة لبنك الجزائر المؤرخة في 16 فيفري 2014 والمؤطِّرة للقرض — رقم 14-01 و14-02 و14-03 — لا تحدّد أي نسبة مساهمة على عاتق المقترض. بل تؤطّر التزامات البنك: سقف 25 % من الأموال الخاصة التنظيمية لكل مستفيد، وترجيح بـ100 % لقروض المؤسسات، وحصص الضمانات ونسب المؤونات. فنسبة المساهمة تعود إذاً إلى سياسة القرض لدى كل مؤسسة. في المقابل توجد سلالم في الأجهزة العمومية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي المساهمة الذاتية التي يشترطها جهاز NESDA؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنشر NESDA أربع نسب للتمويل الثلاثي: 5 % للطلبة والبطّالين، و10 % لغير البطّالين بمناطق الجنوب، و12 % للهضاب العليا والمناطق الخاصة، و15 % للمناطق الأخرى. وفي كل هذه الصيغ تكون حصّة البنك 70 %. أمّا التمويل المختلط فيفترض 50 % مساهمة، والتمويل الذاتي 100 %.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما هي المساهمة الذاتية التي يشترطها جهاز NESDA؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>تنشر NESDA أربع نسب للتمويل الثلاثي: 5 % للطلبة والبطّالين، و10 % لغير البطّالين بمناطق الجنوب، و12 % للهضاب العليا والمناطق الخاصة، و15 % للمناطق الأخرى. وفي كل هذه الصيغ تكون حصّة البنك 70 %. أمّا التمويل المختلط فيفترض 50 % مساهمة، والتمويل الذاتي 100 %.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو المبلغ الأقصى لمشروع تموّله NESDA؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يمكن أن يبلغ التمويل 10 000 000 دج. وقرض الوكالة بدون فائدة، وحصّة البنك تستفيد من معدّل فائدة مدعَّم بنسبة 100 %. وتوجد قروض إضافية بدون فائدة: 500 000 دج لكراء محلّ أو موقع رصيف، و1 000 000 دج بصفة استثنائية للاستغلال.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما هو المبلغ الأقصى لمشروع تموّله NESDA؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يمكن أن يبلغ التمويل 10 000 000 دج. وقرض الوكالة بدون فائدة، وحصّة البنك تستفيد من معدّل فائدة مدعَّم بنسبة 100 %. وتوجد قروض إضافية بدون فائدة: 500 000 دج لكراء محلّ أو موقع رصيف، و1 000 000 دج بصفة استثنائية للاستغلال.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل الأفضل رفع المساهمة أم تقديم ضمان؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ليس للأمرين الأثر نفسه. فالمساهمة تخفّض مبلغ القرض، وبالتالي تعرّض البنك ووعاء تكوين مؤوناته. أمّا الضمان فلا يخفّض التعرّض: بل يخفّض كلفته من حيث المؤونات، في حدود حصّته — 100 % لوديعة لدى البنك المُقرِض، و80 % لضمان بنكي معتمَد، و50 % فقط للرهن. والتركيبة المثلى تجمع عادةً بينهما.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل الأفضل رفع المساهمة أم تقديم ضمان؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>ليس للأمرين الأثر نفسه. فالمساهمة تخفّض مبلغ القرض، وبالتالي تعرّض البنك ووعاء تكوين مؤوناته. أمّا الضمان فلا يخفّض التعرّض: بل يخفّض كلفته من حيث المؤونات، في حدود حصّته — 100 % لوديعة لدى البنك المُقرِض، و80 % لضمان بنكي معتمَد، و50 % فقط للرهن. والتركيبة المثلى تجمع عادةً بينهما.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن الاقتراض لتكوين المساهمة الذاتية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">غير مُستحسَن بشدّة ونادراً ما يكون خفياً. فالنظام رقم 12-01 يُلزِم البنوك بالتصريح شهرياً لمركزية المخاطر بكل القروض الممنوحة لزبائنها مهما كان مبلغها، وباستشارة هذه المركزية قبل أي منح قرض لزبون جديد. فالقرض المُبرَم في مكان آخر لتكوين المساهمة يظهر إذاً في التقرير الذي يطّلع عليه البنك.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يمكن الاقتراض لتكوين المساهمة الذاتية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>غير مُستحسَن بشدّة ونادراً ما يكون خفياً. فالنظام رقم 12-01 يُلزِم البنوك بالتصريح شهرياً لمركزية المخاطر بكل القروض الممنوحة لزبائنها مهما كان مبلغها، وباستشارة هذه المركزية قبل أي منح قرض لزبون جديد. فالقرض المُبرَم في مكان آخر لتكوين المساهمة يظهر إذاً في التقرير الذي يطّلع عليه البنك.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل ما زال الجهاز يُسمّى ANSEJ أو ANADE؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">غيّر الجهاز تسميته مرّات عدّة: ANSEJ ثم ANADE واليوم NESDA — الوكالة الوطنية لدعم وتطوير المقاولاتية، الموضوعة تحت وصاية وزارة اقتصاد المعرفة والمؤسسات الناشئة والمؤسسات المصغَّرة. وكثير من السلالم المتداولة على الإنترنت تعود إلى نسخ سابقة: يجب الرجوع إلى النسب المنشورة من طرف الوكالة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل ما زال الجهاز يُسمّى ANSEJ أو ANADE؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>غيّر الجهاز تسميته مرّات عدّة: ANSEJ ثم ANADE واليوم NESDA — الوكالة الوطنية لدعم وتطوير المقاولاتية، الموضوعة تحت وصاية وزارة اقتصاد المعرفة والمؤسسات الناشئة والمؤسسات المصغَّرة. وكثير من السلالم المتداولة على الإنترنت تعود إلى نسخ سابقة: يجب الرجوع إلى النسب المنشورة من طرف الوكالة.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

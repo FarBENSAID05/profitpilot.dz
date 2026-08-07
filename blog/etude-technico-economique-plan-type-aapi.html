@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -632,28 +644,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel texte impose le plan-type de l&#x27;étude technico-économique ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, qui modifie et complète le décret exécutif n° 23-487 du 28 décembre 2023 relatif à la concession convertible en cession du foncier économique. Il exige une étude technico-économique dûment établie par un professionnel qualifié, conformément au plan-type figurant à son annexe V.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel texte impose le plan-type de l&#x27;étude technico-économique ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Le décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, qui modifie et complète le décret exécutif n° 23-487 du 28 décembre 2023 relatif à la concession convertible en cession du foncier économique. Il exige une étude technico-économique dûment établie par un professionnel qualifié, conformément au plan-type figurant à son annexe V.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelles sont les neuf parties du plan-type ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">I. Informations générales sur le porteur de projet ; II. Présentation générale du projet ; III. Étude technique ; IV. Étude de marché ; V. Plan d'investissement ; VI. Prévisions économiques et financières ; VII. Impact socio-économique ; VIII. Calendrier de réalisation ; IX. Annexes.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quelles sont les neuf parties du plan-type ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>I. Informations générales sur le porteur de projet ; II. Présentation générale du projet ; III. Étude technique ; IV. Étude de marché ; V. Plan d'investissement ; VI. Prévisions économiques et financières ; VII. Impact socio-économique ; VIII. Calendrier de réalisation ; IX. Annexes.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quels indicateurs financiers l&#x27;étude doit-elle contenir ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La partie VI exige un compte de résultat prévisionnel, un tableau de trésorerie et un bilan prévisionnel sur 3 à 5 ans, ainsi qu'une analyse de rentabilité comportant le TRI, la VAN, le seuil de rentabilité et le taux de marge.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Quels indicateurs financiers l&#x27;étude doit-elle contenir ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>La partie VI exige un compte de résultat prévisionnel, un tableau de trésorerie et un bilan prévisionnel sur 3 à 5 ans, ainsi qu'une analyse de rentabilité comportant le TRI, la VAN, le seuil de rentabilité et le taux de marge.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quels justificatifs de capacités financières faut-il joindre ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le décret demande les justificatifs des capacités financières relatives aux apports en fonds propres déclarés pour le financement du projet, en citant notamment le relevé de compte bancaire, les états financiers ou tout autre document susceptible d'établir la solvabilité du postulant. L'énumération n'est pas limitative, mais l'objectif est d'établir la solvabilité, pas de la déclarer.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Quels justificatifs de capacités financières faut-il joindre ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Le décret demande les justificatifs des capacités financières relatives aux apports en fonds propres déclarés pour le financement du projet, en citant notamment le relevé de compte bancaire, les états financiers ou tout autre document susceptible d'établir la solvabilité du postulant. L'énumération n'est pas limitative, mais l'objectif est d'établir la solvabilité, pas de la déclarer.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Dans quel délai l&#x27;administration doit-elle délivrer les autorisations ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 30 du décret exécutif n° 26-153 prévoit que les autorisations et documents requis pour la concrétisation des projets d'investissement sont délivrés au niveau des guichets uniques dans un délai n'excédant pas quinze jours à compter de la date de réception des dossiers. Les décisions d'accord préalable pour la création des établissements classés relevant des 1re, 2e et 3e catégories sont délivrées dans un délai maximal de vingt jours.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Dans quel délai l&#x27;administration doit-elle délivrer les autorisations ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>L'article 30 du décret exécutif n° 26-153 prévoit que les autorisations et documents requis pour la concrétisation des projets d'investissement sont délivrés au niveau des guichets uniques dans un délai n'excédant pas quinze jours à compter de la date de réception des dossiers. Les décisions d'accord préalable pour la création des établissements classés relevant des 1re, 2e et 3e catégories sont délivrées dans un délai maximal de vingt jours.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Les documents délivrés au guichet unique ont-ils la même valeur qu&#x27;ailleurs ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. L'article 24 du décret exécutif n° 26-153 dispose que les documents délivrés par les représentants des administrations et des autres organismes au sein du guichet unique sont opposables aux administrations et organismes concernés. L'article 22 leur donne délégation pour signer et délivrer ces actes au nom des autorités dont ils relèvent.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Les documents délivrés au guichet unique ont-ils la même valeur qu&#x27;ailleurs ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Oui. L'article 24 du décret exécutif n° 26-153 dispose que les documents délivrés par les représentants des administrations et des autres organismes au sein du guichet unique sont opposables aux administrations et organismes concernés. L'article 22 leur donne délégation pour signer et délivrer ces actes au nom des autorités dont ils relèvent.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

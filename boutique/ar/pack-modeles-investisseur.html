@@ -122,8 +122,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -374,16 +386,16 @@
 
 <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل أستطيع استعمالها لزبائني؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لإنتاج ملفاتهم، نعم. أما إعادة توزيع الملفات أو بيعها، فلا: الرخصة للاستعمال الخاص.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل أستطيع استعمالها لزبائني؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>لإنتاج ملفاتهم، نعم. أما إعادة توزيع الملفات أو بيعها، فلا: الرخصة للاستعمال الخاص.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الذي تضيفه على النماذج المشتراة منفردة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ثلاثة ملفات إضافية، والأهم الروابط بين الستة — وهي ما يمنع التناقضات.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما الذي تضيفه على النماذج المشتراة منفردة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>ثلاثة ملفات إضافية، والأهم الروابط بين الستة — وهي ما يمنع التناقضات.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل الصيغ مقفلة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. خلايا الفرضيات مُعلَّمة، لكن لا شيء محميّ: يمكنك التكييف.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل الصيغ مقفلة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لا. خلايا الفرضيات مُعلَّمة، لكن لا شيء محميّ: يمكنك التكييف.</div>
         </div>
 
         <div class="internal-links-box" style="margin-top:3rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border-mid);border-radius:12px;">

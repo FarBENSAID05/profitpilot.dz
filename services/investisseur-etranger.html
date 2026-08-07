@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -518,24 +530,24 @@
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Une société étrangère peut-elle détenir 100 % d&#x27;une entité algérienne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>En dehors des activités qualifiées de stratégiques et en dehors de l'importation pour revente en l'état, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020. Le choix de la forme sociale est une question distincte, à trancher avec le notaire avant la rédaction des statuts.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Une société étrangère peut-elle détenir 100 % d&#x27;une entité algérienne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>En dehors des activités qualifiées de stratégiques et en dehors de l'importation pour revente en l'état, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020. Le choix de la forme sociale est une question distincte, à trancher avec le notaire avant la rédaction des statuts.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Faut-il se déplacer en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Souvent au moins une fois. Les notaires exigent généralement le représentant en personne ou une procuration certifiée à l'étranger et traduite, couvrant à la fois la personne et la société associée ; les banques demandent souvent le gérant en personne pour ouvrir le compte. Nous établissons ce qui sera accepté avant que vous ne réserviez quoi que ce soit.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Faut-il se déplacer en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>Souvent au moins une fois. Les notaires exigent généralement le représentant en personne ou une procuration certifiée à l'étranger et traduite, couvrant à la fois la personne et la société associée ; les banques demandent souvent le gérant en personne pour ouvrir le compte. Nous établissons ce qui sera accepté avant que vous ne réserviez quoi que ce soit.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel capital faut-il apporter ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Il n'existe plus de minimum légal depuis la réforme de 2015, mais le montant n'est pas libre en pratique : la garantie de transfert du capital et des revenus suppose un financement d'origine étrangère atteignant un seuil minimum apprécié au regard du coût global de l'investissement. Le capital se dimensionne sur le projet, non sur les formalités.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Quel capital faut-il apporter ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Il n'existe plus de minimum légal depuis la réforme de 2015, mais le montant n'est pas libre en pratique : la garantie de transfert du capital et des revenus suppose un financement d'origine étrangère atteignant un seuil minimum apprécié au regard du coût global de l'investissement. Le capital se dimensionne sur le projet, non sur les formalités.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Nos documents doivent-ils encore être légalisés par le consulat ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Non, pour les actes publics échangés avec les autres États contractants. La convention Apostille de La Haye est entrée en vigueur pour l'Algérie le 9 juillet 2026, et une apostille du pays d'origine remplace la légalisation consulaire. La traduction assermentée en arabe reste nécessaire, et les documents légalisés selon l'ancienne procédure avant cette date peuvent devoir être refaits.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Nos documents doivent-ils encore être légalisés par le consulat ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Non, pour les actes publics échangés avec les autres États contractants. La convention Apostille de La Haye est entrée en vigueur pour l'Algérie le 9 juillet 2026, et une apostille du pays d'origine remplace la légalisation consulaire. La traduction assermentée en arabe reste nécessaire, et les documents légalisés selon l'ancienne procédure avant cette date peuvent devoir être refaits.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Notre société mère peut-elle être nommée gérante ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Non. La société à responsabilité limitée est gérée par une ou plusieurs personnes physiques. Une personne physique doit être nommée — résidente ou non, et pas nécessairement associée. L'option retenue pèse sur votre calendrier, car les cartes d'un gérant étranger constituent un chantier à part entière.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Notre société mère peut-elle être nommée gérante ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>Non. La société à responsabilité limitée est gérée par une ou plusieurs personnes physiques. Une personne physique doit être nommée — résidente ou non, et pas nécessairement associée. L'option retenue pèse sur votre calendrier, car les cartes d'un gérant étranger constituent un chantier à part entière.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

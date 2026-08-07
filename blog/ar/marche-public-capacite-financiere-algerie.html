@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -610,28 +622,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي القدرة المالية الدنيا للمشاركة في صفقة عمومية بالجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا يحدّد القانون رقم 23-12 المؤرخ في 5 أوت 2023 أي عتبة رقمية. فمادته 43 تفرض فقط أن يستند تقييم الترشّحات إلى معايير غير تمييزية، ذات صلة بموضوع الصفقة ومتناسبة مع مداها. ومن ثمّ يُحدَّد المستوى المطلوب صفقةً صفقةً في دفتر الشروط.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما هي القدرة المالية الدنيا للمشاركة في صفقة عمومية بالجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>لا يحدّد القانون رقم 23-12 المؤرخ في 5 أوت 2023 أي عتبة رقمية. فمادته 43 تفرض فقط أن يستند تقييم الترشّحات إلى معايير غير تمييزية، ذات صلة بموضوع الصفقة ومتناسبة مع مداها. ومن ثمّ يُحدَّد المستوى المطلوب صفقةً صفقةً في دفتر الشروط.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن المشاركة بالاستناد إلى قدرات مؤسسة أخرى؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. تنصّ المادة 44 من القانون 23-12 على أنه يمكن لكل مترشّح أو متعهّد، منفردًا أو في تجمّع، أن يستند إلى قدرات مؤسسات أخرى. ويسري قيدان: لا يمكن للمترشّح تقديم أكثر من عرض واحد في الإجراء الواحد، ولا يمكن لشخص أن يمثّل أكثر من مترشّح في الصفقة ذاتها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل يمكن المشاركة بالاستناد إلى قدرات مؤسسة أخرى؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>نعم. تنصّ المادة 44 من القانون 23-12 على أنه يمكن لكل مترشّح أو متعهّد، منفردًا أو في تجمّع، أن يستند إلى قدرات مؤسسات أخرى. ويسري قيدان: لا يمكن للمترشّح تقديم أكثر من عرض واحد في الإجراء الواحد، ولا يمكن لشخص أن يمثّل أكثر من مترشّح في الصفقة ذاتها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو الجزء الذي يمكن مناولته من صفقة عمومية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تحدّ المادة 82 من القانون 23-12 المناولة بـ 40 % من مبلغ الصفقة العمومية. وتُلزم المادة نفسها المؤسسات الأجنبية المتعهّدة منفردة، إلا في حالة استحالة مبرَّرة قانونًا، بمناولة 30 % على الأقل من المبلغ الأولي للصفقة لمؤسسات خاضعة للقانون الجزائري.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما هو الجزء الذي يمكن مناولته من صفقة عمومية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>تحدّ المادة 82 من القانون 23-12 المناولة بـ 40 % من مبلغ الصفقة العمومية. وتُلزم المادة نفسها المؤسسات الأجنبية المتعهّدة منفردة، إلا في حالة استحالة مبرَّرة قانونًا، بمناولة 30 % على الأقل من المبلغ الأولي للصفقة لمؤسسات خاضعة للقانون الجزائري.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن استعمال الصفقة العمومية كضمان بنكي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. تنصّ المادة 85 من القانون 23-12 على أن الصفقات العمومية وملاحقها قابلة للرهن. وبالنسبة لمؤسسة لا تملك ضمانًا عقاريًا، غالبًا ما يكون رهن الصفقة أمتن ضمان قابل للتعبئة لدى بنك.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل يمكن استعمال الصفقة العمومية كضمان بنكي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>نعم. تنصّ المادة 85 من القانون 23-12 على أن الصفقات العمومية وملاحقها قابلة للرهن. وبالنسبة لمؤسسة لا تملك ضمانًا عقاريًا، غالبًا ما يكون رهن الصفقة أمتن ضمان قابل للتعبئة لدى بنك.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما حجم الخزينة اللازمة لتنفيذ صفقة عمومية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يتوقّف ذلك على وتيرة الدفعات على الحساب وأجل التحصيل، لا على المبلغ وحده. في المثال الرقمي المعروض في هذا المقال — صفقة بـ 60 مليون دينار على 12 شهرًا بهامش 12 %، بدفعات فصلية تُحصَّل بعد 60 يومًا — تبلغ ذروة الاحتياج 17,6 مليون دينار، أي 29,3 % من مبلغ الصفقة. وبتحصيل بعد 150 يومًا ترتفع الذروة إلى 30,8 مليون، أي 51,3 %.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>ما حجم الخزينة اللازمة لتنفيذ صفقة عمومية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>يتوقّف ذلك على وتيرة الدفعات على الحساب وأجل التحصيل، لا على المبلغ وحده. في المثال الرقمي المعروض في هذا المقال — صفقة بـ 60 مليون دينار على 12 شهرًا بهامش 12 %، بدفعات فصلية تُحصَّل بعد 60 يومًا — تبلغ ذروة الاحتياج 17,6 مليون دينار، أي 29,3 % من مبلغ الصفقة. وبتحصيل بعد 150 يومًا ترتفع الذروة إلى 30,8 مليون، أي 51,3 %.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا تأخّرت الإدارة في الدفع؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنصّ المادة 80 من القانون 23-12 على أن عدم دفع الحسابات في الأجل لفائدة المتعامل المتعاقد يفتح الحق في الاستفادة من فوائد التأخير، وفقًا للكيفيات والإجراءات المعمول بها. وهذه الفوائد تعوّض التأخير لكنها لا تموّل التنفيذ أثناءه: فالاحتياج النقدي المقابل يجب تغطيته من مصدر آخر.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>ماذا يحدث إذا تأخّرت الإدارة في الدفع؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>تنصّ المادة 80 من القانون 23-12 على أن عدم دفع الحسابات في الأجل لفائدة المتعامل المتعاقد يفتح الحق في الاستفادة من فوائد التأخير، وفقًا للكيفيات والإجراءات المعمول بها. وهذه الفوائد تعوّض التأخير لكنها لا تموّل التنفيذ أثناءه: فالاحتياج النقدي المقابل يجب تغطيته من مصدر آخر.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -538,24 +550,24 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Is market research mandatory in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">For an economic land application, yes: market analysis forms part of the techno-economic study template set out in Annex V of Executive Decree No. 26-154 of 14 April 2026, published in Official Journal No. 31 of 28 April 2026. Outside that context it is not legally required, but it sets the revenue assumptions of any financing file.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Is market research mandatory in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>For an economic land application, yes: market analysis forms part of the techno-economic study template set out in Annex V of Executive Decree No. 26-154 of 14 April 2026, published in Official Journal No. 31 of 28 April 2026. Outside that context it is not legally required, but it sets the revenue assumptions of any financing file.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How do you run market research without a budget?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">By starting from the observable rather than the published: on-site counts, price surveys, interviews with suppliers and other players in the chain, then a consistency check against available public data. The constraint is not budget but documentary rigour: every figure must carry its method and its date.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>How do you run market research without a budget?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>By starting from the observable rather than the published: on-site counts, price surveys, interviews with suppliers and other players in the chain, then a consistency check against available public data. The constraint is not budget but documentary rigour: every figure must carry its method and its date.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which figures must market research justify?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Three: the volume sold in year one, the selling price, and the payment period. These are the three assumptions that feed the financial plan. Research that does not let you defend them has not done its job, however long it runs.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Which figures must market research justify?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Three: the volume sold in year one, the selling price, and the payment period. These are the three assumptions that feed the financial plan. Research that does not let you defend them has not done its job, however long it runs.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How do you analyse competition that is not documented?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">By exhaustive physical survey of a narrow area, recording each player's range, price level, lead times and a visible sign of activity volume. Four levels of competition must be distinguished: the direct competitor, the substitute, the informal player and the customer's own self-supply — the last two being the most frequently forgotten.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How do you analyse competition that is not documented?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>By exhaustive physical survey of a narrow area, recording each player's range, price level, lead times and a visible sign of activity volume. Four levels of competition must be distinguished: the direct competitor, the substitute, the informal player and the customer's own self-supply — the last two being the most frequently forgotten.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the most common mistake?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The courtesy questionnaire. Asking someone whether a product would interest them produces a high interest rate with no predictive value. The only useful questions concern past behaviour: what was bought, where, at what price and when.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>What is the most common mistake?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>The courtesy questionnaire. Asking someone whether a product would interest them produces a high interest rate with no predictive value. The only useful questions concern past behaviour: what was bought, where, at what price and when.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

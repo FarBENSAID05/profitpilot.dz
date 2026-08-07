@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -649,28 +661,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on obtenir un crédit d&#x27;investissement sans hypothèque en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'hypothèque n'est pas la seule sûreté admise, et elle n'est retenue qu'à 50 % de sa valeur par le règlement n° 14-03. Les garanties de l'État et des fonds publics assimilés sont retenues à 100 %, celles des banques et organismes d'assurance-crédit agréés en Algérie à 80 %. Trois dispositifs publics émettent des garanties : le FGAR, la CGCI-PME et la garantie déléguée TPE/PE. Chacun a toutefois ses propres exclusions sectorielles.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Peut-on obtenir un crédit d&#x27;investissement sans hypothèque en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>L'hypothèque n'est pas la seule sûreté admise, et elle n'est retenue qu'à 50 % de sa valeur par le règlement n° 14-03. Les garanties de l'État et des fonds publics assimilés sont retenues à 100 %, celles des banques et organismes d'assurance-crédit agréés en Algérie à 80 %. Trois dispositifs publics émettent des garanties : le FGAR, la CGCI-PME et la garantie déléguée TPE/PE. Chacun a toutefois ses propres exclusions sectorielles.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le montant maximum de la garantie FGAR ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le taux de la garantie est compris entre 10 % et 80 % du montant du crédit, calculé projet par projet. Le montant maximal de la garantie est de 100 millions DA par projet, pour la création comme pour l'extension — ce plafond porte sur la garantie accordée, et non sur le coût du projet. La durée maximale est de 7 ans pour un crédit d'investissement classique et de 10 ans pour un crédit-bail.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel est le montant maximum de la garantie FGAR ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Le taux de la garantie est compris entre 10 % et 80 % du montant du crédit, calculé projet par projet. Le montant maximal de la garantie est de 100 millions DA par projet, pour la création comme pour l'extension — ce plafond porte sur la garantie accordée, et non sur le coût du projet. La durée maximale est de 7 ans pour un crédit d'investissement classique et de 10 ans pour un crédit-bail.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Une société d&#x27;import/export peut-elle bénéficier du FGAR ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Les sociétés d'import/export et les entreprises œuvrant exclusivement dans le commerce figurent parmi les projets non éligibles publiés par le FGAR. Les activités commerciales sont également exclues de la CGCI-PME et de la garantie déléguée TPE/PE.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Une société d&#x27;import/export peut-elle bénéficier du FGAR ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Non. Les sociétés d'import/export et les entreprises œuvrant exclusivement dans le commerce figurent parmi les projets non éligibles publiés par le FGAR. Les activités commerciales sont également exclues de la CGCI-PME et de la garantie déléguée TPE/PE.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quels sont les plafonds de la garantie CGCI-PME ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le crédit d'investissement maximum éligible est de 350 millions DA. L'assiette d'application de la quotité garantie est plafonnée à 250 millions DA, ce qui donne un engagement maximum de 150 millions DA en développement d'entreprise (250 M × 60 %) et de 200 millions DA en création (250 M × 80 %). En cas de pluralité de concours pour une même entreprise, le cumul des engagements ne peut excéder 250 millions DA.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Quels sont les plafonds de la garantie CGCI-PME ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Le crédit d'investissement maximum éligible est de 350 millions DA. L'assiette d'application de la quotité garantie est plafonnée à 250 millions DA, ce qui donne un engagement maximum de 150 millions DA en développement d'entreprise (250 M × 60 %) et de 200 millions DA en création (250 M × 80 %). En cas de pluralité de concours pour une même entreprise, le cumul des engagements ne peut excéder 250 millions DA.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>La garantie CGCI dispense-t-elle des garanties demandées par la banque ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. La Caisse précise que sa garantie financière, assimilée à une garantie de l'État, ne remplace pas et ne se substitue pas aux sûretés usuelles prévues par la banque, et ne constitue en aucun cas un préalable à l'octroi du crédit. Les sûretés réelles sont prises dans les limites des éléments constitutifs du projet et recueillies par la banque en son nom.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>La garantie CGCI dispense-t-elle des garanties demandées par la banque ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Non. La Caisse précise que sa garantie financière, assimilée à une garantie de l'État, ne remplace pas et ne se substitue pas aux sûretés usuelles prévues par la banque, et ne constitue en aucun cas un préalable à l'octroi du crédit. Les sûretés réelles sont prises dans les limites des éléments constitutifs du projet et recueillies par la banque en son nom.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on cumuler deux garanties financières sur un même crédit ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Les projets bénéficiant d'une autre garantie financière pour le même crédit sont expressément exclus par la CGCI-PME comme par la garantie déléguée TPE/PE ; le FGAR exclut de son côté les projets dont le montage bénéficie déjà d'un dispositif d'appui des pouvoirs publics.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Peut-on cumuler deux garanties financières sur un même crédit ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Non. Les projets bénéficiant d'une autre garantie financière pour le même crédit sont expressément exclus par la CGCI-PME comme par la garantie déléguée TPE/PE ; le FGAR exclut de son côté les projets dont le montage bénéficie déjà d'un dispositif d'appui des pouvoirs publics.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

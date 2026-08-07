@@ -122,8 +122,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -374,16 +386,16 @@
 
 <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>À qui s&#x27;adresse-t-il ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Aux dirigeants et administrateurs d'une société par actions déjà constituée, et aux directions financières qui préparent l'arrêté des comptes. Pour la phase de constitution, c'est le carnet de bord « Créer une SPA » qu'il faut demander.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>À qui s&#x27;adresse-t-il ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Aux dirigeants et administrateurs d'une société par actions déjà constituée, et aux directions financières qui préparent l'arrêté des comptes. Pour la phase de constitution, c'est le carnet de bord « Créer une SPA » qu'il faut demander.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Couvre-t-il les échéances fiscales ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non, et c'est délibéré. Il ne traite que les délais du code de commerce applicables à la société par actions. Les déclarations, versements et obligations de télédéclaration relèvent d'autres textes et d'un calendrier différent, qui n'a pas les mêmes points de départ.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Couvre-t-il les échéances fiscales ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Non, et c'est délibéré. Il ne traite que les délais du code de commerce applicables à la société par actions. Les déclarations, versements et obligations de télédéclaration relèvent d'autres textes et d'un calendrier différent, qui n'a pas les mêmes points de départ.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Vaut-il aussi pour une SARL ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Partiellement seulement. Le délai de six mois pour l'approbation des comptes et la réserve légale de 5 % sont communs. En revanche, les actions de garantie, les quorums d'assemblée, l'autorisation de caution annuelle, la procédure d'alerte et le seuil d'actif net de l'article 715 bis 20 sont propres à la société par actions.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Vaut-il aussi pour une SARL ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Partiellement seulement. Le délai de six mois pour l'approbation des comptes et la réserve légale de 5 % sont communs. En revanche, les actions de garantie, les quorums d'assemblée, l'autorisation de caution annuelle, la procédure d'alerte et le seuil d'actif net de l'article 715 bis 20 sont propres à la société par actions.</div>
         </div>
 
         <div class="internal-links-box" style="margin-top:3rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border-mid);border-radius:12px;">

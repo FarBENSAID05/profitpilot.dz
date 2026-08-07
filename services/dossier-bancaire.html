@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -509,24 +521,24 @@
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quels documents faut-il pour un dossier bancaire en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Un dossier complet comprend généralement l'étude technico-économique, les états financiers des trois derniers exercices (ou des projections pour une entreprise nouvelle), le registre du commerce, le NIF, le NIS, les statuts, les attestations fiscales et sociales, les justificatifs de l'apport et les garanties proposées. La liste exacte varie selon l'établissement et la nature du concours sollicité.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quels documents faut-il pour un dossier bancaire en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Un dossier complet comprend généralement l'étude technico-économique, les états financiers des trois derniers exercices (ou des projections pour une entreprise nouvelle), le registre du commerce, le NIF, le NIS, les statuts, les attestations fiscales et sociales, les justificatifs de l'apport et les garanties proposées. La liste exacte varie selon l'établissement et la nature du concours sollicité.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien de temps prend l&#x27;obtention d&#x27;un crédit bancaire en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>D'après nos missions, il faut compter en moyenne trois à six mois selon l'établissement et le montant. Ce délai n'est pas réglementaire : il dépend largement du nombre d'allers-retours provoqués par les demandes de compléments. Un dossier complet dès le dépôt est le premier levier d'accélération.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Combien de temps prend l&#x27;obtention d&#x27;un crédit bancaire en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>D'après nos missions, il faut compter en moyenne trois à six mois selon l'établissement et le montant. Ce délai n'est pas réglementaire : il dépend largement du nombre d'allers-retours provoqués par les demandes de compléments. Un dossier complet dès le dépôt est le premier levier d'accélération.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Faut-il vraiment 30 % d&#x27;apport personnel ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Non, pas au sens d'une règle générale. Aucun texte d'application universelle ne fixe l'apport à 30 % pour l'ensemble des banques et des projets. Le seul barème chiffré et publié applicable à la création d'entreprise est celui de NESDA, qui distingue autofinancement, financement mixte et financement triangulaire, chacun avec sa propre répartition entre apport personnel, prêt non rémunéré de l'agence et part bancaire. Le taux dépend donc du dispositif visé.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Faut-il vraiment 30 % d&#x27;apport personnel ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Non, pas au sens d'une règle générale. Aucun texte d'application universelle ne fixe l'apport à 30 % pour l'ensemble des banques et des projets. Le seul barème chiffré et publié applicable à la création d'entreprise est celui de NESDA, qui distingue autofinancement, financement mixte et financement triangulaire, chacun avec sa propre répartition entre apport personnel, prêt non rémunéré de l'agence et part bancaire. Le taux dépend donc du dispositif visé.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on obtenir un crédit sans hypothèque ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>L'absence de bien à hypothéquer n'est pas rédhibitoire. Le FGAR et la CGCI-PME publient leurs critères d'éligibilité, leurs quotités de couverture et leurs plafonds. Ces garanties institutionnelles se préparent en amont, au moment du montage, et non après un refus.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Peut-on obtenir un crédit sans hypothèque ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>L'absence de bien à hypothéquer n'est pas rédhibitoire. Le FGAR et la CGCI-PME publient leurs critères d'éligibilité, leurs quotités de couverture et leurs plafonds. Ces garanties institutionnelles se préparent en amont, au moment du montage, et non après un refus.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si le dossier est refusé ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Nous établissons un diagnostic écrit avant toute nouvelle présentation : motif réel du refus, points à corriger, et opportunité de représenter le dossier au même établissement ou de le réorienter. Représenter un dossier inchangé est la façon la plus sûre d'obtenir le même résultat.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Que se passe-t-il si le dossier est refusé ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>Nous établissons un diagnostic écrit avant toute nouvelle présentation : motif réel du refus, points à corriger, et opportunité de représenter le dossier au même établissement ou de le réorienter. Représenter un dossier inchangé est la façon la plus sûre d'obtenir le même résultat.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -571,28 +583,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment calcule-t-on le besoin en fonds de roulement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le BFR est égal aux créances clients, augmentées des stocks, diminuées des dettes fournisseurs. Chacun de ces trois postes se pilote par un délai : le délai accordé aux clients, la durée de rotation des stocks et le délai obtenu des fournisseurs. Un BFR positif signifie que le cycle d'exploitation consomme de la trésorerie en permanence.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Comment calcule-t-on le besoin en fonds de roulement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Le BFR est égal aux créances clients, augmentées des stocks, diminuées des dettes fournisseurs. Chacun de ces trois postes se pilote par un délai : le délai accordé aux clients, la durée de rotation des stocks et le délai obtenu des fournisseurs. Un BFR positif signifie que le cycle d'exploitation consomme de la trésorerie en permanence.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi une entreprise rentable peut-elle manquer de trésorerie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce que le résultat enregistre une vente au moment de la facturation, alors que la trésorerie l'enregistre au moment de l'encaissement. Entre les deux, l'entreprise a déjà payé ses fournisseurs, ses salaires et ses charges. Si le besoin en fonds de roulement augmente plus vite que le résultat net, l'entreprise détruit de la trésorerie tout en étant bénéficiaire.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Pourquoi une entreprise rentable peut-elle manquer de trésorerie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Parce que le résultat enregistre une vente au moment de la facturation, alors que la trésorerie l'enregistre au moment de l'encaissement. Entre les deux, l'entreprise a déjà payé ses fournisseurs, ses salaires et ses charges. Si le besoin en fonds de roulement augmente plus vite que le résultat net, l'entreprise détruit de la trésorerie tout en étant bénéficiaire.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi la croissance aggrave-t-elle la situation de trésorerie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce que le BFR croît proportionnellement à l'activité lorsque les délais restent constants. Dans l'exemple chiffré de cet article, une croissance de 60 % du chiffre d'affaires augmente le BFR de 12,50 millions alors que le résultat net n'est que de 9,60 millions : l'entreprise détruit 2,90 millions de trésorerie sur l'exercice tout en étant plus rentable en valeur absolue.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Pourquoi la croissance aggrave-t-elle la situation de trésorerie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Parce que le BFR croît proportionnellement à l'activité lorsque les délais restent constants. Dans l'exemple chiffré de cet article, une croissance de 60 % du chiffre d'affaires augmente le BFR de 12,50 millions alors que le résultat net n'est que de 9,60 millions : l'entreprise détruit 2,90 millions de trésorerie sur l'exercice tout en étant plus rentable en valeur absolue.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Le découvert est-il une bonne solution pour financer le BFR ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non, lorsqu'il s'agit d'un BFR structurel. Le découvert est une ressource courte, le BFR permanent est un besoin long. Le règlement n° 14-03 classe d'ailleurs en créances à problèmes potentiels les soldes débiteurs de comptes courants qui, pendant une période de 90 à 180 jours, n'ont pas enregistré de mouvements créditeurs couvrant la totalité des agios et une partie significative de ces soldes.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Le découvert est-il une bonne solution pour financer le BFR ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Non, lorsqu'il s'agit d'un BFR structurel. Le découvert est une ressource courte, le BFR permanent est un besoin long. Le règlement n° 14-03 classe d'ailleurs en créances à problèmes potentiels les soldes débiteurs de comptes courants qui, pendant une période de 90 à 180 jours, n'ont pas enregistré de mouvements créditeurs couvrant la totalité des agios et une partie significative de ces soldes.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel levier agit le plus vite sur le BFR ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le délai de facturation. Le temps qui sépare la livraison de l'émission de la facture est du besoin en fonds de roulement pur, entièrement sous le contrôle de l'entreprise et sans coût de correction. Vient ensuite la relance avant échéance, dont l'effet sur le délai client moyen se mesure en quelques semaines.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Quel levier agit le plus vite sur le BFR ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Le délai de facturation. Le temps qui sépare la livraison de l'émission de la facture est du besoin en fonds de roulement pur, entièrement sous le contrôle de l'entreprise et sans coût de correction. Vient ensuite la relance avant échéance, dont l'effet sur le délai client moyen se mesure en quelques semaines.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien de jours de BFR est-ce trop ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Il n'existe pas de seuil universel : le niveau normal dépend du secteur, du modèle commercial et de la saisonnalité. Ce qui est significatif, c'est l'évolution du BFR rapporté au chiffre d'affaires d'un exercice à l'autre, et sa comparaison avec les ressources permanentes disponibles pour le financer.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Combien de jours de BFR est-ce trop ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Il n'existe pas de seuil universel : le niveau normal dépend du secteur, du modèle commercial et de la saisonnalité. Ce qui est significatif, c'est l'évolution du BFR rapporté au chiffre d'affaires d'un exercice à l'autre, et sa comparaison avec les ressources permanentes disponibles pour le financer.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -582,28 +594,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>How can I access my Credit Register report free of charge in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 15 of Regulation no. 12-01 of 20 February 2012 provides that any borrower may access, free of charge, the data recorded concerning them. The right is exercised with the declaring institution, and may also be exercised at the offices of the Bank of Algeria in the borrower's wilaya of residence.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>How can I access my Credit Register report free of charge in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Article 15 of Regulation no. 12-01 of 20 February 2012 provides that any borrower may access, free of charge, the data recorded concerning them. The right is exercised with the declaring institution, and may also be exercised at the offices of the Bank of Algeria in the borrower's wilaya of residence.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can I have incorrect information about me corrected?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. The same Article 15 allows you to request that the declaring institution rectify erroneous data. Once corrected, the institution must communicate the rectified data to the Credit Register, which informs the institutions that had consulted your credit report.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Can I have incorrect information about me corrected?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Yes. The same Article 15 allows you to request that the declaring institution rectify erroneous data. Once corrected, the institution must communicate the rectified data to the Credit Register, which informs the institutions that had consulted your credit report.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How long does a payment incident stay visible?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The retention period may not be less than five years. For negative data it runs from the date the payment incident was declared; for positive data, from the extinction of the debt.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How long does a payment incident stay visible?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>The retention period may not be less than five years. For negative data it runs from the date the payment incident was declared; for positive data, from the extinction of the debt.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Will the next bank see that I was refused?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The Credit Register records granted credits, their outstanding balances, the collateral taken and unrepaid amounts — not refusal decisions as such. However, Article 13 requires institutions to consult the Register before granting credit to a new client: the next bank will therefore see the same indebtedness position and the same incidents as the previous one.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Will the next bank see that I was refused?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The Credit Register records granted credits, their outstanding balances, the collateral taken and unrepaid amounts — not refusal decisions as such. However, Article 13 requires institutions to consult the Register before granting credit to a new client: the next bank will therefore see the same indebtedness position and the same incidents as the previous one.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is rescheduling enough to unlock new financing?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Not immediately. Regulation no. 14-03 requires a restructured claim to be kept in its classified category for at least twelve months. A return to current status can only be considered afterwards, provided the new schedule is respected and interest is effectively collected.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Is rescheduling enough to unlock new financing?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Not immediately. Regulation no. 14-03 requires a restructured claim to be kept in its classified category for at least twelve months. A return to current status can only be considered afterwards, provided the new schedule is respected and interest is effectively collected.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Should I file the same application with several banks at once?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">It is not advisable. Every institution consults the Credit Register before granting credit to a new client, and the consolidated indebtedness position is visible there. It is better to fix the cause of the first refusal, then target an institution whose envelope is available.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Should I file the same application with several banks at once?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>It is not advisable. Every institution consults the Credit Register before granting credit to a new client, and the consolidated indebtedness position is visible there. It is better to fix the cause of the first refusal, then target an institution whose envelope is available.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

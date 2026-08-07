@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -637,28 +649,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the legal difference between an investment loan and leasing in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Ordinance no. 96-09 of 10 January 1996 classifies leasing as a credit operation (Article 2), but Article 19 specifies that the lessor remains the owner of the leased asset for the whole term of the contract, until the lessee exercises the purchase option. Under an investment loan the company owns the asset from acquisition and the bank holds only a security interest.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the legal difference between an investment loan and leasing in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Ordinance no. 96-09 of 10 January 1996 classifies leasing as a credit operation (Article 2), but Article 19 specifies that the lessor remains the owner of the leased asset for the whole term of the contract, until the lessee exercises the purchase option. Under an investment loan the company owns the asset from acquisition and the bank holds only a security interest.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the difference between a finance lease and an operating lease?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Under Article 2 of Ordinance 96-09, a lease is a finance lease if the contract transfers to the lessee all rights, obligations, advantages, disadvantages and risks attached to ownership of the asset, if it cannot be terminated, and if it guarantees the lessor recovery of its capital outlay. It is an operating lease where all or substantially all of those elements remain with the lessor.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What is the difference between a finance lease and an operating lease?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Under Article 2 of Ordinance 96-09, a lease is a finance lease if the contract transfers to the lessee all rights, obligations, advantages, disadvantages and risks attached to ownership of the asset, if it cannot be terminated, and if it guarantees the lessor recovery of its capital outlay. It is an operating lease where all or substantially all of those elements remain with the lessor.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What must a movable-asset leasing contract state?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 11 of Ordinance 96-09 requires, on pain of the contract losing its classification as a finance lease, that it state the rental term, the rentals, the purchase option granted to the lessee at the end of the contract, and the residual value of the acquisition price of the leased asset.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What must a movable-asset leasing contract state?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Article 11 of Ordinance 96-09 requires, on pain of the contract losing its classification as a finance lease, that it state the rental term, the rentals, the purchase option granted to the lessee at the end of the contract, and the residual value of the acquisition price of the leased asset.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if I miss a single rental instalment on a lease?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 20 of Ordinance 96-09 allows the lessor, after 15 clear days' notice or formal demand, to terminate the right of use and recover the asset amicably or by a simple order not subject to appeal, where a single rental instalment goes unpaid. Non-payment of a single instalment constitutes wrongful termination of the contract.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>What happens if I miss a single rental instalment on a lease?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Article 20 of Ordinance 96-09 allows the lessor, after 15 clear days' notice or formal demand, to terminate the right of use and recover the asset amicably or by a simple order not subject to appeal, where a single rental instalment goes unpaid. Non-payment of a single instalment constitutes wrongful termination of the contract.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is leasing more expensive than an investment loan?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Not necessarily, and comparing total amounts paid does not settle the question. You must compare the present values of after-tax cash outflows, own contribution included. In the worked example in this article — 10 million dinars over 5 years — the loan is DZD 344,206 cheaper in present value, but ties up 3 million dinars immediately: leasing becomes preferable as soon as that freed contribution earns more than 2.2% a year inside the business.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Is leasing more expensive than an investment loan?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Not necessarily, and comparing total amounts paid does not settle the question. You must compare the present values of after-tax cash outflows, own contribution included. In the worked example in this article — 10 million dinars over 5 years — the loan is DZD 344,206 cheaper in present value, but ties up 3 million dinars immediately: leasing becomes preferable as soon as that freed contribution earns more than 2.2% a year inside the business.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What are the options at the end of a leasing contract?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 16 of Ordinance 96-09 leaves the lessee, at the end of the irrevocable period and at its sole discretion, three possibilities: buy the leased asset at the residual value set in the contract, renew the lease for a term and rental to be agreed between the parties, or return the asset to the lessor.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>What are the options at the end of a leasing contract?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Article 16 of Ordinance 96-09 leaves the lessee, at the end of the irrevocable period and at its sole discretion, three possibilities: buy the leased asset at the residual value set in the contract, renew the lease for a term and rental to be agreed between the parties, or return the asset to the lessor.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

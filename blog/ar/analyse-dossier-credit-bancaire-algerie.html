@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -634,28 +646,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>لماذا يرفض بنكي ملفاً قد يقبله بنك آخر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لأن السقوف الاحترازية تُقدَّر على مستوى البنك لا على مستوى الملف. فالنظام رقم 14-02 يفرض نسبة قصوى قدرها 25 % بين المخاطر الصافية المرجَّحة المتحمَّلة على مستفيد واحد والأموال الخاصة التنظيمية للمؤسسة، ويحدّد سقف مجموع المخاطر الكبرى بثمانية أضعاف تلك الأموال. فالبنك القريب من سقوفه، أو المتعرّض أصلاً على قطاعك، قد يرفض ملفاً يموّله بنك آخر دون عناء.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>لماذا يرفض بنكي ملفاً قد يقبله بنك آخر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>لأن السقوف الاحترازية تُقدَّر على مستوى البنك لا على مستوى الملف. فالنظام رقم 14-02 يفرض نسبة قصوى قدرها 25 % بين المخاطر الصافية المرجَّحة المتحمَّلة على مستفيد واحد والأموال الخاصة التنظيمية للمؤسسة، ويحدّد سقف مجموع المخاطر الكبرى بثمانية أضعاف تلك الأموال. فالبنك القريب من سقوفه، أو المتعرّض أصلاً على قطاعك، قد يرفض ملفاً يموّله بنك آخر دون عناء.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل تُحلَّل شركاتي المختلفة كلٌّ على حدة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ليس بالضرورة. يعرّف النظام رقم 14-02 «المستفيد الواحد» بأنه يشمل الأشخاص المرتبطين، ويفترض وجود هذه الصلات بين كيانات المجموعة الواحدة، والأشخاص الخاضعين لإدارة فعلية مشتركة، ومن تجمعهم علاقات أعمال غالبة كالمناولة، ومن يرتبطون بضمانات متقاطعة. ويُقدَّر السقف حينها على المجموع المُجمَّع.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل تُحلَّل شركاتي المختلفة كلٌّ على حدة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>ليس بالضرورة. يعرّف النظام رقم 14-02 «المستفيد الواحد» بأنه يشمل الأشخاص المرتبطين، ويفترض وجود هذه الصلات بين كيانات المجموعة الواحدة، والأشخاص الخاضعين لإدارة فعلية مشتركة، ومن تجمعهم علاقات أعمال غالبة كالمناولة، ومن يرتبطون بضمانات متقاطعة. ويُقدَّر السقف حينها على المجموع المُجمَّع.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ابتداءً من كم يوماً من التأخّر يُصنَّف دَيني؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يُصنَّف الدَّين متى انطوى على خطر محتمل أو أكيد لعدم التحصيل، أو كانت عليه متأخّرات منذ أكثر من ثلاثة أشهر. ويعتمد النظام رقم 14-03 عتبة 90 يوماً لفئة «ذات مشاكل محتملة» (مؤونة دنيا 20 %)، و180 يوماً لـ«عالية الخطورة» (50 %)، و360 يوماً لـ«معدومة الاسترداد» (100 %).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ابتداءً من كم يوماً من التأخّر يُصنَّف دَيني؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يُصنَّف الدَّين متى انطوى على خطر محتمل أو أكيد لعدم التحصيل، أو كانت عليه متأخّرات منذ أكثر من ثلاثة أشهر. ويعتمد النظام رقم 14-03 عتبة 90 يوماً لفئة «ذات مشاكل محتملة» (مؤونة دنيا 20 %)، و180 يوماً لـ«عالية الخطورة» (50 %)، و360 يوماً لـ«معدومة الاسترداد» (100 %).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>لماذا يطلب البنك ضماناً يفوق مبلغ القرض؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لأن الضمانات لا تُقبل إلا في حدود حصّة يحدّدها النظام رقم 14-03. فالرهون العقارية ورهون المركبات لا تُحتسب إلا بـ50 % من قيمتها، مقابل 80 % لضمان بنكي أو ضمان هيئة لتأمين القروض معتمَدة في الجزائر، و100 % لوديعة لدى البنك المُقرِض أو ضمان من الدولة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>لماذا يطلب البنك ضماناً يفوق مبلغ القرض؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>لأن الضمانات لا تُقبل إلا في حدود حصّة يحدّدها النظام رقم 14-03. فالرهون العقارية ورهون المركبات لا تُحتسب إلا بـ50 % من قيمتها، مقابل 80 % لضمان بنكي أو ضمان هيئة لتأمين القروض معتمَدة في الجزائر، و100 % لوديعة لدى البنك المُقرِض أو ضمان من الدولة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل تمحو إعادة الجدولة حادث السداد؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. يجب إبقاء الدَّين المصنَّف المعاد جدولته في فئته اثني عشر شهراً على الأقل. ولا يمكن النظر في العودة إلى دَين جارٍ إلا بعد هذا الأجل، شريطة احترام الرزنامة الجديدة والتحصيل الفعلي للفوائد. وعند وقوع تأخّر جديد، يُصنَّف الدَّين بكامله كدَين معدوم الاسترداد بعد 90 يوماً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل تمحو إعادة الجدولة حادث السداد؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>لا. يجب إبقاء الدَّين المصنَّف المعاد جدولته في فئته اثني عشر شهراً على الأقل. ولا يمكن النظر في العودة إلى دَين جارٍ إلا بعد هذا الأجل، شريطة احترام الرزنامة الجديدة والتحصيل الفعلي للفوائد. وعند وقوع تأخّر جديد، يُصنَّف الدَّين بكامله كدَين معدوم الاسترداد بعد 90 يوماً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل ما زالت هذه الأنظمة سارية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نُشرت الأنظمة رقم 14-01 و14-02 و14-03 المؤرخة في 16 فيفري 2014 في الجريدة الرسمية رقم 56 لسنة 2014، وهي سارية منذ 1 أكتوبر 2014. وقد تمّ التحقّق من هذا المقال في التاريخ المبيَّن في كتلة المصادر أدناه؛ ويُنصح بتأكيد حالة النصوص لدى بنكك أو على موقع بنك الجزائر قبل أي قرار.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل ما زالت هذه الأنظمة سارية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>نُشرت الأنظمة رقم 14-01 و14-02 و14-03 المؤرخة في 16 فيفري 2014 في الجريدة الرسمية رقم 56 لسنة 2014، وهي سارية منذ 1 أكتوبر 2014. وقد تمّ التحقّق من هذا المقال في التاريخ المبيَّن في كتلة المصادر أدناه؛ ويُنصح بتأكيد حالة النصوص لدى بنكك أو على موقع بنك الجزائر قبل أي قرار.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

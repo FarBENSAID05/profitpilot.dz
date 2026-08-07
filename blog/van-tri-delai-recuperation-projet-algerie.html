@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -593,28 +605,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle est la différence entre la VAN et le TRI ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La VAN mesure la valeur créée par le projet, exprimée en dinars, une fois les flux futurs actualisés à un taux choisi. Le TRI mesure le rendement propre du projet, exprimé en pourcentage : c'est le taux qui rendrait la VAN nulle. La VAN dépend du taux retenu, le TRI n'en dépend pas — mais il doit lui être comparé pour être interprété.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quelle est la différence entre la VAN et le TRI ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>La VAN mesure la valeur créée par le projet, exprimée en dinars, une fois les flux futurs actualisés à un taux choisi. Le TRI mesure le rendement propre du projet, exprimé en pourcentage : c'est le taux qui rendrait la VAN nulle. La VAN dépend du taux retenu, le TRI n'en dépend pas — mais il doit lui être comparé pour être interprété.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment choisir le taux d&#x27;actualisation ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le taux représente le rendement minimal exigé compte tenu du coût des ressources mobilisées et du risque du projet. Il se construit généralement à partir du coût moyen du financement, apport et crédit confondus, majoré d'une prime de risque liée à l'activité. Aucun des textes examinés ne fixe de taux réglementaire : il doit donc être explicité et justifié dans l'étude.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Comment choisir le taux d&#x27;actualisation ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Le taux représente le rendement minimal exigé compte tenu du coût des ressources mobilisées et du risque du projet. Il se construit généralement à partir du coût moyen du financement, apport et crédit confondus, majoré d'une prime de risque liée à l'activité. Aucun des textes examinés ne fixe de taux réglementaire : il doit donc être explicité et justifié dans l'étude.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi le délai de récupération actualisé est-il plus long que le délai simple ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce qu'il tient compte du coût du temps. Chaque flux futur est réduit avant d'être cumulé, ce qui repousse mécaniquement le moment où le cumul atteint le montant investi. Le délai actualisé est le seul cohérent avec la VAN et le TRI.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Pourquoi le délai de récupération actualisé est-il plus long que le délai simple ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Parce qu'il tient compte du coût du temps. Chaque flux futur est réduit avant d'être cumulé, ce qui repousse mécaniquement le moment où le cumul atteint le montant investi. Le délai actualisé est le seul cohérent avec la VAN et le TRI.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un projet avec une VAN positive est-il toujours acceptable ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Une VAN positive signifie que le projet crée de la valeur au taux retenu. Elle ne dit rien de la marge de sécurité : si le TRI est très proche du coût du financement, une variation modeste des hypothèses suffit à faire basculer la VAN. C'est pourquoi les quatre indicateurs se lisent ensemble, et non isolément.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Un projet avec une VAN positive est-il toujours acceptable ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Une VAN positive signifie que le projet crée de la valeur au taux retenu. Elle ne dit rien de la marge de sécurité : si le TRI est très proche du coût du financement, une variation modeste des hypothèses suffit à faire basculer la VAN. C'est pourquoi les quatre indicateurs se lisent ensemble, et non isolément.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Ces indicateurs sont-ils obligatoires dans un dossier d&#x27;investissement en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La partie VI du plan-type figurant à l'annexe V du décret exécutif n° 26-154 du 14 avril 2026 exige une analyse de rentabilité comportant le TRI, la VAN, le seuil de rentabilité et le taux de marge, en complément d'un compte de résultat, d'un tableau de trésorerie et d'un bilan prévisionnels sur trois à cinq ans.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Ces indicateurs sont-ils obligatoires dans un dossier d&#x27;investissement en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>La partie VI du plan-type figurant à l'annexe V du décret exécutif n° 26-154 du 14 avril 2026 exige une analyse de rentabilité comportant le TRI, la VAN, le seuil de rentabilité et le taux de marge, en complément d'un compte de résultat, d'un tableau de trésorerie et d'un bilan prévisionnels sur trois à cinq ans.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Sur combien d&#x27;années faut-il projeter les flux ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le plan-type de l'annexe V retient un horizon de trois à cinq ans pour les états prévisionnels. Au-delà, la fiabilité des hypothèses décroît fortement ; en deçà, un projet dont la rentabilité s'établit tardivement n'est pas correctement représenté.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Sur combien d&#x27;années faut-il projeter les flux ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Le plan-type de l'annexe V retient un horizon de trois à cinq ans pour les états prévisionnels. Au-delà, la fiabilité des hypothèses décroît fortement ; en deçà, un projet dont la rentabilité s'établit tardivement n'est pas correctement représenté.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -599,28 +611,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>How long is a plot displayed on the digital platform?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 4 of Executive Decree no. 23-487, as amended by Decree no. 26-154, sets the display period at thirty days. Registered applications are then processed within a period not exceeding fifteen days from expiry of the display period, and submitted to the board at its next session.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>How long is a plot displayed on the digital platform?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Article 4 of Executive Decree no. 23-487, as amended by Decree no. 26-154, sets the display period at thirty days. Registered applications are then processed within a period not exceeding fifteen days from expiry of the display period, and submitted to the board at its next session.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a foreign investor apply for economic land?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. The text provides that any natural or legal person, domestic or foreign, resident or non-resident within the meaning of Law no. 22-18 on investment, holding an investment project, may apply for a mutual-agreement concession convertible to sale of a property forming part of the State's private domain.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Can a foreign investor apply for economic land?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Yes. The text provides that any natural or legal person, domestic or foreign, resident or non-resident within the meaning of Law no. 22-18 on investment, holding an investment project, may apply for a mutual-agreement concession convertible to sale of a property forming part of the State's private domain.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>When does the award decision become final?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The provisional decision becomes final only after expiry of the appeal periods provided for by Presidential Decree no. 22-296 of 4 September 2022. The beneficiary is then invited to contact the territorially competent one-stop shop within a period not exceeding fifteen days to collect it.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>When does the award decision become final?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>The provisional decision becomes final only after expiry of the appeal periods provided for by Presidential Decree no. 22-296 of 4 September 2022. The beneficiary is then invited to contact the territorially competent one-stop shop within a period not exceeding fifteen days to collect it.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the deadline for filing the building permit application?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The standard specifications provide that the concession holder must file the building permit application at the territorially competent one-stop shop within a period not exceeding two months from issuance of the concession deed. Works must start within a period not exceeding six months from obtaining the permit.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>What is the deadline for filing the building permit application?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The standard specifications provide that the concession holder must file the building permit application at the territorially competent one-stop shop within a period not exceeding two months from issuance of the concession deed. Works must start within a period not exceeding six months from obtaining the permit.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How long does converting a concession into a sale take?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The request is processed within a period not exceeding three months from the date of receipt. The state property representative at the one-stop shop then draws up the sale deed within a period not exceeding fifteen days from transmission of the file.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>How long does converting a concession into a sale take?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>The request is processed within a period not exceeding three months from the date of receipt. The state property representative at the one-stop shop then draws up the sale deed within a period not exceeding fifteen days from transmission of the file.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if the fee is paid late?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The concession holder has fifteen days from receipt of the payment order to settle the annual rental fee. Beyond that, the state property collector gives formal notice to pay within eight days the amount increased by a 5% penalty. Failing which, the collector refers the matter to the Agency's one-stop shop to terminate the concession.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>What happens if the fee is paid late?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>The concession holder has fifteen days from receipt of the payment order to settle the annual rental fee. Beyond that, the state property collector gives formal notice to pay within eight days the amount increased by a 5% penalty. Failing which, the collector refers the matter to the Agency's one-stop shop to terminate the concession.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

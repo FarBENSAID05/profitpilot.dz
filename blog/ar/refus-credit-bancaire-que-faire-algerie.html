@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -582,28 +594,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف أطّلع مجاناً على تقريري لدى مركزية المخاطر في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنصّ المادة 15 من النظام رقم 12-01 المؤرخ في 20 فيفري 2012 على أنه يمكن لكل مقترض أن يطّلع دون مصاريف على المعطيات المسجَّلة التي تخصّه. ويُمارَس هذا الحقّ لدى المؤسسة المصرِّحة، كما يمكن ممارسته لدى مصالح مقرّ بنك الجزائر بولاية الإقامة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>كيف أطّلع مجاناً على تقريري لدى مركزية المخاطر في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>تنصّ المادة 15 من النظام رقم 12-01 المؤرخ في 20 فيفري 2012 على أنه يمكن لكل مقترض أن يطّلع دون مصاريف على المعطيات المسجَّلة التي تخصّه. ويُمارَس هذا الحقّ لدى المؤسسة المصرِّحة، كما يمكن ممارسته لدى مصالح مقرّ بنك الجزائر بولاية الإقامة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكنني تصحيح معلومة خاطئة تخصّني؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. تتيح المادة 15 نفسها أن تطلب من المؤسسة المصرِّحة تصحيح المعطيات الخاطئة. وبعد التصحيح، يجب على المؤسسة أن تبلّغ المعطيات المصحَّحة إلى مركزية المخاطر، التي تُعلِم المؤسسات التي اطّلعت على تقرير قروضك.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل يمكنني تصحيح معلومة خاطئة تخصّني؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>نعم. تتيح المادة 15 نفسها أن تطلب من المؤسسة المصرِّحة تصحيح المعطيات الخاطئة. وبعد التصحيح، يجب على المؤسسة أن تبلّغ المعطيات المصحَّحة إلى مركزية المخاطر، التي تُعلِم المؤسسات التي اطّلعت على تقرير قروضك.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم يبقى حادث السداد ظاهراً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا يمكن أن يقلّ أجل الحفظ عن خمس سنوات. وبالنسبة للمعطيات السلبية يسري ابتداءً من تاريخ التصريح بحادث السداد؛ وبالنسبة للمعطيات الإيجابية ابتداءً من انقضاء الدَّين.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>كم يبقى حادث السداد ظاهراً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لا يمكن أن يقلّ أجل الحفظ عن خمس سنوات. وبالنسبة للمعطيات السلبية يسري ابتداءً من تاريخ التصريح بحادث السداد؛ وبالنسبة للمعطيات الإيجابية ابتداءً من انقضاء الدَّين.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل سيرى البنك الموالي أنني رُفضت؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تسجّل مركزية المخاطر القروض الممنوحة وأرصدتها والضمانات المأخوذة والمبالغ غير المسدَّدة — لا قرارات الرفض بحدّ ذاتها. غير أنّ المادة 13 تُلزِم المؤسسات باستشارة المركزية قبل منح قروض لزبون جديد: فالبنك الموالي سيرى إذاً وضعية المديونية نفسها والحوادث نفسها التي رآها السابق.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل سيرى البنك الموالي أنني رُفضت؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>تسجّل مركزية المخاطر القروض الممنوحة وأرصدتها والضمانات المأخوذة والمبالغ غير المسدَّدة — لا قرارات الرفض بحدّ ذاتها. غير أنّ المادة 13 تُلزِم المؤسسات باستشارة المركزية قبل منح قروض لزبون جديد: فالبنك الموالي سيرى إذاً وضعية المديونية نفسها والحوادث نفسها التي رآها السابق.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل تكفي إعادة الجدولة لفتح تمويل جديد؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ليس فوراً. يفرض النظام رقم 14-03 إبقاء الدَّين المعاد جدولته في فئة الديون المصنَّفة اثني عشر شهراً على الأقل. ولا يمكن النظر في العودة إلى دَين جارٍ إلا بعد ذلك، شريطة احترام الرزنامة الجديدة والتحصيل الفعلي للفوائد.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل تكفي إعادة الجدولة لفتح تمويل جديد؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>ليس فوراً. يفرض النظام رقم 14-03 إبقاء الدَّين المعاد جدولته في فئة الديون المصنَّفة اثني عشر شهراً على الأقل. ولا يمكن النظر في العودة إلى دَين جارٍ إلا بعد ذلك، شريطة احترام الرزنامة الجديدة والتحصيل الفعلي للفوائد.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يجب إيداع الملف نفسه لدى عدّة بنوك في آن واحد؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">غير مُستحسَن. فكل مؤسسة تستشير مركزية المخاطر قبل منح قرض لزبون جديد، ووضعية المديونية المجمَّعة ظاهرة فيها. والأفضل تصحيح سبب الرفض الأول، ثم استهداف مؤسسة تتوفّر لديها الحصّة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل يجب إيداع الملف نفسه لدى عدّة بنوك في آن واحد؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>غير مُستحسَن. فكل مؤسسة تستشير مركزية المخاطر قبل منح قرض لزبون جديد، ووضعية المديونية المجمَّعة ظاهرة فيها. والأفضل تصحيح سبب الرفض الأول، ثم استهداف مؤسسة تتوفّر لديها الحصّة.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

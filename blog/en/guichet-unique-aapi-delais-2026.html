@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -578,28 +590,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the legal deadline for issuing investment authorisations in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 30 of Executive Decree no. 26-153 of 14 April 2026 provides that the authorisations and documents required to implement investment projects are issued at the one-stop shops within a period not exceeding fifteen days from receipt of the files. Prior approval decisions for creating classified establishments in categories 1, 2 and 3 have a maximum period of twenty days.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the legal deadline for issuing investment authorisations in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Article 30 of Executive Decree no. 26-153 of 14 April 2026 provides that the authorisations and documents required to implement investment projects are issued at the one-stop shops within a period not exceeding fifteen days from receipt of the files. Prior approval decisions for creating classified establishments in categories 1, 2 and 3 have a maximum period of twenty days.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the difference between the national one-stop shop and the decentralised ones?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The one-stop shop for large projects and foreign investments has national jurisdiction. The decentralised one-stop shops have local jurisdiction over investments other than those falling to the national shop. The latter are set up by the Agency as required, after board deliberation and approval by the supervisory authority.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What is the difference between the national one-stop shop and the decentralised ones?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>The one-stop shop for large projects and foreign investments has national jurisdiction. The decentralised one-stop shops have local jurisdiction over investments other than those falling to the national shop. The latter are set up by the Agency as required, after board deliberation and approval by the supervisory authority.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Are documents obtained at the one-stop shop valid everywhere?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. Article 24 of the decree provides that documents issued by the representatives of administrations and other bodies within the one-stop shop are enforceable against the administrations and bodies concerned. Article 22 gives them delegated authority to sign and issue those acts on behalf of the authorities to which they belong.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Are documents obtained at the one-stop shop valid everywhere?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Yes. Article 24 of the decree provides that documents issued by the representatives of administrations and other bodies within the one-stop shop are enforceable against the administrations and bodies concerned. Article 22 gives them delegated authority to sign and issue those acts on behalf of the authorities to which they belong.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which administrations are present at the one-stop shop?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The national trade register centre, the tax administration, the state property administration, urban planning, the environment, civil protection, energy, the Algerian electricity and gas distribution company, the bodies responsible for labour, employment and social security, and banks and financial institutions. The customs administration appoints a permanent representative to the national shop.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Which administrations are present at the one-stop shop?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The national trade register centre, the tax administration, the state property administration, urban planning, the environment, civil protection, energy, the Algerian electricity and gas distribution company, the bodies responsible for labour, employment and social security, and banks and financial institutions. The customs administration appoints a permanent representative to the national shop.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can the tax identification number be obtained on site?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 27 provides that the tax administration's representative is responsible for handling the formalities relating to the opening of the tax file and the allocation of the tax identification number, and for signing and issuing the related documents on the spot.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Can the tax identification number be obtained on site?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Article 27 provides that the tax administration's representative is responsible for handling the formalities relating to the opening of the tax file and the allocation of the tax identification number, and for signing and issuing the related documents on the spot.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Where are project-related duties and taxes paid?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">At the one-stop shop. Article 29 provides that the collection of all duties, taxes and fees for issuing authorisations and any other document connected with the realisation of the project takes place at the one-stop shop.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Where are project-related duties and taxes paid?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>At the one-stop shop. Article 29 provides that the collection of all duties, taxes and fees for issuing authorisations and any other document connected with the realisation of the project takes place at the one-stop shop.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

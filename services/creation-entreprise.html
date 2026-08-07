@@ -214,8 +214,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -561,28 +573,28 @@
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on rédiger ses statuts soi-même ou en ligne en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Non. L'article 545 du code de commerce dispose que la société est, <strong>à peine de nullité</strong>, constatée par acte authentique. Des statuts sous seing privé, quelle qu'en soit la qualité de rédaction, ne constituent pas une société. C'est la différence majeure avec les plateformes juridiques françaises, où l'acte sous seing privé est admis. En Algérie, le passage par le notaire n'est pas une option de confort.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Peut-on rédiger ses statuts soi-même ou en ligne en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Non. L'article 545 du code de commerce dispose que la société est, <strong>à peine de nullité</strong>, constatée par acte authentique. Des statuts sous seing privé, quelle qu'en soit la qualité de rédaction, ne constituent pas une société. C'est la différence majeure avec les plateformes juridiques françaises, où l'acte sous seing privé est admis. En Algérie, le passage par le notaire n'est pas une option de confort.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le capital minimum pour créer une SARL en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Il n'y en a plus. L'article 566 du code de commerce, tel que modifié par la loi n° 15-20 du 30 décembre 2015, laisse le capital social <strong>librement fixé par les associés dans les statuts</strong>. Le montant de 100 000 DA que l'on trouve encore dans de nombreux guides correspond à la rédaction antérieure à 2015. Cela ne signifie pas qu'un capital symbolique soit un bon choix : il sera lu comme tel par une banque ou un donneur d'ordre.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel est le capital minimum pour créer une SARL en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>Il n'y en a plus. L'article 566 du code de commerce, tel que modifié par la loi n° 15-20 du 30 décembre 2015, laisse le capital social <strong>librement fixé par les associés dans les statuts</strong>. Le montant de 100 000 DA que l'on trouve encore dans de nombreux guides correspond à la rédaction antérieure à 2015. Cela ne signifie pas qu'un capital symbolique soit un bon choix : il sera lu comme tel par une banque ou un donneur d'ordre.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Faut-il verser tout le capital à la constitution ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Non pour les apports en numéraire : les parts doivent être libérées d'au moins <strong>un cinquième</strong>, le solde pouvant être appelé en une ou plusieurs fois sur décision du gérant, dans un délai maximal de <strong>cinq ans</strong> à compter de l'immatriculation (article 567, modifié par la loi 15-20). Les apports en nature, en revanche, sont intégralement libérés dès la constitution.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Faut-il verser tout le capital à la constitution ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Non pour les apports en numéraire : les parts doivent être libérées d'au moins <strong>un cinquième</strong>, le solde pouvant être appelé en une ou plusieurs fois sur décision du gérant, dans un délai maximal de <strong>cinq ans</strong> à compter de l'immatriculation (article 567, modifié par la loi 15-20). Les apports en nature, en revanche, sont intégralement libérés dès la constitution.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>À partir de quand la société existe-t-elle juridiquement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>À compter de son <strong>immatriculation au registre du commerce</strong>, et non de la signature des statuts (article 549). C'est une nuance lourde de conséquences : les engagements pris au nom de la société avant cette date engagent solidairement et indéfiniment le patrimoine personnel de ceux qui les ont souscrits, sauf reprise régulière par la société une fois immatriculée.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>À partir de quand la société existe-t-elle juridiquement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>À compter de son <strong>immatriculation au registre du commerce</strong>, et non de la signature des statuts (article 549). C'est une nuance lourde de conséquences : les engagements pris au nom de la société avant cette date engagent solidairement et indéfiniment le patrimoine personnel de ceux qui les ont souscrits, sauf reprise régulière par la société une fois immatriculée.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si la constitution s&#x27;éternise après le dépôt des fonds ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>L'article 567 bis 1, ajouté par la loi 15-20, ouvre à <strong>tout souscripteur</strong> le droit de demander au notaire le retrait de sa souscription si la société n'est pas constituée dans les <strong>six mois du dépôt des fonds</strong> ; à défaut, le juge des référés peut autoriser ce retrait. Le délai court à compter du dépôt, ce qui plaide pour ne déposer qu'une fois le reste du dossier prêt.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Que se passe-t-il si la constitution s&#x27;éternise après le dépôt des fonds ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>L'article 567 bis 1, ajouté par la loi 15-20, ouvre à <strong>tout souscripteur</strong> le droit de demander au notaire le retrait de sa souscription si la société n'est pas constituée dans les <strong>six mois du dépôt des fonds</strong> ; à défaut, le juge des référés peut autoriser ce retrait. Le délai court à compter du dépôt, ce qui plaide pour ne déposer qu'une fois le reste du dossier prêt.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien coûte la création d&#x27;une société en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Les frais officiels — droits d'enregistrement, émoluments notariaux, publication et immatriculation — dépendent de la wilaya, de l'étude notariale et de la loi de finances applicable, et les montants publiés en ligne sont discordants entre eux. Nous ne reprenons aucun chiffre que nous n'avons pas vérifié sur un texte. Le chiffrage complet, frais officiels et honoraires distingués, est établi sur devis une fois la forme et le capital arrêtés.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Combien coûte la création d&#x27;une société en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden><p>Les frais officiels — droits d'enregistrement, émoluments notariaux, publication et immatriculation — dépendent de la wilaya, de l'étude notariale et de la loi de finances applicable, et les montants publiés en ligne sont discordants entre eux. Nous ne reprenons aucun chiffre que nous n'avons pas vérifié sur un texte. Le chiffrage complet, frais officiels et honoraires distingués, est établi sur devis une fois la forme et le capital arrêtés.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -616,28 +628,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le score maximal de la grille d&#x27;évaluation du foncier économique ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le score maximal est de 1500 points. Il se répartit entre huit critères affectés de coefficients allant de 1 à 7 : nature de l'activité (420 points), montant de l'investissement (360), emploi (300), montant des apports en fonds propres (200), extension de l'investissement (70), pérennité de l'emploi (60), contenu local (60) et contribution à la diversification des exportations (30).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel est le score maximal de la grille d&#x27;évaluation du foncier économique ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Le score maximal est de 1500 points. Il se répartit entre huit critères affectés de coefficients allant de 1 à 7 : nature de l'activité (420 points), montant de l'investissement (360), emploi (300), montant des apports en fonds propres (200), extension de l'investissement (70), pérennité de l'emploi (60), contenu local (60) et contribution à la diversification des exportations (30).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel critère pèse le plus lourd ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La nature de l'activité, avec un coefficient de 7 et un score maximal de 420 points, soit 28 % du total. Le classement en priorité 1, 2 ou 3 est déterminé par l'Agence en concertation avec les secteurs concernés et les walis, et figure sur la fiche technique accompagnant l'affichage du bien immobilier sur la plate-forme numérique de l'investisseur.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel critère pèse le plus lourd ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>La nature de l'activité, avec un coefficient de 7 et un score maximal de 420 points, soit 28 % du total. Le classement en priorité 1, 2 ou 3 est déterminé par l'Agence en concertation avec les secteurs concernés et les walis, et figure sur la fiche technique accompagnant l'affichage du bien immobilier sur la plate-forme numérique de l'investisseur.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment sont sélectionnés les projets après notation ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le classement s'effectue de façon numérique par ordre décroissant du score. L'Agence établit une liste des projets présélectionnés classés dans les trois meilleurs niveaux de score, dont les informations déclarées ont été jugées conformes aux pièces exigées. Cette liste est soumise dans l'anonymat au conseil d'administration, qui décide en tenant compte notamment du score, du coefficient de chaque critère, des paramètres, de l'importance du projet et de son impact sur l'économie nationale.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Comment sont sélectionnés les projets après notation ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Le classement s'effectue de façon numérique par ordre décroissant du score. L'Agence établit une liste des projets présélectionnés classés dans les trois meilleurs niveaux de score, dont les informations déclarées ont été jugées conformes aux pièces exigées. Cette liste est soumise dans l'anonymat au conseil d'administration, qui décide en tenant compte notamment du score, du coefficient de chaque critère, des paramètres, de l'importance du projet et de son impact sur l'économie nationale.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment se calcule le taux d&#x27;intégration ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La note de lecture de la grille précise qu'il se calcule comme la valeur des inputs produits localement rapportée au total des inputs du produit fabriqué. Un taux supérieur à 50 % vaut 60 points, un taux compris entre 25 % et 50 % en vaut 40, un taux inférieur à 25 % en vaut 20, et un taux nul n'en rapporte aucun.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Comment se calcule le taux d&#x27;intégration ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>La note de lecture de la grille précise qu'il se calcule comme la valeur des inputs produits localement rapportée au total des inputs du produit fabriqué. Un taux supérieur à 50 % vaut 60 points, un taux compris entre 25 % et 50 % en vaut 40, un taux inférieur à 25 % en vaut 20, et un taux nul n'en rapporte aucun.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un apport élevé compense-t-il un investissement modeste ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Partiellement. L'écart entre un apport supérieur ou égal à 70 % et un apport inférieur à 30 % représente 120 points, soit l'équivalent d'environ deux tranches du critère « montant de l'investissement ». La grille précise d'ailleurs que la corrélation entre ces deux critères permet de juger de la capacité de l'investisseur à mobiliser les financements nécessaires.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Un apport élevé compense-t-il un investissement modeste ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Partiellement. L'écart entre un apport supérieur ou égal à 70 % et un apport inférieur à 30 % représente 120 points, soit l'équivalent d'environ deux tranches du critère « montant de l'investissement ». La grille précise d'ailleurs que la corrélation entre ces deux critères permet de juger de la capacité de l'investisseur à mobiliser les financements nécessaires.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>La part de CDD influence-t-elle réellement la note ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui, à hauteur de 50 points. Une part de contrats à durée déterminée inférieure à 20 % vaut 60 points, une part comprise entre 20 % et 30 % en vaut 40, et une part égale ou supérieure à 30 % n'en vaut que 10. Ce critère renvoie à l'objectif de création d'emplois pérennes énoncé par la loi n° 22-18 relative à l'investissement.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>La part de CDD influence-t-elle réellement la note ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Oui, à hauteur de 50 points. Une part de contrats à durée déterminée inférieure à 20 % vaut 60 points, une part comprise entre 20 % et 30 % en vaut 40, et une part égale ou supérieure à 30 % n'en vaut que 10. Ce critère renvoie à l'objectif de création d'emplois pérennes énoncé par la loi n° 22-18 relative à l'investissement.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

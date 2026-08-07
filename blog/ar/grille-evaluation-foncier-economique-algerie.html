@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -616,28 +628,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي النقطة القصوى لشبكة تقييم العقار الاقتصادي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">النقطة القصوى هي 1500 نقطة. وتتوزّع على ثمانية معايير بمعاملات تتراوح بين 1 و7: طبيعة النشاط (420 نقطة)، مبلغ الاستثمار (360)، الشغل (300)، مبلغ المساهمة في الأموال الخاصة (200)، توسيع الاستثمار (70)، ديمومة الشغل (60)، المحتوى المحلي (60)، والمساهمة في تنويع الصادرات (30).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما هي النقطة القصوى لشبكة تقييم العقار الاقتصادي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>النقطة القصوى هي 1500 نقطة. وتتوزّع على ثمانية معايير بمعاملات تتراوح بين 1 و7: طبيعة النشاط (420 نقطة)، مبلغ الاستثمار (360)، الشغل (300)، مبلغ المساهمة في الأموال الخاصة (200)، توسيع الاستثمار (70)، ديمومة الشغل (60)، المحتوى المحلي (60)، والمساهمة في تنويع الصادرات (30).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>أي معيار هو الأثقل وزناً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">طبيعة النشاط، بمعامل قدره 7 ونقطة قصوى قدرها 420، أي 28 % من المجموع. وتصنيف الأولوية 1 أو 2 أو 3 تحدّده الوكالة بالتشاور مع القطاعات المعنية والولاة، ويرد في البطاقة التقنية المرافقة لعرض الملك العقاري على المنصة الرقمية للمستثمر.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>أي معيار هو الأثقل وزناً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>طبيعة النشاط، بمعامل قدره 7 ونقطة قصوى قدرها 420، أي 28 % من المجموع. وتصنيف الأولوية 1 أو 2 أو 3 تحدّده الوكالة بالتشاور مع القطاعات المعنية والولاة، ويرد في البطاقة التقنية المرافقة لعرض الملك العقاري على المنصة الرقمية للمستثمر.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف تُنتقى المشاريع بعد التنقيط؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يتمّ الترتيب رقمياً حسب الترتيب التنازلي للنقطة. وتُعدّ الوكالة قائمة المشاريع المنتقاة أولياً والمصنَّفة ضمن أفضل ثلاثة مستويات تنقيط، والتي اعتُبرت معلوماتها المصرَّح بها مطابقة للوثائق المطلوبة. وتُعرَض هذه القائمة دون ذكر الأسماء على مجلس الإدارة الذي يقرّر مع مراعاة النقطة ومعامل كل معيار والبارامترات وأهمية المشروع وأثره على الاقتصاد الوطني.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>كيف تُنتقى المشاريع بعد التنقيط؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يتمّ الترتيب رقمياً حسب الترتيب التنازلي للنقطة. وتُعدّ الوكالة قائمة المشاريع المنتقاة أولياً والمصنَّفة ضمن أفضل ثلاثة مستويات تنقيط، والتي اعتُبرت معلوماتها المصرَّح بها مطابقة للوثائق المطلوبة. وتُعرَض هذه القائمة دون ذكر الأسماء على مجلس الإدارة الذي يقرّر مع مراعاة النقطة ومعامل كل معيار والبارامترات وأهمية المشروع وأثره على الاقتصاد الوطني.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف تُحسَب نسبة الإدماج؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">توضّح ملاحظة قراءة الشبكة أنها تُحسَب بوصفها قيمة المدخلات المنتَجة محلياً منسوبةً إلى مجموع مدخلات المنتج المصنَّع. فنسبة تفوق 50 % تساوي 60 نقطة، ونسبة بين 25 % و50 % تساوي 40، ونسبة دون 25 % تساوي 20، والنسبة المعدومة لا تمنح شيئاً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>كيف تُحسَب نسبة الإدماج؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>توضّح ملاحظة قراءة الشبكة أنها تُحسَب بوصفها قيمة المدخلات المنتَجة محلياً منسوبةً إلى مجموع مدخلات المنتج المصنَّع. فنسبة تفوق 50 % تساوي 60 نقطة، ونسبة بين 25 % و50 % تساوي 40، ونسبة دون 25 % تساوي 20، والنسبة المعدومة لا تمنح شيئاً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل تعوّض مساهمة مرتفعة استثماراً متواضعاً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">جزئياً. فالفارق بين مساهمة تساوي أو تفوق 70 % ومساهمة دون 30 % يمثّل 120 نقطة، أي ما يعادل نحو شريحتين من معيار «مبلغ الاستثمار». وتوضّح الشبكة أصلاً أنّ الترابط بين هذين المعيارين يسمح بالحكم على قدرة المستثمر على تعبئة التمويلات اللازمة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل تعوّض مساهمة مرتفعة استثماراً متواضعاً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>جزئياً. فالفارق بين مساهمة تساوي أو تفوق 70 % ومساهمة دون 30 % يمثّل 120 نقطة، أي ما يعادل نحو شريحتين من معيار «مبلغ الاستثمار». وتوضّح الشبكة أصلاً أنّ الترابط بين هذين المعيارين يسمح بالحكم على قدرة المستثمر على تعبئة التمويلات اللازمة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل تؤثّر نسبة العقود المحددة المدّة فعلاً في النقطة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم، بمقدار 50 نقطة. فنسبة عقود محددة المدّة دون 20 % تساوي 60 نقطة، ونسبة بين 20 % و30 % تساوي 40، ونسبة تساوي أو تفوق 30 % لا تساوي سوى 10. ويحيل هذا المعيار إلى هدف خلق مناصب شغل دائمة الذي نصّ عليه القانون رقم 22-18 المتعلق بالاستثمار.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل تؤثّر نسبة العقود المحددة المدّة فعلاً في النقطة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>نعم، بمقدار 50 نقطة. فنسبة عقود محددة المدّة دون 20 % تساوي 60 نقطة، ونسبة بين 20 % و30 % تساوي 40، ونسبة تساوي أو تفوق 30 % لا تساوي سوى 10. ويحيل هذا المعيار إلى هدف خلق مناصب شغل دائمة الذي نصّ عليه القانون رقم 22-18 المتعلق بالاستثمار.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

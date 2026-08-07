@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -541,24 +553,24 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le premier risque financier d&#x27;une PME algérienne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le risque de liquidité. Une entreprise rentable sur l'exercice peut se retrouver dans l'incapacité de payer à une date donnée, par simple décalage entre encaissements et décaissements. Le compte de résultat ne le détecte pas : seul un plan de trésorerie prévisionnel, tenu par semaine, permet d'anticiper la tension assez tôt pour agir.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel est le premier risque financier d&#x27;une PME algérienne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Le risque de liquidité. Une entreprise rentable sur l'exercice peut se retrouver dans l'incapacité de payer à une date donnée, par simple décalage entre encaissements et décaissements. Le compte de résultat ne le détecte pas : seul un plan de trésorerie prévisionnel, tenu par semaine, permet d'anticiper la tension assez tôt pour agir.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on se couvrir contre le risque de change en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le règlement n° 20-04 du 15 mars 2020, publié au Journal officiel n° 16 du 24 mars 2020, porte sur le marché interbancaire des changes, les opérations de trésorerie devise et les instruments de couverture du risque de change. Ces instruments existent donc dans le cadre réglementaire. D'après nos missions, ils restent peu utilisés par les PME, souvent parce que la question n'a jamais été posée à la banque : leur accessibilité concrète est à vérifier auprès de votre établissement.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Peut-on se couvrir contre le risque de change en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Le règlement n° 20-04 du 15 mars 2020, publié au Journal officiel n° 16 du 24 mars 2020, porte sur le marché interbancaire des changes, les opérations de trésorerie devise et les instruments de couverture du risque de change. Ces instruments existent donc dans le cadre réglementaire. D'après nos missions, ils restent peu utilisés par les PME, souvent parce que la question n'a jamais été posée à la banque : leur accessibilité concrète est à vérifier auprès de votre établissement.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Qu&#x27;est-ce qu&#x27;un retard de paiement change pour ma banque ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le règlement n° 14-03 du 16 février 2014 impose aux banques de classer leurs créances et engagements par signature selon des critères réglementaires et de provisionner en conséquence. Un retard déclenche donc un traitement encadré, dont la conséquence est une charge de provision pour la banque. Par ailleurs, le règlement n° 12-01 du 20 février 2012 organise la centrale des risques entreprises et ménages, consultée par tout établissement auquel vous vous adresserez ensuite.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Qu&#x27;est-ce qu&#x27;un retard de paiement change pour ma banque ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Le règlement n° 14-03 du 16 février 2014 impose aux banques de classer leurs créances et engagements par signature selon des critères réglementaires et de provisionner en conséquence. Un retard déclenche donc un traitement encadré, dont la conséquence est une charge de provision pour la banque. Par ailleurs, le règlement n° 12-01 du 20 février 2012 organise la centrale des risques entreprises et ménages, consultée par tout établissement auquel vous vous adresserez ensuite.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Qu&#x27;appelle-t-on risque fiscal de forme ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La perte d'un droit ou l'application d'une pénalité pour un motif purement formel, sans faute de fond. Exemple documenté par la Direction générale des impôts : la TVA n'est pas déductible sur les factures réglées en espèces ou par versement bancaire d'un montant supérieur à 1 000 000 DA TTC, sauf règlement par versement en espèces sur un compte bancaire ou postal (article 30 du code des TCA).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Qu&#x27;appelle-t-on risque fiscal de forme ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>La perte d'un droit ou l'application d'une pénalité pour un motif purement formel, sans faute de fond. Exemple documenté par la Direction générale des impôts : la TVA n'est pas déductible sur les factures réglées en espèces ou par versement bancaire d'un montant supérieur à 1 000 000 DA TTC, sauf règlement par versement en espèces sur un compte bancaire ou postal (article 30 du code des TCA).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Par où commencer quand on veut réduire ses risques ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Par les risques à la fois probables et non réversibles. Dans notre pratique, cela signifie traiter d'abord la liquidité et la relation bancaire, dont les effets se prolongent bien au-delà de l'incident lui-même, avant les risques réparables comme un litige commercial.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Par où commencer quand on veut réduire ses risques ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Par les risques à la fois probables et non réversibles. Dans notre pratique, cela signifie traiter d'abord la liquidité et la relation bancaire, dont les effets se prolongent bien au-delà de l'incident lui-même, avant les risques réparables comme un litige commercial.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -577,24 +589,24 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Which text governs Islamic finance in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Regulation No. 20-02 of 15 March 2020, which defines the banking operations falling under Islamic finance and the conditions under which banks and financial institutions may carry them out, published in Official Journal No. 16 of 24 March 2020. It succeeded Regulation No. 2018-02 of 4 November 2018 on participatory banking.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Which text governs Islamic finance in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Regulation No. 20-02 of 15 March 2020, which defines the banking operations falling under Islamic finance and the conditions under which banks and financial institutions may carry them out, published in Official Journal No. 16 of 24 March 2020. It succeeded Regulation No. 2018-02 of 4 November 2018 on participatory banking.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What changed in 2025?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Three Bank of Algeria regulations gave the sector its infrastructure: Regulation No. 25-09 of 24 July 2025 on recognition and measurement rules, Regulation No. 25-10 of the same date establishing a dedicated chart of accounts, and Regulation No. 25-13 of 24 September 2025 creating an Islamic interbank money market.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What changed in 2025?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Three Bank of Algeria regulations gave the sector its infrastructure: Regulation No. 25-09 of 24 July 2025 on recognition and measurement rules, Regulation No. 25-10 of the same date establishing a dedicated chart of accounts, and Regulation No. 25-13 of 24 September 2025 creating an Islamic interbank money market.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which products are available to a company?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The families of operations covered are murabaha, ijara, musharaka, mudaraba, salam and istisna'a, together with deposit accounts and investment account deposits. Actual availability of each product varies from institution to institution and branch to branch, so ask before assembling a file.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Which products are available to a company?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>The families of operations covered are murabaha, ijara, musharaka, mudaraba, salam and istisna'a, together with deposit accounts and investment account deposits. Actual availability of each product varies from institution to institution and branch to branch, so ask before assembling a file.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is Islamic financing more expensive than a conventional loan?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">There is no answer in the abstract. A murabaha margin is not an interest rate, but it represents a cost that can be compared. The only reliable method is to add up all cash outflows for each offer — price, margin or interest, fees, insurance, collateral costs — and then place those outflows on a timeline. Two offers with identical total cost can weigh very differently on cash.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Is Islamic financing more expensive than a conventional loan?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>There is no answer in the abstract. A murabaha margin is not an interest rate, but it represents a cost that can be compared. The only reliable method is to add up all cash outflows for each offer — price, margin or interest, fees, insurance, collateral costs — and then place those outflows on a timeline. Two offers with identical total cost can weigh very differently on cash.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is the file to be assembled different from a conventional loan file?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">From our engagements, the business file is of the same nature: legal documents, financial statements, current commitments, project study and collateral. The difference concerns the financed asset: in a purchase-and-resale or leasing transaction, the bank buys or holds the asset, so its description, price and the identification of the supplier become central elements of the contract.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Is the file to be assembled different from a conventional loan file?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>From our engagements, the business file is of the same nature: legal documents, financial statements, current commitments, project study and collateral. The difference concerns the financed asset: in a purchase-and-resale or leasing transaction, the bank buys or holds the asset, so its description, price and the identification of the supplier become central elements of the contract.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -632,28 +644,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Which text imposes the techno-economic study template?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Executive Decree no. 26-154 of 14 April 2026, published in Official Gazette no. 31 of 28 April 2026, amending and supplementing Executive Decree no. 23-487 of 28 December 2023 on concession convertible to sale of economic land. It requires a techno-economic study duly prepared by a qualified professional, in accordance with the template in its Annex V.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Which text imposes the techno-economic study template?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Executive Decree no. 26-154 of 14 April 2026, published in Official Gazette no. 31 of 28 April 2026, amending and supplementing Executive Decree no. 23-487 of 28 December 2023 on concession convertible to sale of economic land. It requires a techno-economic study duly prepared by a qualified professional, in accordance with the template in its Annex V.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What are the nine parts of the template?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">I. General information on the project sponsor; II. General presentation of the project; III. Technical study; IV. Market study; V. Investment plan; VI. Economic and financial projections; VII. Socio-economic impact; VIII. Implementation schedule; IX. Annexes.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What are the nine parts of the template?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>I. General information on the project sponsor; II. General presentation of the project; III. Technical study; IV. Market study; V. Investment plan; VI. Economic and financial projections; VII. Socio-economic impact; VIII. Implementation schedule; IX. Annexes.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which financial indicators must the study contain?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Part VI requires a projected income statement, a cash flow statement and a projected balance sheet over 3 to 5 years, together with a profitability analysis covering IRR, NPV, the break-even point and the margin rate.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Which financial indicators must the study contain?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Part VI requires a projected income statement, a cash flow statement and a projected balance sheet over 3 to 5 years, together with a profitability analysis covering IRR, NPV, the break-even point and the margin rate.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What financial capacity evidence must be attached?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The decree requires evidence of financial capacity relating to the own funds declared for financing the project, citing in particular the bank statement, the financial statements or any other document capable of establishing the applicant's solvency. The list is not exhaustive, but the objective is to establish solvency, not to assert it.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>What financial capacity evidence must be attached?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The decree requires evidence of financial capacity relating to the own funds declared for financing the project, citing in particular the bank statement, the financial statements or any other document capable of establishing the applicant's solvency. The list is not exhaustive, but the objective is to establish solvency, not to assert it.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Within what deadline must the administration issue authorisations?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 30 of Executive Decree no. 26-153 provides that the authorisations and documents required to implement investment projects are issued at the one-stop shops within a period not exceeding fifteen days from receipt of the files. Prior approval decisions for creating classified establishments in categories 1, 2 and 3 are issued within a maximum of twenty days.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Within what deadline must the administration issue authorisations?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Article 30 of Executive Decree no. 26-153 provides that the authorisations and documents required to implement investment projects are issued at the one-stop shops within a period not exceeding fifteen days from receipt of the files. Prior approval decisions for creating classified establishments in categories 1, 2 and 3 are issued within a maximum of twenty days.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Do documents issued at the one-stop shop carry the same weight?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. Article 24 of Executive Decree no. 26-153 provides that documents issued by the representatives of administrations and other bodies within the one-stop shop are enforceable against the administrations and bodies concerned. Article 22 gives them delegated authority to sign and issue those acts on behalf of the authorities to which they belong.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Do documents issued at the one-stop shop carry the same weight?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Yes. Article 24 of Executive Decree no. 26-153 provides that documents issued by the representatives of administrations and other bodies within the one-stop shop are enforceable against the administrations and bodies concerned. Article 22 gives them delegated authority to sign and issue those acts on behalf of the authorities to which they belong.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

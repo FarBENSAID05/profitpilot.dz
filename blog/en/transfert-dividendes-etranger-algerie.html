@@ -213,8 +213,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -640,32 +652,32 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a foreign investor own 100% of an Algerian company?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">In non-strategic sectors, yes. The 49/51 national shareholding requirement ceased to be a general rule with the 2020 supplementary finance law and now applies only to the activities listed by Executive Decree no. 21-145 of 17 April 2021 and to import for resale in the state. The choice of corporate form is a separate question: where the foreign shareholder is itself a limited-liability company, a single-member structure may not be available, which is a matter to settle with the notary.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Can a foreign investor own 100% of an Algerian company?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>In non-strategic sectors, yes. The 49/51 national shareholding requirement ceased to be a general rule with the 2020 supplementary finance law and now applies only to the activities listed by Executive Decree no. 21-145 of 17 April 2021 and to import for resale in the state. The choice of corporate form is a separate question: where the foreign shareholder is itself a limited-liability company, a single-member structure may not be available, which is a matter to settle with the notary.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the minimum foreign financing threshold for the transfer guarantee?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">25% of the total cost of the investment, measured on the share of foreign-origin financing attributable to the investors. The threshold is set by Executive Decree no. 22-300 of 8 September 2022, taken for the application of Article 8 of Law no. 22-18.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What is the minimum foreign financing threshold for the transfer guarantee?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>25% of the total cost of the investment, measured on the share of foreign-origin financing attributable to the investors. The threshold is set by Executive Decree no. 22-300 of 8 September 2022, taken for the application of Article 8 of Law no. 22-18.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if the investment falls below the 25% threshold?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The investment keeps the incentives it qualifies for. What it loses is the guarantee of transfer provided by Article 8 of Law no. 22-18 — the right to transfer the invested capital and the income deriving from it abroad.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What happens if the investment falls below the 25% threshold?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>The investment keeps the incentives it qualifies for. What it loses is the guarantee of transfer provided by Article 8 of Law no. 22-18 — the right to transfer the invested capital and the income deriving from it abroad.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How long do I have to pay a dividend once the accounts are approved?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 724 of the Algerian commercial code requires the dividend to be paid within nine months of the financial year end. For a year ending 31 December that falls at the end of September. Beyond that period an extension must be obtained by court order.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How long do I have to pay a dividend once the accounts are approved?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Article 724 of the Algerian commercial code requires the dividend to be paid within nine months of the financial year end. For a year ending 31 December that falls at the end of September. Beyond that period an extension must be obtained by court order.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What tax is withheld on dividends transferred to a foreign shareholder?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">A withholding tax of 15%, deducted on payment and final. Whether a double taxation treaty reduces it depends entirely on the treaty: some provide a reduced rate for qualifying holdings, others cap the source-state rate at the same 15% as domestic law and therefore give no benefit.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>What tax is withheld on dividends transferred to a foreign shareholder?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>A withholding tax of 15%, deducted on payment and final. Whether a double taxation treaty reduces it depends entirely on the treaty: some provide a reduced rate for qualifying holdings, others cap the source-state rate at the same 15% as domestic law and therefore give no benefit.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a qualified audit opinion prevent a dividend transfer?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The transfer file requires the statutory auditor's report certifying the accuracy and regularity of the accounts, and that report is expected to be unqualified. Where qualifications exist, a further statement from the auditor confirming that they are not blocking for the transfer is required. Audit qualifications should therefore be anticipated well before the closing.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Can a qualified audit opinion prevent a dividend transfer?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>The transfer file requires the statutory auditor's report certifying the accuracy and regularity of the accounts, and that report is expected to be unqualified. Where qualifications exist, a further statement from the auditor confirming that they are not blocking for the transfer is required. Audit qualifications should therefore be anticipated well before the closing.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does the guarantee cover the sale of the company, not just dividends?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. Article 8 of Law no. 22-18 extends the guarantee to the net real proceeds of disposal and liquidation of investments of foreign origin, even where those proceeds exceed the capital originally invested.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Does the guarantee cover the sale of the company, not just dividends?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden>Yes. Article 8 of Law no. 22-18 extends the guarantee to the net real proceeds of disposal and liquidation of investments of foreign origin, even where those proceeds exceed the capital originally invested.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

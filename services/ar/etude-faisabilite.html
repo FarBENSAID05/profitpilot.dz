@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -535,24 +547,24 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما النص الذي يفرض المخطط النموذجي للدراسة التقنية الاقتصادية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية عدد 31 المؤرخة في 28 أفريل 2026، المعدِّل والمتمِّم للمرسوم التنفيذي رقم 23-487 المؤرخ في 28 ديسمبر 2023 المتعلق بالامتياز القابل للتحويل إلى تنازل عن العقار الاقتصادي. وهو يشترط دراسة تقنية اقتصادية مُعَدّة من طرف مهني مؤهَّل، وفق المخطط النموذجي الوارد في ملحقه الخامس.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما النص الذي يفرض المخطط النموذجي للدراسة التقنية الاقتصادية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية عدد 31 المؤرخة في 28 أفريل 2026، المعدِّل والمتمِّم للمرسوم التنفيذي رقم 23-487 المؤرخ في 28 ديسمبر 2023 المتعلق بالامتياز القابل للتحويل إلى تنازل عن العقار الاقتصادي. وهو يشترط دراسة تقنية اقتصادية مُعَدّة من طرف مهني مؤهَّل، وفق المخطط النموذجي الوارد في ملحقه الخامس.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي الأجزاء التسعة للمخطط النموذجي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>الأول: معلومات عامة عن صاحب المشروع؛ الثاني: عرض عام للمشروع؛ الثالث: الدراسة التقنية؛ الرابع: دراسة السوق؛ الخامس: مخطط الاستثمار؛ السادس: التوقعات الاقتصادية والمالية؛ السابع: الأثر الاجتماعي والاقتصادي؛ الثامن: رزنامة الإنجاز؛ التاسع: الملاحق.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما هي الأجزاء التسعة للمخطط النموذجي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>الأول: معلومات عامة عن صاحب المشروع؛ الثاني: عرض عام للمشروع؛ الثالث: الدراسة التقنية؛ الرابع: دراسة السوق؛ الخامس: مخطط الاستثمار؛ السادس: التوقعات الاقتصادية والمالية؛ السابع: الأثر الاجتماعي والاقتصادي؛ الثامن: رزنامة الإنجاز؛ التاسع: الملاحق.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الفرق بين الدراسة التقنية الاقتصادية ومخطط الأعمال؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>تنطلق الدراسة التقنية الاقتصادية من أسلوب الإنتاج والتجهيزات والتكاليف التقنية، ثم تستخلص نتائجها المالية. أما مخطط الأعمال فيضيف الاستراتيجية التجارية ومسار المؤسسة. والوثيقتان تتقاطعان كثيراً؛ ونحن نُنتج إحداهما أو كلتيهما حسب الجهة المرسَل إليها الملف.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما الفرق بين الدراسة التقنية الاقتصادية ومخطط الأعمال؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>تنطلق الدراسة التقنية الاقتصادية من أسلوب الإنتاج والتجهيزات والتكاليف التقنية، ثم تستخلص نتائجها المالية. أما مخطط الأعمال فيضيف الاستراتيجية التجارية ومسار المؤسسة. والوثيقتان تتقاطعان كثيراً؛ ونحن نُنتج إحداهما أو كلتيهما حسب الجهة المرسَل إليها الملف.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكنكم تدقيق دراسة مُنجَزة مسبقاً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>نعم. نقارن وثيقتكم بالمخطط النموذجي للملحق الخامس، جزءاً بجزء، ونسلّمكم قائمة مكتوبة بالفوارق والقطع الناقصة والتناقضات الرقمية. ويُحتسب ثلاثة إلى خمسة أيام ابتداءً من استلام الملف الكامل.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل يمكنكم تدقيق دراسة مُنجَزة مسبقاً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>نعم. نقارن وثيقتكم بالمخطط النموذجي للملحق الخامس، جزءاً بجزء، ونسلّمكم قائمة مكتوبة بالفوارق والقطع الناقصة والتناقضات الرقمية. ويُحتسب ثلاثة إلى خمسة أيام ابتداءً من استلام الملف الكامل.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم تكلّف دراسة تقنية اقتصادية في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لدى ProfitPilot، ابتداءً من 150.000 دج لنشاط صغير، ومن 300.000 إلى 500.000 دج لمشروع صناعي متوسط، وحسب عرض السعر لما يتجاوز 100 مليون دينار من الاستثمار. والتأطير الأولي مجاني ويُفضي إلى عرض سعر مكتوب قبل أي التزام.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>كم تكلّف دراسة تقنية اقتصادية في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>لدى ProfitPilot، ابتداءً من 150.000 دج لنشاط صغير، ومن 300.000 إلى 500.000 دج لمشروع صناعي متوسط، وحسب عرض السعر لما يتجاوز 100 مليون دينار من الاستثمار. والتأطير الأولي مجاني ويُفضي إلى عرض سعر مكتوب قبل أي التزام.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

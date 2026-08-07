@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -577,24 +589,24 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما النص الذي يؤطّر الصيرفة الإسلامية في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">النظام رقم 20-02 المؤرخ في 15 مارس 2020، الذي يحدّد العمليات البنكية المتعلقة بالصيرفة الإسلامية وشروط ممارستها من طرف البنوك والمؤسسات المالية، والمنشور في الجريدة الرسمية عدد 16 المؤرخة في 24 مارس 2020. وقد خلف النظام رقم 2018-02 المؤرخ في 4 نوفمبر 2018 المتعلق بالصيرفة التشاركية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما النص الذي يؤطّر الصيرفة الإسلامية في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>النظام رقم 20-02 المؤرخ في 15 مارس 2020، الذي يحدّد العمليات البنكية المتعلقة بالصيرفة الإسلامية وشروط ممارستها من طرف البنوك والمؤسسات المالية، والمنشور في الجريدة الرسمية عدد 16 المؤرخة في 24 مارس 2020. وقد خلف النظام رقم 2018-02 المؤرخ في 4 نوفمبر 2018 المتعلق بالصيرفة التشاركية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الذي تغيّر في سنة 2025؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ثلاثة أنظمة صادرة عن بنك الجزائر زوّدت القطاع ببنيته التحتية: النظام 25-09 المؤرخ في 24 جويلية 2025 حول قواعد المحاسبة والتقييم، والنظام 25-10 الصادر في اليوم نفسه والمتضمن مخطط حسابات خاصاً، والنظام 25-13 المؤرخ في 24 سبتمبر 2025 المنشئ لسوق نقد ما بين البنوك في إطار الصيرفة الإسلامية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما الذي تغيّر في سنة 2025؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>ثلاثة أنظمة صادرة عن بنك الجزائر زوّدت القطاع ببنيته التحتية: النظام 25-09 المؤرخ في 24 جويلية 2025 حول قواعد المحاسبة والتقييم، والنظام 25-10 الصادر في اليوم نفسه والمتضمن مخطط حسابات خاصاً، والنظام 25-13 المؤرخ في 24 سبتمبر 2025 المنشئ لسوق نقد ما بين البنوك في إطار الصيرفة الإسلامية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما المنتجات المتاحة للمؤسسة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">عائلات العمليات المغطّاة هي المرابحة والإجارة والمشاركة والمضاربة والسلم والاستصناع، إضافةً إلى حسابات الودائع والودائع في حسابات الاستثمار. غير أن التوفّر الفعلي لكل منتج يختلف من مؤسسة إلى أخرى ومن وكالة إلى أخرى: وهو سؤال يُطرح قبل تكوين الملف.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما المنتجات المتاحة للمؤسسة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>عائلات العمليات المغطّاة هي المرابحة والإجارة والمشاركة والمضاربة والسلم والاستصناع، إضافةً إلى حسابات الودائع والودائع في حسابات الاستثمار. غير أن التوفّر الفعلي لكل منتج يختلف من مؤسسة إلى أخرى ومن وكالة إلى أخرى: وهو سؤال يُطرح قبل تكوين الملف.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل التمويل الإسلامي أغلى من القرض الكلاسيكي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا جواب مطلقاً عن ذلك. فهامش المرابحة ليس معدّل فائدة، لكنه يمثّل كلفة قابلة للمقارنة. والمنهجية الموثوقة الوحيدة هي جمع كل التدفقات الخارجة لكل عرض — الثمن، والهامش أو الفوائد، والمصاريف، والتأمينات، والضمانات — ثم توزيعها على الزمن. فعرضان بكلفة إجمالية متطابقة قد يثقلان الخزينة بشكل مختلف تماماً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل التمويل الإسلامي أغلى من القرض الكلاسيكي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>لا جواب مطلقاً عن ذلك. فهامش المرابحة ليس معدّل فائدة، لكنه يمثّل كلفة قابلة للمقارنة. والمنهجية الموثوقة الوحيدة هي جمع كل التدفقات الخارجة لكل عرض — الثمن، والهامش أو الفوائد، والمصاريف، والتأمينات، والضمانات — ثم توزيعها على الزمن. فعرضان بكلفة إجمالية متطابقة قد يثقلان الخزينة بشكل مختلف تماماً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل الملف المطلوب مختلف عن ملف قرض كلاسيكي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">من واقع مهامنا، الملف الاقتصادي من الطبيعة نفسها: وثائق قانونية، وكشوف مالية، والتزامات جارية، ودراسة المشروع، والضمانات. والفرق يتعلق بالأصل المموَّل: ففي عملية شراء وإعادة بيع أو إيجار، يشتري البنك الأصل أو يحوزه، فيصير وصفه وثمنه وتحديد مورّده عناصر مركزية في العقد.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل الملف المطلوب مختلف عن ملف قرض كلاسيكي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>من واقع مهامنا، الملف الاقتصادي من الطبيعة نفسها: وثائق قانونية، وكشوف مالية، والتزامات جارية، ودراسة المشروع، والضمانات. والفرق يتعلق بالأصل المموَّل: ففي عملية شراء وإعادة بيع أو إيجار، يشتري البنك الأصل أو يحوزه، فيصير وصفه وثمنه وتحديد مورّده عناصر مركزية في العقد.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

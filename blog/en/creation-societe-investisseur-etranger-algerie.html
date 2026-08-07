@@ -218,8 +218,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -663,36 +675,36 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a foreign investor hold 100% of an Algerian company in 2026?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Outside the strategic activities listed by Executive Decree no. 21-145 of 17 April 2021 and outside import for resale in the state, yes. The 49/51 national shareholding requirement ceased to be a general rule with the 2020 supplementary finance law.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Can a foreign investor hold 100% of an Algerian company in 2026?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Outside the strategic activities listed by Executive Decree no. 21-145 of 17 April 2021 and outside import for resale in the state, yes. The 49/51 national shareholding requirement ceased to be a general rule with the 2020 supplementary finance law.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a foreign company be the sole shareholder of an Algerian single-member company?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 590 bis 2 of the commercial code prohibits a limited-liability company from having as sole member another limited-liability company composed of a single person. Its wording is narrower than the paraphrase often given. How a foreign corporate form is characterised for the purposes of that article is not settled by any text, which is why a multi-shareholder company is the prudent structure and why the question should be put to the notary before the articles are drawn.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Can a foreign company be the sole shareholder of an Algerian single-member company?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Article 590 bis 2 of the commercial code prohibits a limited-liability company from having as sole member another limited-liability company composed of a single person. Its wording is narrower than the paraphrase often given. How a foreign corporate form is characterised for the purposes of that article is not settled by any text, which is why a multi-shareholder company is the prudent structure and why the question should be put to the notary before the articles are drawn.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is there a minimum share capital for a limited-liability company in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. Since Law no. 15-20 of 30 December 2015 amended Article 566, the capital is fixed freely by the members in the articles. Cash contributions must be released by at least one fifth, with the balance within five years of registration in the trade register.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Is there a minimum share capital for a limited-liability company in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>No. Since Law no. 15-20 of 30 December 2015 amended Article 566, the capital is fixed freely by the members in the articles. Cash contributions must be released by at least one fifth, with the balance within five years of registration in the trade register.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if the company is not incorporated after the funds are deposited?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 567 bis 1 provides that if the company is not incorporated within six months from the date the funds were deposited, any subscriber may ask the notary to withdraw the amount of their subscription, and where that proves impossible by ordinary means may apply to the urgent-applications judge for authorisation to withdraw it.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>What happens if the company is not incorporated after the funds are deposited?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Article 567 bis 1 provides that if the company is not incorporated within six months from the date the funds were deposited, any subscriber may ask the notary to withdraw the amount of their subscription, and where that proves impossible by ordinary means may apply to the urgent-applications judge for authorisation to withdraw it.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does Algeria still require consular legalisation of foreign documents?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No, for public documents exchanged with the other contracting States. Algeria deposited its instrument of accession to the 1961 Hague Apostille Convention on 5 November 2025 and the Convention entered into force for Algeria on 9 July 2026. An apostille from the country of origin replaces consular legalisation. Sworn translation into Arabic remains necessary.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Does Algeria still require consular legalisation of foreign documents?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>No, for public documents exchanged with the other contracting States. Algeria deposited its instrument of accession to the 1961 Hague Apostille Convention on 5 November 2025 and the Convention entered into force for Algeria on 9 July 2026. An apostille from the country of origin replaces consular legalisation. Sworn translation into Arabic remains necessary.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How much is the AAPI investment file processing fee?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">60,000 DA for a project below two billion dinars, and 400,000 DA for a project at or above two billion dinars and for foreign investments, payable on the day of filing, under Executive Decree no. 22-299 of 8 September 2022. A foreign investment therefore pays the higher fee regardless of the size of the project.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>How much is the AAPI investment file processing fee?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>60,000 DA for a project below two billion dinars, and 400,000 DA for a project at or above two billion dinars and for foreign investments, payable on the day of filing, under Executive Decree no. 22-299 of 8 September 2022. A foreign investment therefore pays the higher fee regardless of the size of the project.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can the foreign parent company be appointed manager of its Algerian subsidiary?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. Article 576 of the commercial code provides that a limited-liability company is managed by one or more natural persons. A natural person must be appointed, whether resident or not, and may be chosen from outside the members.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Can the foreign parent company be appointed manager of its Algerian subsidiary?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden>No. Article 576 of the commercial code provides that a limited-liability company is managed by one or more natural persons. A natural person must be appointed, whether resident or not, and may be chosen from outside the members.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How long does it take to set up a company in Algeria with a foreign shareholder?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Our observation is four to seven weeks for the administrative core where the file is complete, and three to four months to operating capability where the shareholder is a foreign legal entity. The difference lies in obtaining and certifying the parent company's documents and in the international transfer of the capital, which alone takes two to three weeks.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-8"><span>How long does it take to set up a company in Algeria with a foreign shareholder?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-8" hidden>Our observation is four to seven weeks for the administrative core where the file is complete, and three to four months to operating capability where the shareholder is a foreign legal entity. The difference lies in obtaining and certifying the parent company's documents and in the international transfer of the capital, which alone takes two to three weeks.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

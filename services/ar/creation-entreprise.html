@@ -214,8 +214,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -561,28 +573,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن تحرير القانون الأساسي بالنفس أو عبر الإنترنت في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لا. تنصّ المادة 545 من القانون التجاري على أنّ الشركة تثبت <strong>تحت طائلة البطلان</strong> بعقد رسمي. فالقوانين الأساسية المحرّرة عرفياً، مهما بلغت جودة صياغتها، لا تُنشئ شركة. وهذا هو الفارق الأكبر مع المنصّات القانونية الفرنسية حيث يُقبل العقد العرفي. أمّا في الجزائر فالمرور عبر الموثّق ليس خياراً للراحة.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يمكن تحرير القانون الأساسي بالنفس أو عبر الإنترنت في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>لا. تنصّ المادة 545 من القانون التجاري على أنّ الشركة تثبت <strong>تحت طائلة البطلان</strong> بعقد رسمي. فالقوانين الأساسية المحرّرة عرفياً، مهما بلغت جودة صياغتها، لا تُنشئ شركة. وهذا هو الفارق الأكبر مع المنصّات القانونية الفرنسية حيث يُقبل العقد العرفي. أمّا في الجزائر فالمرور عبر الموثّق ليس خياراً للراحة.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو الحدّ الأدنى لرأس المال لإنشاء شركة ذات مسؤولية محدودة في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لم يعد هناك حدّ أدنى. فالمادة 566 من القانون التجاري، كما عُدّلت بالقانون رقم 15-20 المؤرّخ في 30 ديسمبر 2015، تترك رأس المال الاجتماعي <strong>محدَّداً بحرّية من الشركاء في القانون الأساسي</strong>. أمّا مبلغ 100.000 دج الذي لا يزال موجوداً في عدّة أدلّة فيقابل الصياغة السابقة لسنة 2015. وهذا لا يعني أنّ رأس مال رمزياً خيار جيّد: فسيُقرأ على هذا النحو من بنك أو آمر بالصرف.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما هو الحدّ الأدنى لرأس المال لإنشاء شركة ذات مسؤولية محدودة في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>لم يعد هناك حدّ أدنى. فالمادة 566 من القانون التجاري، كما عُدّلت بالقانون رقم 15-20 المؤرّخ في 30 ديسمبر 2015، تترك رأس المال الاجتماعي <strong>محدَّداً بحرّية من الشركاء في القانون الأساسي</strong>. أمّا مبلغ 100.000 دج الذي لا يزال موجوداً في عدّة أدلّة فيقابل الصياغة السابقة لسنة 2015. وهذا لا يعني أنّ رأس مال رمزياً خيار جيّد: فسيُقرأ على هذا النحو من بنك أو آمر بالصرف.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يجب دفع رأس المال كاملاً عند التأسيس؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لا بالنسبة للحصص النقدية: يجب تحريرها بما لا يقلّ عن <strong>الخُمس</strong>، ويمكن استدعاء الباقي دفعة واحدة أو على دفعات بقرار من المسيّر، في أجل أقصاه <strong>خمس سنوات</strong> ابتداء من القيد في السجل التجاري (المادة 567، المعدّلة بالقانون 15-20). أمّا الحصص العينية فتُحرَّر كاملة منذ التأسيس.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل يجب دفع رأس المال كاملاً عند التأسيس؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>لا بالنسبة للحصص النقدية: يجب تحريرها بما لا يقلّ عن <strong>الخُمس</strong>، ويمكن استدعاء الباقي دفعة واحدة أو على دفعات بقرار من المسيّر، في أجل أقصاه <strong>خمس سنوات</strong> ابتداء من القيد في السجل التجاري (المادة 567، المعدّلة بالقانون 15-20). أمّا الحصص العينية فتُحرَّر كاملة منذ التأسيس.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>متى تصبح الشركة موجودة قانوناً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>ابتداء من <strong>قيدها في السجل التجاري</strong>، لا من توقيع القانون الأساسي (المادة 549). وهو فارق ثقيل النتائج: فالالتزامات المبرمة باسم الشركة قبل هذا التاريخ تُلزم بالتضامن ودون تحديد الذمّة المالية الشخصية لمن اكتتبها، ما لم تستأنفها الشركة بصفة نظامية بعد قيدها.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>متى تصبح الشركة موجودة قانوناً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>ابتداء من <strong>قيدها في السجل التجاري</strong>، لا من توقيع القانون الأساسي (المادة 549). وهو فارق ثقيل النتائج: فالالتزامات المبرمة باسم الشركة قبل هذا التاريخ تُلزم بالتضامن ودون تحديد الذمّة المالية الشخصية لمن اكتتبها، ما لم تستأنفها الشركة بصفة نظامية بعد قيدها.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا طال التأسيس بعد إيداع الأموال؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>تفتح المادة 567 مكرر 1، المضافة بالقانون 15-20، <strong>لكلّ مكتتب</strong> الحقّ في أن يطلب من الموثّق سحب اكتتابه إذا لم تتأسّس الشركة في <strong>ستة أشهر من إيداع الأموال</strong>؛ وإلّا جاز لقاضي الاستعجال الترخيص بهذا السحب. والأجل يسري من تاريخ الإيداع، وهو ما يرجّح عدم الإيداع إلّا بعد جهوزية بقيّة الملف.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>ماذا يحدث إذا طال التأسيس بعد إيداع الأموال؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>تفتح المادة 567 مكرر 1، المضافة بالقانون 15-20، <strong>لكلّ مكتتب</strong> الحقّ في أن يطلب من الموثّق سحب اكتتابه إذا لم تتأسّس الشركة في <strong>ستة أشهر من إيداع الأموال</strong>؛ وإلّا جاز لقاضي الاستعجال الترخيص بهذا السحب. والأجل يسري من تاريخ الإيداع، وهو ما يرجّح عدم الإيداع إلّا بعد جهوزية بقيّة الملف.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم تكلّف عملية إنشاء شركة في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>المصاريف الرسمية — حقوق التسجيل وأتعاب التوثيق والنشر والقيد — تتوقّف على الولاية ومكتب التوثيق وقانون المالية المطبَّق، والمبالغ المنشورة على الإنترنت متضاربة فيما بينها. نحن لا نأخذ بأيّ رقم لم نتحقّق منه على نصّ. التقدير الكامل، بفصل المصاريف الرسمية عن الأتعاب، يُعدّ على أساس عرض أسعار بعد حسم الشكل ورأس المال.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>كم تكلّف عملية إنشاء شركة في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden><p>المصاريف الرسمية — حقوق التسجيل وأتعاب التوثيق والنشر والقيد — تتوقّف على الولاية ومكتب التوثيق وقانون المالية المطبَّق، والمبالغ المنشورة على الإنترنت متضاربة فيما بينها. نحن لا نأخذ بأيّ رقم لم نتحقّق منه على نصّ. التقدير الكامل، بفصل المصاريف الرسمية عن الأتعاب، يُعدّ على أساس عرض أسعار بعد حسم الشكل ورأس المال.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

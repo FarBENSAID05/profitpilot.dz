@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -630,28 +642,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Puis-je financer ma filiale algérienne par un prêt de la maison mère plutôt que par du capital ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Rien ne l'interdit sur le plan du financement de l'entreprise. Mais l'article 8 de la loi n° 22-18 accorde la garantie de transfert aux investissements réalisés à partir d'<em>apports en capital</em> importés par le canal bancaire et cédés à la Banque d'Algérie. Un prêt n'est pas un apport en capital. Le cadre antérieur — le règlement n° 2000-03, depuis abrogé — admettait bien comme apport extérieur les financements extérieurs non garantis par une banque de droit algérien ; la rédaction actuelle ne reprend pas cette catégorie. Financer par prêt ne construit donc pas le ratio dont dépend la garantie.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Puis-je financer ma filiale algérienne par un prêt de la maison mère plutôt que par du capital ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Rien ne l'interdit sur le plan du financement de l'entreprise. Mais l'article 8 de la loi n° 22-18 accorde la garantie de transfert aux investissements réalisés à partir d'<em>apports en capital</em> importés par le canal bancaire et cédés à la Banque d'Algérie. Un prêt n'est pas un apport en capital. Le cadre antérieur — le règlement n° 2000-03, depuis abrogé — admettait bien comme apport extérieur les financements extérieurs non garantis par une banque de droit algérien ; la rédaction actuelle ne reprend pas cette catégorie. Financer par prêt ne construit donc pas le ratio dont dépend la garantie.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Si mon apport étranger dépasse 25 %, puis-je transférer 100 % du dividende ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Pas nécessairement. Le seuil de 25 % du décret exécutif n° 22-300 est une condition d'éligibilité, pas une mesure du montant. L'article 4 du règlement n° 05-03 prévoit séparément que les dividendes des investissements mixtes sont transférables pour un montant correspondant à l'apport étranger, dûment constaté, dans le capital. Les deux ratios ont des dénominateurs différents — le coût global du projet pour le premier, le capital social pour le second — et il faut regarder les deux.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Si mon apport étranger dépasse 25 %, puis-je transférer 100 % du dividende ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Pas nécessairement. Le seuil de 25 % du décret exécutif n° 22-300 est une condition d'éligibilité, pas une mesure du montant. L'article 4 du règlement n° 05-03 prévoit séparément que les dividendes des investissements mixtes sont transférables pour un montant correspondant à l'apport étranger, dûment constaté, dans le capital. Les deux ratios ont des dénominateurs différents — le coût global du projet pour le premier, le capital social pour le second — et il faut regarder les deux.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Incorporer mon compte courant d&#x27;associé au capital règle-t-il le problème ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Cela modifie le bilan immédiatement, et c'est souvent la bonne démarche. Que cela rétablisse le statut exigé par l'article 8 dépend de ce qui a été enregistré à l'entrée des fonds : les conditions sont que la devise ait été importée par le canal bancaire, dans une monnaie convertible cotée, et cédée à la Banque d'Algérie. Ce sont des faits passés. Le point se tranche avec la banque domiciliataire sur le dossier précis, et non par raisonnement général.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Incorporer mon compte courant d&#x27;associé au capital règle-t-il le problème ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Cela modifie le bilan immédiatement, et c'est souvent la bonne démarche. Que cela rétablisse le statut exigé par l'article 8 dépend de ce qui a été enregistré à l'entrée des fonds : les conditions sont que la devise ait été importée par le canal bancaire, dans une monnaie convertible cotée, et cédée à la Banque d'Algérie. Ce sont des faits passés. Le point se tranche avec la banque domiciliataire sur le dossier précis, et non par raisonnement général.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Une augmentation de capital par incorporation de réserves augmente-t-elle ma part transférable ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le capital augmente, mais aucun apport extérieur nouveau n'est réalisé. L'article 8 admet les bénéfices réinvestis comme apports extérieurs à deux conditions : qu'ils soient réinvestis en capital et qu'ils aient été déclarés transférables au préalable. Des réserves qui n'ont jamais été déclarées transférables ne le deviennent pas par leur incorporation.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Une augmentation de capital par incorporation de réserves augmente-t-elle ma part transférable ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Le capital augmente, mais aucun apport extérieur nouveau n'est réalisé. L'article 8 admet les bénéfices réinvestis comme apports extérieurs à deux conditions : qu'ils soient réinvestis en capital et qu'ils aient été déclarés transférables au préalable. Des réserves qui n'ont jamais été déclarées transférables ne le deviennent pas par leur incorporation.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Puis-je verser un acompte sur dividende et le transférer en cours d&#x27;année ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. L'article 5 de l'instruction n° 01-09 du 15 février 2009 prévoit que les avances et acomptes sur bénéfices ou dividendes ne sont pas transférables, pour tout actionnaire. Le transfert suit l'assemblée générale qui statue sur l'affectation du résultat, dont le procès-verbal est l'une des pièces du dossier.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Puis-je verser un acompte sur dividende et le transférer en cours d&#x27;année ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Non. L'article 5 de l'instruction n° 01-09 du 15 février 2009 prévoit que les avances et acomptes sur bénéfices ou dividendes ne sont pas transférables, pour tout actionnaire. Le transfert suit l'assemblée générale qui statue sur l'affectation du résultat, dont le procès-verbal est l'une des pièces du dossier.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que devient ma structure si la loi change ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 13 de la loi n° 22-18 prévoit que les effets des révisions ou abrogations futures de la loi ne s'appliquent pas à l'investissement réalisé sous son empire, à moins que l'investisseur ne le demande expressément. L'article 38 maintient les droits et avantages acquis légalement sous les législations antérieures. Le cadre en vigueur au moment de l'enregistrement de l'investissement est, en principe, celui qui continue de lui être appliqué.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Que devient ma structure si la loi change ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>L'article 13 de la loi n° 22-18 prévoit que les effets des révisions ou abrogations futures de la loi ne s'appliquent pas à l'investissement réalisé sous son empire, à moins que l'investisseur ne le demande expressément. L'article 38 maintient les droits et avantages acquis légalement sous les législations antérieures. Le cadre en vigueur au moment de l'enregistrement de l'investissement est, en principe, celui qui continue de lui être appliqué.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

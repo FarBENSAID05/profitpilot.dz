@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -630,28 +642,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكنني تمويل فرعي الجزائري بقرض من الشركة الأم بدل رأس المال؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا شيء يمنع ذلك من زاوية تمويل المؤسسة. غير أن المادة 8 من القانون رقم 22-18 تمنح ضمان التحويل للاستثمارات المنجزة انطلاقاً من <em>مساهمات في رأس المال</em> مستوردة عن طريق القناة البنكية ومتنازَل عنها لبنك الجزائر. والقرض ليس مساهمة في رأس المال. وقد كان الإطار السابق — النظام رقم 2000-03، الملغى — يعتبر التمويلات الخارجية غير المضمونة من بنك جزائري مساهمةً خارجية؛ أما الصياغة الحالية فلا تستعيد هذه الفئة. فالتمويل بالقرض لا يبني إذن النسبة التي يتوقف عليها الضمان.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يمكنني تمويل فرعي الجزائري بقرض من الشركة الأم بدل رأس المال؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>لا شيء يمنع ذلك من زاوية تمويل المؤسسة. غير أن المادة 8 من القانون رقم 22-18 تمنح ضمان التحويل للاستثمارات المنجزة انطلاقاً من <em>مساهمات في رأس المال</em> مستوردة عن طريق القناة البنكية ومتنازَل عنها لبنك الجزائر. والقرض ليس مساهمة في رأس المال. وقد كان الإطار السابق — النظام رقم 2000-03، الملغى — يعتبر التمويلات الخارجية غير المضمونة من بنك جزائري مساهمةً خارجية؛ أما الصياغة الحالية فلا تستعيد هذه الفئة. فالتمويل بالقرض لا يبني إذن النسبة التي يتوقف عليها الضمان.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>إذا تجاوزت مساهمتي الأجنبية 25 %، هل أستطيع تحويل 100 % من الأرباح؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ليس بالضرورة. فعتبة 25 % في المرسوم التنفيذي رقم 22-300 شرط أهلية لا مقياس مبلغ. والمادة 4 من النظام رقم 05-03 تنص بشكل مستقل على أن أرباح الاستثمارات المختلطة قابلة للتحويل بمبلغ يقابل المساهمة الأجنبية، المثبتة حسب الأصول، في رأس المال. وللنسبتين مقامان مختلفان — التكلفة الإجمالية للمشروع للأولى، ورأس المال الاجتماعي للثانية — ويجب النظر إليهما معاً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>إذا تجاوزت مساهمتي الأجنبية 25 %، هل أستطيع تحويل 100 % من الأرباح؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>ليس بالضرورة. فعتبة 25 % في المرسوم التنفيذي رقم 22-300 شرط أهلية لا مقياس مبلغ. والمادة 4 من النظام رقم 05-03 تنص بشكل مستقل على أن أرباح الاستثمارات المختلطة قابلة للتحويل بمبلغ يقابل المساهمة الأجنبية، المثبتة حسب الأصول، في رأس المال. وللنسبتين مقامان مختلفان — التكلفة الإجمالية للمشروع للأولى، ورأس المال الاجتماعي للثانية — ويجب النظر إليهما معاً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يحلّ إدماج الحساب الجاري في رأس المال المشكلة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يغيّر الميزانية فوراً، وقد يكون الخطوة الصحيحة. أما أن يعيد الوضع الذي تشترطه المادة 8 فيتوقف على ما سُجّل عند دخول الأموال: الشروط هي أن تكون العملة قد استُوردت عن طريق القناة البنكية، بعملة قابلة للتحويل ومُسعَّرة، ومتنازَلاً عنها لبنك الجزائر. وهذه وقائع ماضية. والمسألة تُحسم مع البنك الموطِّن على الملف بعينه، لا بالاستدلال العام.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل يحلّ إدماج الحساب الجاري في رأس المال المشكلة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يغيّر الميزانية فوراً، وقد يكون الخطوة الصحيحة. أما أن يعيد الوضع الذي تشترطه المادة 8 فيتوقف على ما سُجّل عند دخول الأموال: الشروط هي أن تكون العملة قد استُوردت عن طريق القناة البنكية، بعملة قابلة للتحويل ومُسعَّرة، ومتنازَلاً عنها لبنك الجزائر. وهذه وقائع ماضية. والمسألة تُحسم مع البنك الموطِّن على الملف بعينه، لا بالاستدلال العام.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يرفع رفعُ رأس المال بإدماج الاحتياطات حصتي القابلة للتحويل؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يرتفع رأس المال، لكن لا تُنجَز أي مساهمة خارجية جديدة. فالمادة 8 تقبل الأرباح المعاد استثمارها بوصفها مساهمات خارجية بشرطين: أن يُعاد استثمارها في رأس المال، وأن يكون قد صُرِّح بقابليتها للتحويل مسبقاً. واحتياطات لم يُصرَّح قط بقابليتها للتحويل لا تصير كذلك بمجرد إدماجها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل يرفع رفعُ رأس المال بإدماج الاحتياطات حصتي القابلة للتحويل؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>يرتفع رأس المال، لكن لا تُنجَز أي مساهمة خارجية جديدة. فالمادة 8 تقبل الأرباح المعاد استثمارها بوصفها مساهمات خارجية بشرطين: أن يُعاد استثمارها في رأس المال، وأن يكون قد صُرِّح بقابليتها للتحويل مسبقاً. واحتياطات لم يُصرَّح قط بقابليتها للتحويل لا تصير كذلك بمجرد إدماجها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكنني صرف دفعة على الحساب من الأرباح وتحويلها خلال السنة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. تنص المادة 5 من التعليمة رقم 01-09 المؤرخة في 15 فبراير 2009 على أن التسبيقات والدفعات على الحساب من الأرباح أو الحصص غير قابلة للتحويل، بالنسبة لأي مساهم. فالتحويل يتبع الجمعية العامة التي تفصل في تخصيص النتيجة، ومحضرها إحدى وثائق الملف.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يمكنني صرف دفعة على الحساب من الأرباح وتحويلها خلال السنة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>لا. تنص المادة 5 من التعليمة رقم 01-09 المؤرخة في 15 فبراير 2009 على أن التسبيقات والدفعات على الحساب من الأرباح أو الحصص غير قابلة للتحويل، بالنسبة لأي مساهم. فالتحويل يتبع الجمعية العامة التي تفصل في تخصيص النتيجة، ومحضرها إحدى وثائق الملف.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحلّ بهيكلتي إذا تغيّر القانون؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنص المادة 13 من القانون رقم 22-18 على أن آثار المراجعات أو الإلغاءات المستقبلية للقانون لا تسري على الاستثمار المنجز في ظله، ما لم يطلب المستثمر ذلك صراحةً. وتُبقي المادة 38 على الحقوق والمزايا المكتسبة قانوناً في ظل التشريعات السابقة. فالإطار الساري وقت تسجيل الاستثمار هو، من حيث المبدأ، الإطار الذي يستمر تطبيقه عليه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>ماذا يحلّ بهيكلتي إذا تغيّر القانون؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>تنص المادة 13 من القانون رقم 22-18 على أن آثار المراجعات أو الإلغاءات المستقبلية للقانون لا تسري على الاستثمار المنجز في ظله، ما لم يطلب المستثمر ذلك صراحةً. وتُبقي المادة 38 على الحقوق والمزايا المكتسبة قانوناً في ظل التشريعات السابقة. فالإطار الساري وقت تسجيل الاستثمار هو، من حيث المبدأ، الإطار الذي يستمر تطبيقه عليه.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

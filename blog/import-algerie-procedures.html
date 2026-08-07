@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -557,28 +569,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle est la première étape d&#x27;une importation en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La domiciliation bancaire, qui doit être ouverte avant l'expédition de la marchandise. Le règlement n° 07-01 de la Banque d'Algérie relatif aux transactions courantes avec l'étranger soumet les importations à une domiciliation préalable auprès d'une banque intermédiaire agréée. Sans elle, aucun transfert de devises n'est possible.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quelle est la première étape d&#x27;une importation en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>La domiciliation bancaire, qui doit être ouverte avant l'expédition de la marchandise. Le règlement n° 07-01 de la Banque d'Algérie relatif aux transactions courantes avec l'étranger soumet les importations à une domiciliation préalable auprès d'une banque intermédiaire agréée. Sans elle, aucun transfert de devises n'est possible.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le taux de TVA à l&#x27;importation en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le taux normal est de 19 %. Un taux réduit de 9 % s'applique aux produits, biens, travaux, opérations et services énumérés à l'article 23 du code des taxes sur le chiffre d'affaires. À l'importation, le fait générateur de la TVA est l'introduction de la marchandise en douane.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel est le taux de TVA à l&#x27;importation en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Le taux normal est de 19 %. Un taux réduit de 9 % s'applique aux produits, biens, travaux, opérations et services énumérés à l'article 23 du code des taxes sur le chiffre d'affaires. À l'importation, le fait générateur de la TVA est l'introduction de la marchandise en douane.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Sur quelle base les droits et taxes sont-ils calculés ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le chiffre d'affaires imposable comprend le prix des marchandises, tous frais, droits et taxes inclus, à l'exclusion de la TVA elle-même. Les frais accessoires entrent donc dans l'assiette, ce qui rend le choix de l'Incoterm et la structure de facturation économiquement significatifs.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Sur quelle base les droits et taxes sont-ils calculés ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Le chiffre d'affaires imposable comprend le prix des marchandises, tous frais, droits et taxes inclus, à l'exclusion de la TVA elle-même. Les frais accessoires entrent donc dans l'assiette, ce qui rend le choix de l'Incoterm et la structure de facturation économiquement significatifs.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un auto-entrepreneur peut-il importer en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La documentation de la Direction générale des impôts mentionne le micro-importateur exerçant sous statut d'auto-entrepreneur, en visant l'article 6 du décret exécutif n° 25-170 du 28 juin 2025. L'impôt est alors acquitté auprès des douanes lors de la mise à la consommation (article 143 de la loi de finances pour 2026). Il s'agit d'une ouverture encadrée, distincte de l'exclusion générale de l'import-revente du régime forfaitaire posée à l'article 282 ter du CIDTA.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Un auto-entrepreneur peut-il importer en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>La documentation de la Direction générale des impôts mentionne le micro-importateur exerçant sous statut d'auto-entrepreneur, en visant l'article 6 du décret exécutif n° 25-170 du 28 juin 2025. L'impôt est alors acquitté auprès des douanes lors de la mise à la consommation (article 143 de la loi de finances pour 2026). Il s'agit d'une ouverture encadrée, distincte de l'exclusion générale de l'import-revente du régime forfaitaire posée à l'article 282 ter du CIDTA.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on se couvrir contre le risque de change sur une importation ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le règlement n° 20-04 du 15 mars 2020, publié au Journal officiel n° 16 du 24 mars 2020, porte sur le marché interbancaire des changes, les opérations de trésorerie devise et les instruments de couverture du risque de change. Ces instruments existent donc dans le cadre réglementaire. Leur disponibilité effective pour une PME donnée est à vérifier auprès de sa banque.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Peut-on se couvrir contre le risque de change sur une importation ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Le règlement n° 20-04 du 15 mars 2020, publié au Journal officiel n° 16 du 24 mars 2020, porte sur le marché interbancaire des changes, les opérations de trésorerie devise et les instruments de couverture du risque de change. Ces instruments existent donc dans le cadre réglementaire. Leur disponibilité effective pour une PME donnée est à vérifier auprès de sa banque.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quand une opération d&#x27;importation est-elle réellement close ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">À l'apurement du dossier de domiciliation, lorsque la banque a rapproché les documents douaniers et financiers du dossier ouvert avant expédition. D'après nos missions, c'est l'étape la plus souvent négligée, et son défaut complique les opérations d'importation ultérieures.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Quand une opération d&#x27;importation est-elle réellement close ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>À l'apurement du dossier de domiciliation, lorsque la banque a rapproché les documents douaniers et financiers du dossier ouvert avant expédition. D'après nos missions, c'est l'étape la plus souvent négligée, et son défaut complique les opérations d'importation ultérieures.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

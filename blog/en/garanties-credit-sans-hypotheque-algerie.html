@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -649,28 +661,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Can you obtain an investment credit without a mortgage in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">A mortgage is not the only eligible security, and it is recognised at only 50% of its value under Regulation no. 14-03. Guarantees from the State and equivalent public funds are recognised at 100%, and those from banks and credit-insurance bodies approved in Algeria at 80%. Three public schemes issue guarantees: FGAR, CGCI-PME and the delegated micro and small enterprise guarantee. Each, however, has its own sector exclusions.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Can you obtain an investment credit without a mortgage in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>A mortgage is not the only eligible security, and it is recognised at only 50% of its value under Regulation no. 14-03. Guarantees from the State and equivalent public funds are recognised at 100%, and those from banks and credit-insurance bodies approved in Algeria at 80%. Three public schemes issue guarantees: FGAR, CGCI-PME and the delegated micro and small enterprise guarantee. Each, however, has its own sector exclusions.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the maximum FGAR guarantee amount?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The guarantee rate ranges from 10% to 80% of the credit amount, calculated project by project. The maximum guarantee is 100 million DA per project, for creation as well as expansion — that ceiling applies to the guarantee granted, not to the project cost. The maximum duration is 7 years for a conventional investment credit and 10 years for a lease.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What is the maximum FGAR guarantee amount?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>The guarantee rate ranges from 10% to 80% of the credit amount, calculated project by project. The maximum guarantee is 100 million DA per project, for creation as well as expansion — that ceiling applies to the guarantee granted, not to the project cost. The maximum duration is 7 years for a conventional investment credit and 10 years for a lease.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can an import/export company use FGAR?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. Import/export companies and businesses operating exclusively in trade are listed among the ineligible projects published by FGAR. Commercial activities are also excluded from CGCI-PME and from the delegated micro and small enterprise guarantee.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Can an import/export company use FGAR?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>No. Import/export companies and businesses operating exclusively in trade are listed among the ineligible projects published by FGAR. Commercial activities are also excluded from CGCI-PME and from the delegated micro and small enterprise guarantee.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What are the CGCI-PME ceilings?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The maximum eligible investment credit is 350 million DA. The base on which the guaranteed proportion is applied is capped at 250 million DA, giving a maximum commitment of 150 million DA for business development (250 M × 60%) and 200 million DA for business creation (250 M × 80%). Where several credits are guaranteed for one company, cumulative commitments may not exceed 250 million DA.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>What are the CGCI-PME ceilings?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The maximum eligible investment credit is 350 million DA. The base on which the guaranteed proportion is applied is capped at 250 million DA, giving a maximum commitment of 150 million DA for business development (250 M × 60%) and 200 million DA for business creation (250 M × 80%). Where several credits are guaranteed for one company, cumulative commitments may not exceed 250 million DA.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does a CGCI guarantee replace the security the bank asks for?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. The Fund states that its financial guarantee, equivalent to a State guarantee, does not replace or substitute for the usual security required by the bank, and is in no case a precondition for granting the credit. Real security is taken within the limits of the project's constituent assets and collected by the bank in its own name.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Does a CGCI guarantee replace the security the bank asks for?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>No. The Fund states that its financial guarantee, equivalent to a State guarantee, does not replace or substitute for the usual security required by the bank, and is in no case a precondition for granting the credit. Real security is taken within the limits of the project's constituent assets and collected by the bank in its own name.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can two financial guarantees be combined on the same credit?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. Projects benefiting from another financial guarantee on the same credit are expressly excluded by CGCI-PME and by the delegated guarantee; FGAR for its part excludes projects whose package already benefits from a public support scheme.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Can two financial guarantees be combined on the same credit?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>No. Projects benefiting from another financial guarantee on the same credit are expressly excluded by CGCI-PME and by the delegated guarantee; FGAR for its part excludes projects whose package already benefits from a public support scheme.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -607,28 +619,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si la marchandise a été expédiée avant la domiciliation ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Si la date du titre de transport est antérieure à la date de domiciliation, la banque doit refuser l'opération, sauf autorisation exceptionnelle expressément prévue par la réglementation des changes. La note n° 01/DGC/2026 rappelle que le non-respect de ces dispositions constitue une infraction à la législation et à la réglementation des changes.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Que se passe-t-il si la marchandise a été expédiée avant la domiciliation ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Si la date du titre de transport est antérieure à la date de domiciliation, la banque doit refuser l'opération, sauf autorisation exceptionnelle expressément prévue par la réglementation des changes. La note n° 01/DGC/2026 rappelle que le non-respect de ces dispositions constitue une infraction à la législation et à la réglementation des changes.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>L&#x27;instruction 05-2026 s&#x27;applique-t-elle à l&#x27;importation de matières premières ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Le champ de l'instruction n° 05-2026 vise les opérations d'importation de biens destinés à la revente en l'état. Les intrants transformés localement et les équipements acquis pour compte propre ne sont pas visés par ses deux ratios. En revanche, l'obligation de domicilier avant expédition, posée par la note n° 01/DGC/2026, concerne l'ensemble des importations de biens.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>L&#x27;instruction 05-2026 s&#x27;applique-t-elle à l&#x27;importation de matières premières ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Non. Le champ de l'instruction n° 05-2026 vise les opérations d'importation de biens destinés à la revente en l'état. Les intrants transformés localement et les équipements acquis pour compte propre ne sont pas visés par ses deux ratios. En revanche, l'obligation de domicilier avant expédition, posée par la note n° 01/DGC/2026, concerne l'ensemble des importations de biens.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment est calculé le plafond de 100 % des fonds propres ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Il porte sur l'encours des opérations d'importation de biens destinés à la revente en l'état, domiciliées auprès de l'ensemble des banques intermédiaires agréées et non encore réglées. Ce total ne doit à aucun moment dépasser 100 % des fonds propres de l'opérateur. Une opération n'est réputée réglée que lorsque la banque domiciliataire procède au débit définitif du compte pour la valeur de l'opération.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Comment est calculé le plafond de 100 % des fonds propres ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Il porte sur l'encours des opérations d'importation de biens destinés à la revente en l'état, domiciliées auprès de l'ensemble des banques intermédiaires agréées et non encore réglées. Ce total ne doit à aucun moment dépasser 100 % des fonds propres de l'opérateur. Une opération n'est réputée réglée que lorsque la banque domiciliataire procède au débit définitif du compte pour la valeur de l'opération.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Une société créée cette année peut-elle importer pour la revente en l&#x27;état ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. Pour un opérateur nouvellement constitué, l'instruction prévoit que la banque domiciliataire peut se baser sur un bilan d'ouverture et/ou une situation financière intermédiaire dûment visée par un commissaire aux comptes. Les deux conditions de surface financière restent applicables : seule la source des chiffres diffère.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Une société créée cette année peut-elle importer pour la revente en l&#x27;état ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Oui. Pour un opérateur nouvellement constitué, l'instruction prévoit que la banque domiciliataire peut se baser sur un bilan d'ouverture et/ou une situation financière intermédiaire dûment visée par un commissaire aux comptes. Les deux conditions de surface financière restent applicables : seule la source des chiffres diffère.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Mon actif net est inférieur à mon capital social : puis-je encore domicilier ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non, tant que la situation n'est pas rétablie. L'instruction impose à la banque de s'assurer, avant toute domiciliation, que l'actif net est égal ou supérieur au capital social, sur la base des états financiers de l'exercice écoulé tels que déclarés à l'administration fiscale. Le redressement passe par une action sur les capitaux propres ou sur le capital social, à examiner avec vos conseils.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Mon actif net est inférieur à mon capital social : puis-je encore domicilier ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Non, tant que la situation n'est pas rétablie. L'instruction impose à la banque de s'assurer, avant toute domiciliation, que l'actif net est égal ou supérieur au capital social, sur la base des états financiers de l'exercice écoulé tels que déclarés à l'administration fiscale. Le redressement passe par une action sur les capitaux propres ou sur le capital social, à examiner avec vos conseils.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Ces textes sont-ils toujours en vigueur ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Cet article a été vérifié à la date indiquée dans le bloc sources ci-dessous. La réglementation des changes algérienne évoluant rapidement, il est recommandé de confirmer l'état du texte auprès de votre banque domiciliataire ou sur le site de la Banque d'Algérie avant toute opération.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Ces textes sont-ils toujours en vigueur ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Cet article a été vérifié à la date indiquée dans le bloc sources ci-dessous. La réglementation des changes algérienne évoluant rapidement, il est recommandé de confirmer l'état du texte auprès de votre banque domiciliataire ou sur le site de la Banque d'Algérie avant toute opération.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -535,24 +547,24 @@
 
         <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Which text imposes the techno-economic study template?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Executive Decree No. 26-154 of 14 April 2026, published in Official Journal No. 31 of 28 April 2026, amending Executive Decree No. 23-487 of 28 December 2023 on the concession convertible into transfer of economic land. It requires a techno-economic study prepared by a qualified professional, in accordance with the template in its Annex V.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Which text imposes the techno-economic study template?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Executive Decree No. 26-154 of 14 April 2026, published in Official Journal No. 31 of 28 April 2026, amending Executive Decree No. 23-487 of 28 December 2023 on the concession convertible into transfer of economic land. It requires a techno-economic study prepared by a qualified professional, in accordance with the template in its Annex V.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What are the nine parts of the template?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>I. General information on the project owner; II. General presentation of the project; III. Technical study; IV. Market study; V. Investment plan; VI. Economic and financial forecasts; VII. Socio-economic impact; VIII. Implementation schedule; IX. Annexes.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What are the nine parts of the template?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>I. General information on the project owner; II. General presentation of the project; III. Technical study; IV. Market study; V. Investment plan; VI. Economic and financial forecasts; VII. Socio-economic impact; VIII. Implementation schedule; IX. Annexes.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How does a techno-economic study differ from a business plan?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>The techno-economic study starts from the production process, equipment and technical costs, then draws out the financial consequences. A business plan adds commercial strategy and the company's trajectory. The two overlap heavily; we produce either or both depending on who receives the file.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How does a techno-economic study differ from a business plan?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>The techno-economic study starts from the production process, equipment and technical costs, then draws out the financial consequences. A business plan adds commercial strategy and the company's trajectory. The two overlap heavily; we produce either or both depending on who receives the file.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can you audit a study that has already been produced?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Yes. We compare your document to the Annex V template, part by part, and hand you a written list of gaps, missing items and numerical inconsistencies. Allow three to five days from receipt of the complete file.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Can you audit a study that has already been produced?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Yes. We compare your document to the Annex V template, part by part, and hand you a written list of gaps, missing items and numerical inconsistencies. Allow three to five days from receipt of the complete file.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How much does a techno-economic study cost in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>At ProfitPilot, from DZD 150,000 for a small activity, DZD 300,000 to 500,000 for a mid-sized industrial project, and on quotation above DZD 100 million of investment. Initial scoping is free and leads to a written quotation before any commitment.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>How much does a techno-economic study cost in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>At ProfitPilot, from DZD 150,000 for a small activity, DZD 300,000 to 500,000 for a mid-sized industrial project, and on quotation above DZD 100 million of investment. Initial scoping is free and leads to a written quotation before any commitment.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

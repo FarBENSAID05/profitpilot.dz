@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -538,24 +550,24 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل دراسة السوق إلزامية في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">بالنسبة لملف العقار الاقتصادي، نعم: يشكّل تحليل السوق جزءاً من المخطط النموذجي للدراسة التقنية الاقتصادية المحدَّد في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية عدد 31 المؤرخة في 28 أفريل 2026. وخارج هذا الإطار ليست إلزامية قانوناً، لكنها تحدّد فرضيات رقم الأعمال في أي ملف تمويل.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل دراسة السوق إلزامية في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>بالنسبة لملف العقار الاقتصادي، نعم: يشكّل تحليل السوق جزءاً من المخطط النموذجي للدراسة التقنية الاقتصادية المحدَّد في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية عدد 31 المؤرخة في 28 أفريل 2026. وخارج هذا الإطار ليست إلزامية قانوناً، لكنها تحدّد فرضيات رقم الأعمال في أي ملف تمويل.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف تُنجَز دراسة سوق بلا ميزانية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">بالانطلاق ممّا يُلاحَظ لا ممّا يُنشَر: العدّ الميداني، ورصد الأسعار، ومقابلات مع الموردين وفاعلي السلسلة، ثم مراقبة التماسك مع المعطيات العمومية المتوفرة. فالقيد ليس الميزانية بل الصرامة الوثائقية: كل رقم يحمل طريقة الحصول عليه وتاريخه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>كيف تُنجَز دراسة سوق بلا ميزانية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>بالانطلاق ممّا يُلاحَظ لا ممّا يُنشَر: العدّ الميداني، ورصد الأسعار، ومقابلات مع الموردين وفاعلي السلسلة، ثم مراقبة التماسك مع المعطيات العمومية المتوفرة. فالقيد ليس الميزانية بل الصرامة الوثائقية: كل رقم يحمل طريقة الحصول عليه وتاريخه.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الأرقام التي يجب أن تسمح دراسة السوق بتبريرها؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ثلاثة: الحجم المُباع في السنة الأولى، وسعر البيع، وأجل الدفع. وهي الفرضيات الثلاث التي تغذّي المخطط المالي. والدراسة التي لا تتيح الدفاع عنها لم تؤدِّ وظيفتها مهما بلغ طولها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما الأرقام التي يجب أن تسمح دراسة السوق بتبريرها؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>ثلاثة: الحجم المُباع في السنة الأولى، وسعر البيع، وأجل الدفع. وهي الفرضيات الثلاث التي تغذّي المخطط المالي. والدراسة التي لا تتيح الدفاع عنها لم تؤدِّ وظيفتها مهما بلغ طولها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف تُحلَّل المنافسة حين لا تكون موثَّقة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">بإحصاء مادي شامل في منطقة ضيقة، مع رصد التشكيلة ومستوى السعر والآجال وعلامة ظاهرة على حجم النشاط لكل فاعل. ويجب التمييز بين أربعة مستويات للمنافسة: المنافس المباشر، والبديل، وغير الرسمي، والإنتاج الذاتي للزبون — والأخيران أكثرهما إغفالاً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>كيف تُحلَّل المنافسة حين لا تكون موثَّقة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>بإحصاء مادي شامل في منطقة ضيقة، مع رصد التشكيلة ومستوى السعر والآجال وعلامة ظاهرة على حجم النشاط لكل فاعل. ويجب التمييز بين أربعة مستويات للمنافسة: المنافس المباشر، والبديل، وغير الرسمي، والإنتاج الذاتي للزبون — والأخيران أكثرهما إغفالاً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الخطأ الأكثر شيوعاً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">استبيان المجاملة. فسؤال شخص عمّا إذا كان منتجٌ يهمّه ينتج نسبة اهتمام مرتفعة بلا قيمة تنبّئية. والأسئلة المفيدة الوحيدة تتعلق بالسلوك الماضي: ما الذي اشتُري، وأين، وبأي سعر، ومتى.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>ما الخطأ الأكثر شيوعاً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>استبيان المجاملة. فسؤال شخص عمّا إذا كان منتجٌ يهمّه ينتج نسبة اهتمام مرتفعة بلا قيمة تنبّئية. والأسئلة المفيدة الوحيدة تتعلق بالسلوك الماضي: ما الذي اشتُري، وأين، وبأي سعر، ومتى.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

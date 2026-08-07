@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -585,28 +597,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Qu&#x27;est-ce qui a changé dans le coût d&#x27;une importation en 2026 ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Deux textes de mai 2026 ont allongé et plafonné le cycle. La note aux banques n° 01/DGC/2026 du 14 mai impose la domiciliation bancaire avant l'expédition des marchandises, ce qui ajoute un segment d'immobilisation à la charge de l'importateur. L'instruction n° 05-2026 du 19 mai plafonne l'encours des importations destinées à la revente en l'état, non encore réglées et toutes banques confondues, à 100 % des fonds propres de l'opérateur.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Qu&#x27;est-ce qui a changé dans le coût d&#x27;une importation en 2026 ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Deux textes de mai 2026 ont allongé et plafonné le cycle. La note aux banques n° 01/DGC/2026 du 14 mai impose la domiciliation bancaire avant l'expédition des marchandises, ce qui ajoute un segment d'immobilisation à la charge de l'importateur. L'instruction n° 05-2026 du 19 mai plafonne l'encours des importations destinées à la revente en l'état, non encore réglées et toutes banques confondues, à 100 % des fonds propres de l'opérateur.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi le crédit documentaire consomme-t-il ma capacité d&#x27;emprunt ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce qu'il s'agit d'un engagement par signature, converti en équivalent-risque de crédit. Le règlement n° 14-02 du 16 février 2014 retient un facteur de conversion de 20 % lorsque les marchandises constituent une garantie, de 50 % lorsqu'elles n'en constituent pas, et de 100 % pour les acceptations et ouvertures de crédit irrévocables. Le résultat s'impute sur l'exposition de la banque à votre égard.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Pourquoi le crédit documentaire consomme-t-il ma capacité d&#x27;emprunt ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Parce qu'il s'agit d'un engagement par signature, converti en équivalent-risque de crédit. Le règlement n° 14-02 du 16 février 2014 retient un facteur de conversion de 20 % lorsque les marchandises constituent une garantie, de 50 % lorsqu'elles n'en constituent pas, et de 100 % pour les acceptations et ouvertures de crédit irrévocables. Le résultat s'impute sur l'exposition de la banque à votre égard.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment le plafond de 100 % des fonds propres affecte-t-il mon coût de revient ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Il agit comme un coût d'opportunité. Tant qu'une opération n'est pas réputée réglée — c'est-à-dire tant que la banque domiciliataire n'a pas procédé au débit définitif du compte —, elle occupe une part du plafond et empêche d'en domicilier d'autres. Le coût d'une opération lente inclut donc les marges des opérations qu'elle a empêchées.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Comment le plafond de 100 % des fonds propres affecte-t-il mon coût de revient ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Il agit comme un coût d'opportunité. Tant qu'une opération n'est pas réputée réglée — c'est-à-dire tant que la banque domiciliataire n'a pas procédé au débit définitif du compte —, elle occupe une part du plafond et empêche d'en domicilier d'autres. Le coût d'une opération lente inclut donc les marges des opérations qu'elle a empêchées.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Les droits de douane sont-ils traités dans cet article ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Cet article porte sur les coûts financiers de l'importation. Les droits de douane, la TVA et les taxes applicables dépendent de la position tarifaire de la marchandise et doivent être établis avec votre transitaire et l'administration des douanes.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Les droits de douane sont-ils traités dans cet article ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Non. Cet article porte sur les coûts financiers de l'importation. Les droits de douane, la TVA et les taxes applicables dépendent de la position tarifaire de la marchandise et doivent être établis avec votre transitaire et l'administration des douanes.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment réduire le coût d&#x27;immobilisation d&#x27;une opération ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">En agissant sur la durée réelle du cycle, mesurée du jour de la domiciliation au jour de l'encaissement client, et non sur le seul délai de transit. Les leviers les plus efficaces sont généralement la préparation documentaire en amont, qui évite l'immobilisation portuaire, et la réduction du délai entre la réception et la vente.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Comment réduire le coût d&#x27;immobilisation d&#x27;une opération ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>En agissant sur la durée réelle du cycle, mesurée du jour de la domiciliation au jour de l'encaissement client, et non sur le seul délai de transit. Les leviers les plus efficaces sont généralement la préparation documentaire en amont, qui évite l'immobilisation portuaire, et la réduction du délai entre la réception et la vente.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Faut-il calculer le coût de revient par opération ou en moyenne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Par opération. Les postes financiers dépendent directement de la durée du cycle, qui varie fortement d'une opération à l'autre. Une moyenne annuelle masque précisément les opérations dont le cycle long détruit la marge, et empêche d'identifier lesquelles corriger.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Faut-il calculer le coût de revient par opération ou en moyenne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Par opération. Les postes financiers dépendent directement de la durée du cycle, qui varie fortement d'une opération à l'autre. Une moyenne annuelle masque précisément les opérations dont le cycle long détruit la marge, et empêche d'identifier lesquelles corriger.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

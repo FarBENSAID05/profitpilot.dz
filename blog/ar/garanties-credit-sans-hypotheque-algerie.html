@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -649,28 +661,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن الحصول على قرض استثماري بلا رهن عقاري في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">الرهن ليس الضمان الوحيد المقبول، وهو لا يُحتسب إلا بـ50 % من قيمته وفق النظام رقم 14-03. أمّا ضمانات الدولة والصناديق العمومية المماثلة فتُحتسب بـ100 %، وضمانات البنوك وهيئات تأمين القروض المعتمَدة في الجزائر بـ80 %. وثلاثة أجهزة عمومية تُصدر ضمانات: FGAR وCGCI-PME والضمان المفوَّض للمؤسسات المصغَّرة والصغيرة. غير أنّ لكلٍّ منها استثناءاته القطاعية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يمكن الحصول على قرض استثماري بلا رهن عقاري في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>الرهن ليس الضمان الوحيد المقبول، وهو لا يُحتسب إلا بـ50 % من قيمته وفق النظام رقم 14-03. أمّا ضمانات الدولة والصناديق العمومية المماثلة فتُحتسب بـ100 %، وضمانات البنوك وهيئات تأمين القروض المعتمَدة في الجزائر بـ80 %. وثلاثة أجهزة عمومية تُصدر ضمانات: FGAR وCGCI-PME والضمان المفوَّض للمؤسسات المصغَّرة والصغيرة. غير أنّ لكلٍّ منها استثناءاته القطاعية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو المبلغ الأقصى لضمان FGAR؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نسبة الضمان تتراوح بين 10 % و80 % من مبلغ القرض، وتُحسَب مشروعاً بمشروع. والمبلغ الأقصى للضمان هو 100 مليون دج لكل مشروع، سواء في الإنشاء أو التوسيع — ويخصّ هذا السقف الضمان الممنوح لا كلفة المشروع. والمدّة القصوى 7 سنوات للقرض الاستثماري الكلاسيكي و10 سنوات للاعتماد الإيجاري.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما هو المبلغ الأقصى لضمان FGAR؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>نسبة الضمان تتراوح بين 10 % و80 % من مبلغ القرض، وتُحسَب مشروعاً بمشروع. والمبلغ الأقصى للضمان هو 100 مليون دج لكل مشروع، سواء في الإنشاء أو التوسيع — ويخصّ هذا السقف الضمان الممنوح لا كلفة المشروع. والمدّة القصوى 7 سنوات للقرض الاستثماري الكلاسيكي و10 سنوات للاعتماد الإيجاري.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لشركة استيراد وتصدير أن تستفيد من FGAR؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. فشركات الاستيراد والتصدير والمؤسسات العاملة حصرياً في التجارة مذكورة ضمن المشاريع غير المؤهّلة المنشورة من طرف FGAR. كما أنّ الأنشطة التجارية مستثناة أيضاً من CGCI-PME ومن الضمان المفوَّض للمؤسسات المصغَّرة والصغيرة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل يمكن لشركة استيراد وتصدير أن تستفيد من FGAR؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لا. فشركات الاستيراد والتصدير والمؤسسات العاملة حصرياً في التجارة مذكورة ضمن المشاريع غير المؤهّلة المنشورة من طرف FGAR. كما أنّ الأنشطة التجارية مستثناة أيضاً من CGCI-PME ومن الضمان المفوَّض للمؤسسات المصغَّرة والصغيرة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي سقوف ضمان CGCI-PME؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">القرض الاستثماري الأقصى المؤهَّل هو 350 مليون دج. ووعاء تطبيق الحصّة المضمونة محدَّد بـ250 مليون دج، ما يعطي التزاماً أقصى قدره 150 مليون دج في تطوير المؤسسة (250 م × 60 %) و200 مليون دج في الإنشاء (250 م × 80 %). وعند تعدّد القروض للمؤسسة نفسها، لا يمكن أن يتجاوز تراكم الالتزامات 250 مليون دج.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما هي سقوف ضمان CGCI-PME؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>القرض الاستثماري الأقصى المؤهَّل هو 350 مليون دج. ووعاء تطبيق الحصّة المضمونة محدَّد بـ250 مليون دج، ما يعطي التزاماً أقصى قدره 150 مليون دج في تطوير المؤسسة (250 م × 60 %) و200 مليون دج في الإنشاء (250 م × 80 %). وعند تعدّد القروض للمؤسسة نفسها، لا يمكن أن يتجاوز تراكم الالتزامات 250 مليون دج.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يُعفي ضمان CGCI من الضمانات التي يطلبها البنك؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. يوضّح الصندوق أنّ ضمانه المالي، المماثل لضمان الدولة، لا يحلّ محلّ الضمانات المعتادة التي يشترطها البنك ولا يحلّ بديلاً عنها، ولا يشكّل بأي حال شرطاً مسبقاً لمنح القرض. وتُؤخَذ الضمانات العينية في حدود العناصر المكوِّنة للمشروع ويجمعها البنك باسمه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يُعفي ضمان CGCI من الضمانات التي يطلبها البنك؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>لا. يوضّح الصندوق أنّ ضمانه المالي، المماثل لضمان الدولة، لا يحلّ محلّ الضمانات المعتادة التي يشترطها البنك ولا يحلّ بديلاً عنها، ولا يشكّل بأي حال شرطاً مسبقاً لمنح القرض. وتُؤخَذ الضمانات العينية في حدود العناصر المكوِّنة للمشروع ويجمعها البنك باسمه.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن الجمع بين ضمانين ماليين على قرض واحد؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. فالمشاريع المستفيدة من ضمان مالي آخر على القرض نفسه مستثناة صراحةً لدى CGCI-PME وكذلك في الضمان المفوَّض؛ أمّا FGAR فيستثني من جهته المشاريع التي يستفيد تركيبها أصلاً من جهاز دعم عمومي.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل يمكن الجمع بين ضمانين ماليين على قرض واحد؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>لا. فالمشاريع المستفيدة من ضمان مالي آخر على القرض نفسه مستثناة صراحةً لدى CGCI-PME وكذلك في الضمان المفوَّض؛ أمّا FGAR فيستثني من جهته المشاريع التي يستفيد تركيبها أصلاً من جهاز دعم عمومي.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

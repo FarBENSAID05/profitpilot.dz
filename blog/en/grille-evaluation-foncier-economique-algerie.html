@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -616,28 +628,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the maximum score on the economic land evaluation grid?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The maximum score is 1,500 points, spread across eight criteria with coefficients from 1 to 7: nature of the activity (420 points), investment amount (360), employment (300), own funds contribution (200), investment extension (70), job sustainability (60), local content (60) and contribution to export diversification (30).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the maximum score on the economic land evaluation grid?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>The maximum score is 1,500 points, spread across eight criteria with coefficients from 1 to 7: nature of the activity (420 points), investment amount (360), employment (300), own funds contribution (200), investment extension (70), job sustainability (60), local content (60) and contribution to export diversification (30).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which criterion carries the most weight?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The nature of the activity, with a coefficient of 7 and a maximum of 420 points, or 28% of the total. The priority 1, 2 or 3 classification is determined by the Agency in consultation with the sectors concerned and the walis, and appears on the technical sheet accompanying the display of the property on the investor digital platform.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Which criterion carries the most weight?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>The nature of the activity, with a coefficient of 7 and a maximum of 420 points, or 28% of the total. The priority 1, 2 or 3 classification is determined by the Agency in consultation with the sectors concerned and the walis, and appears on the technical sheet accompanying the display of the property on the investor digital platform.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How are projects selected after scoring?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Ranking is carried out digitally in descending order of score. The Agency draws up a list of pre-selected projects ranked in the top three score levels, whose declared information has been found consistent with the required documents. That list is submitted anonymously to the board, which decides taking into account the score, the coefficient of each criterion, the parameters, the importance of the project and its impact on the national economy.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How are projects selected after scoring?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Ranking is carried out digitally in descending order of score. The Agency draws up a list of pre-selected projects ranked in the top three score levels, whose declared information has been found consistent with the required documents. That list is submitted anonymously to the board, which decides taking into account the score, the coefficient of each criterion, the parameters, the importance of the project and its impact on the national economy.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How is the integration rate calculated?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The grid's reading note specifies that it is calculated as the value of locally produced inputs relative to total inputs of the manufactured product. A rate above 50% is worth 60 points, between 25% and 50% is worth 40, below 25% is worth 20, and a nil rate scores nothing.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How is the integration rate calculated?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The grid's reading note specifies that it is calculated as the value of locally produced inputs relative to total inputs of the manufactured product. A rate above 50% is worth 60 points, between 25% and 50% is worth 40, below 25% is worth 20, and a nil rate scores nothing.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does a high contribution offset a modest investment?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Partly. The gap between a contribution of 70% or more and one below 30% is 120 points, roughly equivalent to two brackets of the investment amount criterion. The grid itself notes that the correlation between these two criteria allows an assessment of the investor's capacity to raise the necessary financing.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Does a high contribution offset a modest investment?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Partly. The gap between a contribution of 70% or more and one below 30% is 120 points, roughly equivalent to two brackets of the investment amount criterion. The grid itself notes that the correlation between these two criteria allows an assessment of the investor's capacity to raise the necessary financing.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does the share of fixed-term contracts really affect the score?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes, by 50 points. A share of fixed-term contracts below 20% is worth 60 points, between 20% and 30% is worth 40, and 30% or more only 10. This criterion reflects the objective of creating sustainable jobs set out in Law no. 22-18 on investment.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Does the share of fixed-term contracts really affect the score?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Yes, by 50 points. A share of fixed-term contracts below 20% is worth 60 points, between 20% and 30% is worth 40, and 30% or more only 10. This criterion reflects the objective of creating sustainable jobs set out in Law no. 22-18 on investment.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -541,24 +553,24 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the leading financial risk for an Algerian SME?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Liquidity risk. A company profitable over the year can be unable to pay on a given date through a simple mismatch between collections and disbursements. The income statement does not reveal it: only a cash forecast, maintained weekly, gives enough warning to act.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the leading financial risk for an Algerian SME?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Liquidity risk. A company profitable over the year can be unable to pay on a given date through a simple mismatch between collections and disbursements. The income statement does not reveal it: only a cash forecast, maintained weekly, gives enough warning to act.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can currency risk be hedged in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Regulation No. 20-04 of 15 March 2020, published in Official Journal No. 16 of 24 March 2020, covers the interbank foreign exchange market, foreign currency treasury operations and exchange risk hedging instruments. Those instruments therefore exist in the regulatory framework. From our engagements they remain little used by SMEs, often because the question was never put to the bank: actual availability should be checked with your institution.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Can currency risk be hedged in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Regulation No. 20-04 of 15 March 2020, published in Official Journal No. 16 of 24 March 2020, covers the interbank foreign exchange market, foreign currency treasury operations and exchange risk hedging instruments. Those instruments therefore exist in the regulatory framework. From our engagements they remain little used by SMEs, often because the question was never put to the bank: actual availability should be checked with your institution.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What does a late payment change for my bank?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Regulation No. 14-03 of 16 February 2014 requires banks to classify their loans and off-balance-sheet commitments against regulatory criteria and to provision accordingly. A delay therefore triggers a framed treatment whose consequence is a provisioning charge for the bank. Separately, Regulation No. 12-01 of 20 February 2012 governs the corporate and household credit register, consulted by any institution you approach later.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What does a late payment change for my bank?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Regulation No. 14-03 of 16 February 2014 requires banks to classify their loans and off-balance-sheet commitments against regulatory criteria and to provision accordingly. A delay therefore triggers a framed treatment whose consequence is a provisioning charge for the bank. Separately, Regulation No. 12-01 of 20 February 2012 governs the corporate and household credit register, consulted by any institution you approach later.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is formal tax risk?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The loss of a right, or a penalty, on purely formal grounds with no substantive error. A documented example from the Directorate General of Taxes: VAT is not deductible on invoices settled in cash or by bank payment exceeding DZD 1,000,000 including tax, unless settlement is made by a cash deposit into a bank or postal account (Article 30 of the Turnover Tax Code).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>What is formal tax risk?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The loss of a right, or a penalty, on purely formal grounds with no substantive error. A documented example from the Directorate General of Taxes: VAT is not deductible on invoices settled in cash or by bank payment exceeding DZD 1,000,000 including tax, unless settlement is made by a cash deposit into a bank or postal account (Article 30 of the Turnover Tax Code).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Where should you start in reducing risk?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">With risks that are both likely and irreversible. In our practice that means addressing liquidity and the banking relationship first, since their effects extend well beyond the incident itself, before repairable risks such as a commercial dispute.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Where should you start in reducing risk?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>With risks that are both likely and irreversible. In our practice that means addressing liquidity and the banking relationship first, since their effects extend well beyond the incident itself, before repairable risks such as a commercial dispute.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

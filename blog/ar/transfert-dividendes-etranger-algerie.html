@@ -213,8 +213,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -640,32 +652,32 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لمستثمر أجنبي أن يملك 100% من شركة جزائرية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">في القطاعات غير الاستراتيجية، نعم. لم تعد قاعدة 49/51 قاعدة عامة منذ قانون المالية التكميلي لسنة 2020، ولم تعد تُطبَّق إلّا على الأنشطة المدرَجة في المرسوم التنفيذي رقم 21-145 المؤرخ في 17 أفريل 2021 وعلى الاستيراد لإعادة البيع على حاله. أمّا اختيار الشكل الاجتماعي فمسألة منفصلة: حين يكون الشريك الأجنبي نفسه شركة ذات مسؤولية محدودة، قد لا يكون الهيكل الأحادي متاحاً، وهي نقطة تُحسم مع الموثّق.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يمكن لمستثمر أجنبي أن يملك 100% من شركة جزائرية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>في القطاعات غير الاستراتيجية، نعم. لم تعد قاعدة 49/51 قاعدة عامة منذ قانون المالية التكميلي لسنة 2020، ولم تعد تُطبَّق إلّا على الأنشطة المدرَجة في المرسوم التنفيذي رقم 21-145 المؤرخ في 17 أفريل 2021 وعلى الاستيراد لإعادة البيع على حاله. أمّا اختيار الشكل الاجتماعي فمسألة منفصلة: حين يكون الشريك الأجنبي نفسه شركة ذات مسؤولية محدودة، قد لا يكون الهيكل الأحادي متاحاً، وهي نقطة تُحسم مع الموثّق.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي العتبة الدنيا للتمويل الأجنبي لضمان التحويل؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">25% من الكلفة الإجمالية للاستثمار، محسوبة على حصّة التمويل ذي الأصل الأجنبي العائدة للمستثمرين. وتُحدَّد هذه العتبة بالمرسوم التنفيذي رقم 22-300 المؤرخ في 8 سبتمبر 2022، المتَّخذ لتطبيق المادة 8 من القانون رقم 22-18.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما هي العتبة الدنيا للتمويل الأجنبي لضمان التحويل؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>25% من الكلفة الإجمالية للاستثمار، محسوبة على حصّة التمويل ذي الأصل الأجنبي العائدة للمستثمرين. وتُحدَّد هذه العتبة بالمرسوم التنفيذي رقم 22-300 المؤرخ في 8 سبتمبر 2022، المتَّخذ لتطبيق المادة 8 من القانون رقم 22-18.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا كان الاستثمار تحت عتبة 25%؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يحتفظ الاستثمار بالمزايا التي يستحقّها. أمّا ما يفقده فهو ضمان التحويل المنصوص عليه في المادة 8 من القانون رقم 22-18، أي حقّ تحويل رأس المال المستثمَر والعوائد الناتجة عنه إلى الخارج.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ماذا يحدث إذا كان الاستثمار تحت عتبة 25%؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يحتفظ الاستثمار بالمزايا التي يستحقّها. أمّا ما يفقده فهو ضمان التحويل المنصوص عليه في المادة 8 من القانون رقم 22-18، أي حقّ تحويل رأس المال المستثمَر والعوائد الناتجة عنه إلى الخارج.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو أجل وضع الربح موضع الدفع؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تفرض المادة 724 من القانون التجاري الجزائري وضع الربح موضع الدفع خلال تسعة أشهر من إقفال السنة المالية. وبالنسبة لسنة تُقفَل في 31 ديسمبر يقع الأجل في نهاية سبتمبر. وبعد ذلك يلزم استصدار تمديد بقرار قضائي.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما هو أجل وضع الربح موضع الدفع؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>تفرض المادة 724 من القانون التجاري الجزائري وضع الربح موضع الدفع خلال تسعة أشهر من إقفال السنة المالية. وبالنسبة لسنة تُقفَل في 31 ديسمبر يقع الأجل في نهاية سبتمبر. وبعد ذلك يلزم استصدار تمديد بقرار قضائي.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو الاقتطاع المطبَّق على الأرباح المحوَّلة لشريك أجنبي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">اقتطاع من المصدر بنسبة 15%، يُجرى عند الدفع وهو محرِّر. وأمّا تخفيضه باتفاقية لتجنّب الازدواج الضريبي فيتوقّف كلياً على الاتفاقية: بعضها ينصّ على نسبة مخفَّضة للمساهمات المؤهَّلة، وبعضها يسقف نسبة دولة المصدر عند نفس الـ15% المقرّرة في القانون الداخلي فلا يمنح أيّ فائدة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>ما هو الاقتطاع المطبَّق على الأرباح المحوَّلة لشريك أجنبي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>اقتطاع من المصدر بنسبة 15%، يُجرى عند الدفع وهو محرِّر. وأمّا تخفيضه باتفاقية لتجنّب الازدواج الضريبي فيتوقّف كلياً على الاتفاقية: بعضها ينصّ على نسبة مخفَّضة للمساهمات المؤهَّلة، وبعضها يسقف نسبة دولة المصدر عند نفس الـ15% المقرّرة في القانون الداخلي فلا يمنح أيّ فائدة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمنع تحفّظ محافظ الحسابات تحويل الأرباح؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يشترط ملف التحويل تقرير محافظ الحسابات المصادِق على صدق الحسابات وانتظامها، ويُنتظَر أن يكون دون تحفّظ. وحين توجد تحفّظات، تُطلَب شهادة إضافية من محافظ الحسابات تُفيد بأنّها غير مانعة للتحويل. لذلك ينبغي استباق التحفّظات قبل الإقفال بوقت كافٍ.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل يمنع تحفّظ محافظ الحسابات تحويل الأرباح؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>يشترط ملف التحويل تقرير محافظ الحسابات المصادِق على صدق الحسابات وانتظامها، ويُنتظَر أن يكون دون تحفّظ. وحين توجد تحفّظات، تُطلَب شهادة إضافية من محافظ الحسابات تُفيد بأنّها غير مانعة للتحويل. لذلك ينبغي استباق التحفّظات قبل الإقفال بوقت كافٍ.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يشمل الضمان بيع الشركة أم الأرباح الموزّعة فقط؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يشملهما معاً. تمدّ المادة 8 من القانون رقم 22-18 الضمان إلى النواتج الحقيقية الصافية للتنازل عن الاستثمارات ذات الأصل الأجنبي وتصفيتها، حتى لو فاق مبلغها رأس المال المستثمَر ابتداءً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>هل يشمل الضمان بيع الشركة أم الأرباح الموزّعة فقط؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden>يشملهما معاً. تمدّ المادة 8 من القانون رقم 22-18 الضمان إلى النواتج الحقيقية الصافية للتنازل عن الاستثمارات ذات الأصل الأجنبي وتصفيتها، حتى لو فاق مبلغها رأس المال المستثمَر ابتداءً.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

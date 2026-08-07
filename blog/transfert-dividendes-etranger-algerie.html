@@ -213,8 +213,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -640,32 +652,32 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Un investisseur étranger peut-il détenir 100 % d&#x27;une société algérienne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Dans les secteurs non stratégiques, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020 et ne s'applique plus qu'aux activités listées par le décret exécutif n° 21-145 du 17 avril 2021 ainsi qu'à l'importation pour revente en l'état. Le choix de la forme sociale est une question distincte : lorsque l'associé étranger est lui-même une société à responsabilité limitée, la structure unipersonnelle peut ne pas être ouverte, point à trancher avec le notaire.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Un investisseur étranger peut-il détenir 100 % d&#x27;une société algérienne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Dans les secteurs non stratégiques, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020 et ne s'applique plus qu'aux activités listées par le décret exécutif n° 21-145 du 17 avril 2021 ainsi qu'à l'importation pour revente en l'état. Le choix de la forme sociale est une question distincte : lorsque l'associé étranger est lui-même une société à responsabilité limitée, la structure unipersonnelle peut ne pas être ouverte, point à trancher avec le notaire.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le seuil minimum de financement extérieur pour la garantie de transfert ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">25 % du coût total de l'investissement, calculé sur la part de financement d'origine étrangère revenant aux investisseurs. Ce seuil est fixé par le décret exécutif n° 22-300 du 8 septembre 2022, pris pour l'application de l'article 8 de la loi n° 22-18.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel est le seuil minimum de financement extérieur pour la garantie de transfert ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>25 % du coût total de l'investissement, calculé sur la part de financement d'origine étrangère revenant aux investisseurs. Ce seuil est fixé par le décret exécutif n° 22-300 du 8 septembre 2022, pris pour l'application de l'article 8 de la loi n° 22-18.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si l&#x27;investissement est en dessous du seuil de 25 % ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'investissement conserve les avantages auxquels il a droit. Ce qu'il perd, c'est la garantie de transfert prévue par l'article 8 de la loi n° 22-18, c'est-à-dire le droit de transférer à l'étranger le capital investi et les revenus qui en découlent.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Que se passe-t-il si l&#x27;investissement est en dessous du seuil de 25 % ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>L'investissement conserve les avantages auxquels il a droit. Ce qu'il perd, c'est la garantie de transfert prévue par l'article 8 de la loi n° 22-18, c'est-à-dire le droit de transférer à l'étranger le capital investi et les revenus qui en découlent.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Dans quel délai un dividende doit-il être mis en paiement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 724 du code de commerce algérien impose la mise en paiement dans les neuf mois de la clôture de l'exercice. Pour un exercice clos au 31 décembre, l'échéance tombe fin septembre. Au-delà, une prorogation doit être obtenue par décision de justice.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Dans quel délai un dividende doit-il être mis en paiement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>L'article 724 du code de commerce algérien impose la mise en paiement dans les neuf mois de la clôture de l'exercice. Pour un exercice clos au 31 décembre, l'échéance tombe fin septembre. Au-delà, une prorogation doit être obtenue par décision de justice.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle retenue à la source s&#x27;applique aux dividendes transférés à un associé étranger ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Une retenue à la source de 15 %, opérée lors du paiement et libératoire. Qu'une convention de non-double imposition la réduise dépend entièrement de la convention : certaines prévoient un taux réduit pour les participations qualifiées, d'autres plafonnent le taux de l'État de la source au même niveau de 15 % que le droit interne et ne procurent donc aucun avantage.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Quelle retenue à la source s&#x27;applique aux dividendes transférés à un associé étranger ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Une retenue à la source de 15 %, opérée lors du paiement et libératoire. Qu'une convention de non-double imposition la réduise dépend entièrement de la convention : certaines prévoient un taux réduit pour les participations qualifiées, d'autres plafonnent le taux de l'État de la source au même niveau de 15 % que le droit interne et ne procurent donc aucun avantage.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Une réserve du commissaire aux comptes peut-elle empêcher un transfert de dividendes ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le dossier de transfert exige le rapport du commissaire aux comptes certifiant la sincérité et la régularité des comptes, et ce rapport est attendu sans réserve. Lorsque des réserves existent, une attestation complémentaire du commissaire aux comptes indiquant qu'elles ne sont pas bloquantes pour le transfert est requise. Les réserves doivent donc être anticipées bien avant la clôture.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Une réserve du commissaire aux comptes peut-elle empêcher un transfert de dividendes ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Le dossier de transfert exige le rapport du commissaire aux comptes certifiant la sincérité et la régularité des comptes, et ce rapport est attendu sans réserve. Lorsque des réserves existent, une attestation complémentaire du commissaire aux comptes indiquant qu'elles ne sont pas bloquantes pour le transfert est requise. Les réserves doivent donc être anticipées bien avant la clôture.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>La garantie couvre-t-elle la vente de la société, ou seulement les dividendes ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Elle couvre les deux. L'article 8 de la loi n° 22-18 étend la garantie aux produits réels nets de la cession et de la liquidation des investissements d'origine étrangère, même lorsque leur montant est supérieur au capital initialement investi.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>La garantie couvre-t-elle la vente de la société, ou seulement les dividendes ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden>Elle couvre les deux. L'article 8 de la loi n° 22-18 étend la garantie aux produits réels nets de la cession et de la liquidation des investissements d'origine étrangère, même lorsque leur montant est supérieur au capital initialement investi.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

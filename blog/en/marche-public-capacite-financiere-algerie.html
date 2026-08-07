@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -616,28 +628,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What minimum financial capacity is required to bid for a public contract in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Law No. 23-12 of 5 August 2023 sets no quantified threshold. Its Article 43 only requires that the evaluation of applications be based on non-discriminatory criteria, related to the subject matter of the contract and proportionate to its scale. The level required is therefore defined contract by contract in the tender specifications.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What minimum financial capacity is required to bid for a public contract in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Law No. 23-12 of 5 August 2023 sets no quantified threshold. Its Article 43 only requires that the evaluation of applications be based on non-discriminatory criteria, related to the subject matter of the contract and proportionate to its scale. The level required is therefore defined contract by contract in the tender specifications.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can you bid relying on another company&#x27;s capacities?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. Article 44 of Law 23-12 provides that any candidate or bidder, alone or in a consortium, may rely on the capacities of other companies. Two limits apply: a candidate may not submit more than one offer per procedure, and one person may not represent more than one candidate for the same contract.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Can you bid relying on another company&#x27;s capacities?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Yes. Article 44 of Law 23-12 provides that any candidate or bidder, alone or in a consortium, may rely on the capacities of other companies. Two limits apply: a candidate may not submit more than one offer per procedure, and one person may not represent more than one candidate for the same contract.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What share of a public contract may be subcontracted?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 82 of Law 23-12 caps subcontracting at 40% of the public contract amount. The same article requires foreign companies bidding alone, unless duly justified impossibility, to subcontract at least 30% of the initial contract amount to companies incorporated under Algerian law.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What share of a public contract may be subcontracted?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Article 82 of Law 23-12 caps subcontracting at 40% of the public contract amount. The same article requires foreign companies bidding alone, unless duly justified impossibility, to subcontract at least 30% of the initial contract amount to companies incorporated under Algerian law.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a public contract serve as bank collateral?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. Article 85 of Law 23-12 states that public contracts and their amendments may be pledged. For a company without mortgage collateral, pledging the contract is often the strongest security it can mobilise with a bank.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Can a public contract serve as bank collateral?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Yes. Article 85 of Law 23-12 states that public contracts and their amendments may be pledged. For a company without mortgage collateral, pledging the contract is often the strongest security it can mobilise with a bank.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How much cash is needed to perform a public contract?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">It depends on the rhythm of instalment payments and the collection delay, not on the amount alone. On the worked example in this article — a DZD 60 million contract over 12 months at a 12% margin, quarterly instalments received at 60 days — the peak requirement reaches DZD 17.6 million, or 29.3% of the contract amount. With collection at 150 days, that peak rises to DZD 30.8 million, or 51.3%.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>How much cash is needed to perform a public contract?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>It depends on the rhythm of instalment payments and the collection delay, not on the amount alone. On the worked example in this article — a DZD 60 million contract over 12 months at a 12% margin, quarterly instalments received at 60 days — the peak requirement reaches DZD 17.6 million, or 29.3% of the contract amount. With collection at 150 days, that peak rises to DZD 30.8 million, or 51.3%.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if the administration pays late?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 80 of Law 23-12 provides that failure to pay accounts within the period to the benefit of the contractor gives rise to entitlement to late-payment interest, in accordance with the applicable arrangements and procedures. That interest compensates the delay but does not finance performance during it: the corresponding cash requirement must be covered elsewhere.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>What happens if the administration pays late?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Article 80 of Law 23-12 provides that failure to pay accounts within the period to the benefit of the contractor gives rise to entitlement to late-payment interest, in accordance with the applicable arrangements and procedures. That interest compensates the delay but does not finance performance during it: the corresponding cash requirement must be covered elsewhere.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

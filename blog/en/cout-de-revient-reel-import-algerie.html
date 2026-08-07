@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -585,28 +597,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What changed in the cost of importing in 2026?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Two texts issued in May 2026 lengthened and capped the cycle. Note to banks no. 01/DGC/2026 of 14 May requires bank domiciliation before the goods are shipped, adding a lock-up segment borne by the importer. Instruction no. 05-2026 of 19 May caps the outstanding balance of imports for resale in the state, unsettled and across all banks, at 100% of the operator's equity.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What changed in the cost of importing in 2026?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Two texts issued in May 2026 lengthened and capped the cycle. Note to banks no. 01/DGC/2026 of 14 May requires bank domiciliation before the goods are shipped, adding a lock-up segment borne by the importer. Instruction no. 05-2026 of 19 May caps the outstanding balance of imports for resale in the state, unsettled and across all banks, at 100% of the operator's equity.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why does a documentary credit consume my borrowing capacity?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because it is a commitment by signature, converted into a credit-risk equivalent. Regulation no. 14-02 of 16 February 2014 applies a conversion factor of 20% where the goods constitute collateral, 50% where they do not, and 100% for acceptances and irrevocable credit openings. The result counts against the bank's exposure to you.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Why does a documentary credit consume my borrowing capacity?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Because it is a commitment by signature, converted into a credit-risk equivalent. Regulation no. 14-02 of 16 February 2014 applies a conversion factor of 20% where the goods constitute collateral, 50% where they do not, and 100% for acceptances and irrevocable credit openings. The result counts against the bank's exposure to you.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How does the 100%-of-equity ceiling affect my landed cost?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">It acts as an opportunity cost. As long as an operation is not deemed settled — that is, until the domiciliary bank has made the final debit of the account — it occupies part of the ceiling and prevents others from being domiciled. The cost of a slow operation therefore includes the margins of the operations it prevented.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How does the 100%-of-equity ceiling affect my landed cost?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>It acts as an opportunity cost. As long as an operation is not deemed settled — that is, until the domiciliary bank has made the final debit of the account — it occupies part of the ceiling and prevents others from being domiciled. The cost of a slow operation therefore includes the margins of the operations it prevented.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does this article cover customs duties?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. This article deals with the financial costs of importing. Customs duties, VAT and applicable taxes depend on the tariff classification of the goods and must be established with your freight forwarder and the customs administration.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Does this article cover customs duties?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>No. This article deals with the financial costs of importing. Customs duties, VAT and applicable taxes depend on the tariff classification of the goods and must be established with your freight forwarder and the customs administration.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How can the lock-up cost of an operation be reduced?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">By acting on the real cycle duration, measured from the day of domiciliation to the day the customer pays, rather than on transit time alone. The most effective levers are usually upstream documentary preparation, which avoids port immobilisation, and shortening the gap between receipt and sale.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>How can the lock-up cost of an operation be reduced?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>By acting on the real cycle duration, measured from the day of domiciliation to the day the customer pays, rather than on transit time alone. The most effective levers are usually upstream documentary preparation, which avoids port immobilisation, and shortening the gap between receipt and sale.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Should landed cost be calculated per operation or on average?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Per operation. The financial items depend directly on cycle duration, which varies widely. An annual average conceals precisely those operations whose long cycle destroys margin, and prevents you identifying which ones to fix.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Should landed cost be calculated per operation or on average?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Per operation. The financial items depend directly on cycle duration, which varies widely. An annual average conceals precisely those operations whose long cycle destroys margin, and prevents you identifying which ones to fix.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

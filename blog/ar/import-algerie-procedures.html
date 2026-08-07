@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -557,28 +569,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما أول مرحلة في عملية استيراد بالجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">التوطين البنكي، الذي يجب فتحه قبل شحن البضاعة. فالنظام رقم 07-01 لبنك الجزائر المتعلق بالمعاملات الجارية مع الخارج يُخضع الاستيرادات لتوطين مسبق لدى بنك وسيط معتمد. وبدونه لا يمكن أي تحويل للعملة الصعبة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما أول مرحلة في عملية استيراد بالجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>التوطين البنكي، الذي يجب فتحه قبل شحن البضاعة. فالنظام رقم 07-01 لبنك الجزائر المتعلق بالمعاملات الجارية مع الخارج يُخضع الاستيرادات لتوطين مسبق لدى بنك وسيط معتمد. وبدونه لا يمكن أي تحويل للعملة الصعبة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما معدّل الرسم على القيمة المضافة عند الاستيراد في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">المعدّل العادي هو 19 %. ويُطبَّق معدّل مخفَّض قدره 9 % على المنتجات والسلع والأشغال والعمليات والخدمات المذكورة في المادة 23 من قانون الرسوم على رقم الأعمال. وعند الاستيراد، يكون الحدث المنشئ للرسم هو إدخال البضاعة إلى الجمارك.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما معدّل الرسم على القيمة المضافة عند الاستيراد في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>المعدّل العادي هو 19 %. ويُطبَّق معدّل مخفَّض قدره 9 % على المنتجات والسلع والأشغال والعمليات والخدمات المذكورة في المادة 23 من قانون الرسوم على رقم الأعمال. وعند الاستيراد، يكون الحدث المنشئ للرسم هو إدخال البضاعة إلى الجمارك.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>على أي أساس تُحسب الحقوق والرسوم؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يشمل رقم الأعمال الخاضع ثمنَ البضائع بكل المصاريف والحقوق والرسوم، باستثناء الرسم على القيمة المضافة نفسه. فالمصاريف التبعية تدخل إذن في الوعاء، ما يجعل اختيار الإنكوترم وبنية الفوترة ذوَي أثر اقتصادي معتبر.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>على أي أساس تُحسب الحقوق والرسوم؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يشمل رقم الأعمال الخاضع ثمنَ البضائع بكل المصاريف والحقوق والرسوم، باستثناء الرسم على القيمة المضافة نفسه. فالمصاريف التبعية تدخل إذن في الوعاء، ما يجعل اختيار الإنكوترم وبنية الفوترة ذوَي أثر اقتصادي معتبر.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن للمقاول الذاتي أن يستورد في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تذكر وثائق المديرية العامة للضرائب المستورد المصغّر الممارس تحت صفة المقاول الذاتي، مستندةً إلى المادة 6 من المرسوم التنفيذي رقم 25-170 المؤرخ في 28 جوان 2025. وتُسدَّد الضريبة عندئذ لدى الجمارك عند وضع البضائع للاستهلاك (المادة 143 من قانون المالية 2026). وهو فتح مؤطَّر، متميّز عن الاستثناء العام للاستيراد وإعادة البيع من النظام الجزافي المقرَّر في المادة 282 مكرر 2.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل يمكن للمقاول الذاتي أن يستورد في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>تذكر وثائق المديرية العامة للضرائب المستورد المصغّر الممارس تحت صفة المقاول الذاتي، مستندةً إلى المادة 6 من المرسوم التنفيذي رقم 25-170 المؤرخ في 28 جوان 2025. وتُسدَّد الضريبة عندئذ لدى الجمارك عند وضع البضائع للاستهلاك (المادة 143 من قانون المالية 2026). وهو فتح مؤطَّر، متميّز عن الاستثناء العام للاستيراد وإعادة البيع من النظام الجزافي المقرَّر في المادة 282 مكرر 2.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن التغطية من خطر الصرف في عملية استيراد؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">النظام رقم 20-04 المؤرخ في 15 مارس 2020، المنشور في الجريدة الرسمية عدد 16 المؤرخة في 24 مارس 2020، يتعلق بسوق الصرف ما بين البنوك وعمليات خزينة العملة الصعبة وأدوات التغطية من خطر الصرف. فهذه الأدوات موجودة إذن في الإطار التنظيمي. أما توفّرها الفعلي لمؤسسة بعينها فيُتحقَّق منه لدى بنكها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يمكن التغطية من خطر الصرف في عملية استيراد؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>النظام رقم 20-04 المؤرخ في 15 مارس 2020، المنشور في الجريدة الرسمية عدد 16 المؤرخة في 24 مارس 2020، يتعلق بسوق الصرف ما بين البنوك وعمليات خزينة العملة الصعبة وأدوات التغطية من خطر الصرف. فهذه الأدوات موجودة إذن في الإطار التنظيمي. أما توفّرها الفعلي لمؤسسة بعينها فيُتحقَّق منه لدى بنكها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>متى تُعتبر عملية الاستيراد مُغلقة فعلاً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">عند تسوية ملف التوطين، حين يقارن البنك الوثائق الجمركية والمالية بالملف المفتوح قبل الشحن. ومن واقع مهامنا، هي المرحلة الأكثر إهمالاً، وإغفالها يعقّد عمليات الاستيراد اللاحقة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>متى تُعتبر عملية الاستيراد مُغلقة فعلاً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>عند تسوية ملف التوطين، حين يقارن البنك الوثائق الجمركية والمالية بالملف المفتوح قبل الشحن. ومن واقع مهامنا، هي المرحلة الأكثر إهمالاً، وإغفالها يعقّد عمليات الاستيراد اللاحقة.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

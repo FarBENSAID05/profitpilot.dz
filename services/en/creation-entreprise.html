@@ -214,8 +214,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -561,28 +573,28 @@
 
         <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Can I draft my own articles of association, or generate them online, in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>No. Article 545 of the Commercial Code provides that the company is, <strong>on pain of nullity</strong>, evidenced by an authenticated deed. Privately executed articles, however well drafted, do not incorporate a company. This is the main divergence from French legal platforms, where a private deed is accepted. In Algeria, going through a notary is not a matter of convenience.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Can I draft my own articles of association, or generate them online, in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>No. Article 545 of the Commercial Code provides that the company is, <strong>on pain of nullity</strong>, evidenced by an authenticated deed. Privately executed articles, however well drafted, do not incorporate a company. This is the main divergence from French legal platforms, where a private deed is accepted. In Algeria, going through a notary is not a matter of convenience.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the minimum share capital for an Algerian LLC?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>There is none. Article 566 of the Commercial Code, as amended by Law no. 15-20 of 30 December 2015, leaves share capital <strong>freely set by the partners in the articles</strong>. The DZD 100,000 figure still found in many guides reflects the pre-2015 wording. That does not make token capital a good idea: a bank or a contracting authority will read it as such.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What is the minimum share capital for an Algerian LLC?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>There is none. Article 566 of the Commercial Code, as amended by Law no. 15-20 of 30 December 2015, leaves share capital <strong>freely set by the partners in the articles</strong>. The DZD 100,000 figure still found in many guides reflects the pre-2015 wording. That does not make token capital a good idea: a bank or a contracting authority will read it as such.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Must the capital be paid up in full at incorporation?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Not for cash contributions: shares must be paid up by at least <strong>one fifth</strong>, with the balance callable in one or more instalments by decision of the manager, within a maximum of <strong>five years</strong> from registration (article 567, as amended by Law 15-20). Contributions in kind, however, are paid up in full at incorporation.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Must the capital be paid up in full at incorporation?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Not for cash contributions: shares must be paid up by at least <strong>one fifth</strong>, with the balance callable in one or more instalments by decision of the manager, within a maximum of <strong>five years</strong> from registration (article 567, as amended by Law 15-20). Contributions in kind, however, are paid up in full at incorporation.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>When does the company legally come into existence?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Upon <strong>registration with the commercial register</strong>, not upon signature of the articles (article 549). The consequence is significant: commitments entered into in the company's name before that date bind, jointly and without limit, the personal estate of those who made them, unless the company duly adopts them once registered.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>When does the company legally come into existence?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Upon <strong>registration with the commercial register</strong>, not upon signature of the articles (article 549). The consequence is significant: commitments entered into in the company's name before that date bind, jointly and without limit, the personal estate of those who made them, unless the company duly adopts them once registered.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if incorporation drags on after the funds are deposited?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Article 567 bis 1, added by Law 15-20, entitles <strong>any subscriber</strong> to ask the notary to release their subscription if the company is not incorporated within <strong>six months of the deposit</strong>; failing that, the interim relief judge may authorise the release. The clock runs from the deposit, which argues for depositing only once the rest of the file is ready.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>What happens if incorporation drags on after the funds are deposited?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>Article 567 bis 1, added by Law 15-20, entitles <strong>any subscriber</strong> to ask the notary to release their subscription if the company is not incorporated within <strong>six months of the deposit</strong>; failing that, the interim relief judge may authorise the release. The clock runs from the deposit, which argues for depositing only once the rest of the file is ready.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How much does incorporating in Algeria cost?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Official charges — registration duties, notarial fees, publication and filing — depend on the wilaya, the notarial practice and the applicable finance act, and the amounts published online contradict one another. We do not quote any figure we have not verified against a text. Full costing, separating official charges from fees, is prepared on quotation once form and capital are settled.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>How much does incorporating in Algeria cost?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden><p>Official charges — registration duties, notarial fees, publication and filing — depend on the wilaya, the notarial practice and the applicable finance act, and the amounts published online contradict one another. We do not quote any figure we have not verified against a text. Full costing, separating official charges from fees, is prepared on quotation once form and capital are settled.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

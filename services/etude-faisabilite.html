@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -535,24 +547,24 @@
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel texte impose le plan-type de l&#x27;étude technico-économique ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Le décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, qui modifie et complète le décret exécutif n° 23-487 du 28 décembre 2023 relatif à la concession convertible en cession du foncier économique. Il exige une étude technico-économique établie par un professionnel qualifié, conformément au plan-type figurant à son annexe V.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel texte impose le plan-type de l&#x27;étude technico-économique ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Le décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026, qui modifie et complète le décret exécutif n° 23-487 du 28 décembre 2023 relatif à la concession convertible en cession du foncier économique. Il exige une étude technico-économique établie par un professionnel qualifié, conformément au plan-type figurant à son annexe V.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelles sont les neuf parties du plan-type ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>I. Informations générales sur le porteur de projet ; II. Présentation générale du projet ; III. Étude technique ; IV. Étude de marché ; V. Plan d'investissement ; VI. Prévisions économiques et financières ; VII. Impact socio-économique ; VIII. Calendrier de réalisation ; IX. Annexes.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quelles sont les neuf parties du plan-type ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>I. Informations générales sur le porteur de projet ; II. Présentation générale du projet ; III. Étude technique ; IV. Étude de marché ; V. Plan d'investissement ; VI. Prévisions économiques et financières ; VII. Impact socio-économique ; VIII. Calendrier de réalisation ; IX. Annexes.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle différence entre étude technico-économique et business plan ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>L'étude technico-économique part du procédé de production, des équipements et des coûts techniques, puis en tire les conséquences financières. Le business plan y ajoute la stratégie commerciale et la trajectoire de l'entreprise. Les deux documents se recoupent largement ; nous produisons l'un ou l'autre, ou les deux, selon le destinataire du dossier.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Quelle différence entre étude technico-économique et business plan ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>L'étude technico-économique part du procédé de production, des équipements et des coûts techniques, puis en tire les conséquences financières. Le business plan y ajoute la stratégie commerciale et la trajectoire de l'entreprise. Les deux documents se recoupent largement ; nous produisons l'un ou l'autre, ou les deux, selon le destinataire du dossier.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pouvez-vous auditer une étude déjà réalisée ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Oui. Nous comparons votre document au plan-type de l'annexe V, partie par partie, et vous remettons la liste écrite des écarts, des pièces manquantes et des incohérences chiffrées. Compter trois à cinq jours à partir de la réception du dossier complet.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Pouvez-vous auditer une étude déjà réalisée ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Oui. Nous comparons votre document au plan-type de l'annexe V, partie par partie, et vous remettons la liste écrite des écarts, des pièces manquantes et des incohérences chiffrées. Compter trois à cinq jours à partir de la réception du dossier complet.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien coûte une étude technico-économique en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Chez ProfitPilot, à partir de 150 000 DZD pour une petite activité, de 300 000 à 500 000 DZD pour un projet industriel moyen, et sur devis au-delà de 100 millions de dinars d'investissement. Le cadrage initial est gratuit et donne lieu à un devis écrit avant tout engagement.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Combien coûte une étude technico-économique en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>Chez ProfitPilot, à partir de 150 000 DZD pour une petite activité, de 300 000 à 500 000 DZD pour un projet industriel moyen, et sur devis au-delà de 100 millions de dinars d'investissement. Le cadrage initial est gratuit et donne lieu à un devis écrit avant tout engagement.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

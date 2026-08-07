@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -571,28 +583,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>How is working capital requirement calculated?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">WCR equals trade receivables, plus inventories, less trade payables. Each of these three items is driven by a period: the terms granted to customers, inventory turnover, and the terms obtained from suppliers. A positive WCR means the operating cycle consumes cash permanently.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>How is working capital requirement calculated?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>WCR equals trade receivables, plus inventories, less trade payables. Each of these three items is driven by a period: the terms granted to customers, inventory turnover, and the terms obtained from suppliers. A positive WCR means the operating cycle consumes cash permanently.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why can a profitable company run out of cash?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because profit records a sale at invoicing, while cash records it at collection. In between, the company has already paid its suppliers, wages and charges. If working capital grows faster than net profit, the company destroys cash while being profitable.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Why can a profitable company run out of cash?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Because profit records a sale at invoicing, while cash records it at collection. In between, the company has already paid its suppliers, wages and charges. If working capital grows faster than net profit, the company destroys cash while being profitable.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why does growth worsen the cash position?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because working capital grows proportionally with activity when terms stay constant. In this article's worked example, 60% revenue growth raises working capital by 12.50 million while net profit is only 9.60 million: the company destroys 2.90 million of cash over the year while being more profitable in absolute terms.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Why does growth worsen the cash position?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Because working capital grows proportionally with activity when terms stay constant. In this article's worked example, 60% revenue growth raises working capital by 12.50 million while net profit is only 9.60 million: the company destroys 2.90 million of cash over the year while being more profitable in absolute terms.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is an overdraft a good way to finance working capital?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Not for structural working capital. An overdraft is a short resource, permanent working capital is a long need. Regulation no. 14-03 in fact classifies as potential-problem claims those debit balances on current accounts which, over a period of 90 to 180 days, have not recorded credit movements covering all interest charges and a significant part of those balances.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Is an overdraft a good way to finance working capital?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Not for structural working capital. An overdraft is a short resource, permanent working capital is a long need. Regulation no. 14-03 in fact classifies as potential-problem claims those debit balances on current accounts which, over a period of 90 to 180 days, have not recorded credit movements covering all interest charges and a significant part of those balances.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which lever acts fastest on working capital?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Invoicing lead time. The time between delivery and issuing the invoice is pure working capital, entirely within the company's control and free to correct. Next comes chasing before the due date, whose effect on average customer terms is measurable within weeks.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Which lever acts fastest on working capital?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Invoicing lead time. The time between delivery and issuing the invoice is pure working capital, entirely within the company's control and free to correct. Next comes chasing before the due date, whose effect on average customer terms is measurable within weeks.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How many days of working capital is too many?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">There is no universal threshold: the normal level depends on the sector, the business model and seasonality. What matters is how working capital relative to revenue evolves from one year to the next, and how it compares with the permanent resources available to finance it.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>How many days of working capital is too many?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>There is no universal threshold: the normal level depends on the sector, the business model and seasonality. What matters is how working capital relative to revenue evolves from one year to the next, and how it compares with the permanent resources available to finance it.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

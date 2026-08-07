@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -625,28 +637,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو سقف رقم أعمال المقاول الذاتي في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">خمسة ملايين دينار (5.000.000 دج) من رقم الأعمال السنوي، تطبيقاً للمادة 282 مكرر 2 من قانون الضرائب المباشرة والرسوم المماثلة كما جاءت بها المادة 51 من قانون المالية لسنة 2023. وللإشارة: القانون 22-23 نفسه لا يحدّد مبلغاً، بل يحيل إلى التشريع الجبائي المعمول به — ومن ثمّ يمكن لهذا الحدّ أن يتغيّر بقانون مالية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما هو سقف رقم أعمال المقاول الذاتي في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>خمسة ملايين دينار (5.000.000 دج) من رقم الأعمال السنوي، تطبيقاً للمادة 282 مكرر 2 من قانون الضرائب المباشرة والرسوم المماثلة كما جاءت بها المادة 51 من قانون المالية لسنة 2023. وللإشارة: القانون 22-23 نفسه لا يحدّد مبلغاً، بل يحيل إلى التشريع الجبائي المعمول به — ومن ثمّ يمكن لهذا الحدّ أن يتغيّر بقانون مالية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الضريبة التي يدفعها المقاول الذاتي الجزائري؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">الضريبة الجزافية الوحيدة بمعدّل 0,5 % من رقم الأعمال، المنصوص عليها في المادة 282 مكرر 5 والناتجة عن المادة 18 من قانون المالية لسنة 2024. والحد الأدنى السنوي للضريبة هو 10.000 دج للنشاطات الممارسة تحت هذه الصفة، مقابل 30.000 دج في القانون العام (المادة 365، والمادة 29 من قانون المالية لسنة 2025).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما الضريبة التي يدفعها المقاول الذاتي الجزائري؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>الضريبة الجزافية الوحيدة بمعدّل 0,5 % من رقم الأعمال، المنصوص عليها في المادة 282 مكرر 5 والناتجة عن المادة 18 من قانون المالية لسنة 2024. والحد الأدنى السنوي للضريبة هو 10.000 دج للنشاطات الممارسة تحت هذه الصفة، مقابل 30.000 دج في القانون العام (المادة 365، والمادة 29 من قانون المالية لسنة 2025).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يلزم سجل تجاري لممارسة نشاط كمقاول ذاتي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. تنصّ المادة 9 من القانون 22-23 صراحةً على الإعفاء من إلزامية التسجيل في السجل التجاري. في المقابل تفرض المادة 13 هذا التسجيل إذا تجاوز رقم الأعمال الحدّ القانوني خلال ثلاث سنوات متتالية ورغب المعني في مواصلة نشاطه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل يلزم سجل تجاري لممارسة نشاط كمقاول ذاتي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لا. تنصّ المادة 9 من القانون 22-23 صراحةً على الإعفاء من إلزامية التسجيل في السجل التجاري. في المقابل تفرض المادة 13 هذا التسجيل إذا تجاوز رقم الأعمال الحدّ القانوني خلال ثلاث سنوات متتالية ورغب المعني في مواصلة نشاطه.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما النشاطات المستثناة من صفة المقاول الذاتي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تستثني الفقرة الثانية من المادة 2 من القانون 22-23 المهن الحرة والمهن والنشاطات المنظّمة والحرفية. أما القائمة الإيجابية للنشاطات المؤهلة فيحدّدها المرسوم التنفيذي رقم 23-197 المؤرخ في 25 ماي 2023: وهي المرجع المعتمد لحظة التسجيل.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما النشاطات المستثناة من صفة المقاول الذاتي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>تستثني الفقرة الثانية من المادة 2 من القانون 22-23 المهن الحرة والمهن والنشاطات المنظّمة والحرفية. أما القائمة الإيجابية للنشاطات المؤهلة فيحدّدها المرسوم التنفيذي رقم 23-197 المؤرخ في 25 ماي 2023: وهي المرجع المعتمد لحظة التسجيل.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن للمقاول الذاتي استيراد بضائع؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تذكر وثائق المديرية العامة للضرائب «المستورد المصغّر الممارس تحت صفة المقاول الذاتي»، مستندةً إلى المادة 6 من المرسوم التنفيذي رقم 25-170 المؤرخ في 28 جوان 2025. وتُسدَّد الضريبة عندئذ لدى الجمارك عند وضع البضائع للاستهلاك (المادة 143 من قانون المالية لسنة 2026)، ولا يُطلب التصريحان G رقم 12 وG رقم 12 مكرر. إنه فتح مؤطَّر: يبقى المجال الدقيق المحدَّد بالمرسوم وقواعد الصرف والتوطين واجبة التحقق قبل أي عملية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يمكن للمقاول الذاتي استيراد بضائع؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>تذكر وثائق المديرية العامة للضرائب «المستورد المصغّر الممارس تحت صفة المقاول الذاتي»، مستندةً إلى المادة 6 من المرسوم التنفيذي رقم 25-170 المؤرخ في 28 جوان 2025. وتُسدَّد الضريبة عندئذ لدى الجمارك عند وضع البضائع للاستهلاك (المادة 143 من قانون المالية لسنة 2026)، ولا يُطلب التصريحان G رقم 12 وG رقم 12 مكرر. إنه فتح مؤطَّر: يبقى المجال الدقيق المحدَّد بالمرسوم وقواعد الصرف والتوطين واجبة التحقق قبل أي عملية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا رُفض تسجيلي أو شُطبتُ من السجل؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يفتح المرسوم التنفيذي 23-197 طعناً في أجل ثلاثين (30) يوماً لدى المصالح المختصة للوزير المكلّف بالمؤسسات الناشئة، الذي يملك بدوره ثلاثين يوماً للردّ (المادة 24). ويُبلَّغ قرار الشطب في أجل خمسة عشر يوماً ويترتب عليه إلغاء البطاقة. وتبقى إعادة التسجيل ممكنة بعد زوال أسباب الشطب وتسديد الديون الجبائية وشبه الجبائية (المادة 16 من القانون والمادة 25 من المرسوم).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>ماذا يحدث إذا رُفض تسجيلي أو شُطبتُ من السجل؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>يفتح المرسوم التنفيذي 23-197 طعناً في أجل ثلاثين (30) يوماً لدى المصالح المختصة للوزير المكلّف بالمؤسسات الناشئة، الذي يملك بدوره ثلاثين يوماً للردّ (المادة 24). ويُبلَّغ قرار الشطب في أجل خمسة عشر يوماً ويترتب عليه إلغاء البطاقة. وتبقى إعادة التسجيل ممكنة بعد زوال أسباب الشطب وتسديد الديون الجبائية وشبه الجبائية (المادة 16 من القانون والمادة 25 من المرسوم).</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

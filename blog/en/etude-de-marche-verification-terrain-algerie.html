@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -590,28 +602,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What must the market study section of an Algerian investment file contain?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Part IV of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 contains five headings: analysis of national, regional and international demand; analysis of supply and competition; sector trends; strategic positioning of the project relative to the market; and commercial policy and market access.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What must the market study section of an Algerian investment file contain?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Part IV of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 contains five headings: analysis of national, regional and international demand; analysis of supply and competition; sector trends; strategic positioning of the project relative to the market; and commercial policy and market access.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why is public data not enough?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">For three distinct reasons: the level of aggregation, which describes a country when the project sits in a catchment area; the time lag, since published data describes a period already past; and informal activity, which escapes statistics by construction while sometimes being the main competitor in a segment.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Why is public data not enough?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>For three distinct reasons: the level of aggregation, which describes a country when the project sits in a catchment area; the time lag, since published data describes a period already past; and informal activity, which escapes statistics by construction while sometimes being the main competitor in a segment.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How should a catchment area be defined?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">In travel time rather than distance, and written explicitly into the study. Without a defined perimeter, no count can be interpreted and no market share can be verified. The perimeter used must be reproducible by a third party.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How should a catchment area be defined?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>In travel time rather than distance, and written explicitly into the study. Without a defined perimeter, no count can be interpreted and no market share can be verified. The perimeter used must be reproducible by a third party.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why record prices actually paid rather than displayed prices?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because in sectors where discounting is systematic, the displayed price has no forecasting value. Building revenue on displayed prices mechanically overstates every line of the financial projections. A 10% error on selling price can be enough to turn a net present value from positive to negative on a low-margin project.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Why record prices actually paid rather than displayed prices?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Because in sectors where discounting is systematic, the displayed price has no forecasting value. Building revenue on displayed prices mechanically overstates every line of the financial projections. A 10% error on selling price can be enough to turn a net present value from positive to negative on a low-margin project.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How many interviews are needed to verify market access?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Three are enough to reveal the structure of the channel: a distributor in the area, an indirect competitor, and a customer representative of the target segment. These interviews deal with lived facts — payment terms, minimum volumes, listing lead times — rather than stated intentions.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>How many interviews are needed to verify market access?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Three are enough to reveal the structure of the channel: a distributor in the area, an indirect competitor, and a customer representative of the target segment. These interviews deal with lived facts — payment terms, minimum volumes, listing lead times — rather than stated intentions.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How can you tell a market study was not verified?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Five signs recur: no dates, locations or number of observations; a market share expressed as a percentage of a national total; a selling price equal to cost plus a round margin; competitors described by category without ever being named or located; and a commercial policy written in the future tense with no interlocutor cited.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>How can you tell a market study was not verified?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Five signs recur: no dates, locations or number of observations; a market share expressed as a percentage of a national total; a selling price equal to cost plus a round margin; competitors described by category without ever being named or located; and a commercial policy written in the future tense with no interlocutor cited.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

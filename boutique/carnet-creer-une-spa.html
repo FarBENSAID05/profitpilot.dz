@@ -122,8 +122,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -374,16 +386,16 @@
 
 <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>En quoi diffère-t-il du carnet SARL ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Par trois fiches qui n'ont pas d'équivalent : la constitution de l'actionnariat à sept, la répartition du capital sous la contrainte des 20 % de l'article 619, et le choix du commissaire aux comptes — qui en SPA se nomme <em>dans les statuts</em> (article 609), donc avant la signature et non après le premier exercice.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>En quoi diffère-t-il du carnet SARL ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Par trois fiches qui n'ont pas d'équivalent : la constitution de l'actionnariat à sept, la répartition du capital sous la contrainte des 20 % de l'article 619, et le choix du commissaire aux comptes — qui en SPA se nomme <em>dans les statuts</em> (article 609), donc avant la signature et non après le premier exercice.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Le commissaire aux comptes est-il vraiment obligatoire quelle que soit la taille ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. L'article 715 bis 4 rattache l'obligation à la forme sociale et non au chiffre d'affaires : une SPA de sept actionnaires sans activité y est soumise dès son premier exercice. C'est la différence structurante avec la SARL, où l'obligation naît du franchissement d'un seuil.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Le commissaire aux comptes est-il vraiment obligatoire quelle que soit la taille ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Oui. L'article 715 bis 4 rattache l'obligation à la forme sociale et non au chiffre d'affaires : une SPA de sept actionnaires sans activité y est soumise dès son premier exercice. C'est la différence structurante avec la SARL, où l'obligation naît du franchissement d'un seuil.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Contient-il le capital minimum ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui, avec sa référence et sa date : 1 000 000 DA, ou 5 000 000 DA en cas d'appel public à l'épargne, à l'article 594 tel qu'il résulte du décret législatif 93-08. Nous signalons dans le carnet que nous n'avons pas pu confronter ces montants à une version consolidée récente du <em>Journal officiel</em>, et nous invitons à les faire confirmer si le projet se joue à ce montant près.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Contient-il le capital minimum ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Oui, avec sa référence et sa date : 1 000 000 DA, ou 5 000 000 DA en cas d'appel public à l'épargne, à l'article 594 tel qu'il résulte du décret législatif 93-08. Nous signalons dans le carnet que nous n'avons pas pu confronter ces montants à une version consolidée récente du <em>Journal officiel</em>, et nous invitons à les faire confirmer si le projet se joue à ce montant près.</div>
         </div>
 
         <div class="internal-links-box" style="margin-top:3rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border-mid);border-radius:12px;">

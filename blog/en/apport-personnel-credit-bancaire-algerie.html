@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -583,28 +595,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Is there a mandatory own contribution rate in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The three Bank of Algeria regulations of 16 February 2014 governing credit — no. 14-01, 14-02 and 14-03 — set no contribution rate for the borrower. They govern the bank's obligations: a 25% ceiling on regulatory equity per beneficiary, a 100% weighting for corporate credit, eligible collateral proportions and provisioning rates. The contribution rate is therefore a matter of each institution's credit policy. Published scales do, however, exist within the public schemes.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Is there a mandatory own contribution rate in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>The three Bank of Algeria regulations of 16 February 2014 governing credit — no. 14-01, 14-02 and 14-03 — set no contribution rate for the borrower. They govern the bank's obligations: a 25% ceiling on regulatory equity per beneficiary, a 100% weighting for corporate credit, eligible collateral proportions and provisioning rates. The contribution rate is therefore a matter of each institution's credit policy. Published scales do, however, exist within the public schemes.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What own contribution does the NESDA scheme require?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">NESDA publishes four rates for triangular financing: 5% for students and the unemployed, 10% for employed applicants in southern zones, 12% for the High Plateaux and specific zones, and 15% for other regions. In each of these formulas the bank's share is 70%. Mixed financing assumes a 50% contribution and self-financing 100%.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What own contribution does the NESDA scheme require?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>NESDA publishes four rates for triangular financing: 5% for students and the unemployed, 10% for employed applicants in southern zones, 12% for the High Plateaux and specific zones, and 15% for other regions. In each of these formulas the bank's share is 70%. Mixed financing assumes a 50% contribution and self-financing 100%.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the maximum project amount financed by NESDA?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Financing can reach 10,000,000 DA. The agency's loan is interest-free and the bank's share benefits from a 100% subsidised interest rate. Additional interest-free loans exist: 500,000 DA for renting premises or a quayside position, and 1,000,000 DA on an exceptional basis for operations.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What is the maximum project amount financed by NESDA?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Financing can reach 10,000,000 DA. The agency's loan is interest-free and the bank's share benefits from a 100% subsidised interest rate. Additional interest-free loans exist: 500,000 DA for renting premises or a quayside position, and 1,000,000 DA on an exceptional basis for operations.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is it better to increase the contribution or provide collateral?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">They do not produce the same effect. The contribution reduces the credit amount, and therefore the bank's exposure and its provisioning base. Collateral does not reduce exposure: it reduces its cost in provisions, up to its eligible proportion — 100% for a deposit with the lending bank, 80% for an approved bank guarantee, only 50% for a mortgage. The optimal package usually combines both.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Is it better to increase the contribution or provide collateral?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>They do not produce the same effect. The contribution reduces the credit amount, and therefore the bank's exposure and its provisioning base. Collateral does not reduce exposure: it reduces its cost in provisions, up to its eligible proportion — 100% for a deposit with the lending bank, 80% for an approved bank guarantee, only 50% for a mortgage. The optimal package usually combines both.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can you borrow to build your own contribution?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">It is strongly inadvisable and rarely invisible. Regulation no. 12-01 requires banks to declare to the Credit Register monthly every facility granted to their customers, whatever the amount, and to consult that register before granting credit to a new client. A loan taken elsewhere to build the contribution therefore appears in the report the bank consults.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Can you borrow to build your own contribution?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>It is strongly inadvisable and rarely invisible. Regulation no. 12-01 requires banks to declare to the Credit Register monthly every facility granted to their customers, whatever the amount, and to consult that register before granting credit to a new client. A loan taken elsewhere to build the contribution therefore appears in the report the bank consults.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is the scheme still called ANSEJ or ANADE?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The scheme has been renamed several times: ANSEJ, then ANADE, and today NESDA — the National Agency for Entrepreneurship Support and Development, under the Ministry of Knowledge Economy, Start-ups and Micro-enterprises. Many scales circulating online correspond to earlier versions: refer to the rates published by the agency.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Is the scheme still called ANSEJ or ANADE?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>The scheme has been renamed several times: ANSEJ, then ANADE, and today NESDA — the National Agency for Entrepreneurship Support and Development, under the Ministry of Knowledge Economy, Start-ups and Micro-enterprises. Many scales circulating online correspond to earlier versions: refer to the rates published by the agency.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

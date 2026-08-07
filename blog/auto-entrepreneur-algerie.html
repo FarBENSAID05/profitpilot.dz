@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -625,28 +637,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le plafond de chiffre d&#x27;affaires d&#x27;un auto-entrepreneur en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Cinq millions de dinars (5 000 000 DA) de chiffre d'affaires annuel, en application de l'article 282 ter du code des impôts directs et taxes assimilées, tel qu'issu de l'article 51 de la loi de finances pour 2023. À noter : la loi 22-23 elle-même ne fixe pas de montant, elle renvoie à la législation fiscale en vigueur — ce seuil peut donc évoluer par loi de finances.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel est le plafond de chiffre d&#x27;affaires d&#x27;un auto-entrepreneur en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Cinq millions de dinars (5 000 000 DA) de chiffre d'affaires annuel, en application de l'article 282 ter du code des impôts directs et taxes assimilées, tel qu'issu de l'article 51 de la loi de finances pour 2023. À noter : la loi 22-23 elle-même ne fixe pas de montant, elle renvoie à la législation fiscale en vigueur — ce seuil peut donc évoluer par loi de finances.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel impôt paie un auto-entrepreneur algérien ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'impôt forfaitaire unique (IFU) au taux de 0,5 % du chiffre d'affaires, prévu par l'article 282 sexies du CIDTA et issu de l'article 18 de la loi de finances pour 2024. Le minimum d'imposition annuel est de 10 000 DA pour les activités exercées sous ce statut, contre 30 000 DA en droit commun (article 365 du CIDTA, article 29 de la loi de finances pour 2025).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel impôt paie un auto-entrepreneur algérien ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>L'impôt forfaitaire unique (IFU) au taux de 0,5 % du chiffre d'affaires, prévu par l'article 282 sexies du CIDTA et issu de l'article 18 de la loi de finances pour 2024. Le minimum d'imposition annuel est de 10 000 DA pour les activités exercées sous ce statut, contre 30 000 DA en droit commun (article 365 du CIDTA, article 29 de la loi de finances pour 2025).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Faut-il un registre du commerce pour être auto-entrepreneur ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. L'article 9 de la loi 22-23 prévoit expressément la dispense de l'obligation d'inscription au registre du commerce. En revanche, l'article 13 impose cette inscription si le chiffre d'affaires dépasse le seuil légal durant trois années consécutives et que l'intéressé souhaite poursuivre son activité.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Faut-il un registre du commerce pour être auto-entrepreneur ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Non. L'article 9 de la loi 22-23 prévoit expressément la dispense de l'obligation d'inscription au registre du commerce. En revanche, l'article 13 impose cette inscription si le chiffre d'affaires dépasse le seuil légal durant trois années consécutives et que l'intéressé souhaite poursuivre son activité.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelles activités sont exclues du statut d&#x27;auto-entrepreneur ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 2, alinéa 2, de la loi 22-23 exclut les fonctions libérales, les professions et les activités réglementées et artisanales. La liste positive des activités éligibles est fixée par le décret exécutif n° 23-197 du 25 mai 2023 : c'est elle qui fait foi au moment de l'inscription.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Quelles activités sont exclues du statut d&#x27;auto-entrepreneur ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>L'article 2, alinéa 2, de la loi 22-23 exclut les fonctions libérales, les professions et les activités réglementées et artisanales. La liste positive des activités éligibles est fixée par le décret exécutif n° 23-197 du 25 mai 2023 : c'est elle qui fait foi au moment de l'inscription.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un auto-entrepreneur peut-il importer des marchandises ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La documentation de la Direction générale des impôts mentionne le micro-importateur exerçant sous statut d'auto-entrepreneur, en visant l'article 6 du décret exécutif n° 25-170 du 28 juin 2025. L'impôt est alors acquitté auprès des douanes lors de la mise à la consommation (article 143 de la loi de finances pour 2026), et les déclarations G n° 12 et G n° 12 bis ne sont pas exigées. Il s'agit d'une ouverture encadrée : le champ exact fixé par le décret et les règles de change et de domiciliation restent à vérifier avant toute opération.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Un auto-entrepreneur peut-il importer des marchandises ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>La documentation de la Direction générale des impôts mentionne le micro-importateur exerçant sous statut d'auto-entrepreneur, en visant l'article 6 du décret exécutif n° 25-170 du 28 juin 2025. L'impôt est alors acquitté auprès des douanes lors de la mise à la consommation (article 143 de la loi de finances pour 2026), et les déclarations G n° 12 et G n° 12 bis ne sont pas exigées. Il s'agit d'une ouverture encadrée : le champ exact fixé par le décret et les règles de change et de domiciliation restent à vérifier avant toute opération.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si l&#x27;inscription est refusée ou si je suis radié ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le décret exécutif n° 23-197 ouvre un recours de trente (30) jours auprès des services compétents du ministre chargé des start-up, lequel dispose lui aussi de trente jours pour répondre (article 24). La décision de radiation est notifiée dans les quinze jours et entraîne l'annulation de la carte. Une réinscription reste possible après la levée des motifs de radiation et le paiement des dettes fiscales et parafiscales (article 16 de la loi, article 25 du décret).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Que se passe-t-il si l&#x27;inscription est refusée ou si je suis radié ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Le décret exécutif n° 23-197 ouvre un recours de trente (30) jours auprès des services compétents du ministre chargé des start-up, lequel dispose lui aussi de trente jours pour répondre (article 24). La décision de radiation est notifiée dans les quinze jours et entraîne l'annulation de la carte. Une réinscription reste possible après la levée des motifs de radiation et le paiement des dettes fiscales et parafiscales (article 16 de la loi, article 25 du décret).</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

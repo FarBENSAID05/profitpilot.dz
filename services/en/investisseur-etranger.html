@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -518,24 +530,24 @@
 
         <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a foreign company hold 100% of an Algerian entity?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Outside the activities listed as strategic and outside import for resale in the state, yes. The 49/51 national shareholding requirement ceased to be a general rule with the 2020 supplementary finance law. The choice of corporate vehicle is a separate question and is settled with the notary before the articles are drawn.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Can a foreign company hold 100% of an Algerian entity?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Outside the activities listed as strategic and outside import for resale in the state, yes. The 49/51 national shareholding requirement ceased to be a general rule with the 2020 supplementary finance law. The choice of corporate vehicle is a separate question and is settled with the notary before the articles are drawn.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Do I have to travel to Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Frequently at least once. Notaries generally require the representative in person or a power of attorney certified abroad and translated, covering both the individual and the shareholding company; banks often require the manager in person to open the account. We establish what will be accepted before you book anything.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Do I have to travel to Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>Frequently at least once. Notaries generally require the representative in person or a power of attorney certified abroad and translated, covering both the individual and the shareholding company; banks often require the manager in person to open the account. We establish what will be accepted before you book anything.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How much capital should we put in?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>There is no legal minimum since the 2015 reform, but the figure is not free in practice: the guarantee of transfer of capital and income requires foreign-origin financing at or above a minimum threshold measured against the total cost of the investment. The capital is sized against the project, not against the formalities.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How much capital should we put in?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>There is no legal minimum since the 2015 reform, but the figure is not free in practice: the guarantee of transfer of capital and income requires foreign-origin financing at or above a minimum threshold measured against the total cost of the investment. The capital is sized against the project, not against the formalities.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Do our documents still need consular legalisation?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>No, for public documents exchanged with the other contracting States. The Hague Apostille Convention entered into force for Algeria on 9 July 2026, and an apostille from the country of origin replaces consular legalisation. Sworn translation into Arabic remains necessary, and documents legalised under the old procedure before that date may have to be reissued.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Do our documents still need consular legalisation?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>No, for public documents exchanged with the other contracting States. The Hague Apostille Convention entered into force for Algeria on 9 July 2026, and an apostille from the country of origin replaces consular legalisation. Sworn translation into Arabic remains necessary, and documents legalised under the old procedure before that date may have to be reissued.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can our parent company be appointed manager?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>No. A limited-liability company is managed by one or more natural persons. A natural person must be appointed — resident or not, and not necessarily a shareholder. Which option suits you affects your timeline, because a foreign manager's cards are a workstream of their own.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Can our parent company be appointed manager?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>No. A limited-liability company is managed by one or more natural persons. A natural person must be appointed — resident or not, and not necessarily a shareholder. Which option suits you affects your timeline, because a foreign manager's cards are a workstream of their own.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

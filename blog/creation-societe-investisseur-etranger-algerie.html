@@ -218,8 +218,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -663,36 +675,36 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Un investisseur étranger peut-il détenir 100 % d&#x27;une société algérienne en 2026 ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">En dehors des activités stratégiques listées par le décret exécutif n° 21-145 du 17 avril 2021 et en dehors de l'importation pour revente en l'état, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Un investisseur étranger peut-il détenir 100 % d&#x27;une société algérienne en 2026 ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>En dehors des activités stratégiques listées par le décret exécutif n° 21-145 du 17 avril 2021 et en dehors de l'importation pour revente en l'état, oui. La règle 49/51 a cessé d'être une règle générale avec la loi de finances complémentaire pour 2020.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Une société étrangère peut-elle être l&#x27;associé unique d&#x27;une EURL algérienne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 590 bis 2 du code de commerce interdit à une société à responsabilité limitée d'avoir pour associé unique une autre société à responsabilité limitée composée d'une seule personne. Sa rédaction est plus étroite que la paraphrase qui en est souvent donnée. Aucun texte ne règle la qualification d'une forme sociale étrangère au regard de cet article : c'est pourquoi la société pluripersonnelle est la structure prudente, et pourquoi la question doit être posée au notaire avant la rédaction des statuts.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Une société étrangère peut-elle être l&#x27;associé unique d&#x27;une EURL algérienne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>L'article 590 bis 2 du code de commerce interdit à une société à responsabilité limitée d'avoir pour associé unique une autre société à responsabilité limitée composée d'une seule personne. Sa rédaction est plus étroite que la paraphrase qui en est souvent donnée. Aucun texte ne règle la qualification d'une forme sociale étrangère au regard de cet article : c'est pourquoi la société pluripersonnelle est la structure prudente, et pourquoi la question doit être posée au notaire avant la rédaction des statuts.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Existe-t-il un capital social minimum pour une SARL en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Depuis la modification de l'article 566 par la loi n° 15-20 du 30 décembre 2015, le capital est fixé librement par les associés dans les statuts. Les apports en numéraire doivent être libérés d'au moins un cinquième, le solde dans un délai de cinq ans à compter de l'immatriculation au registre du commerce.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Existe-t-il un capital social minimum pour une SARL en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Non. Depuis la modification de l'article 566 par la loi n° 15-20 du 30 décembre 2015, le capital est fixé librement par les associés dans les statuts. Les apports en numéraire doivent être libérés d'au moins un cinquième, le solde dans un délai de cinq ans à compter de l'immatriculation au registre du commerce.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si la société n&#x27;est pas constituée après le dépôt des fonds ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 567 bis 1 prévoit que si la société n'est pas constituée dans un délai de six mois à compter de la date du dépôt des fonds, tout souscripteur peut demander au notaire le retrait du montant de sa souscription et, si cela s'avère impossible par les voies ordinaires, demander au juge des référés l'autorisation de retirer ce montant.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Que se passe-t-il si la société n&#x27;est pas constituée après le dépôt des fonds ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>L'article 567 bis 1 prévoit que si la société n'est pas constituée dans un délai de six mois à compter de la date du dépôt des fonds, tout souscripteur peut demander au notaire le retrait du montant de sa souscription et, si cela s'avère impossible par les voies ordinaires, demander au juge des référés l'autorisation de retirer ce montant.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>La légalisation consulaire des documents étrangers est-elle toujours exigée en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non, pour les actes publics échangés avec les autres États contractants. L'Algérie a déposé son instrument d'adhésion à la convention Apostille de La Haye de 1961 le 5 novembre 2025 et la convention est entrée en vigueur pour l'Algérie le 9 juillet 2026. Une apostille du pays d'origine remplace la légalisation consulaire. La traduction assermentée en arabe demeure nécessaire.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>La légalisation consulaire des documents étrangers est-elle toujours exigée en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Non, pour les actes publics échangés avec les autres États contractants. L'Algérie a déposé son instrument d'adhésion à la convention Apostille de La Haye de 1961 le 5 novembre 2025 et la convention est entrée en vigueur pour l'Algérie le 9 juillet 2026. Une apostille du pays d'origine remplace la légalisation consulaire. La traduction assermentée en arabe demeure nécessaire.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le montant de la redevance AAPI pour un dossier d&#x27;investissement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">60 000 DA pour un projet inférieur à deux milliards de dinars, et 400 000 DA pour un projet égal ou supérieur à deux milliards de dinars ainsi que pour les investissements étrangers, exigible le jour du dépôt, en application du décret exécutif n° 22-299 du 8 septembre 2022. Un investissement étranger acquitte donc la redevance la plus élevée quelle que soit la taille du projet.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Quel est le montant de la redevance AAPI pour un dossier d&#x27;investissement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>60 000 DA pour un projet inférieur à deux milliards de dinars, et 400 000 DA pour un projet égal ou supérieur à deux milliards de dinars ainsi que pour les investissements étrangers, exigible le jour du dépôt, en application du décret exécutif n° 22-299 du 8 septembre 2022. Un investissement étranger acquitte donc la redevance la plus élevée quelle que soit la taille du projet.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>La société mère étrangère peut-elle être nommée gérante de sa filiale algérienne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. L'article 576 du code de commerce dispose que la société à responsabilité limitée est gérée par une ou plusieurs personnes physiques. Une personne physique doit être nommée, résidente ou non, et peut être choisie en dehors des associés.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>La société mère étrangère peut-elle être nommée gérante de sa filiale algérienne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden>Non. L'article 576 du code de commerce dispose que la société à responsabilité limitée est gérée par une ou plusieurs personnes physiques. Une personne physique doit être nommée, résidente ou non, et peut être choisie en dehors des associés.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien de temps faut-il pour créer une société en Algérie avec un associé étranger ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Notre observation est de quatre à sept semaines pour le noyau administratif lorsque le dossier est complet, et de trois à quatre mois jusqu'à la capacité d'exploiter lorsque l'associé est une personne morale étrangère. L'écart tient à l'obtention et à la certification des documents de la société mère ainsi qu'au virement international du capital, qui prend à lui seul deux à trois semaines.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-8"><span>Combien de temps faut-il pour créer une société en Algérie avec un associé étranger ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-8" hidden>Notre observation est de quatre à sept semaines pour le noyau administratif lorsque le dossier est complet, et de trois à quatre mois jusqu'à la capacité d'exploiter lorsque l'associé est une personne morale étrangère. L'écart tient à l'obtention et à la certification des documents de la société mère ainsi qu'au virement international du capital, qui prend à lui seul deux à trois semaines.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

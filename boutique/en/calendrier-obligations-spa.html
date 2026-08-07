@@ -122,8 +122,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -374,16 +386,16 @@
 
 <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Who is it for?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Officers and directors of an existing joint-stock company, and finance teams preparing the year-end close. For the incorporation phase, the “Setting up a SPA” workbook is the one to request.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Who is it for?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Officers and directors of an existing joint-stock company, and finance teams preparing the year-end close. For the incorporation phase, the “Setting up a SPA” workbook is the one to request.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does it cover tax deadlines?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No, and that is deliberate. It deals only with Commercial Code deadlines applicable to joint-stock companies. Filings, payments and electronic filing obligations come from other texts and a different calendar, which does not share the same starting points.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Does it cover tax deadlines?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>No, and that is deliberate. It deals only with Commercial Code deadlines applicable to joint-stock companies. Filings, payments and electronic filing obligations come from other texts and a different calendar, which does not share the same starting points.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does it apply to a SARL too?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Only partly. The six-month period for approving the accounts and the 5% legal reserve are common to both. Guarantee shares, meeting quorums, the annual guarantee authorisation, the alert procedure and the net-asset threshold in article 715 bis 20 are specific to the joint-stock company.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Does it apply to a SARL too?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Only partly. The six-month period for approving the accounts and the 5% legal reserve are common to both. Guarantee shares, meeting quorums, the annual guarantee authorisation, the alert procedure and the net-asset threshold in article 715 bis 20 are specific to the joint-stock company.</div>
         </div>
 
         <div class="internal-links-box" style="margin-top:3rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border-mid);border-radius:12px;">

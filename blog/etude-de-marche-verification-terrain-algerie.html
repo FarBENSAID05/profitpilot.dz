@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -590,28 +602,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Que doit contenir la partie « étude de marché » d&#x27;un dossier d&#x27;investissement en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La partie IV du plan-type de l'annexe V du décret exécutif n° 26-154 du 14 avril 2026 comporte cinq rubriques : l'analyse de la demande nationale, régionale et internationale ; l'analyse de l'offre et de la concurrence ; les tendances sectorielles ; le positionnement stratégique du projet par rapport au marché ; et la politique commerciale et l'accès au marché.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Que doit contenir la partie « étude de marché » d&#x27;un dossier d&#x27;investissement en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>La partie IV du plan-type de l'annexe V du décret exécutif n° 26-154 du 14 avril 2026 comporte cinq rubriques : l'analyse de la demande nationale, régionale et internationale ; l'analyse de l'offre et de la concurrence ; les tendances sectorielles ; le positionnement stratégique du projet par rapport au marché ; et la politique commerciale et l'accès au marché.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi les données publiques ne suffisent-elles pas ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Pour trois raisons distinctes : le niveau d'agrégation, qui décrit un pays quand le projet s'implante sur une zone de chalandise ; le décalage temporel, une donnée publiée décrivant une période révolue ; et l'activité informelle, qui échappe par construction aux statistiques alors qu'elle peut constituer le concurrent principal sur certains segments.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Pourquoi les données publiques ne suffisent-elles pas ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Pour trois raisons distinctes : le niveau d'agrégation, qui décrit un pays quand le projet s'implante sur une zone de chalandise ; le décalage temporel, une donnée publiée décrivant une période révolue ; et l'activité informelle, qui échappe par construction aux statistiques alors qu'elle peut constituer le concurrent principal sur certains segments.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment délimiter une zone de chalandise ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">En temps de trajet plutôt qu'en distance, et en l'écrivant explicitement dans l'étude. Sans périmètre défini, aucun comptage n'est interprétable et aucune part de marché n'est vérifiable. Le périmètre retenu doit pouvoir être reproduit par un tiers.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Comment délimiter une zone de chalandise ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>En temps de trajet plutôt qu'en distance, et en l'écrivant explicitement dans l'étude. Sans périmètre défini, aucun comptage n'est interprétable et aucune part de marché n'est vérifiable. Le périmètre retenu doit pouvoir être reproduit par un tiers.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi relever les prix réellement payés et non les prix affichés ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce que dans les secteurs où la remise est systématique, le prix affiché n'a aucune valeur prévisionnelle. Construire un chiffre d'affaires sur des prix affichés surestime mécaniquement toutes les lignes des prévisions financières. Un écart de 10 % sur le prix de vente peut suffire à faire passer une valeur actuelle nette de positive à négative sur un projet à faible marge.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Pourquoi relever les prix réellement payés et non les prix affichés ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Parce que dans les secteurs où la remise est systématique, le prix affiché n'a aucune valeur prévisionnelle. Construire un chiffre d'affaires sur des prix affichés surestime mécaniquement toutes les lignes des prévisions financières. Un écart de 10 % sur le prix de vente peut suffire à faire passer une valeur actuelle nette de positive à négative sur un projet à faible marge.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien d&#x27;entretiens faut-il pour vérifier l&#x27;accès au marché ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Trois suffisent à révéler la structure du circuit : un distributeur de la zone, un concurrent indirect et un client représentatif du segment visé. Ces entretiens portent sur des faits vécus — conditions de paiement, volumes minimaux, délais de référencement — et non sur des intentions déclarées.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Combien d&#x27;entretiens faut-il pour vérifier l&#x27;accès au marché ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Trois suffisent à révéler la structure du circuit : un distributeur de la zone, un concurrent indirect et un client représentatif du segment visé. Ces entretiens portent sur des faits vécus — conditions de paiement, volumes minimaux, délais de référencement — et non sur des intentions déclarées.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment reconnaître une étude de marché non vérifiée ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Cinq signes reviennent : aucune date, lieu ni nombre d'observations mentionnés ; une part de marché exprimée en pourcentage d'un total national ; un prix de vente égal au coût de revient majoré d'une marge ronde ; des concurrents décrits par catégorie sans jamais être nommés ni situés ; et une politique commerciale rédigée au futur, sans aucun interlocuteur cité.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Comment reconnaître une étude de marché non vérifiée ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Cinq signes reviennent : aucune date, lieu ni nombre d'observations mentionnés ; une part de marché exprimée en pourcentage d'un total national ; un prix de vente égal au coût de revient majoré d'une marge ronde ; des concurrents décrits par catégorie sans jamais être nommés ni situés ; et une politique commerciale rédigée au futur, sans aucun interlocuteur cité.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

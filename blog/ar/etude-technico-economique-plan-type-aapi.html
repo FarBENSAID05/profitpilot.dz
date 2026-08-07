@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -632,28 +644,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو النصّ الذي يفرض المخطط النموذجي للدراسة التقنية الاقتصادية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية رقم 31 بتاريخ 28 أفريل 2026، والذي يعدّل ويتمّم المرسوم التنفيذي رقم 23-487 المؤرخ في 28 ديسمبر 2023 المتعلق بالامتياز القابل للتحويل إلى تنازل على العقار الاقتصادي. وهو يشترط دراسة تقنية اقتصادية مُعدّة حسب الأصول من طرف مهني مؤهَّل، طبقاً للمخطط النموذجي الوارد في ملحقه الخامس.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما هو النصّ الذي يفرض المخطط النموذجي للدراسة التقنية الاقتصادية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية رقم 31 بتاريخ 28 أفريل 2026، والذي يعدّل ويتمّم المرسوم التنفيذي رقم 23-487 المؤرخ في 28 ديسمبر 2023 المتعلق بالامتياز القابل للتحويل إلى تنازل على العقار الاقتصادي. وهو يشترط دراسة تقنية اقتصادية مُعدّة حسب الأصول من طرف مهني مؤهَّل، طبقاً للمخطط النموذجي الوارد في ملحقه الخامس.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي الأقسام التسعة للمخطط النموذجي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">I. معلومات عامة عن صاحب المشروع؛ II. العرض العام للمشروع؛ III. الدراسة التقنية؛ IV. دراسة السوق؛ V. مخطط الاستثمار؛ VI. التوقّعات الاقتصادية والمالية؛ VII. الأثر السوسيو-اقتصادي؛ VIII. رزنامة الإنجاز؛ IX. الملاحق.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما هي الأقسام التسعة للمخطط النموذجي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>I. معلومات عامة عن صاحب المشروع؛ II. العرض العام للمشروع؛ III. الدراسة التقنية؛ IV. دراسة السوق؛ V. مخطط الاستثمار؛ VI. التوقّعات الاقتصادية والمالية؛ VII. الأثر السوسيو-اقتصادي؛ VIII. رزنامة الإنجاز؛ IX. الملاحق.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي المؤشرات المالية التي يجب أن تتضمّنها الدراسة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يشترط القسم السادس حساب نتائج تقديرياً وجدول خزينة وميزانية تقديرية على 3 إلى 5 سنوات، إضافةً إلى تحليل مردودية يتضمّن معدّل المردودية الداخلي (TRI) والقيمة الحالية الصافية (VAN) وعتبة المردودية ومعدّل الهامش.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما هي المؤشرات المالية التي يجب أن تتضمّنها الدراسة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يشترط القسم السادس حساب نتائج تقديرياً وجدول خزينة وميزانية تقديرية على 3 إلى 5 سنوات، إضافةً إلى تحليل مردودية يتضمّن معدّل المردودية الداخلي (TRI) والقيمة الحالية الصافية (VAN) وعتبة المردودية ومعدّل الهامش.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي مبرّرات القدرات المالية الواجب إرفاقها؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يطلب المرسوم مبرّرات القدرات المالية المتعلقة بالمساهمات في الأموال الخاصة المصرَّح بها لتمويل المشروع، ذاكراً على وجه الخصوص كشف الحساب البنكي أو الكشوف المالية أو أي وثيقة أخرى من شأنها إثبات ملاءة الطالب. والتعداد غير حصري، لكنّ الهدف هو إثبات الملاءة لا التصريح بها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما هي مبرّرات القدرات المالية الواجب إرفاقها؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>يطلب المرسوم مبرّرات القدرات المالية المتعلقة بالمساهمات في الأموال الخاصة المصرَّح بها لتمويل المشروع، ذاكراً على وجه الخصوص كشف الحساب البنكي أو الكشوف المالية أو أي وثيقة أخرى من شأنها إثبات ملاءة الطالب. والتعداد غير حصري، لكنّ الهدف هو إثبات الملاءة لا التصريح بها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>في أي أجل يجب على الإدارة تسليم التراخيص؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنصّ المادة 30 من المرسوم التنفيذي رقم 26-153 على أنّ التراخيص والوثائق المطلوبة لتجسيد المشاريع الاستثمارية تُسلَّم على مستوى الشبابيك الوحيدة في أجل لا يتجاوز خمسة عشر يوماً من تاريخ استلام الملفّات. أمّا قرارات الاتفاق المسبق لإنشاء المؤسسات المصنَّفة ضمن الفئات الأولى والثانية والثالثة فتُسلَّم في أجل أقصاه عشرون يوماً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>في أي أجل يجب على الإدارة تسليم التراخيص؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>تنصّ المادة 30 من المرسوم التنفيذي رقم 26-153 على أنّ التراخيص والوثائق المطلوبة لتجسيد المشاريع الاستثمارية تُسلَّم على مستوى الشبابيك الوحيدة في أجل لا يتجاوز خمسة عشر يوماً من تاريخ استلام الملفّات. أمّا قرارات الاتفاق المسبق لإنشاء المؤسسات المصنَّفة ضمن الفئات الأولى والثانية والثالثة فتُسلَّم في أجل أقصاه عشرون يوماً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل للوثائق المسلَّمة على مستوى الشباك الوحيد القيمة نفسها؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. تنصّ المادة 24 من المرسوم التنفيذي رقم 26-153 على أنّ الوثائق المسلَّمة من طرف ممثلي الإدارات والهيئات الأخرى على مستوى الشباك الوحيد نافذة في مواجهة الإدارات والهيئات المعنية. كما تمنحهم المادة 22 تفويضاً لتوقيع هذه العقود وتسليمها باسم السلطات التي يتبعونها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل للوثائق المسلَّمة على مستوى الشباك الوحيد القيمة نفسها؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>نعم. تنصّ المادة 24 من المرسوم التنفيذي رقم 26-153 على أنّ الوثائق المسلَّمة من طرف ممثلي الإدارات والهيئات الأخرى على مستوى الشباك الوحيد نافذة في مواجهة الإدارات والهيئات المعنية. كما تمنحهم المادة 22 تفويضاً لتوقيع هذه العقود وتسليمها باسم السلطات التي يتبعونها.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

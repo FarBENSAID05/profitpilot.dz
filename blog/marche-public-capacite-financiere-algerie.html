@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -610,28 +622,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle capacité financière minimale faut-il pour soumissionner à un marché public en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La loi n° 23-12 du 5 août 2023 ne fixe aucun seuil chiffré. Son article 43 impose seulement que l'évaluation des candidatures se fonde sur des critères non discriminatoires, en relation avec l'objet du marché et proportionnels à son étendue. Le niveau exigé est donc défini marché par marché dans le cahier des charges.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quelle capacité financière minimale faut-il pour soumissionner à un marché public en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>La loi n° 23-12 du 5 août 2023 ne fixe aucun seuil chiffré. Son article 43 impose seulement que l'évaluation des candidatures se fonde sur des critères non discriminatoires, en relation avec l'objet du marché et proportionnels à son étendue. Le niveau exigé est donc défini marché par marché dans le cahier des charges.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on soumissionner en s&#x27;appuyant sur les capacités d&#x27;une autre entreprise ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. L'article 44 de la loi 23-12 dispose que tout candidat ou soumissionnaire, seul ou en groupement, peut se prévaloir des capacités d'autres entreprises. Deux limites s'appliquent : un candidat ne peut présenter plus d'une offre par procédure, et une personne ne peut représenter plus d'un candidat pour un même marché.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Peut-on soumissionner en s&#x27;appuyant sur les capacités d&#x27;une autre entreprise ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Oui. L'article 44 de la loi 23-12 dispose que tout candidat ou soumissionnaire, seul ou en groupement, peut se prévaloir des capacités d'autres entreprises. Deux limites s'appliquent : un candidat ne peut présenter plus d'une offre par procédure, et une personne ne peut représenter plus d'un candidat pour un même marché.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle part d&#x27;un marché public peut être sous-traitée ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 82 de la loi 23-12 limite la sous-traitance à 40 % du montant du marché public. Le même article impose aux entreprises étrangères soumissionnant seules, sauf impossibilité dûment justifiée, de sous-traiter au minimum 30 % du montant initial du marché à des entreprises de droit algérien.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Quelle part d&#x27;un marché public peut être sous-traitée ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>L'article 82 de la loi 23-12 limite la sous-traitance à 40 % du montant du marché public. Le même article impose aux entreprises étrangères soumissionnant seules, sauf impossibilité dûment justifiée, de sous-traiter au minimum 30 % du montant initial du marché à des entreprises de droit algérien.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un marché public peut-il servir de garantie bancaire ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. L'article 85 de la loi 23-12 énonce que les marchés publics et leurs avenants sont susceptibles de nantissement. Pour une entreprise ne disposant pas de garantie hypothécaire, le nantissement du marché est souvent la sûreté la plus solide mobilisable auprès d'une banque.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Un marché public peut-il servir de garantie bancaire ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Oui. L'article 85 de la loi 23-12 énonce que les marchés publics et leurs avenants sont susceptibles de nantissement. Pour une entreprise ne disposant pas de garantie hypothécaire, le nantissement du marché est souvent la sûreté la plus solide mobilisable auprès d'une banque.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle trésorerie faut-il prévoir pour exécuter un marché public ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Elle dépend du rythme des acomptes et du délai d'encaissement, pas du montant seul. Sur l'exemple chiffré de cet article — un marché de 60 millions de dinars sur 12 mois à 12 % de marge, acomptes trimestriels encaissés à 60 jours —, le pic de besoin atteint 17,6 millions de dinars, soit 29,3 % du montant du marché. Avec un encaissement à 150 jours, ce pic monte à 30,8 millions, soit 51,3 %.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Quelle trésorerie faut-il prévoir pour exécuter un marché public ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Elle dépend du rythme des acomptes et du délai d'encaissement, pas du montant seul. Sur l'exemple chiffré de cet article — un marché de 60 millions de dinars sur 12 mois à 12 % de marge, acomptes trimestriels encaissés à 60 jours —, le pic de besoin atteint 17,6 millions de dinars, soit 29,3 % du montant du marché. Avec un encaissement à 150 jours, ce pic monte à 30,8 millions, soit 51,3 %.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si l&#x27;administration paie en retard ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 80 de la loi 23-12 prévoit que le défaut de paiement des comptes dans le délai au profit du partenaire cocontractant ouvre droit au bénéfice d'intérêts moratoires, conformément aux modalités et procédures en vigueur. Ces intérêts compensent le retard mais ne financent pas l'exécution pendant ce retard : le besoin de trésorerie correspondant doit être couvert par ailleurs.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Que se passe-t-il si l&#x27;administration paie en retard ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>L'article 80 de la loi 23-12 prévoit que le défaut de paiement des comptes dans le délai au profit du partenaire cocontractant ouvre droit au bénéfice d'intérêts moratoires, conformément aux modalités et procédures en vigueur. Ces intérêts compensent le retard mais ne financent pas l'exécution pendant ce retard : le besoin de trésorerie correspondant doit être couvert par ailleurs.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

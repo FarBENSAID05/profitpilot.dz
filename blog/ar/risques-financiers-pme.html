@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -541,24 +553,24 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما أول خطر مالي يهدّد مؤسسة صغيرة في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">خطر السيولة. فالمؤسسة المربحة على السنة المالية قد تعجز عن الدفع في تاريخ معيّن، بمجرّد إزاحة بين التحصيلات والتسديدات. وحساب النتائج لا يكشف ذلك: وحده مخطط الخزينة التقديري، المُمسَك أسبوعياً، يتيح توقّع الضائقة مبكراً بما يكفي للتصرّف.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما أول خطر مالي يهدّد مؤسسة صغيرة في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>خطر السيولة. فالمؤسسة المربحة على السنة المالية قد تعجز عن الدفع في تاريخ معيّن، بمجرّد إزاحة بين التحصيلات والتسديدات. وحساب النتائج لا يكشف ذلك: وحده مخطط الخزينة التقديري، المُمسَك أسبوعياً، يتيح توقّع الضائقة مبكراً بما يكفي للتصرّف.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن التغطية من خطر الصرف في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">النظام رقم 20-04 المؤرخ في 15 مارس 2020، المنشور في الجريدة الرسمية عدد 16 المؤرخة في 24 مارس 2020، يتعلق بسوق الصرف ما بين البنوك وعمليات خزينة العملة الصعبة وأدوات التغطية من خطر الصرف. فهذه الأدوات موجودة إذن في الإطار التنظيمي. ومن واقع مهامنا، تبقى قليلة الاستعمال لدى المؤسسات الصغيرة، غالباً لأن السؤال لم يُطرح على البنك: وتوفّرها الفعلي يُتحقَّق منه لدى مؤسستكم البنكية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل يمكن التغطية من خطر الصرف في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>النظام رقم 20-04 المؤرخ في 15 مارس 2020، المنشور في الجريدة الرسمية عدد 16 المؤرخة في 24 مارس 2020، يتعلق بسوق الصرف ما بين البنوك وعمليات خزينة العملة الصعبة وأدوات التغطية من خطر الصرف. فهذه الأدوات موجودة إذن في الإطار التنظيمي. ومن واقع مهامنا، تبقى قليلة الاستعمال لدى المؤسسات الصغيرة، غالباً لأن السؤال لم يُطرح على البنك: وتوفّرها الفعلي يُتحقَّق منه لدى مؤسستكم البنكية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يغيّر تأخّرٌ في الدفع بالنسبة لبنكي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يُلزم النظام رقم 14-03 المؤرخ في 16 فيفري 2014 البنوك بتصنيف ديونها والتزاماتها بالتوقيع وفق معايير تنظيمية وبتكوين المؤونات المقابلة. فالتأخر يُطلق إذن معالجةً مؤطَّرة نتيجتها عبء مؤونة على البنك. ومن جهة أخرى، ينظّم النظام رقم 12-01 المؤرخ في 20 فيفري 2012 مركزية المخاطر للمؤسسات والعائلات، التي يستشيرها كل بنك تتوجّه إليه لاحقاً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ماذا يغيّر تأخّرٌ في الدفع بالنسبة لبنكي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يُلزم النظام رقم 14-03 المؤرخ في 16 فيفري 2014 البنوك بتصنيف ديونها والتزاماتها بالتوقيع وفق معايير تنظيمية وبتكوين المؤونات المقابلة. فالتأخر يُطلق إذن معالجةً مؤطَّرة نتيجتها عبء مؤونة على البنك. ومن جهة أخرى، ينظّم النظام رقم 12-01 المؤرخ في 20 فيفري 2012 مركزية المخاطر للمؤسسات والعائلات، التي يستشيرها كل بنك تتوجّه إليه لاحقاً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما المقصود بالخطر الجبائي الشكلي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">فقدان حق أو تطبيق عقوبة لسبب شكلي بحت، دون خطأ في الجوهر. مثال موثَّق لدى المديرية العامة للضرائب: الرسم على القيمة المضافة غير قابل للحسم على الفواتير المسدَّدة نقداً أو بدفع بنكي يفوق مبلغها 1.000.000 دج بكل الرسوم، إلا بالتسديد بدفع نقدي في حساب بنكي أو بريدي (المادة 30 من قانون الرسوم على رقم الأعمال).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما المقصود بالخطر الجبائي الشكلي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>فقدان حق أو تطبيق عقوبة لسبب شكلي بحت، دون خطأ في الجوهر. مثال موثَّق لدى المديرية العامة للضرائب: الرسم على القيمة المضافة غير قابل للحسم على الفواتير المسدَّدة نقداً أو بدفع بنكي يفوق مبلغها 1.000.000 دج بكل الرسوم، إلا بالتسديد بدفع نقدي في حساب بنكي أو بريدي (المادة 30 من قانون الرسوم على رقم الأعمال).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>من أين نبدأ إذا أردنا تقليص المخاطر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">من المخاطر المحتملة وغير القابلة للرجوع فيها في آن. وفي ممارستنا يعني ذلك معالجة السيولة والعلاقة البنكية أولاً، لأن آثارهما تمتدّ إلى ما بعد الحادث نفسه بكثير، قبل المخاطر القابلة للإصلاح كنزاع تجاري.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>من أين نبدأ إذا أردنا تقليص المخاطر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>من المخاطر المحتملة وغير القابلة للرجوع فيها في آن. وفي ممارستنا يعني ذلك معالجة السيولة والعلاقة البنكية أولاً، لأن آثارهما تمتدّ إلى ما بعد الحادث نفسه بكثير، قبل المخاطر القابلة للإصلاح كنزاع تجاري.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

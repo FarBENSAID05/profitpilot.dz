@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -578,28 +590,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le délai légal de délivrance des autorisations d&#x27;investissement en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 30 du décret exécutif n° 26-153 du 14 avril 2026 prévoit que les autorisations et documents requis pour la concrétisation des projets d'investissement sont délivrés au niveau des guichets uniques dans un délai n'excédant pas quinze jours à compter de la date de réception des dossiers. Les décisions d'accord préalable pour la création d'établissements classés des 1re, 2e et 3e catégories bénéficient d'un délai maximal de vingt jours.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel est le délai légal de délivrance des autorisations d&#x27;investissement en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>L'article 30 du décret exécutif n° 26-153 du 14 avril 2026 prévoit que les autorisations et documents requis pour la concrétisation des projets d'investissement sont délivrés au niveau des guichets uniques dans un délai n'excédant pas quinze jours à compter de la date de réception des dossiers. Les décisions d'accord préalable pour la création d'établissements classés des 1re, 2e et 3e catégories bénéficient d'un délai maximal de vingt jours.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle est la différence entre le guichet unique national et les guichets décentralisés ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le guichet unique des grands projets et des investissements étrangers est à compétence nationale. Les guichets uniques décentralisés ont une compétence locale, pour les investissements autres que ceux relevant du guichet national. Ces derniers sont mis en place par l'Agence en tant que de besoin, après délibération du conseil d'administration et accord de l'autorité de tutelle.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quelle est la différence entre le guichet unique national et les guichets décentralisés ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Le guichet unique des grands projets et des investissements étrangers est à compétence nationale. Les guichets uniques décentralisés ont une compétence locale, pour les investissements autres que ceux relevant du guichet national. Ces derniers sont mis en place par l'Agence en tant que de besoin, après délibération du conseil d'administration et accord de l'autorité de tutelle.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Les documents obtenus au guichet unique sont-ils valables partout ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. L'article 24 du décret dispose que les documents délivrés par les représentants des administrations et des autres organismes au sein du guichet unique sont opposables aux administrations et organismes concernés. L'article 22 leur confère une délégation pour signer et délivrer ces actes au nom des autorités dont ils relèvent.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Les documents obtenus au guichet unique sont-ils valables partout ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Oui. L'article 24 du décret dispose que les documents délivrés par les représentants des administrations et des autres organismes au sein du guichet unique sont opposables aux administrations et organismes concernés. L'article 22 leur confère une délégation pour signer et délivrer ces actes au nom des autorités dont ils relèvent.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelles administrations sont présentes au guichet unique ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le centre national du registre de commerce, l'administration fiscale, l'administration du domaine national, l'urbanisme, l'environnement, la protection civile, l'énergie, la société algérienne de distribution de l'électricité et du gaz, les organismes chargés du travail, de l'emploi et de la sécurité sociale, ainsi que les banques et établissements financiers. L'administration des douanes désigne un représentant permanent au guichet national.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Quelles administrations sont présentes au guichet unique ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Le centre national du registre de commerce, l'administration fiscale, l'administration du domaine national, l'urbanisme, l'environnement, la protection civile, l'énergie, la société algérienne de distribution de l'électricité et du gaz, les organismes chargés du travail, de l'emploi et de la sécurité sociale, ainsi que les banques et établissements financiers. L'administration des douanes désigne un représentant permanent au guichet national.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on obtenir son NIF sur place ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 27 prévoit que le représentant de l'administration fiscale est chargé de prendre en charge les formalités relatives à l'ouverture du dossier fiscal et à l'attribution du numéro d'identification fiscale, et de signer et délivrer les documents y afférents séance tenante.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Peut-on obtenir son NIF sur place ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>L'article 27 prévoit que le représentant de l'administration fiscale est chargé de prendre en charge les formalités relatives à l'ouverture du dossier fiscal et à l'attribution du numéro d'identification fiscale, et de signer et délivrer les documents y afférents séance tenante.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Où paie-t-on les droits et taxes liés au projet ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Au guichet unique. L'article 29 prévoit que la perception de l'ensemble des droits, taxes et redevances au titre de l'établissement des autorisations et de tout autre document en lien avec la réalisation du projet s'effectue au niveau du guichet unique.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Où paie-t-on les droits et taxes liés au projet ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Au guichet unique. L'article 29 prévoit que la perception de l'ensemble des droits, taxes et redevances au titre de l'établissement des autorisations et de tout autre document en lien avec la réalisation du projet s'effectue au niveau du guichet unique.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

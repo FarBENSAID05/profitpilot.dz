@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -634,28 +646,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi ma banque refuse-t-elle un dossier qu&#x27;une autre accepterait ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce que les limites prudentielles s'apprécient au niveau de la banque, pas du dossier. Le règlement n° 14-02 impose un rapport maximum de 25 % entre les risques nets pondérés encourus sur un même bénéficiaire et les fonds propres réglementaires de l'établissement, et plafonne le total des grands risques à huit fois ces fonds propres. Une banque proche de ses limites, ou déjà exposée sur votre secteur, peut refuser un dossier qu'un autre établissement financera sans difficulté.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Pourquoi ma banque refuse-t-elle un dossier qu&#x27;une autre accepterait ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Parce que les limites prudentielles s'apprécient au niveau de la banque, pas du dossier. Le règlement n° 14-02 impose un rapport maximum de 25 % entre les risques nets pondérés encourus sur un même bénéficiaire et les fonds propres réglementaires de l'établissement, et plafonne le total des grands risques à huit fois ces fonds propres. Une banque proche de ses limites, ou déjà exposée sur votre secteur, peut refuser un dossier qu'un autre établissement financera sans difficulté.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Mes différentes sociétés sont-elles analysées séparément ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Pas nécessairement. Le règlement n° 14-02 définit le « même bénéficiaire » comme incluant les personnes liées, et présume ces liens entre les entités d'un même groupe, les personnes soumises à une direction de fait commune, celles entretenant des relations d'affaires prépondérantes telles que la sous-traitance, et celles liées par des garanties croisées. Le plafond s'apprécie alors sur l'ensemble consolidé.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Mes différentes sociétés sont-elles analysées séparément ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Pas nécessairement. Le règlement n° 14-02 définit le « même bénéficiaire » comme incluant les personnes liées, et présume ces liens entre les entités d'un même groupe, les personnes soumises à une direction de fait commune, celles entretenant des relations d'affaires prépondérantes telles que la sous-traitance, et celles liées par des garanties croisées. Le plafond s'apprécie alors sur l'ensemble consolidé.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>À partir de combien de jours d&#x27;impayé ma créance est-elle déclassée ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Une créance est classée dès lors qu'elle présente un risque probable ou certain de non-recouvrement, ou des impayés depuis plus de trois mois. Le règlement n° 14-03 retient 90 jours pour la catégorie « à problèmes potentiels » (provision minimale 20 %), 180 jours pour « très risquées » (50 %) et 360 jours pour « compromises » (100 %).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>À partir de combien de jours d&#x27;impayé ma créance est-elle déclassée ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Une créance est classée dès lors qu'elle présente un risque probable ou certain de non-recouvrement, ou des impayés depuis plus de trois mois. Le règlement n° 14-03 retient 90 jours pour la catégorie « à problèmes potentiels » (provision minimale 20 %), 180 jours pour « très risquées » (50 %) et 360 jours pour « compromises » (100 %).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pourquoi la banque demande-t-elle une garantie supérieure au montant du crédit ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Parce que les garanties ne sont admises qu'à hauteur d'une quotité fixée par le règlement n° 14-03. Les hypothèques et gages de véhicules ne sont retenus qu'à 50 % de leur valeur, contre 80 % pour une garantie bancaire ou d'assurance-crédit agréée en Algérie et 100 % pour un dépôt auprès de la banque prêteuse ou une garantie de l'État.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Pourquoi la banque demande-t-elle une garantie supérieure au montant du crédit ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Parce que les garanties ne sont admises qu'à hauteur d'une quotité fixée par le règlement n° 14-03. Les hypothèques et gages de véhicules ne sont retenus qu'à 50 % de leur valeur, contre 80 % pour une garantie bancaire ou d'assurance-crédit agréée en Algérie et 100 % pour un dépôt auprès de la banque prêteuse ou une garantie de l'État.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un rééchelonnement efface-t-il mon incident de paiement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Non. Une créance classée restructurée doit être maintenue dans sa catégorie pendant au moins douze mois. Le retour en créance courante n'est envisageable qu'après ce délai, sous réserve du respect du nouvel échéancier et de l'encaissement effectif des intérêts. En cas de nouvel impayé, la créance est déclassée intégralement en créance compromise après 90 jours.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Un rééchelonnement efface-t-il mon incident de paiement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Non. Une créance classée restructurée doit être maintenue dans sa catégorie pendant au moins douze mois. Le retour en créance courante n'est envisageable qu'après ce délai, sous réserve du respect du nouvel échéancier et de l'encaissement effectif des intérêts. En cas de nouvel impayé, la créance est déclassée intégralement en créance compromise après 90 jours.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Ces règlements sont-ils toujours applicables ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Les règlements n° 14-01, 14-02 et 14-03 du 16 février 2014 ont été publiés au Journal officiel n° 56 de 2014 et sont applicables depuis le 1er octobre 2014. Cet article a été vérifié à la date indiquée dans le bloc sources ci-dessous ; il est recommandé de confirmer l'état des textes auprès de votre banque ou sur le site de la Banque d'Algérie avant toute décision.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Ces règlements sont-ils toujours applicables ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Les règlements n° 14-01, 14-02 et 14-03 du 16 février 2014 ont été publiés au Journal officiel n° 56 de 2014 et sont applicables depuis le 1er octobre 2014. Cet article a été vérifié à la date indiquée dans le bloc sources ci-dessous ; il est recommandé de confirmer l'état des textes auprès de votre banque ou sur le site de la Banque d'Algérie avant toute décision.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

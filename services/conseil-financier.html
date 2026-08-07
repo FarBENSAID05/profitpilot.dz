@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -518,24 +530,24 @@
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quand faut-il faire appel à un consultant financier en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Lorsque la trésorerie est sous tension, avant tout investissement important, lors d'une demande de financement bancaire, en cas d'érosion de la rentabilité, ou lors d'une restructuration. Le moment le plus utile est toujours le plus tôt : une tension anticipée se traite, une tension subie se négocie en position de faiblesse.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quand faut-il faire appel à un consultant financier en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Lorsque la trésorerie est sous tension, avant tout investissement important, lors d'une demande de financement bancaire, en cas d'érosion de la rentabilité, ou lors d'une restructuration. Le moment le plus utile est toujours le plus tôt : une tension anticipée se traite, une tension subie se négocie en position de faiblesse.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien coûte un conseil financier pour une PME en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Un diagnostic financier complet démarre à partir de 80 000 DZD. Pour un accompagnement mensuel continu, nos honoraires se situent entre 30 000 et 100 000 DZD selon l'intensité du suivi. Le cadrage initial est gratuit et donne lieu à un devis écrit avant tout engagement.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Combien coûte un conseil financier pour une PME en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>Un diagnostic financier complet démarre à partir de 80 000 DZD. Pour un accompagnement mensuel continu, nos honoraires se situent entre 30 000 et 100 000 DZD selon l'intensité du suivi. Le cadrage initial est gratuit et donne lieu à un devis écrit avant tout engagement.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Pouvez-vous nous aider à obtenir une garantie FGAR ou CGCI-PME ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Oui. Nous préparons les dossiers en tenant compte des critères d'éligibilité publiés par le FGAR et par la CGCI-PME, et nous les articulons avec le dossier bancaire. Nous n'intervenons pas dans la décision de ces organismes : notre travail porte sur la qualité, la cohérence et la complétude du dossier présenté.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Pouvez-vous nous aider à obtenir une garantie FGAR ou CGCI-PME ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Oui. Nous préparons les dossiers en tenant compte des critères d'éligibilité publiés par le FGAR et par la CGCI-PME, et nous les articulons avec le dossier bancaire. Nous n'intervenons pas dans la décision de ces organismes : notre travail porte sur la qualité, la cohérence et la complétude du dossier présenté.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Intervenez-vous en dehors d&#x27;Alger ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Oui. Les missions se déroulent en combinant réunions à distance et déplacements sur site lorsque le dossier l'exige — notamment pour les vérifications de terrain d'une étude de marché ou l'inventaire d'un outil de production.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Intervenez-vous en dehors d&#x27;Alger ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Oui. Les missions se déroulent en combinant réunions à distance et déplacements sur site lorsque le dossier l'exige — notamment pour les vérifications de terrain d'une étude de marché ou l'inventaire d'un outil de production.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que reste-t-il à l&#x27;entreprise à la fin de la mission ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Le modèle financier, le tableau de bord de trésorerie et le plan d'action chiffré, dans un format que vos équipes peuvent mettre à jour elles-mêmes. La traçabilité des hypothèses jusqu'à leur source fait partie du livrable : c'est ce qui rend le dossier défendable devant un tiers.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Que reste-t-il à l&#x27;entreprise à la fin de la mission ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>Le modèle financier, le tableau de bord de trésorerie et le plan d'action chiffré, dans un format que vos équipes peuvent mettre à jour elles-mêmes. La traçabilité des hypothèses jusqu'à leur source fait partie du livrable : c'est ce qui rend le dossier défendable devant un tiers.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

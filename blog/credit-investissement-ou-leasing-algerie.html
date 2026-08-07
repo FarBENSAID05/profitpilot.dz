@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -637,28 +649,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle est la différence juridique entre un crédit d&#x27;investissement et un crédit-bail en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'ordonnance n° 96-09 du 10 janvier 1996 qualifie le crédit-bail d'opération de crédit (article 2), mais son article 19 précise que le crédit-bailleur demeure propriétaire du bien loué pendant toute la durée du contrat, jusqu'à la levée de l'option d'achat par le crédit-preneur. En crédit d'investissement, l'entreprise est propriétaire dès l'acquisition et la banque ne dispose que d'une sûreté.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quelle est la différence juridique entre un crédit d&#x27;investissement et un crédit-bail en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>L'ordonnance n° 96-09 du 10 janvier 1996 qualifie le crédit-bail d'opération de crédit (article 2), mais son article 19 précise que le crédit-bailleur demeure propriétaire du bien loué pendant toute la durée du contrat, jusqu'à la levée de l'option d'achat par le crédit-preneur. En crédit d'investissement, l'entreprise est propriétaire dès l'acquisition et la banque ne dispose que d'une sûreté.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle est la différence entre leasing financier et leasing opérationnel ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Selon l'article 2 de l'ordonnance 96-09, le leasing est dit financier si le contrat transfère au locataire tous les droits, obligations, avantages, inconvénients et risques liés à la propriété du bien, s'il ne peut être résilié et s'il garantit au bailleur le recouvrement de ses dépenses en capital. Il est dit opérationnel lorsque la totalité ou la quasi-totalité de ces éléments reste au profit ou à la charge du bailleur.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quelle est la différence entre leasing financier et leasing opérationnel ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Selon l'article 2 de l'ordonnance 96-09, le leasing est dit financier si le contrat transfère au locataire tous les droits, obligations, avantages, inconvénients et risques liés à la propriété du bien, s'il ne peut être résilié et s'il garantit au bailleur le recouvrement de ses dépenses en capital. Il est dit opérationnel lorsque la totalité ou la quasi-totalité de ces éléments reste au profit ou à la charge du bailleur.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que doit obligatoirement mentionner un contrat de crédit-bail mobilier ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 11 de l'ordonnance 96-09 impose, sous peine pour le contrat de perdre sa qualification de leasing financier, la mention de la durée de location, des loyers, de l'option d'achat offerte au crédit-preneur en fin de contrat et de la valeur résiduelle du prix d'acquisition du bien loué.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Que doit obligatoirement mentionner un contrat de crédit-bail mobilier ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>L'article 11 de l'ordonnance 96-09 impose, sous peine pour le contrat de perdre sa qualification de leasing financier, la mention de la durée de location, des loyers, de l'option d'achat offerte au crédit-preneur en fin de contrat et de la valeur résiduelle du prix d'acquisition du bien loué.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Que se passe-t-il si je manque une seule échéance de loyer en leasing ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 20 de l'ordonnance 96-09 permet au crédit-bailleur, après préavis ou mise en demeure de 15 jours francs, de mettre fin au droit de jouissance et de récupérer le bien à l'amiable ou par simple ordonnance non susceptible d'appel, en cas de non-paiement d'un seul terme de loyer. Le non-paiement d'un seul terme constitue une rupture abusive du contrat.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Que se passe-t-il si je manque une seule échéance de loyer en leasing ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>L'article 20 de l'ordonnance 96-09 permet au crédit-bailleur, après préavis ou mise en demeure de 15 jours francs, de mettre fin au droit de jouissance et de récupérer le bien à l'amiable ou par simple ordonnance non susceptible d'appel, en cas de non-paiement d'un seul terme de loyer. Le non-paiement d'un seul terme constitue une rupture abusive du contrat.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Le leasing est-il plus cher qu&#x27;un crédit d&#x27;investissement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Pas nécessairement, et la comparaison des totaux versés ne permet pas d'en juger. Il faut comparer les valeurs actuelles des décaissements nets d'impôt, apport personnel inclus. Sur l'exemple chiffré de cet article — 10 millions de dinars sur 5 ans —, le crédit ressort moins cher de 344 206 DA en valeur actuelle, mais immobilise 3 millions de dinars immédiatement : le leasing devient préférable dès que cet apport libéré rapporte plus de 2,2 % par an dans l'entreprise.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Le leasing est-il plus cher qu&#x27;un crédit d&#x27;investissement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Pas nécessairement, et la comparaison des totaux versés ne permet pas d'en juger. Il faut comparer les valeurs actuelles des décaissements nets d'impôt, apport personnel inclus. Sur l'exemple chiffré de cet article — 10 millions de dinars sur 5 ans —, le crédit ressort moins cher de 344 206 DA en valeur actuelle, mais immobilise 3 millions de dinars immédiatement : le leasing devient préférable dès que cet apport libéré rapporte plus de 2,2 % par an dans l'entreprise.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelles sont les options en fin de contrat de crédit-bail ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 16 de l'ordonnance 96-09 laisse au crédit-preneur, à l'expiration de la période irrévocable et à sa seule appréciation, trois possibilités : acheter le bien loué pour sa valeur résiduelle telle que fixée au contrat, renouveler la location pour une période et un loyer à convenir entre les parties, ou restituer le bien au crédit-bailleur.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Quelles sont les options en fin de contrat de crédit-bail ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>L'article 16 de l'ordonnance 96-09 laisse au crédit-preneur, à l'expiration de la période irrévocable et à sa seule appréciation, trois possibilités : acheter le bien loué pour sa valeur résiduelle telle que fixée au contrat, renouveler la location pour une période et un loyer à convenir entre les parties, ou restituer le bien au crédit-bailleur.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

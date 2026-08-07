@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -607,28 +619,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if the goods were shipped before domiciliation?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">If the transport document date precedes the domiciliation date, the bank must refuse the operation, unless an exceptional authorisation expressly provided for by exchange regulations applies. Note no. 01/DGC/2026 recalls that failure to comply constitutes an offence under exchange legislation and regulations.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What happens if the goods were shipped before domiciliation?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>If the transport document date precedes the domiciliation date, the bank must refuse the operation, unless an exceptional authorisation expressly provided for by exchange regulations applies. Note no. 01/DGC/2026 recalls that failure to comply constitutes an offence under exchange legislation and regulations.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does Instruction 05-2026 apply to imports of raw materials?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. The scope of Instruction no. 05-2026 covers imports of goods intended for resale in the state. Inputs processed locally and equipment acquired for own account are not caught by its two ratios. The obligation to domicile before shipment, set by Note no. 01/DGC/2026, does however apply to all imports of goods.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Does Instruction 05-2026 apply to imports of raw materials?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>No. The scope of Instruction no. 05-2026 covers imports of goods intended for resale in the state. Inputs processed locally and equipment acquired for own account are not caught by its two ratios. The obligation to domicile before shipment, set by Note no. 01/DGC/2026, does however apply to all imports of goods.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How is the 100% equity ceiling calculated?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">It covers the outstanding balance of imports of goods for resale in the state, domiciled across all approved intermediary banks and not yet settled. That total must at no time exceed 100% of the operator's equity. An operation counts as settled only when the domiciliary bank makes the final debit of the account for the value of the operation.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>How is the 100% equity ceiling calculated?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>It covers the outstanding balance of imports of goods for resale in the state, domiciled across all approved intermediary banks and not yet settled. That total must at no time exceed 100% of the operator's equity. An operation counts as settled only when the domiciliary bank makes the final debit of the account for the value of the operation.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a company incorporated this year import for resale in the state?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Yes. For a newly incorporated operator, the instruction provides that the domiciliary bank may rely on an opening balance sheet and/or an interim financial position duly certified by a statutory auditor. Both financial standing conditions still apply — only the source of the figures differs.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Can a company incorporated this year import for resale in the state?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Yes. For a newly incorporated operator, the instruction provides that the domiciliary bank may rely on an opening balance sheet and/or an interim financial position duly certified by a statutory auditor. Both financial standing conditions still apply — only the source of the figures differs.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>My net assets are below my share capital — can I still domicile?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No, not until the position is restored. The instruction requires the bank to satisfy itself, before any domiciliation, that net assets are equal to or greater than share capital, based on the past year's financial statements as declared to the tax administration. Restoring it means acting on equity or on share capital, to be examined with your advisers.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>My net assets are below my share capital — can I still domicile?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>No, not until the position is restored. The instruction requires the bank to satisfy itself, before any domiciliation, that net assets are equal to or greater than share capital, based on the past year's financial statements as declared to the tax administration. Restoring it means acting on equity or on share capital, to be examined with your advisers.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Are these texts still in force?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">This article was verified on the date shown in the sources block below. Because Algerian exchange regulation changes rapidly, we recommend confirming the current state of the text with your domiciliary bank or on the Bank of Algeria website before any operation.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Are these texts still in force?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>This article was verified on the date shown in the sources block below. Because Algerian exchange regulation changes rapidly, we recommend confirming the current state of the text with your domiciliary bank or on the Bank of Algeria website before any operation.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

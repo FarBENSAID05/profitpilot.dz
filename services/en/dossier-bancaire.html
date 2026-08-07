@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -509,24 +521,24 @@
 
         <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Which documents are needed for a bank file in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>A complete file generally includes the techno-economic study, the last three years of financial statements (or projections for a new company), the commercial register extract, tax and statistical identification numbers, articles of association, tax and social security certificates, evidence of the personal contribution and the collateral offered. The exact list varies by institution and by the type of facility sought.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Which documents are needed for a bank file in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>A complete file generally includes the techno-economic study, the last three years of financial statements (or projections for a new company), the commercial register extract, tax and statistical identification numbers, articles of association, tax and social security certificates, evidence of the personal contribution and the collateral offered. The exact list varies by institution and by the type of facility sought.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How long does it take to obtain a bank loan in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>From our engagements, allow three to six months on average depending on the institution and the amount. This is not a regulatory period: it depends largely on the number of round trips caused by requests for further information. A file that is complete at submission is the main lever for speed.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>How long does it take to obtain a bank loan in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>From our engagements, allow three to six months on average depending on the institution and the amount. This is not a regulatory period: it depends largely on the number of round trips caused by requests for further information. A file that is complete at submission is the main lever for speed.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Do you really need a 30% personal contribution?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>No, not as a general rule. No text of universal application sets the contribution at 30% across all banks and projects. The only published quantified scale applicable to business creation is NESDA's, which distinguishes self-financing, mixed and triangular formulas, each with its own split between personal contribution, interest-free agency loan and bank share. The rate therefore depends on the scheme targeted.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Do you really need a 30% personal contribution?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>No, not as a general rule. No text of universal application sets the contribution at 30% across all banks and projects. The only published quantified scale applicable to business creation is NESDA's, which distinguishes self-financing, mixed and triangular formulas, each with its own split between personal contribution, interest-free agency loan and bank share. The rate therefore depends on the scheme targeted.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can you get credit without a mortgage?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Having no property to mortgage is not disqualifying. FGAR and CGCI-PME publish their eligibility criteria, coverage ratios and ceilings. These institutional guarantees are prepared upstream, at file-building stage, not after a refusal.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Can you get credit without a mortgage?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Having no property to mortgage is not disqualifying. FGAR and CGCI-PME publish their eligibility criteria, coverage ratios and ceilings. These institutional guarantees are prepared upstream, at file-building stage, not after a refusal.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if the file is refused?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>We produce a written diagnostic before any resubmission: the real reason for refusal, the points to correct, and whether to resubmit to the same institution or redirect the file. Resubmitting an unchanged file is the surest way to get the same answer.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>What happens if the file is refused?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>We produce a written diagnostic before any resubmission: the real reason for refusal, the points to correct, and whether to resubmit to the same institution or redirect the file. Resubmitting an unchanged file is the surest way to get the same answer.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

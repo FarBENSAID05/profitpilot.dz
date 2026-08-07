@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -634,28 +646,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Why does my bank refuse a file another bank would accept?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because prudential limits are assessed at the level of the bank, not the file. Regulation no. 14-02 imposes a maximum ratio of 25% between net weighted risks on a single beneficiary and the institution's regulatory equity, and caps total large exposures at eight times that equity. A bank close to its limits, or already exposed to your sector, may refuse a file another institution will finance without difficulty.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Why does my bank refuse a file another bank would accept?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Because prudential limits are assessed at the level of the bank, not the file. Regulation no. 14-02 imposes a maximum ratio of 25% between net weighted risks on a single beneficiary and the institution's regulatory equity, and caps total large exposures at eight times that equity. A bank close to its limits, or already exposed to your sector, may refuse a file another institution will finance without difficulty.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Are my different companies assessed separately?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Not necessarily. Regulation no. 14-02 defines a "single beneficiary" as including connected persons, and presumes such links between entities of the same group, persons under common de facto management, those maintaining predominant business relations such as subcontracting, and those bound by cross-guarantees. The ceiling is then measured on the consolidated whole.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Are my different companies assessed separately?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Not necessarily. Regulation no. 14-02 defines a "single beneficiary" as including connected persons, and presumes such links between entities of the same group, persons under common de facto management, those maintaining predominant business relations such as subcontracting, and those bound by cross-guarantees. The ceiling is then measured on the consolidated whole.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>After how many days of arrears is my loan downgraded?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">A claim is classified once it presents a probable or certain risk of non-recovery, or arrears of more than three months. Regulation no. 14-03 uses 90 days for the "potential problems" category (minimum 20% provision), 180 days for "high risk" (50%) and 360 days for "compromised" (100%).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>After how many days of arrears is my loan downgraded?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>A claim is classified once it presents a probable or certain risk of non-recovery, or arrears of more than three months. Regulation no. 14-03 uses 90 days for the "potential problems" category (minimum 20% provision), 180 days for "high risk" (50%) and 360 days for "compromised" (100%).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why does the bank ask for collateral worth more than the loan?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because collateral is eligible only up to a proportion fixed by Regulation no. 14-03. Mortgages and vehicle pledges are recognised at only 50% of their value, against 80% for a guarantee from a bank or credit-insurance body approved in Algeria, and 100% for a deposit with the lending bank or a State guarantee.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Why does the bank ask for collateral worth more than the loan?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Because collateral is eligible only up to a proportion fixed by Regulation no. 14-03. Mortgages and vehicle pledges are recognised at only 50% of their value, against 80% for a guarantee from a bank or credit-insurance body approved in Algeria, and 100% for a deposit with the lending bank or a State guarantee.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does rescheduling erase my payment incident?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. A restructured classified claim must be kept in its category for at least twelve months. A return to current status can only be considered after that period, provided the new schedule is respected and interest is effectively collected. If arrears occur again, the claim is downgraded in full to "compromised" after 90 days.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Does rescheduling erase my payment incident?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>No. A restructured classified claim must be kept in its category for at least twelve months. A return to current status can only be considered after that period, provided the new schedule is respected and interest is effectively collected. If arrears occur again, the claim is downgraded in full to "compromised" after 90 days.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Are these regulations still in force?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Regulations no. 14-01, 14-02 and 14-03 of 16 February 2014 were published in Official Gazette no. 56 of 2014 and have applied since 1 October 2014. This article was verified on the date shown in the sources block below; we recommend confirming the current state of the texts with your bank or on the Bank of Algeria website before any decision.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Are these regulations still in force?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Regulations no. 14-01, 14-02 and 14-03 of 16 February 2014 were published in Official Gazette no. 56 of 2014 and have applied since 1 October 2014. This article was verified on the date shown in the sources block below; we recommend confirming the current state of the texts with your bank or on the Bank of Algeria website before any decision.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

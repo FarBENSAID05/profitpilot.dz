@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -599,28 +611,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>كم تدوم مدّة عرض الملك على المنصة الرقمية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تحدّد المادة 4 من المرسوم التنفيذي رقم 23-487، كما عدّلها المرسوم رقم 26-154، مدّة العرض بثلاثين يوماً. ثمّ تُعالَج الطلبات المسجَّلة في أجل لا يتجاوز خمسة عشر يوماً من انقضاء أجل العرض، وتُعرَض على مجلس الإدارة في دورته القادمة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>كم تدوم مدّة عرض الملك على المنصة الرقمية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>تحدّد المادة 4 من المرسوم التنفيذي رقم 23-487، كما عدّلها المرسوم رقم 26-154، مدّة العرض بثلاثين يوماً. ثمّ تُعالَج الطلبات المسجَّلة في أجل لا يتجاوز خمسة عشر يوماً من انقضاء أجل العرض، وتُعرَض على مجلس الإدارة في دورته القادمة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لمستثمر أجنبي أن يترشّح للعقار الاقتصادي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. ينصّ النصّ على أنّ كل شخص طبيعي أو معنوي، وطني أو أجنبي، مقيم أو غير مقيم بمفهوم القانون رقم 22-18 المتعلق بالاستثمار، وصاحب مشروع استثماري، يمكنه الترشّح للاستفادة من امتياز بالتراضي قابل للتحويل إلى تنازل على ملك عقاري تابع للأملاك الخاصة للدولة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل يمكن لمستثمر أجنبي أن يترشّح للعقار الاقتصادي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>نعم. ينصّ النصّ على أنّ كل شخص طبيعي أو معنوي، وطني أو أجنبي، مقيم أو غير مقيم بمفهوم القانون رقم 22-18 المتعلق بالاستثمار، وصاحب مشروع استثماري، يمكنه الترشّح للاستفادة من امتياز بالتراضي قابل للتحويل إلى تنازل على ملك عقاري تابع للأملاك الخاصة للدولة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>متى يصبح قرار المنح نهائياً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا يصبح القرار المؤقت نهائياً إلا بعد انقضاء آجال الطعون المنصوص عليها في المرسوم الرئاسي رقم 22-296 المؤرخ في 4 سبتمبر 2022. ثمّ يُدعى المستفيد إلى التقرّب من الشباك الوحيد المختصّ إقليمياً في أجل لا يتجاوز خمسة عشر يوماً لسحبه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>متى يصبح قرار المنح نهائياً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لا يصبح القرار المؤقت نهائياً إلا بعد انقضاء آجال الطعون المنصوص عليها في المرسوم الرئاسي رقم 22-296 المؤرخ في 4 سبتمبر 2022. ثمّ يُدعى المستفيد إلى التقرّب من الشباك الوحيد المختصّ إقليمياً في أجل لا يتجاوز خمسة عشر يوماً لسحبه.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو أجل إيداع طلب رخصة البناء؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ينصّ دفتر الشروط النموذجي على أنّ صاحب الامتياز يجب أن يودع طلب رخصة البناء لدى الشباك الوحيد المختصّ إقليمياً في أجل لا يتجاوز شهرين من تسليم عقد الامتياز. ويجب أن تنطلق الأشغال في أجل لا يتجاوز ستة أشهر من الحصول على الرخصة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما هو أجل إيداع طلب رخصة البناء؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>ينصّ دفتر الشروط النموذجي على أنّ صاحب الامتياز يجب أن يودع طلب رخصة البناء لدى الشباك الوحيد المختصّ إقليمياً في أجل لا يتجاوز شهرين من تسليم عقد الامتياز. ويجب أن تنطلق الأشغال في أجل لا يتجاوز ستة أشهر من الحصول على الرخصة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم يستغرق تحويل الامتياز إلى تنازل؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تتمّ دراسة الطلب في أجل لا يتجاوز ثلاثة أشهر من تاريخ استلامه. ثمّ يُعدّ ممثل إدارة الأملاك في الشباك الوحيد عقد التنازل في أجل لا يتجاوز خمسة عشر يوماً من إرسال الملف.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>كم يستغرق تحويل الامتياز إلى تنازل؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>تتمّ دراسة الطلب في أجل لا يتجاوز ثلاثة أشهر من تاريخ استلامه. ثمّ يُعدّ ممثل إدارة الأملاك في الشباك الوحيد عقد التنازل في أجل لا يتجاوز خمسة عشر يوماً من إرسال الملف.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث عند التأخّر في دفع الإتاوة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لصاحب الامتياز خمسة عشر يوماً من استلام أمر الدفع لتسديد الإتاوة الإيجارية السنوية. وبعد ذلك يُعذِره قابض الأملاك بالدفع في ظرف ثمانية أيام للمبلغ مزيداً بغرامة قدرها 5 %. وإن لم يفعل، يُخطِر القابض الشباك الوحيد للوكالة قصد فسخ الامتياز.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>ماذا يحدث عند التأخّر في دفع الإتاوة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>لصاحب الامتياز خمسة عشر يوماً من استلام أمر الدفع لتسديد الإتاوة الإيجارية السنوية. وبعد ذلك يُعذِره قابض الأملاك بالدفع في ظرف ثمانية أيام للمبلغ مزيداً بغرامة قدرها 5 %. وإن لم يفعل، يُخطِر القابض الشباك الوحيد للوكالة قصد فسخ الامتياز.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

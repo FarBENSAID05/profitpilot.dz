@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -593,28 +605,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the difference between NPV and IRR?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">NPV measures the value created by the project, expressed in dinars, once future flows are discounted at a chosen rate. IRR measures the project's own return, expressed as a percentage: it is the rate that would make NPV zero. NPV depends on the rate chosen, IRR does not — but it must be compared with that rate to be interpreted.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the difference between NPV and IRR?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>NPV measures the value created by the project, expressed in dinars, once future flows are discounted at a chosen rate. IRR measures the project's own return, expressed as a percentage: it is the rate that would make NPV zero. NPV depends on the rate chosen, IRR does not — but it must be compared with that rate to be interpreted.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How should the discount rate be chosen?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The rate represents the minimum return required given the cost of the resources raised and the project's risk. It is generally built from the average cost of financing, own contribution and loan combined, plus a risk premium linked to the activity. None of the texts examined sets a regulatory rate: it must therefore be stated and justified within the study.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>How should the discount rate be chosen?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>The rate represents the minimum return required given the cost of the resources raised and the project's risk. It is generally built from the average cost of financing, own contribution and loan combined, plus a risk premium linked to the activity. None of the texts examined sets a regulatory rate: it must therefore be stated and justified within the study.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Why is discounted payback longer than simple payback?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because it accounts for the cost of time. Each future flow is reduced before being accumulated, which mechanically pushes back the point at which the cumulative total reaches the amount invested. Discounted payback is the only version consistent with NPV and IRR.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Why is discounted payback longer than simple payback?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Because it accounts for the cost of time. Each future flow is reduced before being accumulated, which mechanically pushes back the point at which the cumulative total reaches the amount invested. Discounted payback is the only version consistent with NPV and IRR.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is a project with a positive NPV always acceptable?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">A positive NPV means the project creates value at the chosen rate. It says nothing about the safety margin: if the IRR is very close to the cost of financing, a modest change in assumptions is enough to tip NPV negative. That is why the four indicators are read together, not in isolation.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Is a project with a positive NPV always acceptable?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>A positive NPV means the project creates value at the chosen rate. It says nothing about the safety margin: if the IRR is very close to the cost of financing, a modest change in assumptions is enough to tip NPV negative. That is why the four indicators are read together, not in isolation.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Are these indicators mandatory in an Algerian investment application?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Part VI of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 requires a profitability analysis covering IRR, NPV, the break-even point and the margin rate, in addition to a projected income statement, cash flow statement and balance sheet over three to five years.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Are these indicators mandatory in an Algerian investment application?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Part VI of the template in Annex V to Executive Decree no. 26-154 of 14 April 2026 requires a profitability analysis covering IRR, NPV, the break-even point and the margin rate, in addition to a projected income statement, cash flow statement and balance sheet over three to five years.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Over how many years should flows be projected?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The Annex V template uses a horizon of three to five years for the projected statements. Beyond that, the reliability of assumptions falls sharply; below it, a project whose profitability arrives late is not properly represented.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Over how many years should flows be projected?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>The Annex V template uses a horizon of three to five years for the projected statements. Beyond that, the reliability of assumptions falls sharply; below it, a project whose profitability arrives late is not properly represented.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

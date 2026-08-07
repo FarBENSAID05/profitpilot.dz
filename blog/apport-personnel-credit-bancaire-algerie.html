@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -583,28 +595,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Existe-t-il un taux d&#x27;apport personnel obligatoire en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Les trois règlements de la Banque d'Algérie du 16 février 2014 encadrant le crédit — n° 14-01, 14-02 et 14-03 — ne fixent aucun taux d'apport à la charge de l'emprunteur. Ils encadrent les obligations de la banque : plafond de 25 % des fonds propres réglementaires par bénéficiaire, pondération à 100 % des crédits aux entreprises, quotités de garanties et taux de provisionnement. Le taux d'apport relève donc de la politique de crédit de chaque établissement. Des barèmes existent en revanche dans les dispositifs publics.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Existe-t-il un taux d&#x27;apport personnel obligatoire en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Les trois règlements de la Banque d'Algérie du 16 février 2014 encadrant le crédit — n° 14-01, 14-02 et 14-03 — ne fixent aucun taux d'apport à la charge de l'emprunteur. Ils encadrent les obligations de la banque : plafond de 25 % des fonds propres réglementaires par bénéficiaire, pondération à 100 % des crédits aux entreprises, quotités de garanties et taux de provisionnement. Le taux d'apport relève donc de la politique de crédit de chaque établissement. Des barèmes existent en revanche dans les dispositifs publics.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel apport personnel exige le dispositif NESDA ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">NESDA publie quatre taux pour le financement triangulaire : 5 % pour les étudiants et chômeurs, 10 % pour les non-chômeurs des zones du Sud, 12 % pour les Hauts-Plateaux et zones spécifiques, et 15 % pour les autres régions. Dans chacune de ces formules, la part bancaire est de 70 %. Le financement mixte suppose 50 % d'apport et l'autofinancement 100 %.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Quel apport personnel exige le dispositif NESDA ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>NESDA publie quatre taux pour le financement triangulaire : 5 % pour les étudiants et chômeurs, 10 % pour les non-chômeurs des zones du Sud, 12 % pour les Hauts-Plateaux et zones spécifiques, et 15 % pour les autres régions. Dans chacune de ces formules, la part bancaire est de 70 %. Le financement mixte suppose 50 % d'apport et l'autofinancement 100 %.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le montant maximal d&#x27;un projet financé par NESDA ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le financement peut atteindre 10 000 000 DA. Le prêt de l'agence est non rémunéré et la part bancaire bénéficie d'un taux d'intérêt bonifié à 100 %. Des prêts non rémunérés supplémentaires existent : 500 000 DA pour la location d'un local ou d'un poste à quai, et 1 000 000 DA à titre exceptionnel pour l'exploitation.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Quel est le montant maximal d&#x27;un projet financé par NESDA ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Le financement peut atteindre 10 000 000 DA. Le prêt de l'agence est non rémunéré et la part bancaire bénéficie d'un taux d'intérêt bonifié à 100 %. Des prêts non rémunérés supplémentaires existent : 500 000 DA pour la location d'un local ou d'un poste à quai, et 1 000 000 DA à titre exceptionnel pour l'exploitation.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Vaut-il mieux augmenter son apport ou apporter une garantie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Les deux ne produisent pas le même effet. L'apport réduit le montant du crédit, donc l'exposition de la banque et son assiette de provisionnement. Une garantie ne réduit pas l'exposition : elle en réduit le coût en provisions, à hauteur de sa quotité — 100 % pour un dépôt auprès de la banque prêteuse, 80 % pour une garantie bancaire agréée, 50 % seulement pour une hypothèque. Le montage optimal combine généralement les deux.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Vaut-il mieux augmenter son apport ou apporter une garantie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Les deux ne produisent pas le même effet. L'apport réduit le montant du crédit, donc l'exposition de la banque et son assiette de provisionnement. Une garantie ne réduit pas l'exposition : elle en réduit le coût en provisions, à hauteur de sa quotité — 100 % pour un dépôt auprès de la banque prêteuse, 80 % pour une garantie bancaire agréée, 50 % seulement pour une hypothèque. Le montage optimal combine généralement les deux.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Peut-on emprunter pour constituer son apport personnel ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">C'est fortement déconseillé et rarement invisible. Le règlement n° 12-01 impose aux banques de déclarer mensuellement à la Centrale des risques tous les concours accordés à leur clientèle, quel qu'en soit le montant, et de consulter cette centrale avant tout octroi de crédit à un nouveau client. Un emprunt contracté ailleurs pour constituer l'apport apparaît donc dans le rapport consulté par la banque.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Peut-on emprunter pour constituer son apport personnel ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>C'est fortement déconseillé et rarement invisible. Le règlement n° 12-01 impose aux banques de déclarer mensuellement à la Centrale des risques tous les concours accordés à leur clientèle, quel qu'en soit le montant, et de consulter cette centrale avant tout octroi de crédit à un nouveau client. Un emprunt contracté ailleurs pour constituer l'apport apparaît donc dans le rapport consulté par la banque.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Le dispositif s&#x27;appelle-t-il encore ANSEJ ou ANADE ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le dispositif a changé de dénomination à plusieurs reprises : ANSEJ, puis ANADE, et aujourd'hui NESDA — Agence nationale d'appui et de développement de l'entrepreneuriat, placée sous la tutelle du ministère de l'Économie de la connaissance, des Start-ups et des Micro-entreprises. De nombreux barèmes circulant en ligne correspondent à des versions antérieures : se référer aux taux publiés par l'agence.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Le dispositif s&#x27;appelle-t-il encore ANSEJ ou ANADE ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Le dispositif a changé de dénomination à plusieurs reprises : ANSEJ, puis ANADE, et aujourd'hui NESDA — Agence nationale d'appui et de développement de l'entrepreneuriat, placée sous la tutelle du ministère de l'Économie de la connaissance, des Start-ups et des Micro-entreprises. De nombreux barèmes circulant en ligne correspondent à des versions antérieures : se référer aux taux publiés par l'agence.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

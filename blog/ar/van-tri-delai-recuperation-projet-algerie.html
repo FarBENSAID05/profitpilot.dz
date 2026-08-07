@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -593,28 +605,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الفرق بين القيمة الحالية الصافية ومعدّل المردودية الداخلي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تقيس القيمة الحالية الصافية القيمة التي يخلقها المشروع، معبَّراً عنها بالدينار، بعد تحيين التدفقات المستقبلية بمعدّل مختار. أمّا معدّل المردودية الداخلي فيقيس العائد الذاتي للمشروع، معبَّراً عنه بالنسبة المئوية: وهو المعدّل الذي يجعل القيمة الحالية معدومة. فالقيمة الحالية تتوقّف على المعدّل المعتمَد، والمعدّل الداخلي لا يتوقّف عليه — لكن يجب مقارنته به ليُؤوَّل.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما الفرق بين القيمة الحالية الصافية ومعدّل المردودية الداخلي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>تقيس القيمة الحالية الصافية القيمة التي يخلقها المشروع، معبَّراً عنها بالدينار، بعد تحيين التدفقات المستقبلية بمعدّل مختار. أمّا معدّل المردودية الداخلي فيقيس العائد الذاتي للمشروع، معبَّراً عنه بالنسبة المئوية: وهو المعدّل الذي يجعل القيمة الحالية معدومة. فالقيمة الحالية تتوقّف على المعدّل المعتمَد، والمعدّل الداخلي لا يتوقّف عليه — لكن يجب مقارنته به ليُؤوَّل.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف يُختار معدّل التحيين؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يمثّل المعدّل الحدّ الأدنى للعائد المطلوب بالنظر إلى كلفة الموارد المعبَّأة وخطر المشروع. ويُبنى عادةً من الكلفة المتوسطة للتمويل، مساهمةً وقرضاً، مزيدةً بعلاوة خطر مرتبطة بالنشاط. ولا يحدّد أيٌّ من النصوص المفحوصة معدّلاً تنظيمياً: فيجب إذاً توضيحه وتبريره داخل الدراسة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>كيف يُختار معدّل التحيين؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>يمثّل المعدّل الحدّ الأدنى للعائد المطلوب بالنظر إلى كلفة الموارد المعبَّأة وخطر المشروع. ويُبنى عادةً من الكلفة المتوسطة للتمويل، مساهمةً وقرضاً، مزيدةً بعلاوة خطر مرتبطة بالنشاط. ولا يحدّد أيٌّ من النصوص المفحوصة معدّلاً تنظيمياً: فيجب إذاً توضيحه وتبريره داخل الدراسة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>لماذا تكون مدّة الاسترجاع المحيَّنة أطول من البسيطة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لأنها تأخذ كلفة الزمن بعين الاعتبار. فكلّ تدفّق مستقبلي يُخفَّض قبل تراكمه، ما يؤخّر آلياً اللحظة التي يبلغ فيها التراكم المبلغ المستثمَر. والمدّة المحيَّنة هي الوحيدة المنسجمة مع VAN وTRI.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>لماذا تكون مدّة الاسترجاع المحيَّنة أطول من البسيطة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لأنها تأخذ كلفة الزمن بعين الاعتبار. فكلّ تدفّق مستقبلي يُخفَّض قبل تراكمه، ما يؤخّر آلياً اللحظة التي يبلغ فيها التراكم المبلغ المستثمَر. والمدّة المحيَّنة هي الوحيدة المنسجمة مع VAN وTRI.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل المشروع ذو القيمة الحالية الموجبة مقبول دائماً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">القيمة الموجبة تعني أنّ المشروع يخلق قيمةً بالمعدّل المعتمَد. لكنها لا تقول شيئاً عن هامش الأمان: فإذا كان معدّل المردودية الداخلي قريباً جداً من كلفة التمويل، كفى تغيّر بسيط في الفرضيات لقلب القيمة الحالية. ولهذا تُقرَأ المؤشرات الأربعة مجتمعةً لا منفردة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل المشروع ذو القيمة الحالية الموجبة مقبول دائماً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>القيمة الموجبة تعني أنّ المشروع يخلق قيمةً بالمعدّل المعتمَد. لكنها لا تقول شيئاً عن هامش الأمان: فإذا كان معدّل المردودية الداخلي قريباً جداً من كلفة التمويل، كفى تغيّر بسيط في الفرضيات لقلب القيمة الحالية. ولهذا تُقرَأ المؤشرات الأربعة مجتمعةً لا منفردة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل هذه المؤشرات إلزامية في ملف استثماري بالجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يشترط القسم السادس من المخطط النموذجي الوارد في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026 تحليل مردودية يتضمّن معدّل المردودية الداخلي والقيمة الحالية الصافية وعتبة المردودية ومعدّل الهامش، إضافةً إلى حساب نتائج وجدول خزينة وميزانية تقديرية على ثلاث إلى خمس سنوات.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل هذه المؤشرات إلزامية في ملف استثماري بالجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>يشترط القسم السادس من المخطط النموذجي الوارد في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026 تحليل مردودية يتضمّن معدّل المردودية الداخلي والقيمة الحالية الصافية وعتبة المردودية ومعدّل الهامش، إضافةً إلى حساب نتائج وجدول خزينة وميزانية تقديرية على ثلاث إلى خمس سنوات.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>على كم سنة يجب إسقاط التدفقات؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يعتمد مخطط الملحق الخامس أفقاً من ثلاث إلى خمس سنوات للكشوف التقديرية. وأبعد من ذلك تتراجع موثوقية الفرضيات بشدّة؛ وأقلّ من ذلك لا يُمثَّل المشروع الذي تتأخّر مردوديته تمثيلاً صحيحاً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>على كم سنة يجب إسقاط التدفقات؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>يعتمد مخطط الملحق الخامس أفقاً من ثلاث إلى خمس سنوات للكشوف التقديرية. وأبعد من ذلك تتراجع موثوقية الفرضيات بشدّة؛ وأقلّ من ذلك لا يُمثَّل المشروع الذي تتأخّر مردوديته تمثيلاً صحيحاً.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

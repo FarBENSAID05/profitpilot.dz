@@ -209,8 +209,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -518,24 +530,24 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لشركة أجنبية أن تملك 100% من كيان جزائري؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>خارج الأنشطة الموصوفة بالاستراتيجية وخارج الاستيراد لإعادة البيع على حاله، نعم. فقد كفّت قاعدة 49/51 عن كونها قاعدة عامة منذ قانون المالية التكميلي لسنة 2020. أمّا اختيار الشكل الاجتماعي فمسألة منفصلة تُحسم مع الموثّق قبل تحرير القانون الأساسي.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يمكن لشركة أجنبية أن تملك 100% من كيان جزائري؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>خارج الأنشطة الموصوفة بالاستراتيجية وخارج الاستيراد لإعادة البيع على حاله، نعم. فقد كفّت قاعدة 49/51 عن كونها قاعدة عامة منذ قانون المالية التكميلي لسنة 2020. أمّا اختيار الشكل الاجتماعي فمسألة منفصلة تُحسم مع الموثّق قبل تحرير القانون الأساسي.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يلزم السفر إلى الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>غالباً مرّة واحدة على الأقل. الموثّقون يشترطون عادةً حضور الممثّل شخصياً أو توكيلاً مصدَّقاً في الخارج ومترجَماً يغطّي الشخص والشركة الشريكة معاً؛ والبنوك تطلب كثيراً حضور المسيّر شخصياً لفتح الحساب. ونحن نضبط ما سيُقبَل قبل أن تحجز أيّ شيء.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل يلزم السفر إلى الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>غالباً مرّة واحدة على الأقل. الموثّقون يشترطون عادةً حضور الممثّل شخصياً أو توكيلاً مصدَّقاً في الخارج ومترجَماً يغطّي الشخص والشركة الشريكة معاً؛ والبنوك تطلب كثيراً حضور المسيّر شخصياً لفتح الحساب. ونحن نضبط ما سيُقبَل قبل أن تحجز أيّ شيء.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم يلزم من رأس المال؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لم يعد هناك حدّ أدنى قانوني منذ إصلاح 2015، لكنّ المبلغ ليس حرّاً عملياً: ضمان تحويل رأس المال والعوائد يفترض تمويلاً ذا أصل أجنبي يبلغ عتبة دنيا تُقدَّر بالنظر إلى الكلفة الإجمالية للاستثمار. رأس المال يُضبَط على المشروع لا على الإجراءات.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>كم يلزم من رأس المال؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>لم يعد هناك حدّ أدنى قانوني منذ إصلاح 2015، لكنّ المبلغ ليس حرّاً عملياً: ضمان تحويل رأس المال والعوائد يفترض تمويلاً ذا أصل أجنبي يبلغ عتبة دنيا تُقدَّر بالنظر إلى الكلفة الإجمالية للاستثمار. رأس المال يُضبَط على المشروع لا على الإجراءات.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل ما زالت وثائقنا تحتاج تصديقاً قنصلياً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لا، بالنسبة للوثائق العمومية المتبادَلة مع الدول المتعاقدة الأخرى. دخلت اتفاقية الأبوستيل حيّز النفاذ بالنسبة للجزائر في 9 جويلية 2026، وتحلّ أبوستيل بلد المنشأ محلّ التصديق القنصلي. أمّا الترجمة المحلَّفة إلى العربية فتبقى لازمة، والوثائق المصدَّقة بالإجراء القديم قبل ذلك التاريخ قد يلزم إعادة استخراجها.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل ما زالت وثائقنا تحتاج تصديقاً قنصلياً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>لا، بالنسبة للوثائق العمومية المتبادَلة مع الدول المتعاقدة الأخرى. دخلت اتفاقية الأبوستيل حيّز النفاذ بالنسبة للجزائر في 9 جويلية 2026، وتحلّ أبوستيل بلد المنشأ محلّ التصديق القنصلي. أمّا الترجمة المحلَّفة إلى العربية فتبقى لازمة، والوثائق المصدَّقة بالإجراء القديم قبل ذلك التاريخ قد يلزم إعادة استخراجها.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن تعيين شركتنا الأمّ مسيّرةً؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>لا. الشركة ذات المسؤولية المحدودة تُسيَّر من شخص طبيعي أو عدّة أشخاص طبيعيين. لا بدّ من تعيين شخص طبيعي — مقيماً كان أو غير مقيم، وليس بالضرورة شريكاً. والخيار المعتمَد يؤثّر في رزنامتك، لأنّ بطاقات المسيّر الأجنبي ورشة قائمة بذاتها.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يمكن تعيين شركتنا الأمّ مسيّرةً؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>لا. الشركة ذات المسؤولية المحدودة تُسيَّر من شخص طبيعي أو عدّة أشخاص طبيعيين. لا بدّ من تعيين شخص طبيعي — مقيماً كان أو غير مقيم، وليس بالضرورة شريكاً. والخيار المعتمَد يؤثّر في رزنامتك، لأنّ بطاقات المسيّر الأجنبي ورشة قائمة بذاتها.</p></div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

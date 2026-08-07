@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -538,24 +550,24 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>L&#x27;étude de marché est-elle obligatoire en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Pour un dossier de foncier économique, oui : l'analyse du marché constitue une partie du plan-type de l'étude technico-économique fixé à l'annexe V du décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026. Hors de ce cadre, elle n'est pas juridiquement obligatoire, mais elle détermine les hypothèses de chiffre d'affaires de tout dossier de financement.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>L&#x27;étude de marché est-elle obligatoire en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Pour un dossier de foncier économique, oui : l'analyse du marché constitue une partie du plan-type de l'étude technico-économique fixé à l'annexe V du décret exécutif n° 26-154 du 14 avril 2026, publié au Journal officiel n° 31 du 28 avril 2026. Hors de ce cadre, elle n'est pas juridiquement obligatoire, mais elle détermine les hypothèses de chiffre d'affaires de tout dossier de financement.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment faire une étude de marché sans budget ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">En partant de l'observable plutôt que du publié : comptages sur site, relevés de prix, entretiens avec les fournisseurs et les acteurs de la chaîne, puis contrôle de cohérence avec les données publiques disponibles. La contrainte n'est pas le budget mais la rigueur documentaire : chaque chiffre doit porter sa méthode d'obtention et sa date.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Comment faire une étude de marché sans budget ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>En partant de l'observable plutôt que du publié : comptages sur site, relevés de prix, entretiens avec les fournisseurs et les acteurs de la chaîne, puis contrôle de cohérence avec les données publiques disponibles. La contrainte n'est pas le budget mais la rigueur documentaire : chaque chiffre doit porter sa méthode d'obtention et sa date.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quels chiffres une étude de marché doit-elle permettre de justifier ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Trois : le volume vendu la première année, le prix de vente, et le délai de paiement. Ce sont les trois hypothèses qui alimentent le plan financier. Une étude qui ne permet pas de les défendre n'a pas rempli sa fonction, quelle que soit sa longueur.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Quels chiffres une étude de marché doit-elle permettre de justifier ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Trois : le volume vendu la première année, le prix de vente, et le délai de paiement. Ce sont les trois hypothèses qui alimentent le plan financier. Une étude qui ne permet pas de les défendre n'a pas rempli sa fonction, quelle que soit sa longueur.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment analyser la concurrence quand elle n&#x27;est pas documentée ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Par recensement physique exhaustif sur une zone restreinte, en relevant pour chaque acteur la gamme, le niveau de prix, les délais et un signe visible de volume d'activité. Il faut distinguer quatre niveaux de concurrence : le concurrent direct, le substitut, l'informel et l'auto-production du client — les deux derniers étant les plus souvent oubliés.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Comment analyser la concurrence quand elle n&#x27;est pas documentée ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>Par recensement physique exhaustif sur une zone restreinte, en relevant pour chaque acteur la gamme, le niveau de prix, les délais et un signe visible de volume d'activité. Il faut distinguer quatre niveaux de concurrence : le concurrent direct, le substitut, l'informel et l'auto-production du client — les deux derniers étant les plus souvent oubliés.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Quelle est l&#x27;erreur la plus fréquente ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le questionnaire de complaisance. Demander à quelqu'un s'il serait intéressé par un produit produit un taux d'intérêt élevé et sans valeur prédictive. Les seules questions utiles portent sur le comportement passé : ce qui a été acheté, où, à quel prix et quand.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Quelle est l&#x27;erreur la plus fréquente ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Le questionnaire de complaisance. Demander à quelqu'un s'il serait intéressé par un produit produit un taux d'intérêt élevé et sans valeur prédictive. Les seules questions utiles portent sur le comportement passé : ce qui a été acheté, où, à quel prix et quand.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

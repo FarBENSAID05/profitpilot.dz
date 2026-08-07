@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -625,28 +637,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the turnover ceiling for an auto-entrepreneur in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Five million dinars (DZD 5,000,000) of annual turnover, under Article 282 ter of the Direct Taxes Code as introduced by Article 51 of the 2023 Finance Act. Note that Law 22-23 itself sets no amount: it refers to the tax legislation in force, so the threshold can change through a finance act.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the turnover ceiling for an auto-entrepreneur in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Five million dinars (DZD 5,000,000) of annual turnover, under Article 282 ter of the Direct Taxes Code as introduced by Article 51 of the 2023 Finance Act. Note that Law 22-23 itself sets no amount: it refers to the tax legislation in force, so the threshold can change through a finance act.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What tax does an Algerian auto-entrepreneur pay?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The single flat-rate tax (IFU) at 0.5% of turnover, provided for by Article 282 sexies of the Direct Taxes Code and introduced by Article 18 of the 2024 Finance Act. The annual minimum tax is DZD 10,000 for activities carried on under this status, against DZD 30,000 under the standard regime (Article 365; Article 29 of the 2025 Finance Act).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What tax does an Algerian auto-entrepreneur pay?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>The single flat-rate tax (IFU) at 0.5% of turnover, provided for by Article 282 sexies of the Direct Taxes Code and introduced by Article 18 of the 2024 Finance Act. The annual minimum tax is DZD 10,000 for activities carried on under this status, against DZD 30,000 under the standard regime (Article 365; Article 29 of the 2025 Finance Act).</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Do you need a commercial register entry to be an auto-entrepreneur?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. Article 9 of Law 22-23 expressly waives the obligation to enrol in the commercial register. However, Article 13 requires that enrolment where turnover exceeds the legal threshold for three consecutive years and the person wishes to continue trading.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Do you need a commercial register entry to be an auto-entrepreneur?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>No. Article 9 of Law 22-23 expressly waives the obligation to enrol in the commercial register. However, Article 13 requires that enrolment where turnover exceeds the legal threshold for three consecutive years and the person wishes to continue trading.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Which activities are excluded from the status?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The second paragraph of Article 2 of Law 22-23 excludes liberal professions, regulated occupations and craft activities. The positive list of eligible activities is set by Executive Decree No. 23-197 of 25 May 2023 — that list governs at the point of registration.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Which activities are excluded from the status?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The second paragraph of Article 2 of Law 22-23 excludes liberal professions, regulated occupations and craft activities. The positive list of eligible activities is set by Executive Decree No. 23-197 of 25 May 2023 — that list governs at the point of registration.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can an auto-entrepreneur import goods?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The Directorate General of Taxes' documentation refers to the micro-importer operating under auto-entrepreneur status, citing Article 6 of Executive Decree No. 25-170 of 28 June 2025. Tax is then paid to customs when the goods are released for consumption (Article 143 of the 2026 Finance Act), and forms G No. 12 and G No. 12 bis are not required. This is a framed opening: the exact scope set by the decree, and the foreign exchange and domiciliation rules, must be checked before any transaction.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Can an auto-entrepreneur import goods?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>The Directorate General of Taxes' documentation refers to the micro-importer operating under auto-entrepreneur status, citing Article 6 of Executive Decree No. 25-170 of 28 June 2025. Tax is then paid to customs when the goods are released for consumption (Article 143 of the 2026 Finance Act), and forms G No. 12 and G No. 12 bis are not required. This is a framed opening: the exact scope set by the decree, and the foreign exchange and domiciliation rules, must be checked before any transaction.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens if my registration is refused or I am removed from the register?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Executive Decree No. 23-197 opens a thirty (30) day appeal to the competent services of the minister in charge of start-ups, who also has thirty days to respond (Article 24). A removal decision is notified within fifteen days and cancels the card. Re-registration remains possible once the grounds have been lifted and any tax and para-tax debts settled (Article 16 of the Law; Article 25 of the decree).</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>What happens if my registration is refused or I am removed from the register?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Executive Decree No. 23-197 opens a thirty (30) day appeal to the competent services of the minister in charge of start-ups, who also has thirty days to respond (Article 24). A removal decision is notified within fifteen days and cancels the card. Re-registration remains possible once the grounds have been lifted and any tax and para-tax debts settled (Article 16 of the Law; Article 25 of the decree).</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -218,8 +218,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -663,36 +675,36 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لمستثمر أجنبي أن يملك 100% من شركة جزائرية في 2026؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">خارج الأنشطة الاستراتيجية المدرَجة في المرسوم التنفيذي رقم 21-145 المؤرخ في 17 أفريل 2021، وخارج الاستيراد لإعادة البيع على حاله، نعم. فقد كفّت قاعدة 49/51 عن كونها قاعدة عامة منذ قانون المالية التكميلي لسنة 2020.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يمكن لمستثمر أجنبي أن يملك 100% من شركة جزائرية في 2026؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>خارج الأنشطة الاستراتيجية المدرَجة في المرسوم التنفيذي رقم 21-145 المؤرخ في 17 أفريل 2021، وخارج الاستيراد لإعادة البيع على حاله، نعم. فقد كفّت قاعدة 49/51 عن كونها قاعدة عامة منذ قانون المالية التكميلي لسنة 2020.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لشركة أجنبية أن تكون الشريك الوحيد في EURL جزائرية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تمنع المادة 590 مكرر 2 من القانون التجاري أن يكون الشريك الوحيد في شركة ذات مسؤولية محدودة شركةً أخرى ذات مسؤولية محدودة مكوَّنة من شخص واحد. وصياغتها أضيق من الرواية الشائعة عنها. ولا يوجد نصّ يحسم تكييف شكل اجتماعي أجنبي بالنظر إلى هذه المادة، ولهذا فالشركة متعدّدة الشركاء هي الهيكل الحذر، ولهذا يجب طرح السؤال على الموثّق قبل تحرير القانون الأساسي.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل يمكن لشركة أجنبية أن تكون الشريك الوحيد في EURL جزائرية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>تمنع المادة 590 مكرر 2 من القانون التجاري أن يكون الشريك الوحيد في شركة ذات مسؤولية محدودة شركةً أخرى ذات مسؤولية محدودة مكوَّنة من شخص واحد. وصياغتها أضيق من الرواية الشائعة عنها. ولا يوجد نصّ يحسم تكييف شكل اجتماعي أجنبي بالنظر إلى هذه المادة، ولهذا فالشركة متعدّدة الشركاء هي الهيكل الحذر، ولهذا يجب طرح السؤال على الموثّق قبل تحرير القانون الأساسي.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يوجد حدّ أدنى لرأس مال الشركة ذات المسؤولية المحدودة في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. منذ تعديل المادة 566 بالقانون رقم 15-20 المؤرخ في 30 ديسمبر 2015، يُحدَّد رأس المال بحرية من الشركاء في القانون الأساسي. وتُحرَّر الحصص النقدية بخُمسها على الأقل، والباقي في أجل خمس سنوات من القيد في السجل التجاري.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل يوجد حدّ أدنى لرأس مال الشركة ذات المسؤولية المحدودة في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>لا. منذ تعديل المادة 566 بالقانون رقم 15-20 المؤرخ في 30 ديسمبر 2015، يُحدَّد رأس المال بحرية من الشركاء في القانون الأساسي. وتُحرَّر الحصص النقدية بخُمسها على الأقل، والباقي في أجل خمس سنوات من القيد في السجل التجاري.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا لم تتأسّس الشركة بعد إيداع الأموال؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنصّ المادة 567 مكرر 1 على أنّه إذا لم يتمّ تأسيس الشركة في مدّة ستة (6) أشهر ابتداءً من تاريخ إيداع الأموال، جاز لكلّ مكتتب أن يطلب من الموثّق سحب مبلغ مساهمته، وفي حالة تعذّر ذلك بالطرق العادية أن يطلب من القاضي الاستعجالي الترخيص بسحب هذا المبلغ.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ماذا يحدث إذا لم تتأسّس الشركة بعد إيداع الأموال؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>تنصّ المادة 567 مكرر 1 على أنّه إذا لم يتمّ تأسيس الشركة في مدّة ستة (6) أشهر ابتداءً من تاريخ إيداع الأموال، جاز لكلّ مكتتب أن يطلب من الموثّق سحب مبلغ مساهمته، وفي حالة تعذّر ذلك بالطرق العادية أن يطلب من القاضي الاستعجالي الترخيص بسحب هذا المبلغ.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل ما زال التصديق القنصلي على الوثائق الأجنبية مطلوباً في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا، بالنسبة للوثائق العمومية المتبادَلة مع الدول المتعاقدة الأخرى. أودعت الجزائر وثيقة انضمامها إلى اتفاقية الأبوستيل لعام 1961 في 5 نوفمبر 2025، ودخلت الاتفاقية حيّز النفاذ بالنسبة للجزائر في 9 جويلية 2026. وتحلّ أبوستيل بلد المنشأ محلّ التصديق القنصلي. أمّا الترجمة المحلَّفة إلى العربية فتبقى لازمة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل ما زال التصديق القنصلي على الوثائق الأجنبية مطلوباً في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>لا، بالنسبة للوثائق العمومية المتبادَلة مع الدول المتعاقدة الأخرى. أودعت الجزائر وثيقة انضمامها إلى اتفاقية الأبوستيل لعام 1961 في 5 نوفمبر 2025، ودخلت الاتفاقية حيّز النفاذ بالنسبة للجزائر في 9 جويلية 2026. وتحلّ أبوستيل بلد المنشأ محلّ التصديق القنصلي. أمّا الترجمة المحلَّفة إلى العربية فتبقى لازمة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم يبلغ رسم AAPI لمعالجة ملف الاستثمار؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">60 000 دج لمشروع يقلّ عن ملياري دينار، و400 000 دج لمشروع يساوي ملياري دينار أو يفوقهما وكذلك للاستثمارات الأجنبية، مستحقّ يوم الإيداع، تطبيقاً للمرسوم التنفيذي رقم 22-299 المؤرخ في 8 سبتمبر 2022. فالاستثمار الأجنبي يدفع الرسم الأعلى مهما كان حجم المشروع.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>كم يبلغ رسم AAPI لمعالجة ملف الاستثمار؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>60 000 دج لمشروع يقلّ عن ملياري دينار، و400 000 دج لمشروع يساوي ملياري دينار أو يفوقهما وكذلك للاستثمارات الأجنبية، مستحقّ يوم الإيداع، تطبيقاً للمرسوم التنفيذي رقم 22-299 المؤرخ في 8 سبتمبر 2022. فالاستثمار الأجنبي يدفع الرسم الأعلى مهما كان حجم المشروع.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن تعيين الشركة الأمّ الأجنبية مسيّرةً لفرعها الجزائري؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. تنصّ المادة 576 من القانون التجاري على أنّ الشركة ذات المسؤولية المحدودة تُسيَّر من شخص طبيعي أو عدّة أشخاص طبيعيين. فلا بدّ من تعيين شخص طبيعي، مقيماً كان أو غير مقيم، ويمكن اختياره من غير الشركاء.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>هل يمكن تعيين الشركة الأمّ الأجنبية مسيّرةً لفرعها الجزائري؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden>لا. تنصّ المادة 576 من القانون التجاري على أنّ الشركة ذات المسؤولية المحدودة تُسيَّر من شخص طبيعي أو عدّة أشخاص طبيعيين. فلا بدّ من تعيين شخص طبيعي، مقيماً كان أو غير مقيم، ويمكن اختياره من غير الشركاء.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كم يستغرق تأسيس شركة في الجزائر بشريك أجنبي؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ملاحظتنا هي من أربعة إلى سبعة أسابيع للنواة الإدارية عند اكتمال الملف، ومن ثلاثة إلى أربعة أشهر حتى القدرة على الاستغلال حين يكون الشريك شخصاً معنوياً أجنبياً. والفارق يعود إلى استخراج وثائق الشركة الأمّ وتصديقها، وإلى التحويل الدولي لرأس المال الذي يستغرق وحده أسبوعين إلى ثلاثة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-8"><span>كم يستغرق تأسيس شركة في الجزائر بشريك أجنبي؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-8" hidden>ملاحظتنا هي من أربعة إلى سبعة أسابيع للنواة الإدارية عند اكتمال الملف، ومن ثلاثة إلى أربعة أشهر حتى القدرة على الاستغلال حين يكون الشريك شخصاً معنوياً أجنبياً. والفارق يعود إلى استخراج وثائق الشركة الأمّ وتصديقها، وإلى التحويل الدولي لرأس المال الذي يستغرق وحده أسبوعين إلى ثلاثة.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

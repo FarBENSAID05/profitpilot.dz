@@ -202,8 +202,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -975,32 +987,32 @@
 
         <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the minimum share capital for an Algerian SARL in 2026?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>There is none. Law No. 15-20 of 30 December 2015 rewrote article 566 of the Commercial Code: capital is <strong>set freely by the partners</strong> in the articles. The DZD 100,000 floor was abolished, even though it is still quoted by many websites, institutional ones included. At least one fifth of cash contributions must nevertheless be paid up at incorporation, with the balance within five years.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the minimum share capital for an Algerian SARL in 2026?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>There is none. Law No. 15-20 of 30 December 2015 rewrote article 566 of the Commercial Code: capital is <strong>set freely by the partners</strong> in the articles. The DZD 100,000 floor was abolished, even though it is still quoted by many websites, institutional ones included. At least one fifth of cash contributions must nevertheless be paid up at incorporation, with the balance within five years.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How many partners does a SARL need, minimum and maximum?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Between 2 and 50. With a single partner the company is an EURL — a single-member SARL, subject to substantially the same rules. Above 50 partners, article 590 of the Commercial Code requires conversion into a joint-stock company within one year, on pain of dissolution.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>How many partners does a SARL need, minimum and maximum?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>Between 2 and 50. With a single partner the company is an EURL — a single-member SARL, subject to substantially the same rules. Above 50 partners, article 590 of the Commercial Code requires conversion into a joint-stock company within one year, on pain of dissolution.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Must the articles be executed before a notary?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Yes, and the sanction is severe: article 545 of the Commercial Code provides that the company is, <em>on pain of nullity</em>, evidenced by an authentic instrument. The articles of an Algerian SARL therefore go before a notary without exception. The notary also receives the deposit of funds paid up on the capital and releases them to the manager after registration in the commercial register. The same requirement applies to any later transfer of shares (article 572).</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Must the articles be executed before a notary?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Yes, and the sanction is severe: article 545 of the Commercial Code provides that the company is, <em>on pain of nullity</em>, evidenced by an authentic instrument. The articles of an Algerian SARL therefore go before a notary without exception. The notary also receives the deposit of funds paid up on the capital and releases them to the manager after registration in the commercial register. The same requirement applies to any later transfer of shares (article 572).</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>How long does it take to incorporate?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Three to six weeks between the first meeting with the notary and actually trading, provided the file is complete from the outset. Delays almost always come from three causes: a company name rejected by the CNRC, an unregistered commercial lease, or a missing civil status document for a partner resident abroad.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How long does it take to incorporate?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Three to six weeks between the first meeting with the notary and actually trading, provided the file is complete from the outset. Delays almost always come from three causes: a company name rejected by the CNRC, an unregistered commercial lease, or a missing civil status document for a partner resident abroad.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does my SARL need a statutory auditor?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>It depends on three criteria, not one: share capital, turnover and permanent headcount. Exceeding a single one makes appointment mandatory, and some activities — importing in particular — are caught regardless of size. The exact figures diverge between sources and are worth verifying against your own position rather than a number found online. The auditor is appointed by the general meeting for three years, renewable once only (article 27 of Law 10-01). An uncertified financial year cannot be put right retroactively and blocks, in practice, dividend transfers abroad, access to investment credit and several public procurement routes.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Does my SARL need a statutory auditor?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>It depends on three criteria, not one: share capital, turnover and permanent headcount. Exceeding a single one makes appointment mandatory, and some activities — importing in particular — are caught regardless of size. The exact figures diverge between sources and are worth verifying against your own position rather than a number found online. The auditor is appointed by the general meeting for three years, renewable once only (article 27 of Law 10-01). An uncertified financial year cannot be put right retroactively and blocks, in practice, dividend transfers abroad, access to investment credit and several public procurement routes.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can a foreign investor own 100% of an Algerian SARL?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Often yes, but not always — and the exception is broader than commonly assumed. Since articles 49 and 50 of Law 20-07 (the supplementary finance act for 2020), any activity producing goods or services is open to foreign investment with no obligation to partner locally. Two blocks remain subject to 51% resident national ownership: <strong>buying and reselling goods in their existing state</strong> — that is, importing, which most summaries omit — and the <strong>strategic sectors</strong> listed exhaustively: the national mining domain and extractive activities, upstream energy and hydrocarbons together with electricity and hydrocarbon distribution networks, industries connected with national defence, railways, ports and airports, and pharmaceuticals (excluding innovative essential products with high added value). In those sectors, transfers of shares between foreign parties additionally require Government authorisation. The question to work through is therefore not “am I allowed” but “is my activity resale in the existing state, or is it on that list”.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Can a foreign investor own 100% of an Algerian SARL?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden><p>Often yes, but not always — and the exception is broader than commonly assumed. Since articles 49 and 50 of Law 20-07 (the supplementary finance act for 2020), any activity producing goods or services is open to foreign investment with no obligation to partner locally. Two blocks remain subject to 51% resident national ownership: <strong>buying and reselling goods in their existing state</strong> — that is, importing, which most summaries omit — and the <strong>strategic sectors</strong> listed exhaustively: the national mining domain and extractive activities, upstream energy and hydrocarbons together with electricity and hydrocarbon distribution networks, industries connected with national defence, railways, ports and airports, and pharmaceuticals (excluding innovative essential products with high added value). In those sectors, transfers of shares between foreign parties additionally require Government authorisation. The question to work through is therefore not “am I allowed” but “is my activity resale in the existing state, or is it on that list”.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Is it better to start as an EURL and convert, or to incorporate a SARL directly?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Both routes are ordinary. An EURL admitting a second partner becomes a SARL through a simple amendment to the articles, with no new legal entity and no break in the company's history. Incorporating a SARL directly is only worthwhile if the second partner is identified and committed: bringing someone in “for form’s sake” creates a real voting right and a real shareholding, which you do not get back without their agreement.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Is it better to start as an EURL and convert, or to incorporate a SARL directly?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden><p>Both routes are ordinary. An EURL admitting a second partner becomes a SARL through a simple amendment to the articles, with no new legal entity and no break in the company's history. Incorporating a SARL directly is only worthwhile if the second partner is identified and committed: bringing someone in “for form’s sake” creates a real voting right and a real shareholding, which you do not get back without their agreement.</p></div>
         </div>
 
         <div class="guide-sources">

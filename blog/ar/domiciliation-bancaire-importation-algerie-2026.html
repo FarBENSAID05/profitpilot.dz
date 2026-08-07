@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -607,28 +619,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ماذا يحدث إذا شُحنت البضاعة قبل التوطين؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">إذا كان تاريخ سند النقل سابقاً لتاريخ التوطين، وجب على البنك رفض العملية، ما لم يوجد ترخيص استثنائي منصوص عليه صراحةً في تنظيم الصرف. وتذكّر المذكرة رقم 01/DGC/2026 بأن عدم احترام هذه الأحكام يشكّل مخالفة للتشريع والتنظيم الخاص بالصرف.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ماذا يحدث إذا شُحنت البضاعة قبل التوطين؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>إذا كان تاريخ سند النقل سابقاً لتاريخ التوطين، وجب على البنك رفض العملية، ما لم يوجد ترخيص استثنائي منصوص عليه صراحةً في تنظيم الصرف. وتذكّر المذكرة رقم 01/DGC/2026 بأن عدم احترام هذه الأحكام يشكّل مخالفة للتشريع والتنظيم الخاص بالصرف.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل تُطبَّق التعليمة 05-2026 على استيراد المواد الأولية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا. مجال التعليمة رقم 05-2026 يخصّ عمليات استيراد السلع الموجّهة للبيع على حالته. أمّا المدخلات التي تُحوَّل محلياً والتجهيزات المقتناة للحساب الخاص فليست مشمولة بشرطيها. في المقابل، فإن إلزامية التوطين قبل الشحن، المقرّرة بالمذكرة رقم 01/DGC/2026، تخصّ مجموع عمليات استيراد السلع.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>هل تُطبَّق التعليمة 05-2026 على استيراد المواد الأولية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>لا. مجال التعليمة رقم 05-2026 يخصّ عمليات استيراد السلع الموجّهة للبيع على حالته. أمّا المدخلات التي تُحوَّل محلياً والتجهيزات المقتناة للحساب الخاص فليست مشمولة بشرطيها. في المقابل، فإن إلزامية التوطين قبل الشحن، المقرّرة بالمذكرة رقم 01/DGC/2026، تخصّ مجموع عمليات استيراد السلع.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>كيف يُحسَب سقف 100 % من الأموال الخاصة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يتعلّق برصيد عمليات استيراد السلع الموجّهة للبيع على حالته، المُوطَّنة لدى مجموع البنوك الوسيطة المعتمدة وغير المسدَّدة بعد. ويجب ألّا يتجاوز هذا المجموع في أي وقت 100 % من الأموال الخاصة للمتعامل. ولا تُعتبر العملية مسدَّدة إلا عندما يقوم البنك الموطِّن بالخصم النهائي من الحساب بقيمة العملية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>كيف يُحسَب سقف 100 % من الأموال الخاصة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>يتعلّق برصيد عمليات استيراد السلع الموجّهة للبيع على حالته، المُوطَّنة لدى مجموع البنوك الوسيطة المعتمدة وغير المسدَّدة بعد. ويجب ألّا يتجاوز هذا المجموع في أي وقت 100 % من الأموال الخاصة للمتعامل. ولا تُعتبر العملية مسدَّدة إلا عندما يقوم البنك الموطِّن بالخصم النهائي من الحساب بقيمة العملية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن لشركة أُنشئت هذه السنة أن تستورد للبيع على حالته؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. بالنسبة لمتعامل مُنشأ حديثاً، تنصّ التعليمة على أن البنك الموطِّن يمكنه الاستناد إلى ميزانية افتتاحية و/أو وضعية مالية مرحلية مؤشَّر عليها حسب الأصول من طرف محافظ حسابات. ويبقى شرطا الملاءة المالية مطبَّقين: لا يتغيّر سوى مصدر الأرقام.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>هل يمكن لشركة أُنشئت هذه السنة أن تستورد للبيع على حالته؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>نعم. بالنسبة لمتعامل مُنشأ حديثاً، تنصّ التعليمة على أن البنك الموطِّن يمكنه الاستناد إلى ميزانية افتتاحية و/أو وضعية مالية مرحلية مؤشَّر عليها حسب الأصول من طرف محافظ حسابات. ويبقى شرطا الملاءة المالية مطبَّقين: لا يتغيّر سوى مصدر الأرقام.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>أصلي الصافي أقلّ من رأس مالي الاجتماعي: هل يمكنني التوطين؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لا، ما دامت الوضعية لم تُصحَّح. تُلزِم التعليمة البنك بالتأكّد، قبل أي توطين، من أن الأصل الصافي يساوي رأس المال الاجتماعي أو يفوقه، على أساس الكشوف المالية للسنة المنقضية كما صُرِّح بها للإدارة الجبائية. ويمرّ التصحيح عبر إجراء على الأموال الخاصة أو على رأس المال الاجتماعي، يُدرَس مع مستشاريك.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>أصلي الصافي أقلّ من رأس مالي الاجتماعي: هل يمكنني التوطين؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>لا، ما دامت الوضعية لم تُصحَّح. تُلزِم التعليمة البنك بالتأكّد، قبل أي توطين، من أن الأصل الصافي يساوي رأس المال الاجتماعي أو يفوقه، على أساس الكشوف المالية للسنة المنقضية كما صُرِّح بها للإدارة الجبائية. ويمرّ التصحيح عبر إجراء على الأموال الخاصة أو على رأس المال الاجتماعي، يُدرَس مع مستشاريك.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل ما زال هذان النصّان ساريين؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تمّ التحقّق من هذا المقال في التاريخ المبيَّن في كتلة المصادر أدناه. ولأن تنظيم الصرف الجزائري سريع التغيّر، يُنصح بتأكيد حالة النصّ لدى بنكك الموطِّن أو على موقع بنك الجزائر قبل أي عملية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>هل ما زال هذان النصّان ساريين؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>تمّ التحقّق من هذا المقال في التاريخ المبيَّن في كتلة المصادر أدناه. ولأن تنظيم الصرف الجزائري سريع التغيّر، يُنصح بتأكيد حالة النصّ لدى بنكك الموطِّن أو على موقع بنك الجزائر قبل أي عملية.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

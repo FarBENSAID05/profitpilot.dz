@@ -202,8 +202,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -969,32 +981,32 @@
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Quel est le capital minimum d&#x27;une SARL en Algérie en 2026 ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Il n'y en a plus. La loi n° 15-20 du 30 décembre 2015 a réécrit l'article 566 du code de commerce : le capital est <strong>fixé librement par les associés</strong> dans les statuts. Le seuil de 100 000 DA a été supprimé, même s'il est encore mentionné par de nombreux sites, y compris institutionnels. En revanche, au moins un cinquième des apports en numéraire doit être libéré à la constitution, le solde dans les cinq ans.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Quel est le capital minimum d&#x27;une SARL en Algérie en 2026 ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden><p>Il n'y en a plus. La loi n° 15-20 du 30 décembre 2015 a réécrit l'article 566 du code de commerce : le capital est <strong>fixé librement par les associés</strong> dans les statuts. Le seuil de 100 000 DA a été supprimé, même s'il est encore mentionné par de nombreux sites, y compris institutionnels. En revanche, au moins un cinquième des apports en numéraire doit être libéré à la constitution, le solde dans les cinq ans.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien d&#x27;associés faut-il, au minimum et au maximum ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>De 2 à 50. Avec un seul associé, la société est une EURL — une SARL à associé unique, qui suit les mêmes règles pour l'essentiel. Au-delà de 50 associés, l'article 590 du code de commerce impose la transformation en société par actions dans un délai d'un an, sous peine de dissolution.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Combien d&#x27;associés faut-il, au minimum et au maximum ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden><p>De 2 à 50. Avec un seul associé, la société est une EURL — une SARL à associé unique, qui suit les mêmes règles pour l'essentiel. Au-delà de 50 associés, l'article 590 du code de commerce impose la transformation en société par actions dans un délai d'un an, sous peine de dissolution.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Les statuts doivent-ils obligatoirement passer chez le notaire ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Oui, et la sanction est lourde : l'article 545 du code de commerce dispose que la société est, <em>à peine de nullité</em>, constatée par acte authentique. Les statuts d'une SARL algérienne passent donc obligatoirement devant notaire. C'est également le notaire qui reçoit le dépôt des fonds correspondant à la libération du capital, et qui les remet au gérant après l'immatriculation au registre du commerce. La même exigence vaut pour toute cession de parts ultérieure (article 572).</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Les statuts doivent-ils obligatoirement passer chez le notaire ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden><p>Oui, et la sanction est lourde : l'article 545 du code de commerce dispose que la société est, <em>à peine de nullité</em>, constatée par acte authentique. Les statuts d'une SARL algérienne passent donc obligatoirement devant notaire. C'est également le notaire qui reçoit le dépôt des fonds correspondant à la libération du capital, et qui les remet au gérant après l'immatriculation au registre du commerce. La même exigence vaut pour toute cession de parts ultérieure (article 572).</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien de temps faut-il pour créer une SARL ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Trois à six semaines entre la première visite chez le notaire et le démarrage effectif de l'activité, lorsque le dossier est complet dès le départ. Les retards viennent presque toujours de trois causes : une dénomination refusée par le CNRC, un bail commercial non enregistré, ou une pièce d'état civil manquante pour un associé résidant à l'étranger.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Combien de temps faut-il pour créer une SARL ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden><p>Trois à six semaines entre la première visite chez le notaire et le démarrage effectif de l'activité, lorsque le dossier est complet dès le départ. Les retards viennent presque toujours de trois causes : une dénomination refusée par le CNRC, un bail commercial non enregistré, ou une pièce d'état civil manquante pour un associé résidant à l'étranger.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Ma SARL doit-elle désigner un commissaire aux comptes ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Cela dépend de trois critères, pas d'un seul : le capital social, le chiffre d'affaires et l'effectif permanent. Dépasser un seul d'entre eux suffit à rendre la désignation obligatoire, et certaines activités — l'importation notamment — sont concernées indépendamment de la taille. Les montants exacts divergent selon les sources et méritent d'être vérifiés sur votre situation plutôt que sur un chiffre lu en ligne. Le commissaire aux comptes est désigné par l'assemblée générale pour trois ans, renouvelable une seule fois (article 27 de la loi n° 10-01). Un exercice non certifié ne se rattrape pas rétroactivement et bloque, en pratique, le transfert de dividendes, l'accès au crédit d'investissement et plusieurs marchés publics.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Ma SARL doit-elle désigner un commissaire aux comptes ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden><p>Cela dépend de trois critères, pas d'un seul : le capital social, le chiffre d'affaires et l'effectif permanent. Dépasser un seul d'entre eux suffit à rendre la désignation obligatoire, et certaines activités — l'importation notamment — sont concernées indépendamment de la taille. Les montants exacts divergent selon les sources et méritent d'être vérifiés sur votre situation plutôt que sur un chiffre lu en ligne. Le commissaire aux comptes est désigné par l'assemblée générale pour trois ans, renouvelable une seule fois (article 27 de la loi n° 10-01). Un exercice non certifié ne se rattrape pas rétroactivement et bloque, en pratique, le transfert de dividendes, l'accès au crédit d'investissement et plusieurs marchés publics.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un étranger peut-il détenir 100 % d&#x27;une SARL algérienne ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Souvent oui, mais pas toujours — et l'exception est plus large qu'on ne le croit. Depuis les articles 49 et 50 de la loi n° 20-07 (loi de finances complémentaire pour 2020), toute activité de production de biens et de services est ouverte à l'investissement étranger sans obligation d'association avec une partie locale. Deux blocs restent soumis à la participation nationale résidente de 51 % : les <strong>activités d'achat-revente de produits en l'état</strong> — donc l'importation, ce que beaucoup de synthèses omettent — et les <strong>secteurs stratégiques</strong> limitativement énumérés : domaine minier et activités extractives, amont énergétique et hydrocarbures ainsi que les réseaux de distribution d'électricité et d'hydrocarbures, industries liées à la défense nationale, voies ferrées, ports et aéroports, industries pharmaceutiques (hors produits essentiels innovants à forte valeur ajoutée). Dans ces secteurs, la cession de parts entre parties étrangères est de surcroît soumise à autorisation du Gouvernement. La question à instruire n'est donc pas « ai-je le droit » mais « mon activité est-elle de l'achat-revente, ou figure-t-elle dans cette liste ».</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Un étranger peut-il détenir 100 % d&#x27;une SARL algérienne ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden><p>Souvent oui, mais pas toujours — et l'exception est plus large qu'on ne le croit. Depuis les articles 49 et 50 de la loi n° 20-07 (loi de finances complémentaire pour 2020), toute activité de production de biens et de services est ouverte à l'investissement étranger sans obligation d'association avec une partie locale. Deux blocs restent soumis à la participation nationale résidente de 51 % : les <strong>activités d'achat-revente de produits en l'état</strong> — donc l'importation, ce que beaucoup de synthèses omettent — et les <strong>secteurs stratégiques</strong> limitativement énumérés : domaine minier et activités extractives, amont énergétique et hydrocarbures ainsi que les réseaux de distribution d'électricité et d'hydrocarbures, industries liées à la défense nationale, voies ferrées, ports et aéroports, industries pharmaceutiques (hors produits essentiels innovants à forte valeur ajoutée). Dans ces secteurs, la cession de parts entre parties étrangères est de surcroît soumise à autorisation du Gouvernement. La question à instruire n'est donc pas « ai-je le droit » mais « mon activité est-elle de l'achat-revente, ou figure-t-elle dans cette liste ».</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Vaut-il mieux créer une EURL puis passer en SARL, ou créer directement une SARL ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a"><p>Les deux trajectoires sont ordinaires. L'EURL qui accueille un deuxième associé devient une SARL par simple modification statutaire, sans création d'une personne morale nouvelle et sans rupture d'historique. Créer directement une SARL n'a d'intérêt que si le second associé est identifié et engagé : associer quelqu'un « pour la forme » crée un droit de vote réel et une part réelle, que l'on ne récupère pas sans son accord.</p></div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Vaut-il mieux créer une EURL puis passer en SARL, ou créer directement une SARL ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" hidden><p>Les deux trajectoires sont ordinaires. L'EURL qui accueille un deuxième associé devient une SARL par simple modification statutaire, sans création d'une personne morale nouvelle et sans rupture d'historique. Créer directement une SARL n'a d'intérêt que si le second associé est identifié et engagé : associer quelqu'un « pour la forme » crée un droit de vote réel et une part réelle, que l'on ne récupère pas sans son accord.</p></div>
         </div>
 
         <div class="guide-sources">

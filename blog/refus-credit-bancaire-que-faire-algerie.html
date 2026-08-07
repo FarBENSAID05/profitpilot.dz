@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -582,28 +594,28 @@
 
         <h2 id="faq">FAQ — Questions fréquentes</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Comment consulter gratuitement mon rapport à la Centrale des risques en Algérie ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">L'article 15 du règlement n° 12-01 du 20 février 2012 prévoit que tout emprunteur peut accéder sans frais aux données enregistrées le concernant. Ce droit s'exerce auprès de l'établissement déclarant, et peut également l'être auprès des services du siège de la Banque d'Algérie de sa wilaya de résidence.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Comment consulter gratuitement mon rapport à la Centrale des risques en Algérie ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>L'article 15 du règlement n° 12-01 du 20 février 2012 prévoit que tout emprunteur peut accéder sans frais aux données enregistrées le concernant. Ce droit s'exerce auprès de l'établissement déclarant, et peut également l'être auprès des services du siège de la Banque d'Algérie de sa wilaya de résidence.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Puis-je faire corriger une information erronée me concernant ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Oui. Le même article 15 permet de demander à l'établissement déclarant la rectification des données erronées. Après correction, l'établissement doit communiquer les données rectifiées à la Centrale des risques, qui en informe les établissements ayant consulté votre rapport de crédit.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Puis-je faire corriger une information erronée me concernant ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Oui. Le même article 15 permet de demander à l'établissement déclarant la rectification des données erronées. Après correction, l'établissement doit communiquer les données rectifiées à la Centrale des risques, qui en informe les établissements ayant consulté votre rapport de crédit.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Combien de temps un incident de paiement reste-t-il visible ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Le délai de conservation ne peut être inférieur à cinq ans. Pour les données négatives, il court à compter de la date de déclaration de l'incident de paiement ; pour les données positives, à compter de l'extinction de la dette.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Combien de temps un incident de paiement reste-t-il visible ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Le délai de conservation ne peut être inférieur à cinq ans. Pour les données négatives, il court à compter de la date de déclaration de l'incident de paiement ; pour les données positives, à compter de l'extinction de la dette.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>La banque suivante verra-t-elle que j&#x27;ai été refusé ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">La Centrale des risques enregistre les crédits accordés, leurs encours, les garanties prises et les montants non remboursés — pas les décisions de refus en tant que telles. En revanche, l'article 13 impose aux établissements de consulter la Centrale préalablement à l'octroi de crédits à un nouveau client : la banque suivante verra donc la même situation d'endettement et les mêmes incidents que la précédente.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>La banque suivante verra-t-elle que j&#x27;ai été refusé ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>La Centrale des risques enregistre les crédits accordés, leurs encours, les garanties prises et les montants non remboursés — pas les décisions de refus en tant que telles. En revanche, l'article 13 impose aux établissements de consulter la Centrale préalablement à l'octroi de crédits à un nouveau client : la banque suivante verra donc la même situation d'endettement et les mêmes incidents que la précédente.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Un rééchelonnement suffit-il à débloquer un nouveau financement ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Pas immédiatement. Le règlement n° 14-03 impose de maintenir une créance restructurée dans sa catégorie de créances classées pendant au moins douze mois. Le retour en créance courante n'est envisageable qu'ensuite, sous réserve du respect du nouvel échéancier et de l'encaissement effectif des intérêts.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Un rééchelonnement suffit-il à débloquer un nouveau financement ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Pas immédiatement. Le règlement n° 14-03 impose de maintenir une créance restructurée dans sa catégorie de créances classées pendant au moins douze mois. Le retour en créance courante n'est envisageable qu'ensuite, sous réserve du respect du nouvel échéancier et de l'encaissement effectif des intérêts.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Faut-il déposer le même dossier dans plusieurs banques en même temps ?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">C'est déconseillé. Chaque établissement consulte la Centrale des risques avant d'octroyer un crédit à un nouveau client, et la situation d'endettement consolidée y est visible. Mieux vaut corriger la cause du premier refus, puis cibler un établissement dont l'enveloppe est disponible.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Faut-il déposer le même dossier dans plusieurs banques en même temps ?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>C'est déconseillé. Chaque établissement consulte la Centrale des risques avant d'octroyer un crédit à un nouveau client, et la situation d'endettement consolidée y est visible. Mieux vaut corriger la cause du premier refus, puis cibler un établissement dont l'enveloppe est disponible.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

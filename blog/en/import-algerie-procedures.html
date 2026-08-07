@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -557,28 +569,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the first step of an import into Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Bank domiciliation, which must be opened before the goods are shipped. Bank of Algeria Regulation No. 07-01 on current transactions with foreign countries makes imports subject to prior domiciliation with an authorised intermediary bank. Without it, no currency transfer is possible.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What is the first step of an import into Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Bank domiciliation, which must be opened before the goods are shipped. Bank of Algeria Regulation No. 07-01 on current transactions with foreign countries makes imports subject to prior domiciliation with an authorised intermediary bank. Without it, no currency transfer is possible.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What is the import VAT rate in Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The standard rate is 19%. A reduced rate of 9% applies to the products, goods, works, operations and services listed in Article 23 of the Turnover Tax Code. On import, the chargeable event for VAT is the entry of the goods into customs.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>What is the import VAT rate in Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>The standard rate is 19%. A reduced rate of 9% applies to the products, goods, works, operations and services listed in Article 23 of the Turnover Tax Code. On import, the chargeable event for VAT is the entry of the goods into customs.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>On what base are duties and taxes calculated?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Taxable turnover comprises the price of the goods, including all costs, duties and taxes, excluding VAT itself. Ancillary costs therefore fall within the base, which makes the choice of Incoterm and the invoicing structure economically significant.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>On what base are duties and taxes calculated?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>Taxable turnover comprises the price of the goods, including all costs, duties and taxes, excluding VAT itself. Ancillary costs therefore fall within the base, which makes the choice of Incoterm and the invoicing structure economically significant.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can an auto-entrepreneur import into Algeria?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The Directorate General of Taxes' documentation refers to the micro-importer operating under auto-entrepreneur status, citing Article 6 of Executive Decree No. 25-170 of 28 June 2025. Tax is then paid to customs on release for consumption (Article 143 of the 2026 Finance Act). This is a framed opening, distinct from the general exclusion of import-for-resale from the flat-rate regime in Article 282 ter.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Can an auto-entrepreneur import into Algeria?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The Directorate General of Taxes' documentation refers to the micro-importer operating under auto-entrepreneur status, citing Article 6 of Executive Decree No. 25-170 of 28 June 2025. Tax is then paid to customs on release for consumption (Article 143 of the 2026 Finance Act). This is a framed opening, distinct from the general exclusion of import-for-resale from the flat-rate regime in Article 282 ter.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can exchange risk on an import be hedged?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Regulation No. 20-04 of 15 March 2020, published in Official Journal No. 16 of 24 March 2020, covers the interbank foreign exchange market, foreign currency treasury operations and exchange risk hedging instruments. Those instruments therefore exist in the regulatory framework. Whether they are actually available to a given SME should be checked with its bank.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Can exchange risk on an import be hedged?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>Regulation No. 20-04 of 15 March 2020, published in Official Journal No. 16 of 24 March 2020, covers the interbank foreign exchange market, foreign currency treasury operations and exchange risk hedging instruments. Those instruments therefore exist in the regulatory framework. Whether they are actually available to a given SME should be checked with its bank.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>When is an import operation actually closed?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">On clearance of the domiciliation file, once the bank has reconciled the customs and financial documents with the file opened before shipment. From our engagements, this is the most frequently neglected step, and failing to complete it complicates later import operations.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>When is an import operation actually closed?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>On clearance of the domiciliation file, once the bank has reconciled the customs and financial documents with the file opened before shipment. From our engagements, this is the most frequently neglected step, and failing to complete it complicates later import operations.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -578,28 +590,28 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هو الأجل القانوني لتسليم تراخيص الاستثمار في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنصّ المادة 30 من المرسوم التنفيذي رقم 26-153 المؤرخ في 14 أفريل 2026 على أنّ التراخيص والوثائق المطلوبة لتجسيد المشاريع الاستثمارية تُسلَّم على مستوى الشبابيك الوحيدة في أجل لا يتجاوز خمسة عشر يوماً من تاريخ استلام الملفّات. أمّا قرارات الاتفاق المسبق لإنشاء المؤسسات المصنَّفة من الفئات الأولى والثانية والثالثة فلها أجل أقصاه عشرون يوماً.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>ما هو الأجل القانوني لتسليم تراخيص الاستثمار في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>تنصّ المادة 30 من المرسوم التنفيذي رقم 26-153 المؤرخ في 14 أفريل 2026 على أنّ التراخيص والوثائق المطلوبة لتجسيد المشاريع الاستثمارية تُسلَّم على مستوى الشبابيك الوحيدة في أجل لا يتجاوز خمسة عشر يوماً من تاريخ استلام الملفّات. أمّا قرارات الاتفاق المسبق لإنشاء المؤسسات المصنَّفة من الفئات الأولى والثانية والثالثة فلها أجل أقصاه عشرون يوماً.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الفرق بين الشباك الوحيد الوطني والشبابيك اللامركزية؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">الشباك الوحيد للمشاريع الكبرى والاستثمارات الأجنبية ذو اختصاص وطني. أمّا الشبابيك الوحيدة اللامركزية فلها اختصاص محلي، بالنسبة للاستثمارات غير التابعة للشباك الوطني. وتُنشَأ هذه الأخيرة من طرف الوكالة عند الاقتضاء، بعد مداولة مجلس الإدارة وموافقة سلطة الوصاية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>ما الفرق بين الشباك الوحيد الوطني والشبابيك اللامركزية؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>الشباك الوحيد للمشاريع الكبرى والاستثمارات الأجنبية ذو اختصاص وطني. أمّا الشبابيك الوحيدة اللامركزية فلها اختصاص محلي، بالنسبة للاستثمارات غير التابعة للشباك الوطني. وتُنشَأ هذه الأخيرة من طرف الوكالة عند الاقتضاء، بعد مداولة مجلس الإدارة وموافقة سلطة الوصاية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل الوثائق المتحصَّل عليها في الشباك الوحيد صالحة في كل مكان؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">نعم. تنصّ المادة 24 من المرسوم على أنّ الوثائق المسلَّمة من طرف ممثلي الإدارات والهيئات الأخرى على مستوى الشباك الوحيد نافذة في مواجهة الإدارات والهيئات المعنية. وتمنحهم المادة 22 تفويضاً لتوقيع هذه العقود وتسليمها باسم السلطات التي يتبعونها.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>هل الوثائق المتحصَّل عليها في الشباك الوحيد صالحة في كل مكان؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>نعم. تنصّ المادة 24 من المرسوم على أنّ الوثائق المسلَّمة من طرف ممثلي الإدارات والهيئات الأخرى على مستوى الشباك الوحيد نافذة في مواجهة الإدارات والهيئات المعنية. وتمنحهم المادة 22 تفويضاً لتوقيع هذه العقود وتسليمها باسم السلطات التي يتبعونها.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما هي الإدارات الحاضرة في الشباك الوحيد؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">المركز الوطني للسجل التجاري، والإدارة الجبائية، وإدارة الأملاك الوطنية، والتعمير، والبيئة، والحماية المدنية، والطاقة، وشركة توزيع الكهرباء والغاز، والهيئات المكلّفة بالعمل والتشغيل والضمان الاجتماعي، وكذا البنوك والمؤسسات المالية. وتعيّن إدارة الجمارك ممثلاً دائماً على مستوى الشباك الوطني.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما هي الإدارات الحاضرة في الشباك الوحيد؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>المركز الوطني للسجل التجاري، والإدارة الجبائية، وإدارة الأملاك الوطنية، والتعمير، والبيئة، والحماية المدنية، والطاقة، وشركة توزيع الكهرباء والغاز، والهيئات المكلّفة بالعمل والتشغيل والضمان الاجتماعي، وكذا البنوك والمؤسسات المالية. وتعيّن إدارة الجمارك ممثلاً دائماً على مستوى الشباك الوطني.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يمكن الحصول على الرقم الجبائي في عين المكان؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">تنصّ المادة 27 على أنّ ممثل الإدارة الجبائية مكلّف بالتكفّل بالإجراءات المتعلقة بفتح الملف الجبائي ومنح رقم التعريف الجبائي، وبتوقيع وتسليم الوثائق المتعلقة به في الجلسة.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يمكن الحصول على الرقم الجبائي في عين المكان؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>تنصّ المادة 27 على أنّ ممثل الإدارة الجبائية مكلّف بالتكفّل بالإجراءات المتعلقة بفتح الملف الجبائي ومنح رقم التعريف الجبائي، وبتوقيع وتسليم الوثائق المتعلقة به في الجلسة.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>أين تُدفَع الحقوق والرسوم المرتبطة بالمشروع؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">في الشباك الوحيد. تنصّ المادة 29 على أنّ تحصيل مجموع الحقوق والرسوم والأتاوى بعنوان إعداد التراخيص وكل وثيقة أخرى مرتبطة بإنجاز المشروع يتمّ على مستوى الشباك الوحيد.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>أين تُدفَع الحقوق والرسوم المرتبطة بالمشروع؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>في الشباك الوحيد. تنصّ المادة 29 على أنّ تحصيل مجموع الحقوق والرسوم والأتاوى بعنوان إعداد التراخيص وكل وثيقة أخرى مرتبطة بإنجاز المشروع يتمّ على مستوى الشباك الوحيد.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

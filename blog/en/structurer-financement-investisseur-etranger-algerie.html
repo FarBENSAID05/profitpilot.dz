@@ -208,8 +208,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -630,28 +642,28 @@
 
         <h2 id="faq">FAQ — Frequently asked questions</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>Can I fund my Algerian subsidiary with a loan from the parent company instead of capital?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Nothing prevents it as a matter of company financing. But Article 8 of Law no. 22-18 grants the transfer guarantee to investments made from <em>capital contributions</em> imported through the banking channel and surrendered to the Bank of Algeria. A loan is not a capital contribution. The earlier framework — Regulation no. 2000-03, since repealed — did treat external financing not guaranteed by an Algerian bank as an external contribution; the current wording does not carry that category forward. Funding by loan therefore does not build the ratio that the guarantee depends on.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Can I fund my Algerian subsidiary with a loan from the parent company instead of capital?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>Nothing prevents it as a matter of company financing. But Article 8 of Law no. 22-18 grants the transfer guarantee to investments made from <em>capital contributions</em> imported through the banking channel and surrendered to the Bank of Algeria. A loan is not a capital contribution. The earlier framework — Regulation no. 2000-03, since repealed — did treat external financing not guaranteed by an Algerian bank as an external contribution; the current wording does not carry that category forward. Funding by loan therefore does not build the ratio that the guarantee depends on.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>If my foreign contribution is above 25%, can I transfer 100% of the dividend?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Not necessarily. The 25% threshold of Executive Decree no. 22-300 is a condition of eligibility, not a measure of the amount. Article 4 of Regulation no. 05-03 provides separately that dividends of mixed investments are transferable for an amount corresponding to the foreign contribution, duly established, in the capital. The two ratios have different denominators — overall project cost for the first, share capital for the second — and both have to be looked at.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>If my foreign contribution is above 25%, can I transfer 100% of the dividend?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>Not necessarily. The 25% threshold of Executive Decree no. 22-300 is a condition of eligibility, not a measure of the amount. Article 4 of Regulation no. 05-03 provides separately that dividends of mixed investments are transferable for an amount corresponding to the foreign contribution, duly established, in the capital. The two ratios have different denominators — overall project cost for the first, share capital for the second — and both have to be looked at.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does converting a shareholder current account into capital fix the problem?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">It changes the balance sheet immediately, and it may well be the right step. Whether it restores the status required by Article 8 depends on what was recorded when the funds arrived: the conditions are that the currency was imported through the banking channel, in a quoted convertible currency, and surrendered to the Bank of Algeria. Those are facts of the past. This is a point to settle with the domiciliary bank on the specific file rather than by general reasoning.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Does converting a shareholder current account into capital fix the problem?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>It changes the balance sheet immediately, and it may well be the right step. Whether it restores the status required by Article 8 depends on what was recorded when the funds arrived: the conditions are that the currency was imported through the banking channel, in a quoted convertible currency, and surrendered to the Bank of Algeria. Those are facts of the past. This is a point to settle with the domiciliary bank on the specific file rather than by general reasoning.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Does a capital increase by incorporation of reserves increase my transferable share?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">The capital increases, but no new external contribution is made. Article 8 admits reinvested profits as external contributions under two conditions: they must be reinvested in capital, and they must have been declared transferable beforehand. Reserves that were never declared transferable do not become external contribution by being capitalised.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Does a capital increase by incorporation of reserves increase my transferable share?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>The capital increases, but no new external contribution is made. Article 8 admits reinvested profits as external contributions under two conditions: they must be reinvested in capital, and they must have been declared transferable beforehand. Reserves that were never declared transferable do not become external contribution by being capitalised.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>Can I pay an interim dividend and transfer it during the year?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">No. Article 5 of Instruction no. 01-09 of 15 February 2009 provides that advances and interim payments on profits or dividends are not transferable for any shareholder. The transfer follows the general meeting that rules on the allocation of the result, whose minutes are one of the documents the file must contain.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Can I pay an interim dividend and transfer it during the year?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>No. Article 5 of Instruction no. 01-09 of 15 February 2009 provides that advances and interim payments on profits or dividends are not transferable for any shareholder. The transfer follows the general meeting that rules on the allocation of the result, whose minutes are one of the documents the file must contain.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>What happens to my structure if the law changes?</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">Article 13 of Law no. 22-18 provides that the effects of future revisions or repeals of the law do not apply to an investment realised under it, unless the investor expressly requests it. Article 38 maintains rights and advantages lawfully acquired under earlier legislation. The framework in force when the investment is registered is, in principle, the framework that continues to apply to it.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>What happens to my structure if the law changes?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" hidden>Article 13 of Law no. 22-18 provides that the effects of future revisions or repeals of the law do not apply to an investment realised under it, unless the investor expressly requests it. Article 38 maintains rights and advantages lawfully acquired under earlier legislation. The framework in force when the investment is registered is, in principle, the framework that continues to apply to it.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">

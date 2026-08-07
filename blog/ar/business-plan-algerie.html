@@ -203,8 +203,20 @@
 
     /* FAQ section */
     .faq-item { border: 1px solid var(--border-mid); border-radius: 10px; margin-bottom: 0.8rem; overflow: hidden; }
-    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--navy-mid); }
+    /* `.faq-q` est un <button> depuis le chantier UI d'août 2026 : c'est ce
+       qui le rend atteignable au Tab, activable à Entrée et Espace, et
+       annoncé comme un bouton par un lecteur d'écran. Les déclarations de
+       remise à zéro qui suivent (width, border, margin, font, color,
+       text-align, appearance) neutralisent le style natif du bouton, pour
+       que le rendu reste identique à l'ancien <div>. Le sélecteur accepte
+       encore les deux balisages : aucune page à moitié régénérée ne casse. */
+    .faq-q { width: 100%; border: 0; margin: 0; border-radius: 0; -webkit-appearance: none; appearance: none; font-family: inherit; color: inherit; text-align: left; padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--navy-mid); }
     .faq-q:hover { background: rgba(155,77,192,0.08); }
+    /* Anneau de focus. `--purple-light` vaut #B86FD8 sur le fond sombre et
+       #7A3A99 sur le fond clair : le contraste tient dans les deux thèmes.
+       `outline-offset` négatif garde l'anneau à l'intérieur du cadre, que
+       `.faq-item { overflow: hidden }` rognerait sinon. */
+    .faq-q:focus-visible { outline: 3px solid var(--purple-light); outline-offset: -3px; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: 0.92rem; color: var(--gray-light); line-height: 1.75; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
@@ -535,24 +547,24 @@
 
         <h2 id="faq">أسئلة متكرّرة</h2>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يوجد مخطط نموذجي رسمي لمخطط الأعمال في الجزائر؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يوجد مخطط نموذجي رسمي للدراسة التقنية الاقتصادية، محدَّد في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية عدد 31 المؤرخة في 28 أفريل 2026. ويتضمن تسعة أجزاء ويُطبَّق على ملف العقار الاقتصادي. وهو القالب الوحيد الذي يفرضه نصّ في القانون الجزائري، ويصلح هيكلاً حتى خارج مجال تطبيقه الأصلي.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>هل يوجد مخطط نموذجي رسمي لمخطط الأعمال في الجزائر؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" hidden>يوجد مخطط نموذجي رسمي للدراسة التقنية الاقتصادية، محدَّد في الملحق الخامس من المرسوم التنفيذي رقم 26-154 المؤرخ في 14 أفريل 2026، المنشور في الجريدة الرسمية عدد 31 المؤرخة في 28 أفريل 2026. ويتضمن تسعة أجزاء ويُطبَّق على ملف العقار الاقتصادي. وهو القالب الوحيد الذي يفرضه نصّ في القانون الجزائري، ويصلح هيكلاً حتى خارج مجال تطبيقه الأصلي.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>لماذا يشترط البنك هذا القدر من المبرّرات المرقّمة؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">لأن قراره مؤطَّر. فالنظام رقم 14-03 لبنك الجزائر المؤرخ في 16 فيفري 2014 يُلزم البنوك بتصنيف ديونها والتزاماتها بالتوقيع وتكوين مؤونات لها وفق معايير تنظيمية. والبنك يجب أن يكون قادراً على توثيق تصنيفه: فكل ما لا يمكن التحقق منه في ملفك لا ينفعه.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>لماذا يشترط البنك هذا القدر من المبرّرات المرقّمة؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" hidden>لأن قراره مؤطَّر. فالنظام رقم 14-03 لبنك الجزائر المؤرخ في 16 فيفري 2014 يُلزم البنوك بتصنيف ديونها والتزاماتها بالتوقيع وتكوين مؤونات لها وفق معايير تنظيمية. والبنك يجب أن يكون قادراً على توثيق تصنيفه: فكل ما لا يمكن التحقق منه في ملفك لا ينفعه.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما الجداول الثلاثة الأهمّ؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">حساب النتائج التقديري، ومخطط التمويل، ومخطط الخزينة الشهري. وأول ما يُتحقَّق منه هو تماسكها فيما بينها. ومخطط الخزينة الشهري هو الأكثر حسماً: فهو يبيّن ما إذا كانت السيولة متوفرة لحظةَ حلول الاستحقاقات.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>ما الجداول الثلاثة الأهمّ؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" hidden>حساب النتائج التقديري، ومخطط التمويل، ومخطط الخزينة الشهري. وأول ما يُتحقَّق منه هو تماسكها فيما بينها. ومخطط الخزينة الشهري هو الأكثر حسماً: فهو يبيّن ما إذا كانت السيولة متوفرة لحظةَ حلول الاستحقاقات.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>ما المساهمة الشخصية الواجب توقّعها؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">يتوقف ذلك على جهاز التمويل المستهدَف لا على قاعدة عامة. والسلّم الرقمي المنشور الوحيد المطبَّق على إنشاء المؤسسات هو سلّم NESDA، الذي يفصّل صيغ التمويل الذاتي والمختلط والثلاثي، مع بيان التوزيع في كل صيغة بين المساهمة الشخصية والقرض غير المكافأ للوكالة والحصة البنكية.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>ما المساهمة الشخصية الواجب توقّعها؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" hidden>يتوقف ذلك على جهاز التمويل المستهدَف لا على قاعدة عامة. والسلّم الرقمي المنشور الوحيد المطبَّق على إنشاء المؤسسات هو سلّم NESDA، الذي يفصّل صيغ التمويل الذاتي والمختلط والثلاثي، مع بيان التوزيع في كل صيغة بين المساهمة الشخصية والقرض غير المكافأ للوكالة والحصة البنكية.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q"><span>هل يجب تقديم عدة سيناريوهات؟</span> <span class="faq-icon">+</span></div>
-          <div class="faq-a">ليس التزاماً تنظيمياً، لكنه ممارسة نطبّقها بشكل منهجي: ثلاث فرضيات — متحفّظة ومرجعية وسيّئة — بتغيير معيارين أو ثلاثة فقط. والهدف تحديد النقطة التي لا يصمد المشروع بعدها. والملف الذي يعرض بنفسه عتبة انهياره أكثر مصداقية من ملف متفائل على طول الخط.</div>
+          <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>هل يجب تقديم عدة سيناريوهات؟</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" hidden>ليس التزاماً تنظيمياً، لكنه ممارسة نطبّقها بشكل منهجي: ثلاث فرضيات — متحفّظة ومرجعية وسيّئة — بتغيير معيارين أو ثلاثة فقط. والهدف تحديد النقطة التي لا يصمد المشروع بعدها. والملف الذي يعرض بنفسه عتبة انهياره أكثر مصداقية من ملف متفائل على طول الخط.</div>
         </div>
 
         <div style="margin-top:3rem;padding:1.8rem 2rem;background:var(--surface);border-radius:12px;border:1px solid var(--border-mid);">
